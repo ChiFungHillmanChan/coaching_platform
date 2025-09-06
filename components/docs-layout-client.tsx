@@ -60,7 +60,10 @@ export function DocsLayoutClient({ children, navigation }: DocsLayoutClientProps
               className="fixed left-0 top-14 h-[calc(100vh-3.5rem)] w-64 border-r border-border/50 bg-background/95 backdrop-blur-sm shadow-xl animate-in slide-in-from-left duration-300"
               onClick={(e) => e.stopPropagation()}
             >
-              <SidebarNav navigation={navigation} />
+              <SidebarNav 
+                navigation={navigation} 
+                onNavigate={() => setIsMobileMenuOpen(false)}
+              />
             </div>
           </div>
         )}

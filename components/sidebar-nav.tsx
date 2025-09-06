@@ -14,9 +14,10 @@ import { getIconComponent } from '@/lib/icons'
 interface SidebarNavProps {
   navigation: NavItem[]
   className?: string
+  onNavigate?: () => void
 }
 
-export function SidebarNav({ navigation, className }: SidebarNavProps) {
+export function SidebarNav({ navigation, className, onNavigate }: SidebarNavProps) {
   const pathname = usePathname()
   const params = useParams()
   const locale = (params.locale as string) || 'en'
@@ -159,6 +160,7 @@ export function SidebarNav({ navigation, className }: SidebarNavProps) {
               <Link
                 href={item.href}
                 locale={locale}
+                onClick={onNavigate}
                 className={cn(
                   'flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium transition-all duration-200',
                   'hover:bg-accent/70 hover:text-accent-foreground hover:shadow-sm hover:translate-x-1 hover:scale-[1.02]',

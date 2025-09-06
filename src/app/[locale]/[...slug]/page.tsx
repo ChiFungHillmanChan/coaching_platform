@@ -3,6 +3,8 @@ import fs from 'fs';
 import path from 'path';
 import { ArticleContent } from '@/lib/types';
 import { ContentRenderer } from '@/components/content-renderer';
+import { PageNavigation } from '@/components/page-navigation';
+import { getNavigation, getAdjacentNavItems } from '@/lib/nav';
 import { getTranslations } from 'next-intl/server';
 
 interface PageProps {
@@ -194,7 +196,10 @@ export default async function DynamicPage({ params }: PageProps) {
     notFound();
   }
 
-  // Navigation functionality temporarily disabled
+  // Get navigation items for bottom page navigation
+  const navigation = getNavigation(params.locale);
+  const currentHref = `/${processedSlug.join('/')}`;
+  const { previous, next } = getAdjacentNavItems(currentHref, navigation);
 
   // Check if the first block is already a heading that matches the title
   const hasMatchingHeading = content.blocks.length > 0 && 
@@ -213,6 +218,7 @@ export default async function DynamicPage({ params }: PageProps) {
         </header>
       )}
       <ContentRenderer blocks={content.blocks} />
+      <PageNavigation previous={previous} next={next} />
     </article>
   );
 }
