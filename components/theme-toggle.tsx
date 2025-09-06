@@ -15,6 +15,19 @@ interface ThemeToggleProps {
 export function ThemeToggle({ variant = 'button', className }: ThemeToggleProps) {
   const { theme, setTheme } = useTheme()
   const [mounted, setMounted] = React.useState(false)
+  
+  const isDark = theme === 'dark'
+  
+  const handleToggle = React.useCallback(() => {
+    setTheme(isDark ? 'light' : 'dark')
+  }, [isDark, setTheme])
+
+  const handleKeyDown = React.useCallback((event: React.KeyboardEvent) => {
+    if (event.key === 'Enter' || event.key === ' ') {
+      event.preventDefault()
+      handleToggle()
+    }
+  }, [handleToggle])
 
   React.useEffect(() => {
     setMounted(true)
@@ -23,8 +36,6 @@ export function ThemeToggle({ variant = 'button', className }: ThemeToggleProps)
   if (!mounted) {
     return null
   }
-
-  const isDark = theme === 'dark'
 
   if (variant === 'switch') {
     return (
@@ -44,7 +55,8 @@ export function ThemeToggle({ variant = 'button', className }: ThemeToggleProps)
     <Button
       variant="ghost"
       size="icon"
-      onClick={() => setTheme(isDark ? 'light' : 'dark')}
+      onClick={handleToggle}
+      onKeyDown={handleKeyDown}
       className={className}
       aria-label="Toggle dark mode"
     >
