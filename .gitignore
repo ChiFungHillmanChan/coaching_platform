@@ -89,3 +89,10 @@ pids
 *.pid
 *.seed
 *.pid.lock
+
+# Claude Code and task files
+claude-admin-task.json
+*.task.json
+
+# Build info files
+*.tsbuildinfo
