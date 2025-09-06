@@ -18,10 +18,10 @@ interface TableOfContentsProps {
 export function TableOfContents({ blocks, className }: TableOfContentsProps) {
   const [activeId, setActiveId] = React.useState<string>('')
 
-  // Extract headings from content blocks
+  // Extract headings from content blocks (only levels 1 and 2)
   const tocItems: TocItem[] = React.useMemo(() => {
     return blocks
-      .filter(block => block.type === 'heading' && block.level && block.level <= 3)
+      .filter(block => block.type === 'heading' && block.level && block.level <= 2)
       .map((block, index) => ({
         id: `heading-${index}`,
         title: block.content,

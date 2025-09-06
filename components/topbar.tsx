@@ -35,7 +35,11 @@ export function TopBar({ onMenuClick, onSidebarToggle, isSidebarOpen, className,
     { code: 'zh_hk', name: '繁體中文', flag: '🇭🇰' },
   ]
   
-  const currentLanguage = languages.find(lang => lang.code === locale) || languages[0]
+  // Always show the language based on the current URL locale
+  const currentLanguage = React.useMemo(() => 
+    languages.find(lang => lang.code === locale) || languages[0], 
+    [locale]
+  )
   const [currentTheme, setCurrentTheme] = React.useState<string | null>(null)
   const [isLanguageDropdownOpen, setIsLanguageDropdownOpen] = React.useState(false)
   
@@ -73,9 +77,7 @@ export function TopBar({ onMenuClick, onSidebarToggle, isSidebarOpen, className,
     const newUrl = `/${newLocale}${currentPath}`
     
     onHamburgerToggle?.() // Close hamburger menu
-    setTimeout(() => {
-      window.location.href = newUrl
-    }, 100)
+    window.location.href = newUrl
   }
   
   const handleMobileThemeToggle = () => {

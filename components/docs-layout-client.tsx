@@ -20,6 +20,19 @@ export function DocsLayoutClient({ children, navigation }: DocsLayoutClientProps
   const [isHamburgerOpen, setIsHamburgerOpen] = React.useState(false)
   const { shouldShowPopup, closePopup, showPopup } = useEmailSubscriptionPopup()
 
+  // Scroll to top on initial load and navigation
+  React.useEffect(() => {
+    // Scroll to top immediately on mount
+    window.scrollTo({ top: 0, left: 0, behavior: 'instant' })
+    
+    // Also ensure scroll position is reset after potential layout shifts
+    const timer = setTimeout(() => {
+      window.scrollTo({ top: 0, left: 0, behavior: 'instant' })
+    }, 100)
+
+    return () => clearTimeout(timer)
+  }, [children]) // Re-run when children change (navigation)
+
   // Close hamburger menu when clicking outside
   React.useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {

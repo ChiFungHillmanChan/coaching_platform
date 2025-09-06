@@ -5,16 +5,16 @@ import Image from 'next/image'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { cn } from '@/lib/utils'
 import { ContentBlock } from '@/lib/content'
-import { AlertTriangle, CheckCircle, Info, XCircle, ExternalLink, Terminal, Check, X } from 'lucide-react'
+import { AlertTriangle, CheckCircle, Info, XCircle, ExternalLink, Terminal, Check, X, Download, FileText, Copy, CheckCheck } from 'lucide-react'
 import { TableOfContents } from '@/components/table-of-contents'
 import { EmailSubscriptionForm } from '@/components/email-subscription-form'
 
-// Enhanced markdown parser for bold, italic, and inline code
+// Enhanced markdown parser with extended syntax support
 function parseMarkdown(text: string): React.ReactNode {
   if (!text) return text;
   
-  // Split by markdown patterns and capture them
-  const parts = text.split(/(\*\*[^*]+\*\*|\*[^*]+\*|`[^`]+`|\[([^\]]+)\]\(([^)]+)\))/g);
+  // Enhanced pattern to include strikethrough, highlight, subscript, superscript, footnotes
+  const parts = text.split(/(\*\*[^*]+\*\*|\*[^*]+\*|`[^`]+`|\[([^\]]+)\]\(([^)]+)\)|~~[^~]+~~|==[^=]+==|~([^~]+)~|\^([^^]+)\^|\[\^([^\]]+)\])/g);
   
   return parts.map((part, index) => {
     // Skip empty or undefined parts
@@ -36,6 +36,47 @@ function parseMarkdown(text: string): React.ReactNode {
     if (part.startsWith('`') && part.endsWith('`') && part.length > 2) {
       const codeText = part.slice(1, -1);
       return <code key={index} className="bg-muted px-1 py-0.5 rounded text-sm font-mono">{codeText}</code>;
+    }
+    
+    // Strikethrough: ~~text~~
+    if (part.startsWith('~~') && part.endsWith('~~') && part.length > 4) {
+      const strikeText = part.slice(2, -2);
+      return <del key={index} className="line-through text-muted-foreground">{strikeText}</del>;
+    }
+    
+    // Highlight: ==text==
+    if (part.startsWith('==') && part.endsWith('==') && part.length > 4) {
+      const highlightText = part.slice(2, -2);
+      return <mark key={index} className="bg-yellow-200 dark:bg-yellow-800 px-1 rounded">{highlightText}</mark>;
+    }
+    
+    // Subscript: ~text~
+    if (part.startsWith('~') && part.endsWith('~') && part.length > 2 && !part.startsWith('~~')) {
+      const subText = part.slice(1, -1);
+      return <sub key={index} className="text-xs">{subText}</sub>;
+    }
+    
+    // Superscript: ^text^
+    if (part.startsWith('^') && part.endsWith('^') && part.length > 2) {
+      const supText = part.slice(1, -1);
+      return <sup key={index} className="text-xs">{supText}</sup>;
+    }
+    
+    // Footnote reference: [^id]
+    const footnoteMatch = part.match(/^\[\^([^\]]+)\]$/);
+    if (footnoteMatch) {
+      const [, footnoteId] = footnoteMatch;
+      return (
+        <sup key={index}>
+          <a 
+            href={`#footnote-${footnoteId}`} 
+            className="text-primary hover:underline text-xs"
+            id={`footnote-ref-${footnoteId}`}
+          >
+            [{footnoteId}]
+          </a>
+        </sup>
+      );
     }
     
     // Markdown links: [text](url)
@@ -117,7 +158,7 @@ export function ContentRenderer({ blocks, className, showTableOfContents = true 
           5: 'text-base font-medium',
           6: 'text-sm font-medium'
         }
-        const headingId = block.level && block.level <= 3 ? `heading-${headingCounter++}` : undefined
+        const headingId = block.level && block.level <= 2 ? `heading-${headingCounter++}` : undefined
         return (
           <HeadingTag 
             key={index} 
@@ -136,44 +177,93 @@ export function ContentRenderer({ blocks, className, showTableOfContents = true 
         )
 
       case 'code':
-        return (
-          <div key={index} className="mb-6">
-            {block.title && (
-              <div className="text-sm font-medium text-muted-foreground mb-2 px-1">
-                {block.title}
-              </div>
-            )}
-            <div className="rounded-lg border bg-card">
-              <div className="flex items-center justify-between px-4 py-2 border-b bg-muted/50">
-                <div className="flex items-center gap-2">
-                  <div className="flex gap-1">
-                    <div className="w-2 h-2 rounded-full bg-red-400"></div>
-                    <div className="w-2 h-2 rounded-full bg-yellow-400"></div>
-                    <div className="w-2 h-2 rounded-full bg-green-400"></div>
+        const CodeBlockComponent = () => {
+          const [copied, setCopied] = React.useState(false)
+          
+          const handleCopy = async () => {
+            try {
+              await navigator.clipboard.writeText(block.content)
+              setCopied(true)
+              setTimeout(() => setCopied(false), 2000)
+            } catch (err) {
+              console.error('Failed to copy text: ', err)
+            }
+          }
+
+          const renderCodeContent = () => {
+            // If language is markdown, parse it as markdown
+            if (block.language === 'markdown') {
+              return (
+                <div className="text-sm leading-relaxed text-foreground whitespace-pre-wrap break-words">
+                  {parseMarkdown(block.content)}
+                </div>
+              )
+            }
+            
+            // For other languages, display as plain code
+            return (
+              <code className={cn(
+                'text-sm font-mono leading-relaxed text-foreground whitespace-pre-wrap break-words',
+                block.language && `language-${block.language}`
+              )}>
+                {block.content}
+              </code>
+            )
+          }
+
+          return (
+            <div className="mb-6">
+              {block.title && (
+                <div className="text-sm font-medium text-muted-foreground mb-2 px-1">
+                  {block.title}
+                </div>
+              )}
+              <div className="rounded-lg border bg-card">
+                <div className="flex items-center justify-between px-4 py-2 border-b bg-muted/50">
+                  <div className="flex items-center gap-2">
+                    <div className="flex gap-1">
+                      <div className="w-2 h-2 rounded-full bg-red-400"></div>
+                      <div className="w-2 h-2 rounded-full bg-yellow-400"></div>
+                      <div className="w-2 h-2 rounded-full bg-green-400"></div>
+                    </div>
+                    {block.language && (
+                      <span className="text-xs text-muted-foreground font-mono">
+                        {block.language}
+                      </span>
+                    )}
                   </div>
-                  {block.language && (
-                    <span className="text-xs text-muted-foreground font-mono">
-                      {block.language}
-                    </span>
-                  )}
+                  <button
+                    onClick={handleCopy}
+                    className="flex items-center gap-1 px-2 py-1 text-xs text-muted-foreground hover:text-foreground transition-colors rounded hover:bg-muted/50"
+                    title="Copy to clipboard"
+                  >
+                    {copied ? (
+                      <>
+                        <CheckCheck className="h-3 w-3 text-green-500" />
+                        <span className="text-green-500">Copied!</span>
+                      </>
+                    ) : (
+                      <>
+                        <Copy className="h-3 w-3" />
+                        <span>Copy</span>
+                      </>
+                    )}
+                  </button>
+                </div>
+                <div className="p-4">
+                  {renderCodeContent()}
                 </div>
               </div>
-              <pre className="p-4 overflow-x-auto">
-                <code className={cn(
-                  'text-sm font-mono leading-relaxed',
-                  block.language && `language-${block.language}`
-                )}>
-                  {block.content}
-                </code>
-              </pre>
             </div>
-          </div>
-        )
+          )
+        }
+
+        return <CodeBlockComponent key={index} />
 
       case 'image':
         return (
-          <div key={index} className="mb-4">
-            <div className="relative rounded-lg overflow-hidden border">
+          <div key={index} className="mb-6">
+            <div className="relative rounded-lg overflow-hidden border shadow-sm">
               <Image
                 src={block.src || ''}
                 alt={block.alt || ''}
@@ -182,9 +272,9 @@ export function ContentRenderer({ blocks, className, showTableOfContents = true 
                 className="w-full h-auto"
               />
             </div>
-            {block.alt && (
-              <p className="text-sm text-muted-foreground mt-2 text-center italic">
-                {block.alt}
+            {(block.caption || block.alt) && (
+              <p className="text-sm text-muted-foreground mt-3 text-center italic px-4">
+                {parseMarkdown(block.caption || block.alt || '')}
               </p>
             )}
           </div>
@@ -315,26 +405,61 @@ export function ContentRenderer({ blocks, className, showTableOfContents = true 
         )
 
       case 'terminal':
-        return (
-          <div key={index} className="mb-6">
-            {block.title && (
-              <div className="text-sm font-medium text-muted-foreground mb-2 px-1">
-                {block.title}
+        const TerminalComponent = () => {
+          const [copied, setCopied] = React.useState(false)
+          
+          const handleCopy = async () => {
+            try {
+              await navigator.clipboard.writeText(block.content)
+              setCopied(true)
+              setTimeout(() => setCopied(false), 2000)
+            } catch (err) {
+              console.error('Failed to copy text: ', err)
+            }
+          }
+
+          return (
+            <div className="mb-6">
+              {block.title && (
+                <div className="text-sm font-medium text-muted-foreground mb-2 px-1">
+                  {block.title}
+                </div>
+              )}
+              <div className="rounded-lg border bg-slate-900 dark:bg-slate-950">
+                <div className="flex items-center justify-between px-4 py-2 border-b border-slate-700">
+                  <div className="flex items-center gap-2">
+                    <Terminal className="h-4 w-4 text-green-400" />
+                    <span className="text-xs text-slate-400 font-mono">Terminal</span>
+                  </div>
+                  <button
+                    onClick={handleCopy}
+                    className="flex items-center gap-1 px-2 py-1 text-xs text-slate-400 hover:text-green-400 transition-colors rounded hover:bg-slate-800"
+                    title="Copy to clipboard"
+                  >
+                    {copied ? (
+                      <>
+                        <CheckCheck className="h-3 w-3 text-green-400" />
+                        <span className="text-green-400">Copied!</span>
+                      </>
+                    ) : (
+                      <>
+                        <Copy className="h-3 w-3" />
+                        <span>Copy</span>
+                      </>
+                    )}
+                  </button>
+                </div>
+                <div className="p-4">
+                  <code className="text-sm font-mono leading-relaxed text-green-400 whitespace-pre-wrap break-words">
+                    {block.content}
+                  </code>
+                </div>
               </div>
-            )}
-            <div className="rounded-lg border bg-slate-900 dark:bg-slate-950">
-              <div className="flex items-center gap-2 px-4 py-2 border-b border-slate-700">
-                <Terminal className="h-4 w-4 text-green-400" />
-                <span className="text-xs text-slate-400 font-mono">Terminal</span>
-              </div>
-              <pre className="p-4 overflow-x-auto">
-                <code className="text-sm font-mono leading-relaxed text-green-400">
-                  {block.content}
-                </code>
-              </pre>
             </div>
-          </div>
-        )
+          )
+        }
+
+        return <TerminalComponent key={index} />
 
       case 'table':
         return (
@@ -376,6 +501,15 @@ export function ContentRenderer({ blocks, className, showTableOfContents = true 
         )
 
       case 'task-list':
+        // Support both taskItems (new format) and items (legacy format)
+        const taskListItems = block.taskItems || (block.items as any[])?.map(item => 
+          typeof item === 'string' ? { content: item, completed: false } : {
+            ...item,
+            // Support both 'completed' and 'checked' properties
+            completed: item.completed || item.checked || false
+          }
+        ) || []
+        
         return (
           <div key={index} className="mb-6">
             {block.title && (
@@ -384,7 +518,7 @@ export function ContentRenderer({ blocks, className, showTableOfContents = true 
               </div>
             )}
             <div className="space-y-2">
-              {block.taskItems?.map((item, idx) => (
+              {taskListItems.map((item, idx) => (
                 <div key={idx} className="flex items-start gap-3 p-3 rounded-lg hover:bg-muted/30 transition-colors">
                   <div className={cn(
                     'flex-shrink-0 w-5 h-5 rounded border-2 flex items-center justify-center mt-0.5',
@@ -394,12 +528,7 @@ export function ContentRenderer({ blocks, className, showTableOfContents = true 
                   )}>
                     {item.completed && <Check className="h-3 w-3" />}
                   </div>
-                  <div className={cn(
-                    'text-sm leading-relaxed flex-1',
-                    item.completed 
-                      ? 'text-muted-foreground line-through' 
-                      : 'text-foreground'
-                  )}>
+                  <div className="text-sm leading-relaxed flex-1 text-foreground">
                     {parseMarkdown(item.content)}
                   </div>
                 </div>
@@ -416,6 +545,84 @@ export function ContentRenderer({ blocks, className, showTableOfContents = true 
               title={block.title || "Stay Updated"}
               description={block.content || "Subscribe to receive notifications when new content is published."}
             />
+          </div>
+        )
+
+      case 'download-link':
+        return (
+          <div key={index} className="mb-6">
+            <Card className="border-2 border-dashed border-primary/30 hover:border-primary/50 transition-colors">
+              <CardContent className="p-6">
+                <div className="flex items-center gap-4">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10">
+                    <Download className="h-6 w-6 text-primary" />
+                  </div>
+                  <div className="flex-1">
+                    <h4 className="font-medium text-lg mb-1">{block.title || 'Download File'}</h4>
+                    <p className="text-sm text-muted-foreground mb-3">
+                      {parseMarkdown(block.content)}
+                    </p>
+                    <div className="flex items-center gap-4 text-xs text-muted-foreground">
+                      {block.fileType && (
+                        <span className="flex items-center gap-1">
+                          <FileText className="h-3 w-3" />
+                          {block.fileType.toUpperCase()}
+                        </span>
+                      )}
+                      {block.fileSize && (
+                        <span>{block.fileSize}</span>
+                      )}
+                    </div>
+                  </div>
+                  <a
+                    href={block.href || '#'}
+                    download
+                    className="inline-flex items-center gap-2 px-4 py-2 bg-primary text-primary-foreground rounded-md hover:bg-primary/90 transition-colors font-medium text-sm"
+                  >
+                    <Download className="h-4 w-4" />
+                    Download
+                  </a>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+        )
+
+      case 'footnote':
+        return (
+          <div key={index} className="mb-4 pt-4 border-t border-muted text-sm">
+            <p id={`footnote-${block.footnoteId}`} className="text-muted-foreground">
+              <a 
+                href={`#footnote-ref-${block.footnoteId}`}
+                className="text-primary hover:underline mr-2"
+              >
+                [{block.footnoteId}]
+              </a>
+              {parseMarkdown(block.footnoteText || block.content)}
+            </p>
+          </div>
+        )
+
+      case 'definition-list':
+        return (
+          <div key={index} className="mb-6">
+            {block.title && (
+              <div className="text-sm font-medium text-muted-foreground mb-3 px-1">
+                {block.title}
+              </div>
+            )}
+            <dl className="space-y-4">
+              {block.definitions?.map((def, idx) => (
+                <div key={idx} className="border-l-2 border-primary/20 pl-4">
+                  <dt className="font-medium text-foreground mb-1">
+                    {parseMarkdown(def.term)}
+                  </dt>
+                  <dd className="text-sm text-muted-foreground leading-relaxed">
+                    {parseMarkdown(def.definition)}
+                  </dd>
+                </div>
+              ))}
+            </dl>
           </div>
         )
 

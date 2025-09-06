@@ -38,6 +38,18 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={inter.className}>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              // Prevent scroll restoration and ensure top position
+              if (history.scrollRestoration) {
+                history.scrollRestoration = 'manual';
+              }
+              // Immediately scroll to top
+              window.scrollTo(0, 0);
+            `,
+          }}
+        />
         <ThemeProvider
           attribute="class"
           defaultTheme="system"

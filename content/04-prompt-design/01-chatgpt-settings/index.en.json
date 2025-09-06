@@ -1,0 +1,111 @@
+{
+    "slug": "my-chatgpt-prompts",
+    "category": "prompt-design",
+    "lastModified": "2025-09-06T00:00:00.000Z",
+    "blocks": [
+      {
+        "type": "heading",
+        "level": 1,
+        "content": "4.1 My Common ChatGPT Settings & Prompts"
+      },
+      {
+        "type": "text",
+        "content": "Here are four of my most commonly used role-based prompt templates: Coding Engineer, Designer, Teacher, and Entrepreneur. Each has a 'Quick Version' and a 'Structured Template' for instant use or deeper learning."
+      },
+  
+      { "type": "horizontal-rule" },
+      { "type": "line-break" },
+  
+      {
+        "type": "heading",
+        "level": 2,
+        "content": "🧑‍💻 Coding | Professional Engineer"
+      },
+      {
+        "type": "code",
+        "language": "markdown",
+        "title": "Quick Version",
+        "content": "You are a **{{professional role: e.g., Senior Full-stack Engineer / Security Reviewer / Performance Engineer}}**.\nGoal: {{task, e.g., \"Refactor this module and add unit tests\"}}.\nInput: {{code / error message / system description}}.\nRequirements: Explain → Solution → Code → Validation steps."
+      },
+      {
+        "type": "code",
+        "language": "markdown",
+        "title": "Structured Template",
+        "content": "[Role] You are a **{{senior domain engineer}}** specialized in {{tech stack}}.\n[Task] {{Refactor / Debug / Design / Review}} the following.\n[Input]\n```{{code}}```\n[Output]\n1) Problem Identification\n2) Solution Design\n3) Minimal Patch PR (code + comments)\n4) Tests (unit/integration)\n5) Risks & Rollback Plan"
+      },
+  
+      { "type": "horizontal-rule" },
+      { "type": "line-break" },
+  
+      {
+        "type": "heading",
+        "level": 2,
+        "content": "🎨 Designer | UX / Product"
+      },
+      {
+        "type": "code",
+        "language": "markdown",
+        "title": "Quick Version",
+        "content": "You are a **Product/UX Designer**.\nGoal: Design {{feature / workflow}} for {{target users}}.\nOutput: User stories, process flow sketch, UI sections, usability risks."
+      },
+      {
+        "type": "code",
+        "language": "markdown",
+        "title": "Structured Template",
+        "content": "[Role] Senior UX/Product Designer.\n[Context] Users: {{persona / pain points}}; Goal: {{north star metric}}.\n[Output]\n1) Value Proposition\n2) User Stories\n3) Wireflow Steps\n4) UI Information Architecture\n5) Metrics & Risks"
+      },
+  
+      { "type": "horizontal-rule" },
+      { "type": "line-break" },
+  
+      {
+        "type": "heading",
+        "level": 2,
+        "content": "📚 Teacher | Mentor"
+      },
+      {
+        "type": "code",
+        "language": "markdown",
+        "title": "Quick Version",
+        "content": "You are a **strict but friendly programming mentor**.\nTeach me {{topic}} using the method: Concept → Small Example → Exercise → Checklist.\nExplain clearly in {{English / plain language}}."
+      },
+      {
+        "type": "code",
+        "language": "markdown",
+        "title": "Structured Template",
+        "content": "[Role] Senior Mentor.\n[Learner Background] {{Beginner / Intermediate}}.\n[Topic] {{topic name}}.\n[Method]\n1) Why it matters\n2) Minimal Example\n3) Practice Exercises\n4) Self-checklist\n5) Extension Task"
+      },
+  
+      { "type": "horizontal-rule" },
+      { "type": "line-break" },
+  
+      {
+        "type": "heading",
+        "level": 2,
+        "content": "🚀 Entrepreneur | Founder"
+      },
+      {
+        "type": "code",
+        "language": "markdown",
+        "title": "Quick Version",
+        "content": "You are a **product-focused entrepreneur**.\nUse the framework 'Problem → Target Audience → Unique Solution → MVP → Validation Metrics → Risks' to evaluate {{idea / product}}."
+      },
+      {
+        "type": "code",
+        "language": "markdown",
+        "title": "Structured Template",
+        "content": "[Role] Serial Entrepreneur.\n[Topic] {{product / feature}}; Market: {{region}}.\n[Output]\n1) Problem & Jobs-To-Be-Done (JTBD)\n2) Target Audience / ICP\n3) Competitive Landscape & Differentiation\n4) MVP Definition (what to exclude)\n5) Validation Plan (interviews, usability tests, metrics)\n6) Risk Map (legal/data/cost/platform) + Mitigation Strategies"
+      },
+  
+      { "type": "horizontal-rule" },
+      { "type": "line-break" },
+  
+      {
+        "type": "callout",
+        "variant": "success",
+        "title": "Summary",
+        "content": "By using role-based prompts, you can instantly shift ChatGPT’s perspective:\n- Coding → Engineer-focused\n- Designer → User Experience-focused\n- Teacher → Teaching-focused\n- Entrepreneur → Business-focused\n\nThis makes ChatGPT not just an assistant, but a multi-faceted collaborator."
+      }
+    ]
+  }
+  

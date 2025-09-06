@@ -10,104 +10,93 @@
     },
     {
       "type": "text",
-      "content": "現時市面上有好多 AI 工具，每個專注點唔同。以下先逐一簡介："
+      "content": "市面上 AI 工具愈來愈多，每個有唔同強項。以下會逐一介紹，附加落地示例，幫助你知道「幾時用邊個」。"
     },
-    {
-      "type": "horizontal-rule"
-    },
-    {
-      "type": "line-break"
-    },
+
+    { "type": "horizontal-rule" },
+    { "type": "line-break" },
+
     {
       "type": "heading",
       "level": 2,
       "content": "🧑‍💻 Coding 相關"
     },
     {
-      "type": "list",
-      "listType": "unordered",
-      "items": [
-        "**ChatGPT**: 通用 AI，支援代碼生成、解釋同 Debug，靈活度高。",
-        "**Cursor**: 基於 VS Code 打造嘅 AI IDE，專注長程式碼開發同 Debug。",
-        "**Claude Code**: 超長上下文處理，適合大型專案代碼分析。",
-        "**GitHub Copilot**: 與 GitHub/IDE 深度整合，擅長自動補全代碼。",
-        "**Lovable**: AI 輔助建站平台，幾分鐘就可以生出原型網站。"
-      ]
-    },
-    { "type": "link", "title": "外部文檔", "href": "https://chat.openai.com", "content": "ChatGPT 官方網站" },
-    { "type": "link", "title": "外部文檔", "href": "https://cursor.sh", "content": "Cursor 官方網站" },
-    { "type": "link", "title": "外部文檔", "href": "https://claude.ai", "content": "Claude Code 官方網站" },
-    { "type": "link", "title": "外部文檔", "href": "https://github.com/features/copilot", "content": "GitHub Copilot 官方網站" },
-    { "type": "link", "title": "外部文檔", "href": "https://lovable.dev", "content": "Lovable 官方網站" },
-    {
-      "type": "horizontal-rule"
+      "type": "heading",
+      "level": 3,
+      "content": "ChatGPT 5"
     },
     {
-      "type": "line-break"
+      "type": "text",
+      "content": "GPT-5 嘅突破在於 **推理能力** 同 **多模態**。適合用於：\n- 大型代碼解釋與重構\n- 安全審核（SQL Injection、XSS）\n- 系統設計 / 架構建議\n- 圖片 + 文字錯誤排查"
     },
+    {
+      "type": "code",
+      "language": "markdown",
+      "title": "示例 Prompt",
+      "content": "你係一名**資深安全審核員**，請幫我檢查以下 Python API，指出 SQL Injection 風險，並提出修改建議。"
+    },
+    {
+      "type": "callout",
+      "variant": "warning",
+      "title": "限制",
+      "content": "GPT-5 模型需要付費訂閱；多模態功能未必喺所有平台都開放。"
+    },
+
+    { "type": "horizontal-rule" },
+    { "type": "line-break" },
+
     {
       "type": "heading",
-      "level": 2,
-      "content": "🔍 資料搜尋 / 研究"
+      "level": 3,
+      "content": "Cursor (含 CLI)"
     },
     {
-      "type": "list",
-      "listType": "unordered",
+      "type": "text",
+      "content": "Cursor 除咗係 AI IDE，仲有 **CLI 工具**，可以直接操作整個 repo：\n- 自動生成專案結構解釋\n- 修復指定文件\n- 代碼全面審核"
+    },
+    {
+      "type": "terminal",
+      "title": "Cursor CLI 範例",
+      "content": "$ cursor explain src/\n$ cursor fix src/utils.py\n$ cursor review src/"
+    },
+    {
+      "type": "task-list",
+      "title": "課後任務",
       "items": [
-        "**Perplexity**: 即時 AI 搜尋引擎，提供引用來源，適合學術研究。",
-        "**Grok (xAI)**: 整合 Twitter/X 數據，擅長即時資訊與社交媒體相關查詢。",
-        "**Google Gemini**: Google 旗艦 AI，支援多模態（文字、圖片、影片）。"
+        { "content": "安裝 Cursor 並試用 `cursor explain` 解釋一個開源 repo", "completed": false },
+        { "content": "用 `cursor fix` 修復一段有 bug 嘅 Python 代碼", "completed": false }
       ]
     },
-    { "type": "link", "title": "外部文檔", "href": "https://www.perplexity.ai", "content": "Perplexity 官方網站" },
-    { "type": "link", "title": "外部文檔", "href": "https://x.ai", "content": "Grok 官方網站" },
-    { "type": "link", "title": "外部文檔", "href": "https://gemini.google.com", "content": "Google Gemini 官方網站" },
-    {
-      "type": "horizontal-rule"
-    },
-    {
-      "type": "line-break"
-    },
+
+    { "type": "horizontal-rule" },
+    { "type": "line-break" },
+
     {
       "type": "heading",
-      "level": 2,
-      "content": "🎨 設計與多媒體"
+      "level": 3,
+      "content": "Claude Code"
     },
     {
-      "type": "list",
-      "listType": "unordered",
-      "items": [
-        "**Canva**: 平面設計 AI，支援海報、簡報、社交媒體素材。",
-        "**Kuse**: AI 影片生成工具，適合內容創作者。"
-      ]
-    },
-    { "type": "link", "title": "外部文檔", "href": "https://www.canva.com", "content": "Canva 官方網站" },
-    { "type": "link", "title": "外部文檔", "href": "https://kuse.ai", "content": "Kuse 官方網站" },
-    {
-      "type": "horizontal-rule"
+      "type": "text",
+      "content": "Claude Code 強項係 **超長上下文 (100k tokens)**，非常適合：\n- 一次性讀完整個專案\n- 使用 Sub-agent 進行多角度分析（安全 / 效能 / 文件）\n- Security Review"
     },
     {
-      "type": "line-break"
+      "type": "code",
+      "language": "markdown",
+      "title": "Sub-agent Prompt 範例",
+      "content": "你係一個 **安全專家代理**。請審核以下 Node.js 專案：\n1. 檢查依賴漏洞\n2. 檢查 API 是否防止 SQL Injection\n3. 提出修正建議"
     },
     {
-      "type": "heading",
-      "level": 2,
-      "content": "📑 知識管理"
+      "type": "callout",
+      "variant": "info",
+      "title": "注意",
+      "content": "Claude Code 分析力強，但生成速度比 Cursor 慢。適合用於大型 Debug 或一次性長文檔審查。"
     },
-    {
-      "type": "list",
-      "listType": "unordered",
-      "items": [
-        "**Notion**: 筆記與專案管理平台，內建 AI 摘要、寫作與知識庫功能。"
-      ]
-    },
-    { "type": "link", "title": "外部文檔", "href": "https://www.notion.so/product/ai", "content": "Notion 官方網站" },
-    {
-      "type": "horizontal-rule"
-    },
-    {
-      "type": "line-break"
-    },
+
+    { "type": "horizontal-rule" },
+    { "type": "line-break" },
+
     {
       "type": "heading",
       "level": 2,
@@ -130,12 +119,6 @@
         ["Kuse", "❌", "❌", "❌", "❌", "✅ (影片構思)", "✅"],
         ["Notion", "❌", "⚠️ (知識庫搜尋)", "❌", "⚠️ (AI 摘要)", "✅", "✅ (筆記/文件)"]
       ]
-    },    
-    {
-      "type": "line-break"
-    },
-    {
-      "type": "line-break"
     },
     {
       "type": "callout",

@@ -6,129 +6,84 @@
     {
       "type": "heading",
       "level": 1,
-      "content": "3.2 ChatGPT 深入教學"
+      "content": "3.2 ChatGPT 5 深入教學"
     },
     {
       "type": "text",
-      "content": "ChatGPT 不單止係一個對話工具，佢可以透過 **自訂設定 (Custom Instructions)** 同 **精準 Prompt** 變成導師、程式助手、甚至專案夥伴。"
+      "content": "ChatGPT 5 已經唔單止係一個對話工具，而係一個**多模態 AI 平台**：可以理解文字、圖片、文件，並結合強大嘅推理力同記憶功能，成為你嘅專案拍檔。"
     },
-    {
-      "type": "horizontal-rule"
-    },
-    {
-      "type": "line-break"
-    },
+
+    { "type": "horizontal-rule" },
+    { "type": "line-break" },
+
     {
       "type": "heading",
       "level": 2,
-      "content": "⚙️ 基礎與設定"
+      "content": "⚙️ ChatGPT 5 新功能"
     },
     {
       "type": "list",
       "listType": "unordered",
       "items": [
-        "**模型版本**: GPT-3.5 (免費)，GPT-4 / GPT-4o (付費，高階推理與工具支援)。",
-        "**介面功能**: 支援對話、Code Interpreter、插件 (Browser, Python, File Upload)。",
-        "**自訂設定 (Custom Instructions)**: 可以設定『你希望 ChatGPT 知道你咩』同『你希望 ChatGPT 點樣回應』，例如回覆語氣、細節程度、使用語言。"
+        "**模型版本**: GPT-5 (免費/付費) → 更快、更準確，支援超長上下文。",
+        "**多模態**: 同時處理文字 + 圖像 + 文件 (PDF/Excel/CSV)。",
+        "**Persistent Memory**: 可跨會話記住用戶偏好，例如『永遠用廣東話解釋』。",
+        "**高階推理**: 更好處理複雜數據分析、系統設計、演算法解釋。"
       ]
     },
-    {
-      "type": "callout",
-      "variant": "info",
-      "title": "小提示",
-      "content": "善用 Custom Instructions 可以令回覆更符合你嘅風格，例如：『回覆要用廣東話，簡單但專業』。"
-    },
-    {
-      "type": "horizontal-rule"
-    },
-    {
-      "type": "line-break"
-    },
+
+    { "type": "horizontal-rule" },
+    { "type": "line-break" },
+
     {
       "type": "heading",
       "level": 2,
-      "content": "💡 Prompt 使用技巧"
+      "content": "💡 Prompt 使用技巧 (GPT-5 專用)"
     },
     {
       "type": "list",
       "listType": "unordered",
       "items": [
-        "**角色扮演 (Role)**: 例如『你係一個 Python 專家，幫我解釋代碼』。",
-        "**格式控制 (Format)**: 要求輸出成 JSON、Markdown、表格。",
-        "**過程控制 (Process)**: 指定步驟，例如『逐步推理，最後再總結』。",
-        "**Debug Prompt**: 『檢查以下代碼錯誤，並提出修正建議』。"
+        "**Chain-of-Thought Prompting**: 『逐步推理，最後再總結』。",
+        "**Memory-aware Prompting**: 『根據我之前問過嘅 API 課題，再幫我寫一個實例』。",
+        "**多模態 Debug**: 上傳 screenshot + 補一句『請解釋錯誤訊息，並提供修正方法』。",
+        "**文件總結**: 『請總結以下 PDF 內容並提出 3 個重點』。"
       ]
     },
-    {
-      "type": "horizontal-rule"
-    },
-    {
-      "type": "line-break"
-    },
+
+    { "type": "horizontal-rule" },
+    { "type": "line-break" },
+
     {
       "type": "heading",
       "level": 2,
-      "content": "🌱 Idea Generation"
-    },
-    {
-      "type": "text",
-      "content": "ChatGPT 可以唔止解決問題，仲可以協助你發掘靈感。"
-    },
-    {
-      "type": "list",
-      "listType": "unordered",
-      "items": [
-        "專案啟發: 幫你 brainstorm 網站功能或應用點子。",
-        "學習規劃: 幫你設計每日學習任務，例如『30 日學習 JavaScript 計劃』。",
-        "創意寫作: 幫你起草故事大綱、腳本、甚至廣告文案。"
-      ]
-    },
-    {
-      "type": "horizontal-rule"
-    },
-    {
-      "type": "line-break"
-    },
-    {
-      "type": "heading",
-      "level": 2,
-      "content": "🧰 常用 Prompt 範例"
+      "content": "🧰 常用 Prompt 範例 (GPT-5)"
     },
     {
       "type": "code",
-      "content": "你係一個專業程式導師，解釋以下代碼並逐步拆解：..."
+      "content": "你係一名系統架構師，請分析以下 ER 圖，指出數據庫設計問題。"
     },
     {
       "type": "code",
-      "content": "用表格方式比較 GitHub Copilot 同 Cursor 嘅差異"
+      "content": "我會上傳一份 Excel，請幫我：\n1. 清理空值\n2. 畫一張銷售趨勢圖\n3. 用一句話解釋圖表結果"
     },
     {
       "type": "code",
-      "content": "幫我檢查以下 SQL 語句有無 SQL Injection 風險：..."
+      "content": "呢張 screenshot 出現咗 Python stack trace，請幫我逐步解釋錯誤原因，並修正代碼。"
     },
     {
       "type": "code",
-      "content": "用廣東話解釋什麼是 API，並舉一個真實網站例子"
+      "content": "根據我之前設定嘅『廣東話解釋 + 簡單』指令，請解釋什麼係 CI/CD pipeline。"
     },
-    {
-      "type": "code",
-      "content": "生成一個 30 日 JavaScript 學習計劃，每日任務不多於 2 小時"
-    },
-    {
-      "type": "code",
-      "content": "幫我 brainstorm 5 個環保主題網站的互動功能點子"
-    },
-    {
-      "type": "horizontal-rule"
-    },
-    {
-      "type": "line-break"
-    },
+
+    { "type": "horizontal-rule" },
+    { "type": "line-break" },
+
     {
       "type": "callout",
       "variant": "success",
       "title": "總結",
-      "content": "善用 ChatGPT = **設定好 Custom Instructions + 撰寫精準 Prompt + 結合 Idea Generation**。咁樣 ChatGPT 就唔只係助手，而係你嘅專案拍檔。"
+      "content": "ChatGPT 5 嘅價值 = **多模態 + 長上下文 + 記憶功能 + 強推理**。用得好，佢就係你嘅導師、分析師、同事。"
     }
   ]
 }

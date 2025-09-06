@@ -23,7 +23,9 @@ const nextConfig = {
   swcMinify: true,
   // Disable strict mode temporarily to prevent double-rendering issues
   reactStrictMode: false,
+  // Disable scroll restoration to prevent scroll position issues
   experimental: {
+    scrollRestoration: false,
     optimizePackageImports: ['lucide-react', 'framer-motion'],
     // Temporarily disable turbo as it can cause compilation issues
     // turbo: {

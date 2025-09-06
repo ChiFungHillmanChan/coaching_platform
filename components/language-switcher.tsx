@@ -22,9 +22,10 @@ export function LanguageSwitcher() {
   const locale = useLocale()
   const pathname = usePathname()
 
-  // Simple state for current language
-  const [currentLanguage, setCurrentLanguage] = React.useState(() => 
-    languages.find(lang => lang.code === locale) || languages[0]
+  // Always show the language based on the current URL locale
+  const currentLanguage = React.useMemo(() => 
+    languages.find(lang => lang.code === locale) || languages[0], 
+    [locale]
   )
   const [isClient, setIsClient] = React.useState(false)
 
@@ -32,28 +33,6 @@ export function LanguageSwitcher() {
   React.useEffect(() => {
     setIsClient(true)
   }, [])
-
-  // Load saved language preference on initial load
-  React.useEffect(() => {
-    if (isClient) {
-      try {
-        const savedLanguage = localStorage.getItem('preferred-language')
-        if (savedLanguage) {
-          const savedLang = languages.find(lang => lang.code === savedLanguage)
-          if (savedLang) {
-            setCurrentLanguage(savedLang)
-            return
-          }
-        }
-      } catch (error) {
-        console.warn('Could not access localStorage:', error)
-      }
-      
-      // Fallback to URL locale if no saved preference
-      const urlLanguage = languages.find(lang => lang.code === locale) || languages[0]
-      setCurrentLanguage(urlLanguage)
-    }
-  }, [locale, isClient])
 
   const handleLanguageChange = (newLocale: string) => {
     console.log('Language change requested:', newLocale, 'Current:', locale)
@@ -63,10 +42,6 @@ export function LanguageSwitcher() {
       console.log('Already on correct locale, skipping navigation')
       return
     }
-    
-    // Update current language immediately for instant visual feedback
-    const newLanguage = languages.find(lang => lang.code === newLocale) || languages[0]
-    setCurrentLanguage(newLanguage)
     
     // Save preference to localStorage
     try {
@@ -81,10 +56,7 @@ export function LanguageSwitcher() {
     const newUrl = `/${newLocale}${currentPath}`
     console.log('Navigating to:', newUrl)
     
-    // Add a small delay to ensure the visual feedback is visible
-    setTimeout(() => {
-      window.location.href = newUrl
-    }, 100)
+    window.location.href = newUrl
   }
 
   return (
