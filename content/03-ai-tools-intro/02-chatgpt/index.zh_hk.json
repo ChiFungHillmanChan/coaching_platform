@@ -1,0 +1,134 @@
+{
+  "slug": "deep-dive-chatgpt",
+  "category": "ai-tools",
+  "lastModified": "2025-09-06T00:00:00.000Z",
+  "blocks": [
+    {
+      "type": "heading",
+      "level": 1,
+      "content": "3.2 ChatGPT 深入教學"
+    },
+    {
+      "type": "text",
+      "content": "ChatGPT 不單止係一個對話工具，佢可以透過 **自訂設定 (Custom Instructions)** 同 **精準 Prompt** 變成導師、程式助手、甚至專案夥伴。"
+    },
+    {
+      "type": "horizontal-rule"
+    },
+    {
+      "type": "line-break"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "content": "⚙️ 基礎與設定"
+    },
+    {
+      "type": "list",
+      "listType": "unordered",
+      "items": [
+        "**模型版本**: GPT-3.5 (免費)，GPT-4 / GPT-4o (付費，高階推理與工具支援)。",
+        "**介面功能**: 支援對話、Code Interpreter、插件 (Browser, Python, File Upload)。",
+        "**自訂設定 (Custom Instructions)**: 可以設定『你希望 ChatGPT 知道你咩』同『你希望 ChatGPT 點樣回應』，例如回覆語氣、細節程度、使用語言。"
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "info",
+      "title": "小提示",
+      "content": "善用 Custom Instructions 可以令回覆更符合你嘅風格，例如：『回覆要用廣東話，簡單但專業』。"
+    },
+    {
+      "type": "horizontal-rule"
+    },
+    {
+      "type": "line-break"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "content": "💡 Prompt 使用技巧"
+    },
+    {
+      "type": "list",
+      "listType": "unordered",
+      "items": [
+        "**角色扮演 (Role)**: 例如『你係一個 Python 專家，幫我解釋代碼』。",
+        "**格式控制 (Format)**: 要求輸出成 JSON、Markdown、表格。",
+        "**過程控制 (Process)**: 指定步驟，例如『逐步推理，最後再總結』。",
+        "**Debug Prompt**: 『檢查以下代碼錯誤，並提出修正建議』。"
+      ]
+    },
+    {
+      "type": "horizontal-rule"
+    },
+    {
+      "type": "line-break"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "content": "🌱 Idea Generation"
+    },
+    {
+      "type": "text",
+      "content": "ChatGPT 可以唔止解決問題，仲可以協助你發掘靈感。"
+    },
+    {
+      "type": "list",
+      "listType": "unordered",
+      "items": [
+        "專案啟發: 幫你 brainstorm 網站功能或應用點子。",
+        "學習規劃: 幫你設計每日學習任務，例如『30 日學習 JavaScript 計劃』。",
+        "創意寫作: 幫你起草故事大綱、腳本、甚至廣告文案。"
+      ]
+    },
+    {
+      "type": "horizontal-rule"
+    },
+    {
+      "type": "line-break"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "content": "🧰 常用 Prompt 範例"
+    },
+    {
+      "type": "code",
+      "content": "你係一個專業程式導師，解釋以下代碼並逐步拆解：..."
+    },
+    {
+      "type": "code",
+      "content": "用表格方式比較 GitHub Copilot 同 Cursor 嘅差異"
+    },
+    {
+      "type": "code",
+      "content": "幫我檢查以下 SQL 語句有無 SQL Injection 風險：..."
+    },
+    {
+      "type": "code",
+      "content": "用廣東話解釋什麼是 API，並舉一個真實網站例子"
+    },
+    {
+      "type": "code",
+      "content": "生成一個 30 日 JavaScript 學習計劃，每日任務不多於 2 小時"
+    },
+    {
+      "type": "code",
+      "content": "幫我 brainstorm 5 個環保主題網站的互動功能點子"
+    },
+    {
+      "type": "horizontal-rule"
+    },
+    {
+      "type": "line-break"
+    },
+    {
+      "type": "callout",
+      "variant": "success",
+      "title": "總結",
+      "content": "善用 ChatGPT = **設定好 Custom Instructions + 撰寫精準 Prompt + 結合 Idea Generation**。咁樣 ChatGPT 就唔只係助手，而係你嘅專案拍檔。"
+    }
+  ]
+}

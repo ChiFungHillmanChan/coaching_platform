@@ -1,0 +1,174 @@
+{
+  "slug": "hosting-platforms",
+  "category": "web-fundamentals",
+  "lastModified": "2025-09-06T00:00:00.000Z",
+  "blocks": [
+    {
+      "type": "heading",
+      "level": 1,
+      "content": "2.2 Hosting 平台比較"
+    },
+    {
+      "type": "horizontal-rule"
+    },
+    {
+      "type": "line-break"
+    },
+    { 
+      "type": "heading", "level": 2, "content": "免費平台介紹" 
+    },
+   
+    {
+      "type": "link",
+      "title": "外部文檔",
+      "href": "https://pages.github.com",
+      "content": "GitHub Pages 官方網站"
+    },
+    {
+      "type": "link",
+      "title": "外部文檔",
+      "href": "https://www.netlify.com",
+      "content": "Netlify 官方網站"
+    },
+    {
+      "type": "link",
+      "title": "外部文檔",
+      "href": "https://vercel.com",
+      "content": "Vercel 官方網站"
+    },
+    {
+      "type": "link",
+      "title": "外部文檔",
+      "href": "https://lovable.dev",
+      "content": "Lovable 官方網站"   
+    },
+    {
+      "type": "horizontal-rule"
+    },
+    {
+      "type": "line-break"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "content": "付費平台介紹"
+    },
+    {
+      "type": "link",
+      "title": "外部文檔",
+      "href": "https://aws.amazon.com",
+      "content": "AWS 官方網站"
+    },
+    {
+      "type": "link",
+      "title": "外部文檔",
+      "href": "https://wordpress.com",
+      "content": "WordPress.com 官方網站"
+    },
+    {
+      "type": "link",
+      "title": "外部文檔",
+      "href": "https://www.wix.com",
+      "content": "Wix 官方網站"
+    },
+    {
+      "type": "link",
+      "title": "外部文檔",
+      "href": "https://www.squarespace.com",
+      "content": "Squarespace 官方網站"
+    },
+    
+    {
+      "type": "horizontal-rule"
+    },
+    {
+      "type": "line-break"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "content": "平台比較"
+    },
+    {
+      "type": "table",
+      "title": "免費 Hosting 平台比較",
+      "headers": ["平台", "特點 ✅", "限制 ❌"],
+      "rows": [
+        ["GitHub Pages", "適合靜態網站，與 GitHub Repo 無縫整合", "僅限Html等前端，無後端支持"],
+        ["Netlify", "自動化部署、CI/CD、免費額度足夠", "高流量或進階功能需付費"],
+        ["Vercel", "超大免費額，快速前端部署", "後端功能較弱"],
+        ["Lovable", "AI 輔助建站，快速生成並部署", "免費額小，定制化有限，偏向快速原型"]
+      ]
+    },
+    {
+      "type": "line-break"
+    },
+    {
+      "type": "line-break"
+    },
+    {
+      "type": "table",
+      "title": "付費 Hosting 平台比較",
+      "headers": ["平台", "特點 ✅", "限制 ❌"],
+      "rows": [
+        ["AWS", "最全面嘅雲端服務，支持高擴展性與安全", "學習曲線高，收費結構複雜"],
+        ["WordPress.com", "全球最流行建站平台，擴展性強，支援龐大插件生態", "需要額外費用升級進階功能，自由度低於自建 WordPress"],
+        ["Wix", "拖拽式編輯器，快速建立網站，適合中小企", "高度定制性不足，SEO 彈性有限"],
+        ["Squarespace", "設計感強烈，適合品牌與創意型網站", "功能擴展有限，後端較封閉"]
+      ]
+    },    
+    {
+      "type": "line-break"
+    },
+    {
+      "type": "horizontal-rule"
+    },
+    {
+      "type": "line-break"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "content": "Demo：把一個小網站部署到 Vercel（我最常用）"
+    },
+    {
+      "type": "list",
+      "listType": "ordered",
+      "items": [
+        "準備一個網站（含 index.html），並推送到 GitHub Repository。",
+        "登入 Vercel 帳號（可用 GitHub 直接登入）。",
+        "於 Vercel Dashboard 選擇 **New Project**。",
+        "授權並連結 GitHub Repository。",
+        "選擇要部署的專案，Vercel 自動偵測並配置。",
+        "完成後 Vercel 會提供一個預設域名，即可訪問網站。"
+      ]
+    },
+    {
+      "type": "line-break"
+    },
+    {
+      "type": "video",
+      "src": "/demo/vercel-deploy.mp4",
+      "alt": "示範如何將靜態網站從 GitHub 自動部署到 Vercel"
+    },
+    {
+      "type": "blockquote",
+      "content": "📌 推送更新到 GitHub，Vercel 就會自動重新部署，確保網站保持最新。"
+    },    
+    {
+      "type": "line-break"
+    },
+    {
+      "type": "horizontal-rule"
+    },
+    {
+      "type": "line-break"
+    },
+    {
+      "type": "callout",
+      "variant": "success",
+      "title": "小提示",
+      "content": "Netlify 同 Vercel 都支援 GitHub / GitLab / Bitbucket 自動部署，推送代碼即可自動更新網站。"
+    }
+  ]
+}

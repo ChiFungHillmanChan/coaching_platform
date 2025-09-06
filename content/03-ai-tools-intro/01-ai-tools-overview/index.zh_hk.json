@@ -1,0 +1,147 @@
+{
+  "slug": "ai-tools-overview",
+  "category": "ai-tools",
+  "lastModified": "2025-09-06T00:00:00.000Z",
+  "blocks": [
+    {
+      "type": "heading",
+      "level": 1,
+      "content": "3.1 AI 工具全景"
+    },
+    {
+      "type": "text",
+      "content": "現時市面上有好多 AI 工具，每個專注點唔同。以下先逐一簡介："
+    },
+    {
+      "type": "horizontal-rule"
+    },
+    {
+      "type": "line-break"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "content": "🧑‍💻 Coding 相關"
+    },
+    {
+      "type": "list",
+      "listType": "unordered",
+      "items": [
+        "**ChatGPT**: 通用 AI，支援代碼生成、解釋同 Debug，靈活度高。",
+        "**Cursor**: 基於 VS Code 打造嘅 AI IDE，專注長程式碼開發同 Debug。",
+        "**Claude Code**: 超長上下文處理，適合大型專案代碼分析。",
+        "**GitHub Copilot**: 與 GitHub/IDE 深度整合，擅長自動補全代碼。",
+        "**Lovable**: AI 輔助建站平台，幾分鐘就可以生出原型網站。"
+      ]
+    },
+    { "type": "link", "title": "外部文檔", "href": "https://chat.openai.com", "content": "ChatGPT 官方網站" },
+    { "type": "link", "title": "外部文檔", "href": "https://cursor.sh", "content": "Cursor 官方網站" },
+    { "type": "link", "title": "外部文檔", "href": "https://claude.ai", "content": "Claude Code 官方網站" },
+    { "type": "link", "title": "外部文檔", "href": "https://github.com/features/copilot", "content": "GitHub Copilot 官方網站" },
+    { "type": "link", "title": "外部文檔", "href": "https://lovable.dev", "content": "Lovable 官方網站" },
+    {
+      "type": "horizontal-rule"
+    },
+    {
+      "type": "line-break"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "content": "🔍 資料搜尋 / 研究"
+    },
+    {
+      "type": "list",
+      "listType": "unordered",
+      "items": [
+        "**Perplexity**: 即時 AI 搜尋引擎，提供引用來源，適合學術研究。",
+        "**Grok (xAI)**: 整合 Twitter/X 數據，擅長即時資訊與社交媒體相關查詢。",
+        "**Google Gemini**: Google 旗艦 AI，支援多模態（文字、圖片、影片）。"
+      ]
+    },
+    { "type": "link", "title": "外部文檔", "href": "https://www.perplexity.ai", "content": "Perplexity 官方網站" },
+    { "type": "link", "title": "外部文檔", "href": "https://x.ai", "content": "Grok 官方網站" },
+    { "type": "link", "title": "外部文檔", "href": "https://gemini.google.com", "content": "Google Gemini 官方網站" },
+    {
+      "type": "horizontal-rule"
+    },
+    {
+      "type": "line-break"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "content": "🎨 設計與多媒體"
+    },
+    {
+      "type": "list",
+      "listType": "unordered",
+      "items": [
+        "**Canva**: 平面設計 AI，支援海報、簡報、社交媒體素材。",
+        "**Kuse**: AI 影片生成工具，適合內容創作者。"
+      ]
+    },
+    { "type": "link", "title": "外部文檔", "href": "https://www.canva.com", "content": "Canva 官方網站" },
+    { "type": "link", "title": "外部文檔", "href": "https://kuse.ai", "content": "Kuse 官方網站" },
+    {
+      "type": "horizontal-rule"
+    },
+    {
+      "type": "line-break"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "content": "📑 知識管理"
+    },
+    {
+      "type": "list",
+      "listType": "unordered",
+      "items": [
+        "**Notion**: 筆記與專案管理平台，內建 AI 摘要、寫作與知識庫功能。"
+      ]
+    },
+    { "type": "link", "title": "外部文檔", "href": "https://www.notion.so/product/ai", "content": "Notion 官方網站" },
+    {
+      "type": "horizontal-rule"
+    },
+    {
+      "type": "line-break"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "content": "📊 AI 工具功能對照表"
+    },
+    {
+      "type": "table",
+      "title": "AI 工具功能對照表 (合併版)",
+      "headers": ["AI 工具", "寫程式 / 除錯", "搜尋 / 資料研究", "圖像設計", "推理 / 文本理解", "靈感 / 構思", "文件分析"],
+      "rows": [
+        ["ChatGPT", "✅✅", "✅", "✅", "✅✅", "✅", "✅"],
+        ["Cursor", "✅✅", "❌", "❌", "✅ (程式上下文)", "⚠️ (有限)", "✅ (代碼層面)"],
+        ["Claude Code", "✅✅", "❌", "❌", "✅", "⚠️", "✅ (長文件/代碼)"],
+        ["GitHub Copilot", "✅", "❌", "❌", "⚠️", "❌", "❌"],
+        ["Lovable", "✅ (建站)", "❌", "❌", "❌", "⚠️ (生成網站構思)", "❌"],
+        ["Perplexity", "❌", "✅✅", "❌", "⚠️ (摘要)", "❌", "✅ (知識引用)"],
+        ["Grok", "❌", "✅ (社交數據)", "❌", "⚠️", "❌", "❌"],
+        ["Gemini", "✅ (部分代碼生成)", "✅", "⚠️", "✅✅", "✅", "✅ (文件處理)"],
+        ["Canva", "❌", "❌", "✅✅", "❌", "✅ (設計靈感)", "❌"],
+        ["Kuse", "❌", "❌", "❌", "❌", "✅ (影片構思)", "✅"],
+        ["Notion", "❌", "⚠️ (知識庫搜尋)", "❌", "⚠️ (AI 摘要)", "✅", "✅ (筆記/文件)"]
+      ]
+    },    
+    {
+      "type": "line-break"
+    },
+    {
+      "type": "line-break"
+    },
+    {
+      "type": "callout",
+      "variant": "info",
+      "title": "符號解釋",
+      "content": "✅ = 強支援；⚠️ = 部分支援 / 有限制；❌ = 不支援"
+    }
+  ]
+}

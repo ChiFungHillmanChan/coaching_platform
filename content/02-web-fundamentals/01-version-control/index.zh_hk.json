@@ -1,0 +1,147 @@
+{
+  "slug": "version-control",
+  "category": "web-fundamentals",
+  "lastModified": "2025-09-06T00:00:00.000Z",
+  "blocks": [
+    {
+      "type": "heading",
+      "level": 1,
+      "content": "1.1 版本控制 (Version Control)"
+    },
+    {
+      "type": "horizontal-rule"
+    },
+    {
+      "type": "line-break"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "content": "Git & GitHub 的角色"
+    },
+    {
+      "type": "list",
+      "listType": "unordered",
+      "items": [
+        "**Git**: 智能追蹤文件中的更改的版本控制系統",
+        "**GitHub**: 雲端平台，用來做版本控制同管理，同時可以共享多人協作。"
+      ]
+    },
+    {
+      "type": "blockquote",
+      "content": "一個好重要嘅工具，比你搞唔掂返轉頭用。"
+    },
+    {
+      "type": "horizontal-rule"
+    },
+    {
+      "type": "line-break"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "content": "極常用的Git 上傳 cheet sheet"
+    },
+    {
+      "type": "list",
+      "listType": "ordered",
+      "items": [
+        "`git init` → 初始化本地 repo",
+        "`git status` → 檢視當前變更",
+        "`git add .` / `git add <file>` → 暫存變更",
+        "`git commit -m \"feat: init project\"` → 建立提交",
+        "`git push -u origin main` → 首次推送並綁定上游",
+        "`git pull` → 拉取遠端更新（與本地合併）"
+      ]
+    },
+    {
+      "type": "line-break"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "content": "額外嘅 Git 指令"
+    },
+    {
+      "type": "list",
+      "listType": "ordered",
+      "items": [
+        "`git branch -M main` → 設定分支",
+        "`git checkout {branchName}` → 切換分支",
+        "`git remote add origin <repo_url>` → 連結 GitHub",
+        "`git push -u origin main` → 推送到遠端(指定遠端repo main branch)",
+        "`git pull` → 拉取遠端更新"
+      ]
+    },
+    {
+      "type": "horizontal-rule"
+    },
+    {
+      "type": "line-break"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "content": "Git Commit Convention"
+    },
+    {
+      "type": "text",
+      "content": "保持提交訊息一致，方便團隊理解。例子："
+    },
+    {
+      "type": "list",
+      "listType": "unordered",
+      "items": [
+        "`feat/login`: 新增登入功能",
+        "`fix/header`: 修正版面錯誤"
+      ]
+    },
+    {
+      "type": "link",
+      "title": "外部文檔",
+      "href": "https://www.conventionalcommits.org/en/v1.0.0/",
+      "content": "Git Commit Convention 詳情"
+    },
+    {
+      "type": "horizontal-rule"
+    },
+    {
+      "type": "line-break"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "content": "Branch 命名規則 & Workflow"
+    },
+
+    {
+      "type": "list",
+      "listType": "unordered",
+      "items": [
+        "**main**: 穩定版本（production）",
+        "**dev**: 開發分支，用於整合功能測試",
+        "**feature/xxx**: 新功能開發",
+        "**bugfix/xxx**: 錯誤修復"
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "info",
+      "title": "好處",
+      "content": "清晰嘅分支策略可以避免多人協作混亂，確保代碼流暢交付。"
+    },
+    {
+      "type": "link",
+      "title": "外部文檔",
+      "href": "https://medium.com/@abhay.pixolo/naming-conventions-for-git-branches-a-cheatsheet-8549feca2534",
+      "content": "Git Branch Naming Convention 詳情"
+    },
+    {
+      "type": "horizontal-rule"
+    },
+    {
+      "type": "line-break"
+    }
+    
+  ]
+}

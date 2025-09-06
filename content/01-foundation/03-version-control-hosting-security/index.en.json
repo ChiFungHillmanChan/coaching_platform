@@ -1,0 +1,45 @@
+{
+  "title": "Why Version Control, Hosting & Security Matter",
+  "description": "Understanding the importance of version control, hosting, and security in web development",
+  "slug": "version-control-hosting-security",
+  "category": "foundation",
+  "lastModified": "2024-01-01T00:00:00.000Z",
+  "blocks": [
+    {
+      "type": "heading",
+      "level": 1,
+      "content": "1.3 為何需要版本控制、Hosting、安全性 (Why Version Control, Hosting & Security Matter)"
+    },
+    {
+      "type": "text",
+      "content": "Learn why these three concepts are essential for professional web development."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "content": "Version Control"
+    },
+    {
+      "type": "text",
+      "content": "Track changes, collaborate with others, and maintain a history of your code."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "content": "Hosting"
+    },
+    {
+      "type": "text",
+      "content": "Make your website accessible to users around the world."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "content": "Security"
+    },
+    {
+      "type": "text",
+      "content": "Protect your application and users from threats and vulnerabilities."
+    }
+  ]
+}

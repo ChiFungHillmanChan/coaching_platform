@@ -1,0 +1,10 @@
+{
+  "app": {
+    "name": "AI Coaching Platform",
+    "version": "1.0.0",
+    "githubUrl": "https://hillmanchan.com",
+    "sessionCookieName": "coaching-platform-session",
+    "supportedLocales": ["en", "zh_hk"],
+    "defaultLocale": "en"
+  }
+}

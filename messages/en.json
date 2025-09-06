@@ -1,0 +1,35 @@
+{
+  "navigation": {
+    "welcome": "Welcome",
+    "core": "Core",
+    "coach": "Coach", 
+    "programs": "Programs",
+    "sessions": "Sessions",
+    "assessments": "Assessments"
+  },
+  "ui": {
+    "searchPlaceholder": "Search documentation...",
+    "searchDocumentation": "Search documentation",
+    "toggleMenu": "Toggle navigation menu",
+    "toggleDarkMode": "Toggle dark mode",
+    "githubLink": "View on GitHub",
+    "brandName": "AI & Web Design Learning Manual"
+  },
+  "common": {
+    "loading": "Loading...",
+    "error": "Error",
+    "notFound": "Page not found"
+  },
+  "emailSubscription": {
+    "title": "Stay Updated",
+    "description": "Subscribe to receive notifications when new content is published.",
+    "placeholder": "Enter your email address",
+    "subscribe": "Subscribe",
+    "subscribing": "Subscribing...",
+    "maybeLater": "Maybe Later",
+    "closePopup": "Close popup",
+    "successTitle": "Successfully Subscribed!",
+    "successMessage": "Thank you for subscribing. You'll be notified when new content is available.",
+    "errorGeneric": "Subscription failed"
+  }
+}

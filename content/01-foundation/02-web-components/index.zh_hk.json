@@ -1,0 +1,148 @@
+{
+  "slug": "web-components",
+  "category": "foundation",
+  "lastModified": "2025-09-06T00:00:00.000Z",
+  "blocks": [
+    {
+      "type": "heading",
+      "level": 1,
+      "content": "1.2 網頁的組成：前端 / 後端 / 資料庫 / Hosting (Web Components)"
+    },
+    {
+      "type": "text",
+      "content": "一個完整的網站並唔只係瀏覽器睇到嘅畫面，而係由多個部分一齊運作。前端、後端、資料庫同 Hosting 係網站開發的四大核心。"
+    },
+    {
+      "type": "horizontal-rule"
+    },
+    {
+      "type": "line-break"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "content": "🎨 前端 (Frontend)"
+    },
+    {
+      "type": "text",
+      "content": "前端係使用者直接見到和操作的部分。主要負責**界面設計、互動邏輯、用戶體驗**。"
+    },
+    {
+      "type": "list",
+      "listType": "unordered",
+      "items": [
+        "**核心技術**: HTML (結構), CSS (樣式), JavaScript (互動)。",
+        "**框架/工具**: React, Vue.js, Angular, Tailwind CSS。",
+        "**學習重點**: UI/UX 設計原則、響應式設計、跨瀏覽器兼容性。"
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "info",
+      "title": "小提示",
+      "content": "前端就好似『店面』，決定咗用戶第一眼見到的感覺同互動體驗。"
+    },
+    {
+      "type": "horizontal-rule"
+    },
+    {
+      "type": "line-break"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "content": "⚙️ 後端 (Backend)"
+    },
+    {
+      "type": "text",
+      "content": "後端負責處理業務邏輯、數據交換與伺服器運行。它係網站的『大腦』，確保前端操作有正確回應。"
+    },
+    {
+      "type": "list",
+      "listType": "unordered",
+      "items": [
+        "**常用語言**: Node.js (JavaScript), Python (Django, Flask), Java (Spring), PHP (Laravel)。",
+        "**API**: 提供數據接口給前端，例如 REST API 或 GraphQL。",
+        "**學習重點**: 認識伺服器架構、API 設計、安全驗證。"
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "info",
+      "title": "小提示",
+      "content": "如果前端係店面，後端就係『廚房』，處理訂單同邏輯運算。"
+    },
+    {
+      "type": "horizontal-rule"
+    },
+    {
+      "type": "line-break"
+    },
+    {
+      "type": "horizontal-rule"
+    },
+    {
+      "type": "line-break"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "content": "🗄️ 資料庫 (Database)"
+    },
+    {
+      "type": "text",
+      "content": "資料庫負責保存與管理資料。無論係用戶資料、商品清單定係訊息內容，都由資料庫負責存取。"
+    },
+    {
+      "type": "list",
+      "listType": "unordered",
+      "items": [
+        "**類型**: 關聯式 (Relational: MySQL, PostgreSQL)，非關聯式 (NoSQL: MongoDB, Firebase)。",
+        "**特點**: 關聯式適合結構化數據，NoSQL 更彈性，支援非結構化資料。",
+        "**學習重點**: CRUD 操作 (Create, Read, Update, Delete)、索引、查詢語言 (SQL)。"
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "info",
+      "title": "小提示",
+      "content": "資料庫就係『倉庫』，負責安全保存與快速提供資料。"
+    },
+    {
+      "type": "horizontal-rule"
+    },
+    {
+      "type": "line-break"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "content": "☁️ Hosting"
+    },
+    {
+      "type": "text",
+      "content": "Hosting 係將網站放到互聯網上，令用戶隨時可以存取。"
+    },
+    {
+      "type": "list",
+      "listType": "unordered",
+      "items": [
+        "**免費平台**: GitHub Pages, Netlify, Vercel, Lovable。",
+        "**付費平台**: AWS, WordPress.com, Wix, Squarespace。",
+        "**學習重點**: 部署流程、域名設定、HTTPS 加密。"
+      ]
+    },
+    {
+      "type": "horizontal-rule"
+    },
+    {
+      "type": "line-break"
+    },
+    {
+      "type": "callout",
+      "variant": "info",
+      "title": "小提示",
+      "content": "Hosting 就係『地點』，好似將店舖放喺商場入面，方便顧客隨時上門。"
+    }
+  ]
+}

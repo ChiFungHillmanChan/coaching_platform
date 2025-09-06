@@ -1,0 +1,30 @@
+{
+  "icons": {
+    "BookOpen": "BookOpen",
+    "Rocket": "Rocket", 
+    "Zap": "Zap",
+    "Layers": "Layers",
+    "Gauge": "Gauge",
+    "Settings": "Settings",
+    "Bot": "Bot",
+    "Users": "Users",
+    "Calendar": "Calendar",
+    "BarChart3": "BarChart3",
+    "Clipboard": "Clipboard",
+    "Brain": "Brain",
+    "Target": "Target",
+    "Repeat": "Repeat",
+    "FileText": "FileText",
+    "MessageSquare": "MessageSquare",
+    "CheckSquare": "CheckSquare",
+    "LayoutTemplate": "LayoutTemplate",
+    "Lightbulb": "Lightbulb",
+    "AlertTriangle": "AlertTriangle",
+    "BookMarked": "BookMarked",
+    "CaseSensitive": "CaseSensitive",
+    "Wrench": "Wrench",
+    "Eye": "Eye",
+    "Globe": "Globe",
+    "Gift": "Gift"
+  }
+}

@@ -1,0 +1,54 @@
+{
+  "title": "Web Components: Frontend / Backend / Database / Hosting",
+  "description": "Understanding the different components that make up a web application",
+  "slug": "web-components",
+  "category": "foundation",
+  "lastModified": "2024-01-01T00:00:00.000Z",
+  "blocks": [
+    {
+      "type": "heading",
+      "level": 1,
+      "content": "1.2 網頁的組成：前端 / 後端 / 資料庫 / Hosting (Web Components: Frontend / Backend / Database / Hosting)"
+    },
+    {
+      "type": "text",
+      "content": "Learn about the four main components that make up modern web applications."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "content": "Frontend"
+    },
+    {
+      "type": "text",
+      "content": "The user interface that users interact with directly in their browsers."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "content": "Backend"
+    },
+    {
+      "type": "text",
+      "content": "The server-side logic that processes requests and manages data."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "content": "Database"
+    },
+    {
+      "type": "text",
+      "content": "Where your application's data is stored and managed."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "content": "Hosting"
+    },
+    {
+      "type": "text",
+      "content": "Where your web application lives on the internet."
+    }
+  ]
+}

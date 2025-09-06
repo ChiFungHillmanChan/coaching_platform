@@ -1,0 +1,36 @@
+{
+  "title": "Web & Computer Basics",
+  "description": "Understanding how computers and the internet work",
+  "slug": "web-computer-basics",
+  "category": "foundation",
+  "lastModified": "2024-01-01T00:00:00.000Z",
+  "blocks": [
+    {
+      "type": "heading",
+      "level": 1,
+      "content": "Web & Computer Basics"
+    },
+    {
+      "type": "text",
+      "content": "Before diving into web development, it's essential to understand the fundamental concepts of how computers and the internet work."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "content": "Computer Fundamentals"
+    },
+    {
+      "type": "text",
+      "content": "Learn about the basic components of a computer system and how they work together."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "content": "Internet Basics"
+    },
+    {
+      "type": "text",
+      "content": "Understand how data travels across the internet and the protocols that make it possible."
+    }
+  ]
+}

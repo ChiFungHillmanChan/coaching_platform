@@ -1,0 +1,327 @@
+{
+  "title": "歡迎使用AI教練",
+  "description": "用智能AI教練改變你嘅個人同專業發展",
+  "slug": "welcome",
+  "category": "welcome",
+  "lastModified": "2024-01-01T00:00:00.000Z",
+  "blocks": [
+    {
+      "type": "heading",
+      "level": 1,
+      "content": "歡迎使用AI教練"
+    },
+    {
+      "type": "text",
+      "content": "用我哋全面嘅AI教練平台改變你嘅個人同專業發展。我哋嘅智能系統會適應你獨特嘅需要，提供個人化指導嚟加速你嘅成長之路。"
+    },
+    {
+      "type": "callout",
+      "variant": "info",
+      "title": "🚀 開始使用",
+      "content": "用⌘K快速搜尋文檔，或者喺側邊欄探索唔同嘅部分。所有嘢都設計得好直觀同易用。"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "content": "主要功能"
+    },
+    {
+      "type": "list",
+      "items": [
+        "**AI驅動教練**: 學習同適應你模式嘅智能系統",
+        "**目標規劃**: 有智能里程碑建議嘅全面追蹤",
+        "**進度分析**: 實時監控同詳細見解",
+        "**習慣形成**: 基於證實行為心理學嘅工具",
+        "**背景代理**: 持續優化你嘅教練體驗"
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "success",
+      "title": "✨ 準備好開始未？",
+      "content": "你嘅AI教練之旅而家開始。探索核心部分嚟了解我哋嘅教練方法，或者深入文檔入面嘅具體功能。"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "content": "內容類型展示"
+    },
+    {
+      "type": "text",
+      "content": "呢個部分展示所有可用嘅內容類型，用嚟做全面嘅文檔樣式。"
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "content": "引用同引述"
+    },
+    {
+      "type": "blockquote",
+      "content": "種樹最好嘅時候係20年前，第二好嘅時候就係而家。",
+      "title": "中國諺語"
+    },
+    {
+      "type": "blockquote",
+      "content": "你嘅AI教練設計嚟適應你獨特嘅學習風格，提供隨住你進步而進化嘅個人化指導。",
+      "nested": true
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "content": "鏈接類型同導航"
+    },
+    {
+      "type": "link",
+      "title": "外部文檔",
+      "href": "https://docs.example.com",
+      "content": "訪問我哋嘅全面API文檔",
+      "description": "包含例子同最佳實踐嘅完整API參考"
+    },
+    {
+      "type": "text",
+      "content": "呢度係**內聯鏈接**喺文本入面嘅例子：訪問我哋嘅[GitHub存儲庫](https://github.com/example/repo)或者查看`內聯代碼`例子。"
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "content": "列表變化"
+    },
+    {
+      "type": "text",
+      "content": "**有序列表例子：**"
+    },
+    {
+      "type": "list",
+      "listType": "ordered",
+      "items": [
+        "首先，**設置你嘅賬戶**並完成入門過程",
+        "然後，使用我哋嘅`目標設定`嚮導*定義你嘅目標*",
+        "跟住，開始你嘅第一次個人化指導教練課程",
+        "最後，用我哋先進嘅分析儀表板追蹤你嘅進度"
+      ]
+    },
+    {
+      "type": "text",
+      "content": "**無序列表例子：**"
+    },
+    {
+      "type": "list",
+      "listType": "unordered",
+      "items": [
+        "📱 **手機應用**: 喺任何設備上訪問你嘅教練",
+        "🔔 **智能通知**: 喺最佳時間收到提醒",
+        "📊 **進度報告**: 包含可操作見解嘅每週總結",
+        "🤖 **AI洞察**: 基於你模式嘅個人化建議"
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "content": "視覺分隔符"
+    },
+    {
+      "type": "text",
+      "content": "使用水平線嚟視覺上分隔內容部分："
+    },
+    {
+      "type": "horizontal-rule"
+    },
+    {
+      "type": "text",
+      "content": "線上面嘅內容同下面嘅內容係視覺上分開嘅。"
+    },
+    {
+      "type": "line-break"
+    },
+    {
+      "type": "line-break"
+    },
+    {
+      "type": "text",
+      "content": "換行符喺段落之間創建間距，提高可讀性。"
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "content": "視頻演示"
+    },
+    {
+      "type": "video",
+      "src": "/demo/onboarding-flow.mp4",
+      "alt": "完整嘅入門流程演示，顯示賬戶設置、目標定義同第一次教練課程"
+    },
+    {
+      "type": "text",
+      "content": "視頻內容通過提供複雜過程嘅視覺演示嚟增強文檔。"
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "content": "代碼塊"
+    },
+    {
+      "type": "text",
+      "content": "代碼塊用嚟顯示同語法高亮程式碼："
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "content": "// AI教練系統初始化\nclass AICoach {\n  constructor(userProfile) {\n    this.profile = userProfile;\n    this.goals = [];\n    this.progress = new Map();\n  }\n\n  async generateRecommendations() {\n    const insights = await this.analyzeProgress();\n    return this.createPersonalizedPlan(insights);\n  }\n\n  trackGoal(goal) {\n    this.goals.push(goal);\n    console.log(`目標已添加: ${goal.title}`);\n  }\n}",
+      "title": "AI教練初始化例子"
+    },
+    {
+      "type": "code",
+      "language": "python",
+      "content": "# 習慣追蹤器實現\nclass HabitTracker:\n    def __init__(self, user_id):\n        self.user_id = user_id\n        self.habits = {}\n        self.streaks = {}\n    \n    def add_habit(self, habit_name, target_frequency):\n        self.habits[habit_name] = {\n            'target': target_frequency,\n            'completed': 0,\n            'created_at': datetime.now()\n        }\n        print(f\"習慣已創建: {habit_name}\")\n    \n    def complete_habit(self, habit_name):\n        if habit_name in self.habits:\n            self.habits[habit_name]['completed'] += 1\n            self.update_streak(habit_name)\n            return True\n        return False",
+      "title": "Python習慣追蹤器"
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "content": "終端機指令"
+    },
+    {
+      "type": "text",
+      "content": "終端機塊用嚟顯示命令行指令同輸出："
+    },
+    {
+      "type": "terminal",
+      "content": "$ npm install @ai-coach/core\n+ @ai-coach/core@2.1.0\nadded 15 packages in 3.2s\n\n$ npm run setup-coach\n> ai-coach@1.0.0 setup-coach\n> node scripts/initialize-coaching-system.js\n\n✅ 設置AI教練環境...\n✅ 創建用戶配置文件...\n✅ 初始化目標追蹤系統...\n✅ 連接進度分析引擎...\n\n🚀 AI教練系統準備就緒！",
+      "title": "安裝同設置指令"
+    },
+    {
+      "type": "terminal",
+      "content": "$ git clone https://github.com/ai-coach/platform.git\nCloning into 'platform'...\nremote: Enumerating objects: 1247, done.\nremote: Total 1247 (delta 0), reused 0 (delta 0)\nReceiving objects: 100% (1247/1247), 2.3 MiB | 1.8 MiB/s, done.\nResolving deltas: 100% (456/456), done.\n\n$ cd platform && npm install\n$ npm run dev\n\n> 開發服務器運行於 http://localhost:3000\n> AI教練平台準備就緒！",
+      "title": "項目設置"
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "content": "表格"
+    },
+    {
+      "type": "text",
+      "content": "表格用嚟組織同顯示結構化數據："
+    },
+    {
+      "type": "table",
+      "headers": ["功能", "基礎版", "專業版", "企業版"],
+      "rows": [
+        ["AI教練課程", "每月5次", "無限制", "無限制"],
+        ["目標追蹤", "3個目標", "10個目標", "無限制"],
+        ["進度分析", "基礎報告", "詳細分析", "深度洞察"],
+        ["習慣追蹤", "5個習慣", "20個習慣", "無限制"],
+        ["客製化", "基本設定", "進階客製", "完全客製"],
+        ["支援", "電郵支援", "優先支援", "24/7專屬支援"]
+      ],
+      "title": "AI教練平台定價比較"
+    },
+    {
+      "type": "table",
+      "headers": ["階段", "持續時間", "主要活動", "預期成果"],
+      "rows": [
+        ["入門", "第1-2週", "賬戶設置、目標定義", "個人化配置文件"],
+        ["建立習慣", "第3-8週", "日常教練課程、習慣形成", "穩定嘅例行公事"],
+        ["加速成長", "第9-16週", "進階技巧、挑戰設定", "顯著技能提升"],
+        ["精通", "第17-24週", "自主學習、導師角色", "達成主要目標"],
+        ["持續優化", "持續進行", "系統微調、新目標", "長期成功維持"]
+      ],
+      "title": "AI教練發展階段"
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "content": "任務清單"
+    },
+    {
+      "type": "text",
+      "content": "任務清單幫助追蹤完成進度同管理待辦事項："
+    },
+    {
+      "type": "task-list",
+      "title": "AI教練入門檢查清單",
+      "items": [
+        {
+          "content": "創建你嘅AI教練賬戶",
+          "completed": true
+        },
+        {
+          "content": "完成初始評估問卷",
+          "completed": true
+        },
+        {
+          "content": "設定你嘅前三個主要目標",
+          "completed": false
+        },
+        {
+          "content": "選擇首選嘅教練時間安排",
+          "completed": false
+        },
+        {
+          "content": "連接你嘅生產力工具（可選）",
+          "completed": false
+        },
+        {
+          "content": "完成第一次AI教練課程",
+          "completed": false
+        }
+      ]
+    },
+    {
+      "type": "task-list",
+      "title": "每週進度檢查",
+      "items": [
+        {
+          "content": "檢查上週目標完成情況",
+          "completed": true
+        },
+        {
+          "content": "分析進度報告同AI建議",
+          "completed": true
+        },
+        {
+          "content": "調整下週嘅教練重點",
+          "completed": false
+        },
+        {
+          "content": "安排三次AI教練課程",
+          "completed": false
+        },
+        {
+          "content": "更新習慣追蹤設定",
+          "completed": false
+        }
+      ]
+    },
+    {
+      "type": "task-list",
+      "title": "進階功能探索",
+      "items": [
+        {
+          "content": "🎯 設置智能目標里程碑",
+          "completed": false
+        },
+        {
+          "content": "📊 啟用進階分析儀表板",
+          "completed": false
+        },
+        {
+          "content": "🤖 配置背景AI代理",
+          "completed": false
+        },
+        {
+          "content": "📱 下載同設置手機應用",
+          "completed": false
+        },
+        {
+          "content": "🔄 整合第三方工具",
+          "completed": false
+        },
+        {
+          "content": "👥 邀請問責夥伴（可選）",
+          "completed": false
+        }
+      ]
+    }
+  ]
+}
