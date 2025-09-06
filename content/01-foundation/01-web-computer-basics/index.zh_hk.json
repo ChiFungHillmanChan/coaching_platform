@@ -10,7 +10,7 @@
     },
     {
       "type": "text",
-      "content": "喺深入網頁開發之前，理解電腦同互聯網嘅基本原理係必須嘅。呢啲基礎知識可以幫助你更有效率咁掌握網站設計同開發。"
+      "content": "Vibe Coding講求網頁開發，係開發前，理解電腦同互聯網嘅基本原理好必須。呢啲基礎知識可以幫助你更有效率咁掌握網站設計同開發。"
     },
     {
       "type": "horizontal-rule"
@@ -21,7 +21,7 @@
     {
       "type": "heading",
       "level": 2,
-      "content": "電腦基礎 (Computer Basics)"
+      "content": "電腦基礎（簡單講解版）"
     },
     {
       "type": "list",
@@ -38,6 +38,12 @@
       "content": "了解電腦硬件同作業系統嘅協同運作，可以幫助你掌握網站開發所需嘅基礎環境。"
     },
     {
+      "type": "image",
+      "src": "/assets/01-foundation/01-web-computer-basics/CRSO.png",
+      "alt": "電腦硬件組成",
+      "caption": "**電腦硬件組成**：CPU、RAM、Storage、OS。"
+    },
+    {
       "type": "horizontal-rule"
     },
     {
@@ -46,7 +52,7 @@
     {
       "type": "heading",
       "level": 2,
-      "content": "互聯網基礎 (Internet Basics)"
+      "content": "互聯網基礎"
     },
     {
       "type": "list",
@@ -60,7 +66,7 @@
     },
     {
       "type": "text",
-      "content": "互聯網基礎知識幫助你理解瀏覽器點樣連接伺服器、獲取數據同顯示內容，係網站開發不可或缺嘅背景知識。"
+      "content": "互聯網基礎知識幫助你理解瀏覽器點樣連接伺服器、獲取數據同顯示內容，係網站開發不可或缺嘅背景知識。點解要知道呢啲識，因為vibe coding set up都一定會用到呢啲技術。"
     },
     {
       "type": "horizontal-rule"

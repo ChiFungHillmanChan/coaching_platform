@@ -28,6 +28,12 @@
       ]
     },
     {
+      "type": "link",
+      "title": "外部文檔",
+      "href": "https://pages.github.com",
+      "content": "GitHub Pages 官方網站"
+    },
+    {
       "type": "blockquote",
       "content": "一個好重要嘅工具，比你搞唔掂返轉頭用。"
     },

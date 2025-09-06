@@ -12,13 +12,21 @@
     "searchDocumentation": "Search documentation",
     "toggleMenu": "Toggle navigation menu",
     "toggleDarkMode": "Toggle dark mode",
-    "websiteLink": "Visit Website",
-    "brandName": "AI & Web Design Learning Manual"
+    "websiteLink": "My Personal Website",
+    "brandName": "AI & Web Design Learning Manual",
+    "quickActions": "Quick Actions",
+    "settings": "Settings",
+    "language": "Language",
+    "theme": "Theme",
+    "light": "Light",
+    "dark": "Dark"
   },
   "common": {
     "loading": "Loading...",
     "error": "Error",
-    "notFound": "Page not found"
+    "notFound": "Page not found",
+    "previous": "Previous",
+    "next": "Next"
   },
   "emailSubscription": {
     "title": "Stay Updated",

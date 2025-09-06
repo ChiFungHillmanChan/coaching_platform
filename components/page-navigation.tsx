@@ -3,6 +3,7 @@
 import { ChevronLeft, ChevronRight } from 'lucide-react'
 import { Link } from '@/routing'
 import { type NavItem } from '@/../../lib/nav'
+import { useTranslations } from 'next-intl'
 
 interface PageNavigationProps {
   previous: NavItem | null
@@ -11,6 +12,8 @@ interface PageNavigationProps {
 }
 
 export function PageNavigation({ previous, next, className }: PageNavigationProps) {
+  const t = useTranslations('common')
+  
   // Don't render if no navigation items
   if (!previous && !next) {
     return null
@@ -27,7 +30,7 @@ export function PageNavigation({ previous, next, className }: PageNavigationProp
           >
             <ChevronLeft className="h-4 w-4 group-hover:-translate-x-1 transition-transform" />
             <div className="text-left">
-              <div className="text-xs text-muted-foreground">Previous</div>
+              <div className="text-xs text-muted-foreground">{t('previous')}</div>
               <div className="font-medium">{previous.label}</div>
             </div>
           </Link>
@@ -42,7 +45,7 @@ export function PageNavigation({ previous, next, className }: PageNavigationProp
             className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors group"
           >
             <div className="text-right">
-              <div className="text-xs text-muted-foreground">Next</div>
+              <div className="text-xs text-muted-foreground">{t('next')}</div>
               <div className="font-medium">{next.label}</div>
             </div>
             <ChevronRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />

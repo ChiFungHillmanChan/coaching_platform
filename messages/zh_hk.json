@@ -12,13 +12,21 @@
     "searchDocumentation": "搜尋文檔",
     "toggleMenu": "切換導航選單",
     "toggleDarkMode": "切換深色模式",
-    "websiteLink": "訪問網站",
-    "brandName": "AI 與網頁設計學習手冊"
+    "websiteLink": "我的網站",
+    "brandName": "AI 與網頁設計學習手冊",
+    "quickActions": "快捷操作",
+    "settings": "設定",
+    "language": "語言",
+    "theme": "主題",
+    "light": "淺色",
+    "dark": "深色"
   },
   "common": {
     "loading": "載入中...",
     "error": "錯誤",
-    "notFound": "搵唔到頁面"
+    "notFound": "搵唔到頁面",
+    "previous": "上一頁",
+    "next": "下一頁"
   },
   "emailSubscription": {
     "title": "保持更新",
@@ -28,7 +36,7 @@
     "subscribing": "訂閱中...",
     "maybeLater": "稍後再說",
     "closePopup": "關閉彈窗",
-    "successTitle": "訂閱成功！",
+    "successTitle": "閱成功！",
     "successMessage": "感謝您的訂閱。新內容可用時我們會通知您。",
     "errorGeneric": "訂閱失敗"
   }

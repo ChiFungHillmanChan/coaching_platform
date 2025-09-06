@@ -25,6 +25,7 @@ interface TopBarProps {
 export function TopBar({ onMenuClick, onSidebarToggle, isSidebarOpen, className, isHamburgerOpen, onHamburgerToggle, onShowSubscriptionPopup }: TopBarProps) {
   const locale = useLocale()
   const t = useTranslations('ui')
+  const tEmail = useTranslations('emailSubscription')
   const [emailValue, setEmailValue] = React.useState('')
   const [isSubscribing, setIsSubscribing] = React.useState(false)
   const [subscriptionMessage, setSubscriptionMessage] = React.useState('')
@@ -116,14 +117,14 @@ export function TopBar({ onMenuClick, onSidebarToggle, isSidebarOpen, className,
       })
 
       if (response.ok) {
-        setSubscriptionMessage('Successfully subscribed!')
+        setSubscriptionMessage(tEmail('successMessage'))
         setEmailValue('')
       } else {
         const data = await response.json()
-        setSubscriptionMessage(data.error || 'Subscription failed')
+        setSubscriptionMessage(data.error || tEmail('errorGeneric'))
       }
     } catch (error) {
-      setSubscriptionMessage('Network error occurred')
+      setSubscriptionMessage(tEmail('errorGeneric'))
     } finally {
       setIsSubscribing(false)
       // Clear message after 3 seconds
@@ -170,12 +171,12 @@ export function TopBar({ onMenuClick, onSidebarToggle, isSidebarOpen, className,
             <Input
               id="email-input"
               type="email"
-              placeholder="Subscribe to newsletter..."
+              placeholder={tEmail('placeholder')}
               className="pl-9 pr-16"
               value={emailValue}
               onChange={(e) => setEmailValue(e.target.value)}
               disabled={isSubscribing}
-              aria-label="Subscribe to newsletter"
+              aria-label={tEmail('placeholder')}
             />
             <Button
               type="submit"
@@ -183,13 +184,13 @@ export function TopBar({ onMenuClick, onSidebarToggle, isSidebarOpen, className,
               className="absolute right-1 top-1 h-8 px-3"
               disabled={isSubscribing || !emailValue.trim()}
             >
-              {isSubscribing ? '...' : 'Subscribe'}
+              {isSubscribing ? tEmail('subscribing') : tEmail('subscribe')}
             </Button>
           </form>
           {subscriptionMessage && (
             <div className={cn(
               "absolute top-12 left-0 right-0 px-3 py-2 text-xs rounded-md shadow-md z-10",
-              subscriptionMessage.includes('Successfully') 
+              subscriptionMessage.includes(tEmail('successMessage')) 
                 ? "bg-green-50 text-green-700 border border-green-200"
                 : "bg-red-50 text-red-700 border border-red-200"
             )}>
@@ -243,7 +244,7 @@ export function TopBar({ onMenuClick, onSidebarToggle, isSidebarOpen, className,
           <div className="p-4">
             <div className="space-y-4">
               <div className="space-y-2">
-                <h3 className="text-sm font-medium text-muted-foreground">Quick Actions</h3>
+                <h3 className="text-sm font-medium text-muted-foreground">{t('quickActions')}</h3>
                 
                 <Button
                   variant="ghost"
@@ -255,7 +256,7 @@ export function TopBar({ onMenuClick, onSidebarToggle, isSidebarOpen, className,
                   }}
                 >
                   <Mail className="h-4 w-4 mr-3" />
-                  Subscribe to Newsletter
+                  {tEmail('subscribe')}
                 </Button>
                 
                 <Button
@@ -271,13 +272,13 @@ export function TopBar({ onMenuClick, onSidebarToggle, isSidebarOpen, className,
                     onClick={() => onHamburgerToggle?.()}
                   >
                     <ExternalLink className="h-4 w-4 mr-3" />
-                    Visit Website
+                    {t('websiteLink')}
                   </a>
                 </Button>
               </div>
               
               <div className="border-t pt-4 space-y-2">
-                <h3 className="text-sm font-medium text-muted-foreground mb-3">Settings</h3>
+                <h3 className="text-sm font-medium text-muted-foreground mb-3">{t('settings')}</h3>
                 
                 <div className="space-y-2">
                   <Button
@@ -288,7 +289,7 @@ export function TopBar({ onMenuClick, onSidebarToggle, isSidebarOpen, className,
                   >
                     <div className="flex items-center gap-2">
                       <Globe className="h-4 w-4 text-muted-foreground" />
-                      <span className="text-sm">Language</span>
+                      <span className="text-sm">{t('language')}</span>
                     </div>
                     <div className="flex items-center gap-1">
                       <span className="text-sm">{currentLanguage.flag}</span>
@@ -336,7 +337,7 @@ export function TopBar({ onMenuClick, onSidebarToggle, isSidebarOpen, className,
                 >
                   <div className="flex items-center gap-2">
                     <Palette className="h-4 w-4 text-muted-foreground" />
-                    <span className="text-sm">Theme</span>
+                    <span className="text-sm">{t('theme')}</span>
                   </div>
                   <div className="flex items-center gap-1">
                     {currentTheme === 'dark' ? (
@@ -345,7 +346,7 @@ export function TopBar({ onMenuClick, onSidebarToggle, isSidebarOpen, className,
                       <Sun className="h-4 w-4" />
                     )}
                     <span className="text-xs text-muted-foreground hidden sm:inline">
-                      {currentTheme === 'dark' ? 'Dark' : 'Light'}
+                      {currentTheme === 'dark' ? t('dark') : t('light')}
                     </span>
                   </div>
                 </Button>

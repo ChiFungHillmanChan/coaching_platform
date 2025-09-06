@@ -28,7 +28,7 @@
       "listType": "unordered",
       "items": [
         "**定義**: 用工具追蹤代碼歷史，方便協作與回溯。",
-        "**常用工具**: Git, GitHub, GitLab, Bitbucket。",
+        "**常用工具**: Git, GitHub, GitLab。",
         "**好處**: 支援多人同時開發、快速找到問題版本、避免代碼遺失。",
         "**學習重點**: Git Commit Convention、Branch Workflow。"
       ]
@@ -37,7 +37,7 @@
       "type": "callout",
       "variant": "info",
       "title": "比喻",
-      "content": "版本控制就好似『時光機』，隨時可以返到舊版本，避免全盤崩潰。"
+      "content": "版本控制就好似『時光機』，隨時可以返到舊版本，避免改到網站崩潰，例如bug。"
     },
     {
       "type": "horizontal-rule"
