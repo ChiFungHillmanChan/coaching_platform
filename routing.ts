@@ -1,6 +1,9 @@
 import {defineRouting} from 'next-intl/routing';
 import {createNavigation} from 'next-intl/navigation';
 
+// Check if we're in a Vercel environment
+const isVercel = process.env.VERCEL === '1';
+
 // Load config dynamically to avoid fs issues in client components  
 let supportedLocales: string[] = ['en', 'zh_hk'];
 let defaultLocale: string = 'en';
@@ -8,14 +11,25 @@ let defaultLocale: string = 'en';
 // Try to load from server config if available (Node.js environment only)
 if (typeof window === 'undefined' && typeof process !== 'undefined') {
   try {
-    const fs = eval('require("fs")');
-    const path = eval('require("path")');
-    const configPath = path.join(process.cwd(), 'config', 'app.json');
-    if (fs.existsSync(configPath)) {
-      const configContent = fs.readFileSync(configPath, 'utf-8');
-      const config = JSON.parse(configContent);
-      supportedLocales = config.app.supportedLocales || supportedLocales;
-      defaultLocale = config.app.defaultLocale || defaultLocale;
+    if (isVercel) {
+      // In Vercel, use dynamic import instead of fs
+      try {
+        const config = require('../config/app.json');
+        supportedLocales = config.app.supportedLocales || supportedLocales;
+        defaultLocale = config.app.defaultLocale || defaultLocale;
+      } catch (error) {
+        // Fallback to hardcoded values
+      }
+    } else {
+      const fs = eval('require("fs")');
+      const path = eval('require("path")');
+      const configPath = path.join(process.cwd(), 'config', 'app.json');
+      if (fs.existsSync(configPath)) {
+        const configContent = fs.readFileSync(configPath, 'utf-8');
+        const config = JSON.parse(configContent);
+        supportedLocales = config.app.supportedLocales || supportedLocales;
+        defaultLocale = config.app.defaultLocale || defaultLocale;
+      }
     }
   } catch (error) {
     // Fallback to hardcoded values

@@ -2,6 +2,9 @@ import { NextRequest, NextResponse } from 'next/server'
 import { readFileSync, existsSync } from 'fs'
 import { join } from 'path'
 
+// Check if we're in a Vercel environment
+const isVercel = process.env.VERCEL === '1';
+
 const SUBSCRIBERS_FILE = join(process.cwd(), '.local-data', 'subscribers.json')
 const NEWSLETTER_LOG_FILE = join(process.cwd(), '.local-data', 'newsletter-log.json')
 
@@ -19,7 +22,15 @@ interface NewsletterLog {
   recipientCount: number
 }
 
+// In-memory stores for Vercel
+let inMemorySubscribers: Subscriber[] = []
+let inMemoryNewsletterLogs: NewsletterLog[] = []
+
 function getSubscribers(): Subscriber[] {
+  if (isVercel) {
+    return inMemorySubscribers
+  }
+  
   if (!existsSync(SUBSCRIBERS_FILE)) {
     return []
   }
@@ -34,6 +45,11 @@ function getSubscribers(): Subscriber[] {
 }
 
 function logNewsletter(log: NewsletterLog) {
+  if (isVercel) {
+    inMemoryNewsletterLogs.push(log)
+    return
+  }
+  
   const logFile = NEWSLETTER_LOG_FILE
   let logs: NewsletterLog[] = []
   
@@ -180,6 +196,12 @@ export async function POST(request: NextRequest) {
 
 export async function GET() {
   try {
+    if (isVercel) {
+      return NextResponse.json({ 
+        newsletters: inMemoryNewsletterLogs.sort((a: NewsletterLog, b: NewsletterLog) => new Date(b.sentAt).getTime() - new Date(a.sentAt).getTime())
+      })
+    }
+    
     const logFile = NEWSLETTER_LOG_FILE
     
     if (!existsSync(logFile)) {

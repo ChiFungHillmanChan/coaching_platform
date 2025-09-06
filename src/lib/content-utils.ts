@@ -1,6 +1,9 @@
 import fs from 'fs';
 import path from 'path';
 
+// Check if we're in a Vercel environment
+const isVercel = process.env.VERCEL === '1';
+
 export interface NavigationItem {
   name: string;
   href: string;
@@ -26,6 +29,22 @@ interface NavigationData {
 // Load navigation configuration from JSON files
 function loadNavigationConfig(locale: string): NavigationData | null {
   try {
+    // In Vercel, we need to use dynamic imports instead of fs
+    if (isVercel) {
+      try {
+        // Try to import the navigation file dynamically
+        const navModule = require(`../../../content/sidebar/navigation.${locale}.json`);
+        return navModule;
+      } catch {
+        try {
+          const navModule = require(`../../../content/sidebar/navigation.en.json`);
+          return navModule;
+        } catch {
+          return null;
+        }
+      }
+    }
+    
     const navigationPath = path.join(process.cwd(), 'content', 'sidebar', `navigation.${locale}.json`);
     const fallbackPath = path.join(process.cwd(), 'content', 'sidebar', 'navigation.en.json');
     const filePath = fs.existsSync(navigationPath) ? navigationPath : fallbackPath;
@@ -74,6 +93,19 @@ function getSubsectionTitle(sectionId: string, subsectionId: string, locale: str
 }
 
 function getContentTitle(contentPath: string, section: string, subsection?: string, locale: string = 'en'): string {
+  // In Vercel, we can't use fs operations, so we'll use navigation config as primary source
+  if (isVercel) {
+    if (subsection) {
+      const subsectionTitle = getSubsectionTitle(section, subsection, locale);
+      if (subsectionTitle) return subsectionTitle;
+    }
+    
+    const sectionTitle = getSectionTitle(section, locale);
+    if (sectionTitle) return sectionTitle;
+    
+    return section;
+  }
+  
   // Check for standardized JSON files first
   const jsonFiles = [`index.${locale}.json`, 'index.en.json', 'index.json'];
   for (const jsonFile of jsonFiles) {
@@ -118,6 +150,11 @@ function getContentTitle(contentPath: string, section: string, subsection?: stri
 
 function getItemId(itemName: string, locale: string, basePath: string): number | null {
   try {
+    // In Vercel, we can't use fs operations, so return null
+    if (isVercel) {
+      return null;
+    }
+    
     const itemPath = path.join(process.cwd(), 'content', basePath, itemName);
     
     // Try locale-specific file first, then fallback to English
@@ -152,6 +189,38 @@ export function getAvailablePages(locale: string = 'en', basePath: string = ''):
   // Check cache first
   if (contentCache.has(cacheKey)) {
     return contentCache.get(cacheKey)!
+  }
+
+  // In Vercel, we can't use fs operations, so we'll use navigation config
+  if (isVercel) {
+    const navConfig = loadNavigationConfig(locale);
+    if (!navConfig) {
+      contentCache.set(cacheKey, []);
+      return [];
+    }
+    
+    const items: NavigationItem[] = [];
+    const navigationOrder = getNavigationOrder(locale);
+    
+    for (const sectionId of navigationOrder) {
+      const section = navConfig.sections.find(s => s.id === sectionId);
+      if (!section) continue;
+      
+      const href = basePath ? `/${basePath}/${sectionId}` : `/${sectionId}`;
+      const children = section.children ? section.children.map(child => ({
+        name: child.title,
+        href: `${href}/${child.id}`
+      })) : undefined;
+      
+      items.push({
+        name: section.title,
+        href: href,
+        children: children
+      });
+    }
+    
+    contentCache.set(cacheKey, items);
+    return items;
   }
 
   const contentDir = path.join(process.cwd(), 'content', basePath);
@@ -251,6 +320,31 @@ export function getAvailablePages(locale: string = 'en', basePath: string = ''):
 
 export function getPageContent(slug: string[], locale: string) {
   try {
+    // In Vercel, we need to use dynamic imports instead of fs
+    if (isVercel) {
+      try {
+        // Try to import the content file dynamically
+        const contentPath = slug.join('/');
+        const localeFile = `${slug[slug.length - 1]}.${locale}.json`;
+        const defaultFile = `${slug[slug.length - 1]}.en.json`;
+        
+        try {
+          const contentModule = require(`../../../content/${contentPath}/${localeFile}`);
+          return contentModule;
+        } catch {
+          try {
+            const contentModule = require(`../../../content/${contentPath}/${defaultFile}`);
+            return contentModule;
+          } catch {
+            return null;
+          }
+        }
+      } catch (error) {
+        console.error('Error loading content in Vercel:', error);
+        return null;
+      }
+    }
+    
     const contentPath = path.join(process.cwd(), 'content', ...slug);
     
     // Try locale-specific file first, then fallback to English

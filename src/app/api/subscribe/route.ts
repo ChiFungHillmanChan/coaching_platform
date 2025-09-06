@@ -2,6 +2,9 @@ import { NextRequest, NextResponse } from 'next/server'
 import { writeFileSync, readFileSync, existsSync } from 'fs'
 import { join } from 'path'
 
+// Check if we're in a Vercel environment
+const isVercel = process.env.VERCEL === '1';
+
 const SUBSCRIBERS_FILE = join(process.cwd(), '.local-data', 'subscribers.json')
 
 interface Subscriber {
@@ -10,7 +13,12 @@ interface Subscriber {
   isActive: boolean
 }
 
+// In-memory store for Vercel (since file system is read-only)
+let inMemorySubscribers: Subscriber[] = []
+
 function ensureDataDirectory() {
+  if (isVercel) return; // Skip in Vercel
+  
   const dataDir = join(process.cwd(), '.local-data')
   if (!existsSync(dataDir)) {
     require('fs').mkdirSync(dataDir, { recursive: true })
@@ -18,6 +26,10 @@ function ensureDataDirectory() {
 }
 
 function getSubscribers(): Subscriber[] {
+  if (isVercel) {
+    return inMemorySubscribers
+  }
+  
   ensureDataDirectory()
   
   if (!existsSync(SUBSCRIBERS_FILE)) {
@@ -34,6 +46,11 @@ function getSubscribers(): Subscriber[] {
 }
 
 function saveSubscribers(subscribers: Subscriber[]) {
+  if (isVercel) {
+    inMemorySubscribers = subscribers
+    return
+  }
+  
   ensureDataDirectory()
   
   try {
