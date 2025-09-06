@@ -33,11 +33,11 @@ function loadNavigationConfig(locale: string): NavigationData | null {
     if (isVercel) {
       try {
         // Try to import the navigation file dynamically
-        const navModule = require(`../../../content/sidebar/navigation.${locale}.json`);
+        const navModule = require(`../../content/sidebar/navigation.${locale}.json`);
         return navModule;
       } catch {
         try {
-          const navModule = require(`../../../content/sidebar/navigation.en.json`);
+          const navModule = require(`../../content/sidebar/navigation.en.json`);
           return navModule;
         } catch {
           return null;
@@ -329,11 +329,11 @@ export function getPageContent(slug: string[], locale: string) {
         const defaultFile = `${slug[slug.length - 1]}.en.json`;
         
         try {
-          const contentModule = require(`../../../content/${contentPath}/${localeFile}`);
+          const contentModule = require(`../../content/${contentPath}/${localeFile}`);
           return contentModule;
         } catch {
           try {
-            const contentModule = require(`../../../content/${contentPath}/${defaultFile}`);
+            const contentModule = require(`../../content/${contentPath}/${defaultFile}`);
             return contentModule;
           } catch {
             return null;

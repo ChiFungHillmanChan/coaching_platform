@@ -13,7 +13,7 @@ export function getServerAppConfig(): AppConfig {
       // In Vercel, we need to use dynamic imports instead of fs
       if (isVercel) {
         try {
-          const configModule = require('../../../config/app.json');
+          const configModule = require('../../config/app.json');
           config = configModule as AppConfig;
         } catch (error) {
           console.error('Failed to load app config in Vercel:', error);

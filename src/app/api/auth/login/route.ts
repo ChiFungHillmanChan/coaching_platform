@@ -2,6 +2,9 @@ import { NextRequest, NextResponse } from 'next/server'
 import { cookies } from 'next/headers'
 import { validateAdminCredentials, createSession, SESSION_COOKIE_NAME } from '@/lib/auth-utils'
 
+// Force dynamic rendering
+export const dynamic = 'force-dynamic'
+
 function getAuthorizedEmails(): string[] {
   // Get authorized emails from Vercel environment variables
   const authorizedEmailsEnv = process.env.AUTHORIZED_EMAILS

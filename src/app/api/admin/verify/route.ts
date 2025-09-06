@@ -4,6 +4,9 @@ import { getUserFromSession } from '@/lib/auth-utils'
 
 const SESSION_COOKIE_NAME = 'coaching-platform-session'
 
+// Force dynamic rendering
+export const dynamic = 'force-dynamic'
+
 export async function GET() {
   try {
     const cookieStore = cookies()

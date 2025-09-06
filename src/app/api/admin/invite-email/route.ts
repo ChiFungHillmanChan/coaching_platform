@@ -2,6 +2,12 @@ import { NextRequest, NextResponse } from 'next/server'
 import { writeFileSync, readFileSync, existsSync } from 'fs'
 import { join } from 'path'
 
+// Force dynamic rendering
+export const dynamic = 'force-dynamic'
+
+// Check if we're in a Vercel environment
+const isVercel = process.env.VERCEL === '1';
+
 const INVITED_EMAILS_FILE = join(process.cwd(), '.local-data', 'invited-emails.json')
 
 interface InvitedEmail {
@@ -11,7 +17,12 @@ interface InvitedEmail {
   isActive: boolean
 }
 
+// In-memory store for Vercel
+let inMemoryInvitedEmails: InvitedEmail[] = []
+
 function ensureDataDirectory() {
+  if (isVercel) return; // Skip in Vercel
+  
   const dataDir = join(process.cwd(), '.local-data')
   if (!existsSync(dataDir)) {
     require('fs').mkdirSync(dataDir, { recursive: true })
@@ -19,6 +30,10 @@ function ensureDataDirectory() {
 }
 
 function getInvitedEmails(): InvitedEmail[] {
+  if (isVercel) {
+    return inMemoryInvitedEmails
+  }
+  
   ensureDataDirectory()
   
   if (!existsSync(INVITED_EMAILS_FILE)) {
@@ -35,6 +50,11 @@ function getInvitedEmails(): InvitedEmail[] {
 }
 
 function saveInvitedEmails(emails: InvitedEmail[]) {
+  if (isVercel) {
+    inMemoryInvitedEmails = emails
+    return
+  }
+  
   ensureDataDirectory()
   
   try {

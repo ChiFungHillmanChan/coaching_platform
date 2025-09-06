@@ -5,6 +5,9 @@ import { join } from 'path'
 // Check if we're in a Vercel environment
 const isVercel = process.env.VERCEL === '1';
 
+// Force dynamic rendering
+export const dynamic = 'force-dynamic'
+
 const SUBSCRIBERS_FILE = join(process.cwd(), '.local-data', 'subscribers.json')
 
 interface Subscriber {
