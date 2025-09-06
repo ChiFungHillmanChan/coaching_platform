@@ -8,6 +8,9 @@ interface PageProps {
   }
 }
 
+// Force dynamic rendering due to file system operations
+export const dynamic = 'force-dynamic'
+
 export default function LocalePage({ params }: PageProps) {
   // Show welcome page content directly
   const content = getPageContent(['welcome', 'welcome'], params.locale)

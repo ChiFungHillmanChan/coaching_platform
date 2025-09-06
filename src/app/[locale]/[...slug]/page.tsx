@@ -217,6 +217,9 @@ export default async function DynamicPage({ params }: PageProps) {
   );
 }
 
+// Force dynamic rendering due to file system operations
+export const dynamic = 'force-dynamic'
+
 export async function generateStaticParams() {
   // This function would generate all possible static params
   // For now, we'll let Next.js handle this dynamically
