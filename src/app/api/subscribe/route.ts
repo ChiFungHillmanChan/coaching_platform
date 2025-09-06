@@ -114,6 +114,28 @@ export async function POST(request: NextRequest) {
     
     saveSubscribers(subscribers)
     
+    // Send welcome email if Resend API key is configured
+    if (process.env.RESEND_API_KEY) {
+      try {
+        const welcomeHtml = getWelcomeEmailTemplate(normalizedEmail)
+        const emailResult = await sendEmail({
+          to: normalizedEmail,
+          subject: 'Welcome to AI Coaching Platform! 🎉',
+          html: welcomeHtml,
+          from: process.env.EMAIL_FROM || 'AI Coaching Platform <noreply@yourdomain.com>'
+        })
+        
+        if (emailResult.success) {
+          console.log('Welcome email sent to:', normalizedEmail)
+        } else {
+          console.error('Failed to send welcome email:', emailResult.error)
+        }
+      } catch (emailError) {
+        console.error('Error sending welcome email:', emailError)
+        // Don't fail the subscription if email fails
+      }
+    }
+    
     return NextResponse.json(
       { message: 'Successfully subscribed to updates' },
       { status: 200 }

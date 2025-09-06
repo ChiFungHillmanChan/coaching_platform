@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { readFileSync, existsSync } from 'fs'
 import { join } from 'path'
+import { sendEmail, getNewsletterTemplate } from '@/lib/email'
 
 // Check if we're in a Vercel environment
 const isVercel = process.env.VERCEL === '1';
@@ -123,11 +124,35 @@ function generateEmailTemplate(contentTitle: string, contentUrl: string): string
 
 export async function POST(request: NextRequest) {
   try {
-    const { contentTitle, contentUrl, subject } = await request.json()
-    
-    if (!contentTitle || !contentUrl) {
+    // Check if Resend API key is configured
+    if (!process.env.RESEND_API_KEY) {
       return NextResponse.json(
-        { error: 'Content title and URL are required' },
+        { error: 'Email service not configured. Please add RESEND_API_KEY to your environment variables.' },
+        { status: 500 }
+      )
+    }
+
+    const { contentTitle, contentUrl, subject, sections } = await request.json()
+    
+    // Support both old format (contentTitle, contentUrl) and new format (sections)
+    let newsletterSections
+    let emailSubject
+    
+    if (sections && Array.isArray(sections)) {
+      // New format with custom sections
+      newsletterSections = sections
+      emailSubject = subject || 'New Update from AI Coaching Platform'
+    } else if (contentTitle && contentUrl) {
+      // Legacy format - convert to sections
+      newsletterSections = [{
+        title: 'New Content Available',
+        content: `Check out our latest update: ${contentTitle}`,
+        link: contentUrl.startsWith('http') ? contentUrl : `${process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000'}${contentUrl}`
+      }]
+      emailSubject = subject || `New Content Available: ${contentTitle}`
+    } else {
+      return NextResponse.json(
+        { error: 'Either provide sections array or contentTitle/contentUrl' },
         { status: 400 }
       )
     }
@@ -141,51 +166,65 @@ export async function POST(request: NextRequest) {
       )
     }
     
-    const emailSubject = subject || `New Content Available: ${contentTitle}`
-    const emailTemplate = generateEmailTemplate(contentTitle, contentUrl)
+    console.log(`📧 Sending newsletter to ${subscribers.length} subscribers`)
+    console.log(`📧 Subject: ${emailSubject}`)
     
-    // In a real implementation, you would integrate with an email service like:
-    // - SendGrid
-    // - Mailgun  
-    // - AWS SES
-    // - Resend
+    // Send emails in batches to avoid rate limits
+    const batchSize = 10
+    const results = []
     
-    // For now, we'll simulate sending and log the details
-    console.log('📧 Newsletter would be sent to:', subscribers.length, 'subscribers')
-    console.log('📧 Subject:', emailSubject)
-    console.log('📧 Content Title:', contentTitle)
-    console.log('📧 Content URL:', contentUrl)
+    for (let i = 0; i < subscribers.length; i += batchSize) {
+      const batch = subscribers.slice(i, i + batchSize)
+      const batchPromises = batch.map(async (subscriber) => {
+        const newsletterHtml = getNewsletterTemplate({
+          subject: emailSubject,
+          headline: emailSubject,
+          sections: newsletterSections,
+          subscriberEmail: subscriber.email
+        })
+        
+        return sendEmail({
+          to: subscriber.email,
+          subject: emailSubject,
+          html: newsletterHtml,
+          from: process.env.EMAIL_FROM || 'AI Coaching Platform <newsletter@yourdomain.com>'
+        })
+      })
+      
+      const batchResults = await Promise.allSettled(batchPromises)
+      results.push(...batchResults)
+      
+      // Wait between batches to respect rate limits
+      if (i + batchSize < subscribers.length) {
+        await new Promise(resolve => setTimeout(resolve, 1000))
+      }
+    }
+    
+    const successful = results.filter(result => 
+      result.status === 'fulfilled' && result.value.success
+    ).length
+    
+    const failed = results.length - successful
+    
+    console.log(`Newsletter sent: ${successful} successful, ${failed} failed`)
     
     // Log the newsletter sending
     logNewsletter({
       sentAt: new Date().toISOString(),
       subject: emailSubject,
-      contentTitle,
-      contentUrl,
-      recipientCount: subscribers.length
+      contentTitle: contentTitle || emailSubject,
+      contentUrl: contentUrl || '',
+      recipientCount: successful
     })
     
-    // TODO: Replace with actual email sending logic
-    // Example with a service like Resend:
-    /*
-    const { Resend } = require('resend')
-    const resend = new Resend(process.env.RESEND_API_KEY)
-    
-    for (const subscriber of subscribers) {
-      await resend.emails.send({
-        from: 'noreply@yourdomain.com',
-        to: subscriber.email,
-        subject: emailSubject,
-        html: emailTemplate
-      })
-    }
-    */
-    
     return NextResponse.json({
-      message: `Newsletter prepared for ${subscribers.length} subscribers`,
-      recipientCount: subscribers.length,
-      subject: emailSubject,
-      note: 'Email sending is currently simulated. Integrate with an email service to actually send emails.'
+      message: 'Newsletter sent successfully',
+      stats: {
+        totalSubscribers: subscribers.length,
+        successful,
+        failed
+      },
+      subject: emailSubject
     })
     
   } catch (error) {
