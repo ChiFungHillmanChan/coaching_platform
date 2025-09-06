@@ -318,6 +318,37 @@ export function getAvailablePages(locale: string = 'en', basePath: string = ''):
   return sortedItems
 }
 
+export function getNavigation(locale: string = 'en'): NavigationItem[] {
+  return getAvailablePages(locale);
+}
+
+export function getAdjacentNavItems(currentHref: string, navigation: NavigationItem[]): { previous: NavigationItem | null; next: NavigationItem | null } {
+  const flatItems: NavigationItem[] = [];
+  
+  // Flatten navigation items including children
+  function flatten(items: NavigationItem[]) {
+    for (const item of items) {
+      flatItems.push(item);
+      if (item.children) {
+        flatten(item.children);
+      }
+    }
+  }
+  
+  flatten(navigation);
+  
+  const currentIndex = flatItems.findIndex(item => item.href === currentHref);
+  
+  if (currentIndex === -1) {
+    return { previous: null, next: null };
+  }
+  
+  return {
+    previous: currentIndex > 0 ? flatItems[currentIndex - 1] : null,
+    next: currentIndex < flatItems.length - 1 ? flatItems[currentIndex + 1] : null
+  };
+}
+
 export function getPageContent(slug: string[], locale: string) {
   try {
     // In Vercel, we need to use dynamic imports instead of fs

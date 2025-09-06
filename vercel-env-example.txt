@@ -1,0 +1,16 @@
+# Environment Variables for Vercel Deployment
+# Add these in your Vercel dashboard under Settings > Environment Variables
+
+# Admin Authentication
+ADMIN_EMAIL=admin@example.com
+ADMIN_PASSWORD=your-secure-password
+
+# Authorized User Emails (comma-separated or JSON array)
+AUTHORIZED_EMAILS=user1@example.com,user2@example.com
+
+# Base URL for email templates
+NEXT_PUBLIC_BASE_URL=https://your-domain.vercel.app
+
+# GitHub URL (optional)
+NEXT_PUBLIC_GITHUB_URL=https://github.com/your-username/your-repo
+
