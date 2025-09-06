@@ -1,4 +1,4 @@
-import { getNavigation } from '@/../../lib/nav'
+import { getNavigation } from '@/lib/nav'
 import { DocsLayoutClient } from '@/components/docs-layout-client'
 
 interface DocsLayoutProps {

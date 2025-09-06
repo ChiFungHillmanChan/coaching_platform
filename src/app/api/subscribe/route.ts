@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { writeFileSync, readFileSync, existsSync } from 'fs'
 import { join } from 'path'
+import { sendEmail, getWelcomeEmailTemplate } from '@/lib/email'
 
 // Check if we're in a Vercel environment
 const isVercel = process.env.VERCEL === '1';
@@ -14,6 +15,7 @@ interface Subscriber {
   email: string
   subscribedAt: string
   isActive: boolean
+  unsubscribedAt?: string
 }
 
 // In-memory store for Vercel (since file system is read-only)
@@ -141,6 +143,67 @@ export async function GET(request: NextRequest) {
     
   } catch (error) {
     console.error('Error fetching subscribers:', error)
+    return NextResponse.json(
+      { error: 'Internal server error' },
+      { status: 500 }
+    )
+  }
+}
+
+// DELETE endpoint to unsubscribe
+export async function DELETE(request: NextRequest) {
+  try {
+    const { email } = await request.json()
+    
+    if (!email || typeof email !== 'string') {
+      return NextResponse.json(
+        { error: 'Valid email is required' },
+        { status: 400 }
+      )
+    }
+    
+    const normalizedEmail = email.toLowerCase().trim()
+    
+    // Basic email validation
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+    if (!emailRegex.test(normalizedEmail)) {
+      return NextResponse.json(
+        { error: 'Please enter a valid email address' },
+        { status: 400 }
+      )
+    }
+    
+    const subscribers = getSubscribers()
+    
+    // Find and deactivate subscriber
+    const existingSubscriber = subscribers.find(sub => sub.email === normalizedEmail)
+    if (!existingSubscriber) {
+      return NextResponse.json(
+        { error: 'Email not found in subscription list' },
+        { status: 404 }
+      )
+    }
+    
+    if (!existingSubscriber.isActive) {
+      return NextResponse.json(
+        { error: 'Email is already unsubscribed' },
+        { status: 409 }
+      )
+    }
+    
+    // Deactivate subscription
+    existingSubscriber.isActive = false
+    existingSubscriber.unsubscribedAt = new Date().toISOString()
+    
+    saveSubscribers(subscribers)
+    
+    return NextResponse.json(
+      { message: 'Successfully unsubscribed from updates' },
+      { status: 200 }
+    )
+    
+  } catch (error) {
+    console.error('Unsubscribe error:', error)
     return NextResponse.json(
       { error: 'Internal server error' },
       { status: 500 }

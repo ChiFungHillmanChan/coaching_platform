@@ -5,7 +5,7 @@ import { Link, usePathname } from '@/routing'
 import { useParams } from 'next/navigation'
 import { ChevronDown, ChevronRight } from 'lucide-react'
 
-import { type NavItem } from '@/../../lib/nav'
+import { type NavItem } from '@/lib/nav'
 import { ScrollArea } from '@/components/ui/scroll-area'
 import { Separator } from '@/components/ui/separator'
 import { cn, isRouteActive } from '@/lib/utils'

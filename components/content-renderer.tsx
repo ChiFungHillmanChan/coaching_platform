@@ -122,7 +122,7 @@ export function ContentRenderer({ blocks, className, showTableOfContents = true 
           <HeadingTag 
             key={index} 
             id={headingId}
-            className={cn(headingClasses[block.level as keyof typeof headingClasses] || headingClasses[2], 'mb-4 scroll-mt-20')}
+            className={cn(headingClasses[block.level as keyof typeof headingClasses] || headingClasses[2], 'mb-4 scroll-mt-24')}
           >
             {block.content}
           </HeadingTag>
@@ -426,7 +426,7 @@ export function ContentRenderer({ blocks, className, showTableOfContents = true 
 
   return (
     <>
-      <div className={cn('space-y-4', showTableOfContents && 'xl:mr-16', className)}>
+      <div className={cn('space-y-4', showTableOfContents && 'xl:mr-20', className)}>
         {blocks.map(renderBlock)}
       </div>
       {showTableOfContents && <TableOfContents blocks={blocks} />}

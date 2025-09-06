@@ -40,7 +40,7 @@ export function TableOfContents({ blocks, className }: TableOfContentsProps) {
         })
       },
       {
-        rootMargin: '-100px 0px -80% 0px',
+        rootMargin: '-88px 0px -80% 0px', // Account for header height (88px)
         threshold: 0
       }
     )
@@ -61,9 +61,13 @@ export function TableOfContents({ blocks, className }: TableOfContentsProps) {
   const scrollToHeading = (id: string) => {
     const element = document.getElementById(id)
     if (element) {
-      const offsetTop = element.offsetTop - 80 // Account for header height
+      // Calculate offset to account for fixed header (56px) + extra padding (32px)
+      const headerOffset = 88
+      const elementPosition = element.offsetTop
+      const offsetPosition = elementPosition - headerOffset
+      
       window.scrollTo({
-        top: offsetTop,
+        top: offsetPosition,
         behavior: 'smooth'
       })
     }

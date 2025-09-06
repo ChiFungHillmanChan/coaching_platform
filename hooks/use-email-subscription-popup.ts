@@ -39,8 +39,13 @@ export function useEmailSubscriptionPopup() {
     sessionStorage.setItem(POPUP_STORAGE_KEY, 'true')
   }, [])
 
+  const showPopup = useCallback(() => {
+    setShouldShow(true)
+  }, [])
+
   return {
     shouldShowPopup: shouldShow,
-    closePopup
+    closePopup,
+    showPopup
   }
 }

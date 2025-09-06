@@ -7,7 +7,7 @@ import { ContentFrame } from '@/components/content-frame'
 import { EmailSubscriptionPopup } from '@/components/email-subscription-popup'
 import { Footer } from '@/components/footer'
 import { useEmailSubscriptionPopup } from '@/hooks/use-email-subscription-popup'
-import { type NavItem } from '@/../../lib/nav'
+import { type NavItem } from '@/lib/nav'
 
 interface DocsLayoutClientProps {
   children: React.ReactNode
@@ -17,11 +17,32 @@ interface DocsLayoutClientProps {
 export function DocsLayoutClient({ children, navigation }: DocsLayoutClientProps) {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState(false)
   const [isSidebarOpen, setIsSidebarOpen] = React.useState(true)
-  const { shouldShowPopup, closePopup } = useEmailSubscriptionPopup()
+  const [isHamburgerOpen, setIsHamburgerOpen] = React.useState(false)
+  const { shouldShowPopup, closePopup, showPopup } = useEmailSubscriptionPopup()
+
+  // Close hamburger menu when clicking outside
+  React.useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (isHamburgerOpen) {
+        const target = event.target as Element
+        if (!target.closest('[data-hamburger-menu]') && !target.closest('[aria-label="Toggle navigation menu"]')) {
+          setIsHamburgerOpen(false)
+        }
+      }
+    }
+
+    document.addEventListener('mousedown', handleClickOutside)
+    return () => document.removeEventListener('mousedown', handleClickOutside)
+  }, [isHamburgerOpen])
 
   return (
     <div className="min-h-screen bg-background">
-      <TopBar onMenuClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)} />
+      <TopBar 
+        onMenuClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+        isHamburgerOpen={isHamburgerOpen}
+        onHamburgerToggle={() => setIsHamburgerOpen(!isHamburgerOpen)}
+        onShowSubscriptionPopup={showPopup}
+      />
       
       <div className="flex">
         {/* Desktop sidebar - always visible */}

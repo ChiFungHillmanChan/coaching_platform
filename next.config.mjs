@@ -21,16 +21,30 @@ if (process.env.NODE_ENV === 'development') {
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   swcMinify: true,
+  // Disable strict mode temporarily to prevent double-rendering issues
+  reactStrictMode: false,
   experimental: {
     optimizePackageImports: ['lucide-react', 'framer-motion'],
-    turbo: {
-      rules: {
-        '*.svg': {
-          loaders: ['@svgr/webpack'],
-          as: '*.js',
-        },
-      },
-    },
+    // Temporarily disable turbo as it can cause compilation issues
+    // turbo: {
+    //   rules: {
+    //     '*.svg': {
+    //       loaders: ['@svgr/webpack'],
+    //       as: '*.js',
+    //     },
+    //   },
+    // },
+  },
+  // Add webpack optimization for faster builds
+  webpack: (config, { dev, isServer }) => {
+    if (dev) {
+      // Optimize development builds
+      config.watchOptions = {
+        poll: 1000,
+        aggregateTimeout: 300,
+      }
+    }
+    return config
   },
   images: {
     remotePatterns: [

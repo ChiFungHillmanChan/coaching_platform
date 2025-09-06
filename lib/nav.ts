@@ -102,14 +102,17 @@ export function getNavigation(locale: string = 'en'): NavItem[] {
     } else {
       // Failed to load navigation from content files
       // Return empty navigation instead of fallback
-      navigationCache.set(cacheKey, [])
-      return []
+      const emptyNav: NavItem[] = []
+      navigationCache.set(cacheKey, emptyNav)
+      return emptyNav
     }
   } catch (error) {
+    console.warn('Error loading navigation:', error)
     // Error loading navigation from content files
     // Return empty navigation instead of fallback
-    navigationCache.set(cacheKey, [])
-    return []
+    const emptyNav: NavItem[] = []
+    navigationCache.set(cacheKey, emptyNav)
+    return emptyNav
   }
 }
 
@@ -137,4 +140,44 @@ export function getParentNavItem(href: string): NavItem | null {
     }
   }
   return null
+}
+
+// Get flat list of all navigation items for pagination
+export function getFlatNavItems(navigation: NavItem[]): NavItem[] {
+  const flatItems: NavItem[] = []
+  
+  function flatten(items: NavItem[]) {
+    for (const item of items) {
+      // Only add items that have no children (sub-folder links only)
+      // Skip parent folders that have children
+      if (!item.isComingSoon && !item.children) {
+        flatItems.push(item)
+      }
+      // If item has children, process children instead of the parent
+      if (item.children) {
+        flatten(item.children)
+      }
+    }
+  }
+  
+  flatten(navigation)
+  return flatItems
+}
+
+// Get previous and next navigation items
+export function getAdjacentNavItems(currentHref: string, navigation: NavItem[]): {
+  previous: NavItem | null
+  next: NavItem | null
+} {
+  const flatItems = getFlatNavItems(navigation)
+  const currentIndex = flatItems.findIndex(item => item.href === currentHref)
+  
+  if (currentIndex === -1) {
+    return { previous: null, next: null }
+  }
+  
+  return {
+    previous: currentIndex > 0 ? flatItems[currentIndex - 1] : null,
+    next: currentIndex < flatItems.length - 1 ? flatItems[currentIndex + 1] : null
+  }
 }

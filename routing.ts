@@ -14,7 +14,7 @@ if (typeof window === 'undefined' && typeof process !== 'undefined') {
     if (isVercel) {
       // In Vercel, use dynamic import instead of fs
       try {
-        const config = require('../../config/app.json');
+        const config = require('./config/app.json');
         supportedLocales = config.app.supportedLocales || supportedLocales;
         defaultLocale = config.app.defaultLocale || defaultLocale;
       } catch (error) {

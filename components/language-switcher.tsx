@@ -56,6 +56,14 @@ export function LanguageSwitcher() {
   }, [locale, isClient])
 
   const handleLanguageChange = (newLocale: string) => {
+    console.log('Language change requested:', newLocale, 'Current:', locale)
+    
+    // Prevent unnecessary navigation if already on the correct locale
+    if (newLocale === locale) {
+      console.log('Already on correct locale, skipping navigation')
+      return
+    }
+    
     // Update current language immediately for instant visual feedback
     const newLanguage = languages.find(lang => lang.code === newLocale) || languages[0]
     setCurrentLanguage(newLanguage)
@@ -63,20 +71,31 @@ export function LanguageSwitcher() {
     // Save preference to localStorage
     try {
       localStorage.setItem('preferred-language', newLocale)
+      console.log('Saved language preference:', newLocale)
     } catch (error) {
       console.warn('Could not save language preference:', error)
     }
     
-    // Use next-intl router to navigate to the same path with new locale
     // Use window.location to force a clean navigation with the new locale
     const currentPath = pathname.startsWith('/') ? pathname : `/${pathname}`
-    window.location.href = `/${newLocale}${currentPath}`
+    const newUrl = `/${newLocale}${currentPath}`
+    console.log('Navigating to:', newUrl)
+    
+    // Add a small delay to ensure the visual feedback is visible
+    setTimeout(() => {
+      window.location.href = newUrl
+    }, 100)
   }
 
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button variant="ghost" size="sm" className="h-8 px-2 gap-2 min-w-[80px]">
+        <Button 
+          variant="ghost" 
+          size="sm" 
+          className="h-8 px-2 gap-2 min-w-[80px] touch-manipulation"
+          type="button"
+        >
           <Globe className="h-4 w-4" />
           <span className="text-sm font-medium">
             {isClient ? currentLanguage.flag : '🌐'}
@@ -86,14 +105,19 @@ export function LanguageSwitcher() {
           </span>
         </Button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent align="end" className="w-48">
+      <DropdownMenuContent 
+        align="end" 
+        className="w-48 z-[60]" 
+        sideOffset={8}
+        collisionPadding={16}
+      >
         {languages.map((language) => {
           const isCurrentLanguage = currentLanguage.code === language.code
           return (
             <DropdownMenuItem
               key={language.code}
               onClick={() => handleLanguageChange(language.code)}
-              className={`flex items-center gap-2 cursor-pointer ${
+              className={`flex items-center gap-2 cursor-pointer touch-manipulation min-h-[44px] ${
                 isCurrentLanguage ? 'bg-accent' : ''
               }`}
             >

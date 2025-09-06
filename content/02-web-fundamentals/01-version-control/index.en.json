@@ -134,12 +134,6 @@
       "title": "External Documentation",
       "href": "https://medium.com/@abhay.pixolo/naming-conventions-for-git-branches-a-cheatsheet-8549feca2534",
       "content": "Details on Git Branch Naming Convention"
-    },
-    {
-      "type": "horizontal-rule"
-    },
-    {
-      "type": "line-break"
     }
   ]
 }
