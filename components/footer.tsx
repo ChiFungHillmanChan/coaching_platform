@@ -15,7 +15,7 @@ export function Footer() {
               rel="noopener noreferrer"
               className="font-medium text-foreground hover:text-primary transition-colors"
             >
-              Hillman
+              Hillman Chan
             </Link>
           </p>
           <p className="text-xs">
