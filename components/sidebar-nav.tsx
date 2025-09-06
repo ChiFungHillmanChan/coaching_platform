@@ -190,7 +190,7 @@ export function SidebarNav({ navigation, className, onNavigate }: SidebarNavProp
         )}
       </React.Fragment>
     )
-  }, [pathname, expandedItems, toggleExpanded, locale])
+  }, [pathname, expandedItems, toggleExpanded, locale, onNavigate])
 
   return (
     <aside

@@ -8,12 +8,13 @@ export interface TaskItem {
 }
 
 export interface ContentBlock {
-  type: 'text' | 'heading' | 'code' | 'image' | 'video' | 'list' | 'card' | 'callout' | 'blockquote' | 'link' | 'line-break' | 'horizontal-rule' | 'email-subscription' | 'terminal' | 'table' | 'task-list'
+  type: 'text' | 'heading' | 'code' | 'image' | 'video' | 'list' | 'card' | 'callout' | 'blockquote' | 'link' | 'line-break' | 'horizontal-rule' | 'email-subscription' | 'terminal' | 'table' | 'task-list' | 'download-link' | 'footnote' | 'definition-list'
   content: string
   level?: number // for headings
   language?: string // for code blocks
   src?: string // for images/videos/links
   alt?: string // for images
+  caption?: string // for images with captions
   items?: string[] // for lists
   taskItems?: TaskItem[] // for task-lists
   title?: string // for cards/callouts/links
@@ -25,6 +26,11 @@ export interface ContentBlock {
   nested?: boolean // for nested blockquotes
   headers?: string[] // for tables
   rows?: string[][] // for tables
+  fileSize?: string // for download links
+  fileType?: string // for download links
+  footnoteId?: string // for footnotes
+  footnoteText?: string // for footnotes
+  definitions?: { term: string; definition: string }[] // for definition lists
 }
 
 export interface Article {

@@ -30,15 +30,15 @@ export function TopBar({ onMenuClick, onSidebarToggle, isSidebarOpen, className,
   const [subscriptionMessage, setSubscriptionMessage] = React.useState('')
 
   // Language and theme switching logic for mobile hamburger menu
-  const languages = [
+  const languages = React.useMemo(() => [
     { code: 'en', name: 'English', flag: '🇺🇸' },
     { code: 'zh_hk', name: '繁體中文', flag: '🇭🇰' },
-  ]
+  ], [])
   
   // Always show the language based on the current URL locale
   const currentLanguage = React.useMemo(() => 
     languages.find(lang => lang.code === locale) || languages[0], 
-    [locale]
+    [locale, languages]
   )
   const [currentTheme, setCurrentTheme] = React.useState<string | null>(null)
   const [isLanguageDropdownOpen, setIsLanguageDropdownOpen] = React.useState(false)

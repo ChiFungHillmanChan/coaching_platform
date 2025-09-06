@@ -69,7 +69,7 @@ import {
   Battery,
   BatteryLow,
   Power,
-  Refresh,
+  RefreshCw,
   RotateCcw,
   RotateCw,
   Maximize,
@@ -155,7 +155,7 @@ export type IconName =
   | 'Battery'
   | 'BatteryLow'
   | 'Power'
-  | 'Refresh'
+  | 'RefreshCw'
   | 'RotateCcw'
   | 'RotateCw'
   | 'Maximize'
@@ -239,7 +239,7 @@ const iconMap: Record<IconName, LucideIcon> = {
   Battery,
   BatteryLow,
   Power,
-  Refresh,
+  RefreshCw,
   RotateCcw,
   RotateCw,
   Maximize,
