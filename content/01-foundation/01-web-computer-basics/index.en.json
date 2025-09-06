@@ -1,27 +1,47 @@
 {
-  "title": "Web & Computer Basics",
-  "description": "Understanding how computers and the internet work",
   "slug": "web-computer-basics",
   "category": "foundation",
-  "lastModified": "2024-01-01T00:00:00.000Z",
+  "lastModified": "2025-09-05T00:00:00.000Z",
   "blocks": [
     {
       "type": "heading",
       "level": 1,
-      "content": "Web & Computer Basics"
+      "content": "1.1 Web & Computer Basics"
     },
     {
       "type": "text",
-      "content": "Before diving into web development, it's essential to understand the fundamental concepts of how computers and the internet work."
+      "content": "Before diving into web development, it is essential to understand the basic principles of computers and the internet. This foundational knowledge will help you more effectively grasp web design and development."
+    },
+    {
+      "type": "horizontal-rule"
+    },
+    {
+      "type": "line-break"
     },
     {
       "type": "heading",
       "level": 2,
-      "content": "Computer Fundamentals"
+      "content": "Computer Basics"
+    },
+    {
+      "type": "list",
+      "listType": "unordered",
+      "items": [
+        "💻 **Central Processing Unit (CPU)**: Executes program instructions and is the core computing unit of a computer.",
+        "🧠 **Memory (RAM)**: Temporarily stores data to ensure smooth and fast processing.",
+        "💾 **Storage (Hard Drive/SSD)**: Stores the system, applications, and data long-term.",
+        "🖥️ **Operating System (OS)**: Provides the interface between hardware and software, e.g., Windows, macOS, Linux."
+      ]
     },
     {
       "type": "text",
-      "content": "Learn about the basic components of a computer system and how they work together."
+      "content": "Understanding how computer hardware and operating systems work together helps you set up the foundational environment required for web development."
+    },
+    {
+      "type": "horizontal-rule"
+    },
+    {
+      "type": "line-break"
     },
     {
       "type": "heading",
@@ -29,8 +49,30 @@
       "content": "Internet Basics"
     },
     {
+      "type": "list",
+      "listType": "unordered",
+      "items": [
+        "🌐 **IP Address**: A unique identifier for devices on the network.",
+        "📡 **DNS (Domain Name System)**: Translates human-readable domain names (like google.com) into IP addresses.",
+        "✉️ **HTTP/HTTPS Protocol**: Defines how data is transmitted between browsers and servers.",
+        "🔗 **Client-Server Model**: Users send requests via the client (browser), and the server responds with data."
+      ]
+    },
+    {
       "type": "text",
-      "content": "Understand how data travels across the internet and the protocols that make it possible."
+      "content": "Internet basics help you understand how browsers connect to servers, retrieve data, and display content—an indispensable background for web development."
+    },
+    {
+      "type": "horizontal-rule"
+    },
+    {
+      "type": "line-break"
+    },
+    {
+      "type": "callout",
+      "variant": "info",
+      "title": "💡 Key Learning Point",
+      "content": "Understanding the basic components of computers and the internet will help you more quickly master the tools and principles in the web development process."
     }
   ]
 }

@@ -1,250 +1,74 @@
 {
-  "title": "Welcome to AI Coaching",
-  "description": "Transform your personal and professional development with intelligent AI coaching",
   "slug": "welcome",
   "category": "welcome",
-  "lastModified": "2024-01-01T00:00:00.000Z",
+  "lastModified": "2025-09-06T00:00:00.000Z",
   "blocks": [
     {
       "type": "heading",
       "level": 1,
-      "content": "Welcome to AI Coaching"
+      "content": "📖 Preface: AI and Web Design Learning Handbook"
     },
     {
       "type": "text",
-      "content": "Transform your personal and professional development with our comprehensive AI coaching platform. Our intelligent system adapts to your unique needs, providing personalized guidance to accelerate your growth journey."
-    },
-    {
-      "type": "callout",
-      "variant": "info",
-      "title": "🚀 Getting Started",
-      "content": "Use ⌘K to quickly search through the documentation, or explore the sections in the sidebar. Everything is designed to be intuitive and easy to navigate."
-    },
-    {
-      "type": "heading",
-      "level": 2,
-      "content": "Key Features"
-    },
-    {
-      "type": "list",
-      "items": [
-        "**AI-Powered Coaching**: Intelligent system that learns and adapts to your patterns",
-        "**Goal Planning**: Comprehensive tracking with smart milestone suggestions", 
-        "**Progress Analytics**: Real-time monitoring with detailed insights",
-        "**Habit Formation**: Tools based on proven behavioral psychology",
-        "**Background Agents**: Continuous optimization of your coaching experience"
-      ]
-    },
-    {
-      "type": "heading",
-      "level": 2,
-      "content": "Quick Demo"
-    },
-    {
-      "type": "callout",
-      "variant": "info",
-      "title": "🎬 Video Demo",
-      "content": "Interactive platform demo coming soon! Experience our intuitive interface and powerful AI coaching features."
-    },
-    {
-      "type": "heading",
-      "level": 2,
-      "content": "Sample Code Integration"
-    },
-    {
-      "type": "text",
-      "content": "Here's how you can integrate with our API:"
-    },
-    {
-      "type": "code",
-      "language": "javascript",
-      "content": "import { AICoaching } from '@ai-coaching/sdk';\n\nconst coach = new AICoaching({\n  apiKey: 'your-api-key',\n  userId: 'user-123'\n});\n\n// Start a coaching session\nconst session = await coach.startSession({\n  type: 'goal-setting',\n  duration: 30 // minutes\n});\n\n// Session started successfully\nreturn session.id;"
-    },
-    {
-      "type": "heading",
-      "level": 2,
-      "content": "Success Stories"
-    },
-    {
-      "type": "card",
-      "title": "🎯 Sarah's Transformation",
-      "description": "Marketing Manager • 6 months with AI Coaching",
-      "content": "Increased productivity by 40% and achieved work-life balance through personalized coaching strategies. The AI coach helped me identify my peak performance hours and optimize my daily routine."
-    },
-    {
-      "type": "card",
-      "title": "🚀 Mike's Career Growth",
-      "description": "Software Developer • 1 year with AI Coaching",
-      "content": "Promoted to Tech Lead after developing leadership skills through structured coaching programs. The habit tracking feature was game-changing for my professional development."
-    },
-    {
-      "type": "heading",
-      "level": 2,
-      "content": "Platform Overview"
-    },
-    {
-      "type": "callout",
-      "variant": "success",
-      "title": "📊 Dashboard Preview",
-      "content": "Our intuitive dashboard provides comprehensive progress tracking, upcoming sessions overview, goal monitoring, and personalized insights - all designed for optimal coaching experience."
-    },
-    {
-      "type": "heading",
-      "level": 3,
-      "content": "Dashboard Features"
-    },
-    {
-      "type": "list",
-      "items": [
-        "**Progress Visualization**: Interactive charts showing your growth over time",
-        "**Session Calendar**: Schedule and manage your coaching sessions",
-        "**Goal Tracker**: Monitor progress on all your active goals",
-        "**Insights Panel**: AI-generated recommendations and insights",
-        "**Habit Streaks**: Visual representation of your consistency"
-      ]
-    },
-    {
-      "type": "callout",
-      "variant": "success",
-      "title": "✨ Ready to Begin?",
-      "content": "Your AI coaching journey starts now. Explore the Core section to learn about our coaching methodology, or dive into specific features in the documentation."
-    },
-    {
-      "type": "heading",
-      "level": 2,
-      "content": "Next Steps"
-    },
-    {
-      "type": "text",
-      "content": "Here are some recommended next steps to get the most out of AI Coaching:"
-    },
-    {
-      "type": "list",
-      "items": [
-        "🧠 **Explore Core Concepts**: Learn about our AI coach, programs, and methodology",
-        "📊 **Set Up Your Goals**: Define what you want to achieve with our goal planner",
-        "📈 **Track Your Progress**: Use our analytics to monitor your growth",
-        "🔄 **Build Habits**: Create lasting change with our habit formation tools"
-      ]
-    },
-    {
-      "type": "callout",
-      "variant": "warning",
-      "title": "💡 Pro Tip",
-      "content": "The more you engage with the platform, the smarter your AI coach becomes. Regular check-ins and honest feedback help create a truly personalized experience."
-    },
-    {
-      "type": "heading",
-      "level": 2,
-      "content": "Content Types Showcase"
-    },
-    {
-      "type": "text",
-      "content": "This section demonstrates all available content types for comprehensive documentation styling."
-    },
-    {
-      "type": "heading",
-      "level": 3,
-      "content": "Blockquotes & Citations"
-    },
-    {
-      "type": "blockquote",
-      "content": "The best time to plant a tree was 20 years ago. The second best time is now.",
-      "title": "Chinese Proverb"
-    },
-    {
-      "type": "blockquote",
-      "content": "Your AI coach is designed to adapt to your unique learning style and provide personalized guidance that evolves with your progress.",
-      "nested": true
-    },
-    {
-      "type": "heading",
-      "level": 3,
-      "content": "Link Types & Navigation"
-    },
-    {
-      "type": "link",
-      "title": "External Documentation",
-      "href": "https://docs.example.com",
-      "content": "Visit our comprehensive API documentation",
-      "description": "Complete API reference with examples and best practices"
-    },
-    {
-      "type": "text",
-      "content": "Here's an example of **inline links** within text: Visit our [GitHub repository](https://github.com/example/repo) or check the `inline code` examples."
-    },
-    {
-      "type": "heading",
-      "level": 3,
-      "content": "List Variations"
-    },
-    {
-      "type": "text",
-      "content": "**Ordered list example:**"
-    },
-    {
-      "type": "list",
-      "listType": "ordered",
-      "items": [
-        "First, **set up your account** and complete the onboarding process",
-        "Next, *define your goals* using our `goal-setting` wizard",
-        "Then, start your first coaching session with personalized guidance",
-        "Finally, track your progress with our advanced analytics dashboard"
-      ]
-    },
-    {
-      "type": "text",
-      "content": "**Unordered list example:**"
-    },
-    {
-      "type": "list",
-      "listType": "unordered",
-      "items": [
-        "📱 **Mobile App**: Access your coaching on any device",
-        "🔔 **Smart Notifications**: Get reminders at optimal times",
-        "📊 **Progress Reports**: Weekly summaries with actionable insights",
-        "🤖 **AI Insights**: Personalized recommendations based on your patterns"
-      ]
-    },
-    {
-      "type": "heading",
-      "level": 3,
-      "content": "Visual Separators"
-    },
-    {
-      "type": "text",
-      "content": "Use horizontal rules to separate content sections visually:"
+      "content": "This resource is not only a supplement to the sharing session, but also a learning handbook that you can revisit anytime. Whether or not you attended the course, you can use this content to gradually master the fundamentals of AI and web development."
     },
     {
       "type": "horizontal-rule"
     },
     {
-      "type": "text",
-      "content": "Content above the line is visually separated from content below."
-    },
-    {
       "type": "line-break"
-    },
-    {
-      "type": "line-break"
-    },
-    {
-      "type": "text",
-      "content": "Line breaks create spacing between paragraphs for better readability."
     },
     {
       "type": "heading",
-      "level": 3,
-      "content": "Video Demonstrations"
+      "level": 2,
+      "content": "📚 Learning Structure"
     },
     {
-      "type": "video",
-      "src": "/demo/onboarding-flow.mp4",
-      "alt": "Complete onboarding process walkthrough showing account setup, goal definition, and first coaching session"
+      "type": "list",
+      "listType": "unordered",
+      "items": [
+        "**Part 1: Foundation** → Computer & web basics, why version control, hosting, and security matter.",
+        "**Part 2: Web Fundamentals** → Git/GitHub, hosting platform comparison, basic security knowledge.",
+        "**Part 3: Introduction to AI Tools** → ChatGPT, Cursor, Claude Code and other AI tools overview & demo.",
+        "**Part 4: Prompt Design and Application** → Common prompts, how to integrate multiple AIs, generate project ideas, resource zone."
+      ]
     },
     {
-      "type": "text",
-      "content": "Video content enhances documentation by providing visual walkthroughs of complex processes."
+      "type": "horizontal-rule"
+    },
+    {
+      "type": "line-break"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "content": "🎯 Through learning, you will be able to..."
+    },
+    {
+      "type": "task-list",
+      "items": [
+        { "checked": true, "content": "Understand website components (Frontend / Backend / Database / Hosting)" },
+        { "checked": true, "content": "Master Git & GitHub, and become familiar with Commit Convention and Branch Workflow" },
+        { "checked": true, "content": "Compare free and paid hosting platforms, and practically deploy a website (Netlify / Vercel Demo)" },
+        { "checked": true, "content": "Understand common web attacks (SQL Injection / XSS) and basic defense methods" },
+        { "checked": true, "content": "Be familiar with the setup and use cases of ChatGPT, Cursor, and Claude Code" },
+        { "checked": true, "content": "Learn how to choose the right AI tool based on scenarios (Coding / Research / Design / Knowledge Management)" },
+        { "checked": true, "content": "Master common prompt templates, and know how to Debug / Generate / Design / Manage projects" },
+        { "checked": true, "content": "Gain the ability to use AI to generate project ideas, treating AI as a mentor or partner" },
+        { "checked": true, "content": "Obtain post-course resources, cheat sheets, and example project repos for practice and review" }
+      ]
+    },
+    {
+      "type": "horizontal-rule"
+    },
+    {
+      "type": "line-break"
+    },
+    {
+      "type": "callout",
+      "variant": "success",
+      "title": "How to use this handbook?",
+      "content": "This handbook is designed for **self-learning**, you can:\n- Use it as post-class material for step-by-step practice\n- Or even if you missed the course, use it to catch up\n\nThe core principle is: **learn and apply immediately**. You will learn how to combine AI tools with proper development workflows to practically build your own projects."
     }
   ]
 }

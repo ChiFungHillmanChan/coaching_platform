@@ -1,18 +1,147 @@
 {
-  "title": "AI Tools Overview & Comparison",
-  "description": "Comprehensive overview of AI development tools",
   "slug": "ai-tools-overview",
-  "category": "ai-tools-intro",
-  "lastModified": "2024-01-01T00:00:00.000Z",
+  "category": "ai-tools",
+  "lastModified": "2025-09-06T00:00:00.000Z",
   "blocks": [
     {
       "type": "heading",
       "level": 1,
-      "content": "3.1 AI 工具全景 (AI Tools Overview & Comparison)"
+      "content": "3.1 AI Tools Overview"
     },
     {
       "type": "text",
-      "content": "Get a comprehensive overview of the AI tools landscape for development."
+      "content": "There are many AI tools available today, each with a different focus. Below is a breakdown by category:"
+    },
+    {
+      "type": "horizontal-rule"
+    },
+    {
+      "type": "line-break"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "content": "🧑‍💻 Coding Related"
+    },
+    {
+      "type": "list",
+      "listType": "unordered",
+      "items": [
+        "**ChatGPT**: General-purpose AI, supports code generation, explanation, and debugging, highly flexible.",
+        "**Cursor**: An AI IDE built on VS Code, specialized for long code development and debugging.",
+        "**Claude Code**: Handles very long context, suitable for large project code analysis.",
+        "**GitHub Copilot**: Deeply integrated with GitHub/IDE, excels at code auto-completion.",
+        "**Lovable**: AI-assisted site builder that can generate prototype websites in minutes."
+      ]
+    },
+    { "type": "link", "title": "External Documentation", "href": "https://chat.openai.com", "content": "ChatGPT Official Site" },
+    { "type": "link", "title": "External Documentation", "href": "https://cursor.sh", "content": "Cursor Official Site" },
+    { "type": "link", "title": "External Documentation", "href": "https://claude.ai", "content": "Claude Code Official Site" },
+    { "type": "link", "title": "External Documentation", "href": "https://github.com/features/copilot", "content": "GitHub Copilot Official Site" },
+    { "type": "link", "title": "External Documentation", "href": "https://lovable.dev", "content": "Lovable Official Site" },
+    {
+      "type": "horizontal-rule"
+    },
+    {
+      "type": "line-break"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "content": "🔍 Search / Research"
+    },
+    {
+      "type": "list",
+      "listType": "unordered",
+      "items": [
+        "**Perplexity**: Real-time AI search engine with citations, suitable for academic research.",
+        "**Grok (xAI)**: Integrates Twitter/X data, excels at real-time info and social media-related queries.",
+        "**Google Gemini**: Google’s flagship AI, supports multimodal inputs (text, image, video)."
+      ]
+    },
+    { "type": "link", "title": "External Documentation", "href": "https://www.perplexity.ai", "content": "Perplexity Official Site" },
+    { "type": "link", "title": "External Documentation", "href": "https://x.ai", "content": "Grok Official Site" },
+    { "type": "link", "title": "External Documentation", "href": "https://gemini.google.com", "content": "Google Gemini Official Site" },
+    {
+      "type": "horizontal-rule"
+    },
+    {
+      "type": "line-break"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "content": "🎨 Design & Multimedia"
+    },
+    {
+      "type": "list",
+      "listType": "unordered",
+      "items": [
+        "**Canva**: AI for graphic design, supports posters, presentations, and social media assets.",
+        "**Kuse**: AI video generation tool, great for content creators."
+      ]
+    },
+    { "type": "link", "title": "External Documentation", "href": "https://www.canva.com", "content": "Canva Official Site" },
+    { "type": "link", "title": "External Documentation", "href": "https://kuse.ai", "content": "Kuse Official Site" },
+    {
+      "type": "horizontal-rule"
+    },
+    {
+      "type": "line-break"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "content": "📑 Knowledge Management"
+    },
+    {
+      "type": "list",
+      "listType": "unordered",
+      "items": [
+        "**Notion**: Note-taking and project management platform, with built-in AI summarization, writing, and knowledge base features."
+      ]
+    },
+    { "type": "link", "title": "External Documentation", "href": "https://www.notion.so/product/ai", "content": "Notion Official Site" },
+    {
+      "type": "horizontal-rule"
+    },
+    {
+      "type": "line-break"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "content": "📊 AI Tools Feature Comparison Table"
+    },
+    {
+      "type": "table",
+      "title": "AI Tools Feature Comparison (Merged)",
+      "headers": ["AI Tool", "Coding / Debugging", "Search / Research", "Image Design", "Reasoning / Text Understanding", "Idea Generation", "File Analysis"],
+      "rows": [
+        ["ChatGPT", "✅✅", "✅", "✅", "✅✅", "✅", "✅"],
+        ["Cursor", "✅✅", "❌", "❌", "✅ (Code Context)", "⚠️ (Limited)", "✅ (Code Level)"],
+        ["Claude Code", "✅✅", "❌", "❌", "✅", "⚠️", "✅ (Long Docs/Code)"],
+        ["GitHub Copilot", "✅", "❌", "❌", "⚠️", "❌", "❌"],
+        ["Lovable", "✅ (Web Build)", "❌", "❌", "❌", "⚠️ (Website Ideas)", "❌"],
+        ["Perplexity", "❌", "✅✅", "❌", "⚠️ (Summaries)", "❌", "✅ (Knowledge Citation)"],
+        ["Grok", "❌", "✅ (Social Data)", "❌", "⚠️", "❌", "❌"],
+        ["Gemini", "✅ (Some Code Gen)", "✅", "⚠️", "✅✅", "✅", "✅ (File Handling)"],
+        ["Canva", "❌", "❌", "✅✅", "❌", "✅ (Design Ideas)", "❌"],
+        ["Kuse", "❌", "❌", "❌", "❌", "✅ (Video Ideas)", "✅"],
+        ["Notion", "❌", "⚠️ (Knowledge Base Search)", "❌", "⚠️ (AI Summarization)", "✅", "✅ (Notes/Docs)"]
+      ]
+    },    
+    {
+      "type": "line-break"
+    },
+    {
+      "type": "line-break"
+    },
+    {
+      "type": "callout",
+      "variant": "info",
+      "title": "Legend",
+      "content": "✅ = Strong Support; ⚠️ = Partial / Limited Support; ❌ = Not Supported"
     }
   ]
 }

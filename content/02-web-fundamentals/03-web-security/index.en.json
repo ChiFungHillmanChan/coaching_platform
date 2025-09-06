@@ -1,9 +1,85 @@
 {
-  "title": "Version Control",
-  "description": "Learn how to track and manage changes in your code",
-  "slug": "version-control",
+  "slug": "web-security-intro",
   "category": "web-fundamentals",
-  "lastModified": "2024-01-01T00:00:00.000Z",
+  "lastModified": "2025-09-06T00:00:00.000Z",
   "blocks": [
+    {
+      "type": "heading",
+      "level": 1,
+      "content": "2.3 Web Security Intro"
+    },
+    {
+      "type": "text",
+      "content": "Web development is not only about implementing features—it must also consider security. Without proper protection, user data may be leaked, and the website may be compromised."
+    },
+    {
+      "type": "horizontal-rule"
+    },
+    {
+      "type": "line-break"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "content": "💉 SQL Injection"
+    },
+    {
+      "type": "text",
+      "content": "Attackers inject malicious SQL statements into input fields to manipulate the database."
+    },
+    {
+      "type": "list",
+      "listType": "unordered",
+      "items": [
+        "**Example**: Entering `admin' OR '1'='1` in a login form to bypass authentication and log in directly.",
+        "**Risk**: Unauthorized reading, modifying, or even deleting database contents.",
+        "**Prevention**: Use Prepared Statements (parameterized queries), input validation, and the principle of least privilege."
+      ]
+    },
+    {
+      "type": "horizontal-rule"
+    },
+    {
+      "type": "line-break"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "content": "🖼️ XSS (Cross-Site Scripting)"
+    },
+    {
+      "type": "text",
+      "content": "Attackers inject malicious scripts into web pages. When users view the page, the script executes in the browser."
+    },
+    {
+      "type": "list",
+      "listType": "unordered",
+      "items": [
+        "**Example**: Entering `<script>alert('Hacked!')</script>` in a comment section, causing an alert box to appear when other visitors open the page.",
+        "**Risk**: Stealing cookies, impersonating users, defacing interfaces.",
+        "**Prevention**: Input/output encoding, using Content Security Policy (CSP), avoiding direct trust in user input."
+      ]
+    },
+    {
+      "type": "horizontal-rule"
+    },
+    {
+      "type": "callout",
+      "variant": "warning",
+      "title": "Why avoid these?",
+      "content": "SQL Injection and XSS are the most common attack methods, leading to **data breaches, loss of user trust, and even legal liability**. Basic protections must be implemented."
+    },
+    {
+      "type": "horizontal-rule"
+    },
+    {
+      "type": "line-break"
+    },
+    {
+      "type": "callout",
+      "variant": "success",
+      "title": "Key Learning Point",
+      "content": "Security is not optional—it’s mandatory. **Input validation, access control, and encrypted transmission** are baseline requirements for any project."
+    }
   ]
 }

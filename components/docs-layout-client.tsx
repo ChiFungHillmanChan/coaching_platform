@@ -5,6 +5,7 @@ import { TopBar } from '@/components/topbar'
 import { SidebarNav } from '@/components/sidebar-nav'
 import { ContentFrame } from '@/components/content-frame'
 import { EmailSubscriptionPopup } from '@/components/email-subscription-popup'
+import { Footer } from '@/components/footer'
 import { useEmailSubscriptionPopup } from '@/hooks/use-email-subscription-popup'
 import { type NavItem } from '@/../../lib/nav'
 
@@ -47,6 +48,7 @@ export function DocsLayoutClient({ children, navigation }: DocsLayoutClientProps
           <main className="container max-w-4xl px-6 py-6 lg:px-8 lg:py-10">
             {children}
           </main>
+          <Footer />
         </ContentFrame>
       </div>
       

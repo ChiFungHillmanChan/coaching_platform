@@ -1,9 +1,145 @@
 {
-  "title": "Version Control",
-  "description": "Learn how to track and manage changes in your code",
   "slug": "version-control",
   "category": "web-fundamentals",
-  "lastModified": "2024-01-01T00:00:00.000Z",
+  "lastModified": "2025-09-06T00:00:00.000Z",
   "blocks": [
+    {
+      "type": "heading",
+      "level": 1,
+      "content": "1.1 Version Control"
+    },
+    {
+      "type": "horizontal-rule"
+    },
+    {
+      "type": "line-break"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "content": "Role of Git & GitHub"
+    },
+    {
+      "type": "list",
+      "listType": "unordered",
+      "items": [
+        "**Git**: A version control system that intelligently tracks changes in files.",
+        "**GitHub**: A cloud platform for version control and management, enabling multi-person collaboration and sharing."
+      ]
+    },
+    {
+      "type": "blockquote",
+      "content": "A very important tool—when things go wrong, you can always roll back."
+    },
+    {
+      "type": "horizontal-rule"
+    },
+    {
+      "type": "line-break"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "content": "Common Git Upload Cheat Sheet"
+    },
+    {
+      "type": "list",
+      "listType": "ordered",
+      "items": [
+        "`git init` → Initialize a local repo",
+        "`git status` → View current changes",
+        "`git add .` / `git add <file>` → Stage changes",
+        "`git commit -m \"feat: init project\"` → Create a commit",
+        "`git push -u origin main` → Push for the first time and set upstream",
+        "`git pull` → Fetch remote updates (merge with local)"
+      ]
+    },
+    {
+      "type": "line-break"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "content": "Additional Git Commands"
+    },
+    {
+      "type": "list",
+      "listType": "ordered",
+      "items": [
+        "`git branch -M main` → Set branch name",
+        "`git checkout {branchName}` → Switch branch",
+        "`git remote add origin <repo_url>` → Connect to GitHub",
+        "`git push -u origin main` → Push to remote (specify remote repo main branch)",
+        "`git pull` → Pull remote updates"
+      ]
+    },
+    {
+      "type": "horizontal-rule"
+    },
+    {
+      "type": "line-break"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "content": "Git Commit Convention"
+    },
+    {
+      "type": "text",
+      "content": "Keep commit messages consistent to make it easier for the team to understand. Examples:"
+    },
+    {
+      "type": "list",
+      "listType": "unordered",
+      "items": [
+        "`feat/login`: Add login feature",
+        "`fix/header`: Fix layout issue"
+      ]
+    },
+    {
+      "type": "link",
+      "title": "External Documentation",
+      "href": "https://www.conventionalcommits.org/en/v1.0.0/",
+      "content": "Details on Git Commit Convention"
+    },
+    {
+      "type": "horizontal-rule"
+    },
+    {
+      "type": "line-break"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "content": "Branch Naming Rules & Workflow"
+    },
+    {
+      "type": "list",
+      "listType": "unordered",
+      "items": [
+        "**main**: Stable production version",
+        "**dev**: Development branch, used for integration and testing",
+        "**feature/xxx**: New feature development",
+        "**bugfix/xxx**: Bug fixes"
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "info",
+      "title": "Benefits",
+      "content": "A clear branching strategy avoids chaos in team collaboration and ensures smooth code delivery."
+    },
+    {
+      "type": "link",
+      "title": "External Documentation",
+      "href": "https://medium.com/@abhay.pixolo/naming-conventions-for-git-branches-a-cheatsheet-8549feca2534",
+      "content": "Details on Git Branch Naming Convention"
+    },
+    {
+      "type": "horizontal-rule"
+    },
+    {
+      "type": "line-break"
+    }
   ]
 }

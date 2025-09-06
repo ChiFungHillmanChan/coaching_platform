@@ -1,18 +1,134 @@
 {
-  "title": "AI Tools Overview & Comparison",
-  "description": "Comprehensive overview of AI development tools",
-  "slug": "ai-tools-overview",
-  "category": "ai-tools-intro",
-  "lastModified": "2024-01-01T00:00:00.000Z",
+  "slug": "deep-dive-chatgpt",
+  "category": "ai-tools",
+  "lastModified": "2025-09-06T00:00:00.000Z",
   "blocks": [
     {
       "type": "heading",
       "level": 1,
-      "content": "3.1 AI 工具全景 (AI Tools Overview & Comparison)"
+      "content": "3.2 ChatGPT Deep Dive"
     },
     {
       "type": "text",
-      "content": "Get a comprehensive overview of the AI tools landscape for development."
+      "content": "ChatGPT is not just a conversation tool—it can become a mentor, coding assistant, or even a project partner through **Custom Instructions** and **precise prompts**."
+    },
+    {
+      "type": "horizontal-rule"
+    },
+    {
+      "type": "line-break"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "content": "⚙️ Basics & Settings"
+    },
+    {
+      "type": "list",
+      "listType": "unordered",
+      "items": [
+        "**Model Versions**: GPT-3.5 (free), GPT-4 / GPT-4o (paid, advanced reasoning and tool support).",
+        "**Interface Features**: Supports chat, Code Interpreter, plugins (Browser, Python, File Upload).",
+        "**Custom Instructions**: Define 'What you’d like ChatGPT to know about you' and 'How you’d like ChatGPT to respond.' For example: reply tone, level of detail, or preferred language."
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "info",
+      "title": "Tip",
+      "content": "Using Custom Instructions makes responses fit your style better, e.g., 'Reply in Cantonese, simple but professional.'"
+    },
+    {
+      "type": "horizontal-rule"
+    },
+    {
+      "type": "line-break"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "content": "💡 Prompt Techniques"
+    },
+    {
+      "type": "list",
+      "listType": "unordered",
+      "items": [
+        "**Role Play**: e.g., 'You are a Python expert, explain this code to me.'",
+        "**Format Control**: Request outputs in JSON, Markdown, or tables.",
+        "**Process Control**: Define steps, e.g., 'Reason step by step, then summarize at the end.'",
+        "**Debug Prompt**: 'Check the following code for errors and suggest fixes.'"
+      ]
+    },
+    {
+      "type": "horizontal-rule"
+    },
+    {
+      "type": "line-break"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "content": "🌱 Idea Generation"
+    },
+    {
+      "type": "text",
+      "content": "ChatGPT is not only for solving problems—it can also help you discover inspiration."
+    },
+    {
+      "type": "list",
+      "listType": "unordered",
+      "items": [
+        "Project inspiration: Brainstorm website features or app ideas.",
+        "Learning plans: Design daily study tasks, e.g., '30-day JavaScript learning plan.'",
+        "Creative writing: Draft story outlines, scripts, or ad copy."
+      ]
+    },
+    {
+      "type": "horizontal-rule"
+    },
+    {
+      "type": "line-break"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "content": "🧰 Common Prompt Examples"
+    },
+    {
+      "type": "code",
+      "content": "You are a professional coding tutor, explain the following code step by step: ..."
+    },
+    {
+      "type": "code",
+      "content": "Compare GitHub Copilot and Cursor in a table format"
+    },
+    {
+      "type": "code",
+      "content": "Check the following SQL statement for SQL Injection risks: ..."
+    },
+    {
+      "type": "code",
+      "content": "Explain what an API is in Cantonese and give a real-world website example"
+    },
+    {
+      "type": "code",
+      "content": "Generate a 30-day JavaScript learning plan with no more than 2 hours of daily tasks"
+    },
+    {
+      "type": "code",
+      "content": "Brainstorm 5 interactive feature ideas for an environmental-themed website"
+    },
+    {
+      "type": "horizontal-rule"
+    },
+    {
+      "type": "line-break"
+    },
+    {
+      "type": "callout",
+      "variant": "success",
+      "title": "Summary",
+      "content": "Making the most of ChatGPT = **Set Custom Instructions + Write precise prompts + Use for idea generation**. That way, ChatGPT becomes not just an assistant, but your project partner."
     }
   ]
 }

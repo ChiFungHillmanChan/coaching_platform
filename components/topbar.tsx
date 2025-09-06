@@ -1,7 +1,7 @@
 'use client'
 
 import * as React from 'react'
-import { Search, Github, Menu, PanelLeftClose, PanelLeft } from 'lucide-react'
+import { Search, ExternalLink, Menu, PanelLeftClose, PanelLeft } from 'lucide-react'
 import { useTranslations, useLocale } from 'next-intl'
 import { Link } from '@/routing'
 
@@ -110,14 +110,14 @@ export function TopBar({ onMenuClick, onSidebarToggle, isSidebarOpen, className 
             variant="ghost"
             size="icon"
             asChild
-            aria-label={t('githubLink')}
+            aria-label={t('websiteLink')}
           >
             <a
               href={process.env.NEXT_PUBLIC_GITHUB_URL || 'https://hillmanchan.com'}
               target="_blank"
               rel="noopener noreferrer"
             >
-              <Github className="h-4 w-4" />
+              <ExternalLink className="h-4 w-4" />
             </a>
           </Button>
           <ThemeToggle />

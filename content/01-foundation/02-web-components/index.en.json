@@ -1,54 +1,148 @@
 {
-  "title": "Web Components: Frontend / Backend / Database / Hosting",
-  "description": "Understanding the different components that make up a web application",
   "slug": "web-components",
   "category": "foundation",
-  "lastModified": "2024-01-01T00:00:00.000Z",
+  "lastModified": "2025-09-06T00:00:00.000Z",
   "blocks": [
     {
       "type": "heading",
       "level": 1,
-      "content": "1.2 網頁的組成：前端 / 後端 / 資料庫 / Hosting (Web Components: Frontend / Backend / Database / Hosting)"
+      "content": "1.2 Web Components: Frontend / Backend / Database / Hosting"
     },
     {
       "type": "text",
-      "content": "Learn about the four main components that make up modern web applications."
+      "content": "A complete website is not just what you see in the browser—it is made up of several parts working together. Frontend, Backend, Database, and Hosting are the four core pillars of web development."
+    },
+    {
+      "type": "horizontal-rule"
+    },
+    {
+      "type": "line-break"
     },
     {
       "type": "heading",
       "level": 2,
-      "content": "Frontend"
+      "content": "🎨 Frontend"
     },
     {
       "type": "text",
-      "content": "The user interface that users interact with directly in their browsers."
+      "content": "The frontend is the part that users directly see and interact with. It is mainly responsible for **interface design, interactive logic, and user experience**."
+    },
+    {
+      "type": "list",
+      "listType": "unordered",
+      "items": [
+        "**Core technologies**: HTML (structure), CSS (style), JavaScript (interaction).",
+        "**Frameworks/Tools**: React, Vue.js, Angular, Tailwind CSS.",
+        "**Key learning points**: UI/UX design principles, responsive design, cross-browser compatibility."
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "info",
+      "title": "Tip",
+      "content": "The frontend is like the 'storefront,' shaping the user's first impression and interactive experience."
+    },
+    {
+      "type": "horizontal-rule"
+    },
+    {
+      "type": "line-break"
     },
     {
       "type": "heading",
       "level": 2,
-      "content": "Backend"
+      "content": "⚙️ Backend"
     },
     {
       "type": "text",
-      "content": "The server-side logic that processes requests and manages data."
+      "content": "The backend handles business logic, data exchange, and server operations. It is the 'brain' of the website, ensuring the frontend actions receive proper responses."
+    },
+    {
+      "type": "list",
+      "listType": "unordered",
+      "items": [
+        "**Common languages**: Node.js (JavaScript), Python (Django, Flask), Java (Spring), PHP (Laravel).",
+        "**API**: Provides data interfaces for the frontend, such as REST API or GraphQL.",
+        "**Key learning points**: Understanding server architecture, API design, security authentication."
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "info",
+      "title": "Tip",
+      "content": "If the frontend is the storefront, the backend is the 'kitchen,' handling orders and logical operations."
+    },
+    {
+      "type": "horizontal-rule"
+    },
+    {
+      "type": "line-break"
+    },
+    {
+      "type": "horizontal-rule"
+    },
+    {
+      "type": "line-break"
     },
     {
       "type": "heading",
       "level": 2,
-      "content": "Database"
+      "content": "🗄️ Database"
     },
     {
       "type": "text",
-      "content": "Where your application's data is stored and managed."
+      "content": "The database is responsible for storing and managing data. Whether it's user accounts, product lists, or message content, the database handles storage and retrieval."
+    },
+    {
+      "type": "list",
+      "listType": "unordered",
+      "items": [
+        "**Types**: Relational (MySQL, PostgreSQL), Non-relational (NoSQL: MongoDB, Firebase).",
+        "**Features**: Relational databases are suitable for structured data; NoSQL offers more flexibility and supports unstructured data.",
+        "**Key learning points**: CRUD operations (Create, Read, Update, Delete), indexing, query languages (SQL)."
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "info",
+      "title": "Tip",
+      "content": "The database is like the 'warehouse,' responsible for securely storing and quickly providing data."
+    },
+    {
+      "type": "horizontal-rule"
+    },
+    {
+      "type": "line-break"
     },
     {
       "type": "heading",
       "level": 2,
-      "content": "Hosting"
+      "content": "☁️ Hosting"
     },
     {
       "type": "text",
-      "content": "Where your web application lives on the internet."
+      "content": "Hosting makes a website available on the internet, allowing users to access it anytime."
+    },
+    {
+      "type": "list",
+      "listType": "unordered",
+      "items": [
+        "**Free platforms**: GitHub Pages, Netlify, Vercel, Lovable.",
+        "**Paid platforms**: AWS, WordPress.com, Wix, Squarespace.",
+        "**Key learning points**: Deployment process, domain setup, HTTPS encryption."
+      ]
+    },
+    {
+      "type": "horizontal-rule"
+    },
+    {
+      "type": "line-break"
+    },
+    {
+      "type": "callout",
+      "variant": "info",
+      "title": "Tip",
+      "content": "Hosting is like the 'location'—just like placing a store inside a mall, it makes it convenient for customers to visit anytime."
     }
   ]
 }

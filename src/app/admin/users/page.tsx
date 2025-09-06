@@ -331,7 +331,7 @@ export default function AdminUsersPage() {
                 {emailFilter ? (
                   <div className="space-y-2">
                     <p className="text-sm text-muted-foreground">
-                      Filtered by: "{emailFilter}"
+                      Filtered by: &quot;{emailFilter}&quot;
                     </p>
                     <p className="text-sm">
                       Showing {filteredEmails.length} results

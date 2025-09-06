@@ -37,11 +37,11 @@ export default function LoginPage() {
         throw new Error(data.error || 'Login failed')
       }
 
-      // Redirect to admin panel if admin login, otherwise to home page
+      // Redirect to admin panel if admin login, otherwise to welcome page
       if (data.user?.isAdmin) {
         router.push('/admin')
       } else {
-        router.push('/en') // Redirect to English content after login
+        router.push('/en/welcome') // Redirect to welcome page after login
       }
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Login failed')

@@ -384,7 +384,7 @@ export function ContentRenderer({ blocks, className, showTableOfContents = true 
               </div>
             )}
             <div className="space-y-2">
-              {block.items?.map((item, idx) => (
+              {block.taskItems?.map((item, idx) => (
                 <div key={idx} className="flex items-start gap-3 p-3 rounded-lg hover:bg-muted/30 transition-colors">
                   <div className={cn(
                     'flex-shrink-0 w-5 h-5 rounded border-2 flex items-center justify-center mt-0.5',

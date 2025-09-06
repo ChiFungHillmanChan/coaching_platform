@@ -1,45 +1,113 @@
 {
-  "title": "Why Version Control, Hosting & Security Matter",
-  "description": "Understanding the importance of version control, hosting, and security in web development",
-  "slug": "version-control-hosting-security",
+  "slug": "why-version-control-hosting-security",
   "category": "foundation",
-  "lastModified": "2024-01-01T00:00:00.000Z",
+  "lastModified": "2025-09-06T00:00:00.000Z",
   "blocks": [
     {
       "type": "heading",
       "level": 1,
-      "content": "1.3 為何需要版本控制、Hosting、安全性 (Why Version Control, Hosting & Security Matter)"
+      "content": "1.3 Why Version Control, Hosting, and Security Matter"
     },
     {
       "type": "text",
-      "content": "Learn why these three concepts are essential for professional web development."
+      "content": "Web development is not only about coding; it also involves teamwork, deployment, and security. These three aspects ensure that projects can be developed smoothly, launched, and maintained over the long term."
+    },
+    {
+      "type": "horizontal-rule"
+    },
+    {
+      "type": "line-break"
     },
     {
       "type": "heading",
       "level": 2,
-      "content": "Version Control"
+      "content": "📂 Version Control"
     },
     {
-      "type": "text",
-      "content": "Track changes, collaborate with others, and maintain a history of your code."
+      "type": "list",
+      "listType": "unordered",
+      "items": [
+        "**Definition**: Tools that track code history, making collaboration and rollback easier.",
+        "**Common tools**: Git, GitHub, GitLab, Bitbucket.",
+        "**Benefits**: Enables multiple people to develop simultaneously, quickly locate problematic versions, prevents code loss.",
+        "**Key learning points**: Git Commit Convention, Branch Workflow."
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "info",
+      "title": "Analogy",
+      "content": "Version control is like a 'time machine'—you can always go back to a previous version to avoid a complete breakdown."
+    },
+    {
+      "type": "horizontal-rule"
+    },
+    {
+      "type": "line-break"
     },
     {
       "type": "heading",
       "level": 2,
-      "content": "Hosting"
+      "content": "☁️ Hosting"
     },
     {
-      "type": "text",
-      "content": "Make your website accessible to users around the world."
+      "type": "list",
+      "listType": "unordered",
+      "items": [
+        "**Definition**: Deploying a website to a server so that internet users can access it.",
+        "**Free options**: GitHub Pages, Netlify, Vercel.",
+        "**Paid options**: AWS, WordPress.com, DigitalOcean.",
+        "**Benefits**: Globally accessible, supports automatic deployment, improves performance and scalability.",
+        "**Key learning points**: Deployment process, domain setup, HTTPS."
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "info",
+      "title": "Analogy",
+      "content": "Hosting is like 'renting a shop space.' Without hosting, even if you have a complete website, users cannot visit."
+    },
+    {
+      "type": "horizontal-rule"
+    },
+    {
+      "type": "line-break"
     },
     {
       "type": "heading",
       "level": 2,
-      "content": "Security"
+      "content": "🔒 Security"
     },
     {
-      "type": "text",
-      "content": "Protect your application and users from threats and vulnerabilities."
+      "type": "list",
+      "listType": "unordered",
+      "items": [
+        "**Definition**: Protecting the website and user data from malicious attacks.",
+        "**Common attacks**: SQL Injection, XSS, CSRF.",
+        "**Benefits**: Increases user trust, prevents data leaks, ensures service stability.",
+        "**Key learning points**: Input validation, access control, HTTPS encryption."
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "info",
+      "title": "Analogy",
+      "content": "Security is like a 'security system.' Without it, your website could be invaded at any time."
+    },
+    {
+      "type": "horizontal-rule"
+    },
+    {
+      "type": "horizontal-rule"
+    },
+    {
+      "type": "line-break"
+    },
+    {
+      "type": "callout",
+      "variant": "success",
+      "title": "Summary",
+      "content": "To have a complete and professional website: **Version Control** keeps development organized, **Hosting** brings the site online, and **Security** ensures long-term stability. All three are indispensable."
     }
   ]
 }

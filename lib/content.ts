@@ -1,14 +1,21 @@
 import { readFileSync } from 'fs'
 import path from 'path'
 
+export interface TaskItem {
+  content: string
+  completed?: boolean
+  checked?: boolean
+}
+
 export interface ContentBlock {
-  type: 'text' | 'heading' | 'code' | 'image' | 'video' | 'list' | 'card' | 'callout' | 'blockquote' | 'link' | 'line-break' | 'horizontal-rule' | 'email-subscription'
+  type: 'text' | 'heading' | 'code' | 'image' | 'video' | 'list' | 'card' | 'callout' | 'blockquote' | 'link' | 'line-break' | 'horizontal-rule' | 'email-subscription' | 'terminal' | 'table' | 'task-list'
   content: string
   level?: number // for headings
   language?: string // for code blocks
   src?: string // for images/videos/links
   alt?: string // for images
   items?: string[] // for lists
+  taskItems?: TaskItem[] // for task-lists
   title?: string // for cards/callouts/links
   description?: string // for cards/callouts
   variant?: 'info' | 'warning' | 'success' | 'error' // for callouts
@@ -16,6 +23,8 @@ export interface ContentBlock {
   target?: string // for links (_blank, _self, etc.)
   listType?: 'unordered' | 'ordered' // for lists
   nested?: boolean // for nested blockquotes
+  headers?: string[] // for tables
+  rows?: string[][] // for tables
 }
 
 export interface Article {
