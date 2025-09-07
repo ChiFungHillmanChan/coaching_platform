@@ -59,9 +59,10 @@
     },
     {
       "type": "image",
-      "src": "/assets/03-ai-tools-intro/02-chatgpt/1.Customize_setting.jpg",
+      "src": "/assets/03-ai-tools-intro/02-chatgpt/1.Customize_setting.png",
       "size": 6
     },
+
     { "type": "line-break" },
     {
       "type": "text",
@@ -69,7 +70,7 @@
     },
     {
       "type": "image",
-      "src": "/assets/03-ai-tools-intro/02-chatgpt/2.Customize_GPT.jpg",
+      "src": "/assets/03-ai-tools-intro/02-chatgpt/2.Customize_GPT.png",
       "size": 6
     },
 
@@ -201,7 +202,7 @@
 
     {
       "type": "image",
-      "src": "/assets/03-ai-tools-intro/02-chatgpt/3.GPT_modes.jpg",
+      "src": "/assets/03-ai-tools-intro/02-chatgpt/3.GPT_modes.png",
       "size": 6
     },
     { "type": "line-break" },
