@@ -333,8 +333,7 @@ export function ContentRenderer({ blocks, className, showTableOfContents = true 
         const ImageWithZoom = () => {
           const [isZoomed, setIsZoomed] = React.useState(false)
           
-          const getImageSizeClasses = (size?: number, zoomed?: boolean) => {
-            if (zoomed) return 'w-full max-w-6xl'
+          const getImageSizeClasses = (size?: number) => {
             if (!size) return 'w-full max-w-4xl'
             
             const sizeMap = {
@@ -356,12 +355,30 @@ export function ContentRenderer({ blocks, className, showTableOfContents = true 
           const toggleZoom = () => {
             setIsZoomed(!isZoomed)
           }
+
+          const closeZoom = () => {
+            setIsZoomed(false)
+          }
+
+          // Handle ESC key to close zoom
+          React.useEffect(() => {
+            if (!isZoomed) return
+            
+            const handleKeyDown = (event: KeyboardEvent) => {
+              if (event.key === 'Escape') {
+                closeZoom()
+              }
+            }
+            
+            document.addEventListener('keydown', handleKeyDown)
+            return () => document.removeEventListener('keydown', handleKeyDown)
+          }, [isZoomed])
           
           return (
             <div className="mb-6">
               <div className={cn(
                 "relative rounded-lg overflow-hidden mr-auto group transition-all duration-300 ease-in-out",
-                getImageSizeClasses(block.size, isZoomed)
+                getImageSizeClasses(block.size)
               )}>
                 <div 
                   className="relative cursor-pointer"
@@ -382,29 +399,18 @@ export function ContentRenderer({ blocks, className, showTableOfContents = true 
                         toggleZoom()
                       }}
                       className="flex items-center gap-1 px-3 py-2 bg-black/60 hover:bg-black/80 text-white rounded-md text-sm font-medium transition-colors backdrop-blur-sm"
-                      title={isZoomed ? "Zoom out" : "Zoom in"}
+                      title="Zoom to full screen"
                     >
-                      {isZoomed ? (
-                        <>
-                          <ZoomOut className="h-4 w-4" />
-                          <span className="hidden sm:inline">Small</span>
-                        </>
-                      ) : (
-                        <>
-                          <ZoomIn className="h-4 w-4" />
-                          <span className="hidden sm:inline">Full</span>
-                        </>
-                      )}
+                      <ZoomIn className="h-4 w-4" />
+                      <span className="hidden sm:inline">Full Screen</span>
                     </button>
                   </div>
                   {/* Click hint overlay */}
-                  {!isZoomed && (
-                    <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-200 bg-black/10">
-                      <div className="bg-black/60 text-white px-3 py-2 rounded-md text-sm backdrop-blur-sm">
-                        Click to zoom
-                      </div>
+                  <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-200 bg-black/10">
+                    <div className="bg-black/60 text-white px-3 py-2 rounded-md text-sm backdrop-blur-sm">
+                      Click to zoom
                     </div>
-                  )}
+                  </div>
                 </div>
                 {(block.caption || block.alt) && (
                   <p className="text-sm text-muted-foreground mt-3 text-center italic px-4">
@@ -412,6 +418,42 @@ export function ContentRenderer({ blocks, className, showTableOfContents = true 
                   </p>
                 )}
               </div>
+
+              {/* Full Screen Zoom Overlay */}
+              {isZoomed && (
+                <div 
+                  className="fixed inset-0 z-50 bg-black/90 flex items-center justify-center p-4 animate-in fade-in-0 duration-300" 
+                  onClick={closeZoom}
+                >
+                  <div className="relative animate-in zoom-in-95 duration-300">
+                    <Image
+                      src={block.src || ''}
+                      alt={block.alt || ''}
+                      width={0}
+                      height={0}
+                      sizes="100vw"
+                      className="max-w-[90vw] max-h-[90vh] w-auto h-auto object-contain transition-all duration-300"
+                      onClick={(e) => e.stopPropagation()}
+                    />
+                    {/* Close button */}
+                    <button
+                      onClick={closeZoom}
+                      className="absolute top-4 right-4 p-2 bg-black/60 hover:bg-black/80 text-white rounded-full transition-all duration-200 backdrop-blur-sm"
+                      title="Close full screen"
+                    >
+                      <ZoomOut className="h-6 w-6" />
+                    </button>
+                    {/* Caption in full screen */}
+                    {(block.caption || block.alt) && (
+                      <div className="absolute -bottom-12 left-1/2 transform -translate-x-1/2 max-w-2xl">
+                        <p className="text-sm text-white/90 text-center bg-black/60 px-4 py-2 rounded-md backdrop-blur-sm">
+                          {parseMarkdown(block.caption || block.alt || '')}
+                        </p>
+                      </div>
+                    )}
+                  </div>
+                </div>
+              )}
             </div>
           )
         }
@@ -669,7 +711,7 @@ export function ContentRenderer({ blocks, className, showTableOfContents = true 
           <div key={index} className="mb-6">
             {block.title && (
               <div className="text-sm font-medium text-muted-foreground mb-2 px-1">
-                {block.title}
+                {parseMarkdown(block.title)}
               </div>
             )}
             <div className="rounded-lg border overflow-hidden">

@@ -85,27 +85,33 @@
         },
         {
           "id": "chatgpt",
-          "title": "3.2 ChatGPT",
+          "title": "3.2 Deep Dive ChatGPT",
           "href": "/03-ai-tools-intro/02-chatgpt",
           "order": 2
         },
         {
           "id": "cursor",
-          "title": "3.3 Cursor",
+          "title": "3.3 Deep Dive Cursor",
           "href": "/03-ai-tools-intro/03-cursor",
           "order": 3
         },
         {
           "id": "claude",
-          "title": "3.4 Claude",
+          "title": "3.4 Deep Dive Claude",
           "href": "/03-ai-tools-intro/04-claude",
           "order": 4
         },
         {
+          "id": "claude",
+          "title": "3.5 Deep Dive Google Gemini",
+          "href": "/03-ai-tools-intro/05-gemini",
+          "order": 5
+        },
+        {
           "id": "comparison-table",
           "title": "3.3 Comparison Table",
-          "href": "/03-ai-tools-intro/05-comparison-table",
-          "order": 5
+          "href": "/03-ai-tools-intro/06-comparison-table",
+          "order": 6
         }
       ]
     },

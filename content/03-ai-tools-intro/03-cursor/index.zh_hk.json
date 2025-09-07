@@ -10,7 +10,7 @@
     },
     {
       "type": "text",
-      "content": "Cursor 係一個基於 VS Code 打造嘅 AI 編輯器，支援多種 AI 模型（Claude、GPT、Grok），係目前最好用嘅 AI IDE 之一。"
+      "content": "Cursor 係一個基於 VS Code 打造嘅 AI 編輯器，支援多種 AI 模型（Claude、GPT、Grok），本來的Cursor不被睇好，因為佢嘅準確度同回覆嘅質量唔夠Claude Code好。但因為GPT-5的推出，Cursor的準確度同回覆嘅質量都超大幅提升，成為Claude Code的競爭對手。"
     },
 
     { "type": "horizontal-rule" },
@@ -58,11 +58,41 @@
     {
       "type": "heading",
       "level": 2,
+      "content": "Cursor 模型使用"
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "content": "1. Cursor 找尋 Agent"
+    },
+    {
+      "type": "image",
+      "src": "/assets/03-ai-tools-intro/03-cursor/1.agent_place.png",
+      "size": 6
+    },
+
+    { "type": "line-break" },
+    {
+      "type": "heading",
+      "level": 3,
+      "content": "2. Agent 選擇"
+    },
+    {
+      "type": "image",
+      "src": "/assets/03-ai-tools-intro/03-cursor/2.agent_model.png",
+      "size": 6
+    },
+    { "type": "line-break" },
+    { "type": "horizontal-rule" },
+    { "type": "line-break" },
+    {
+      "type": "heading",
+      "level": 2,
       "content": "Cursor 模型比較"
     },
     {
       "type": "table",
-      "title": "Cursor 可選模型比較( ⚠️ ：只有14天**使用量**試用，而且計算Token使用量 )",
+      "title": "Cursor 可選模型比較",
       "headers": ["模型", "主要用途", "優點", "缺點", "推薦場景", "免費可用"],
       "rows": [
         ["Auto Mode", "自動模型選擇", "幫你揀最合適模型", "可控性低", "懶人模式，日常使用", "✅"],
@@ -74,6 +104,12 @@
         ["GPT-4o", "多模態任務", "支援文字+圖像輸入", "速度比 GPT-5 慢少少", "需要圖像/文件處理嘅專案", "⚠️"],
         ["Grok-code-fast-1", "代碼生成、即時回應", "反應極快", "推理力較弱", "即時問答、快速原型", "⚠️"]
       ]
+    },
+    {
+      "type": "callout",
+      "variant": "info",
+      "title": "小提示",
+      "content": "( ⚠️ ：只有14天**使用量**試用，而且計算Token使用量 )"
     },
 
     { "type": "horizontal-rule" },
@@ -90,7 +126,7 @@
     },
     {
       "type": "image",
-      "src": "/assets/03-ai-tools-intro/03-cursor/extensions.png",
+      "src": "/assets/03-ai-tools-intro/03-cursor/3.cursor_extension.png",
       "size": 6
     },
 
@@ -120,47 +156,18 @@
     {
       "type": "heading",
       "level": 2,
-      "content": "MCP (Model Context Protocol)"
-    },
-    {
-      "type": "text",
-      "content": "Cursor 同樣支援 MCP，可以令 AI 直接讀取外部資源，例如："
-    },
-    {
-      "type": "list",
-      "listType": "unordered",
-      "items": [
-        "讀取本地檔案進行代碼分析",
-        "連接 GitHub Repo 做代碼審查",
-        "查詢 Database Schema 生成 SQL",
-        "調用 API 減少人工操作"
-      ]
-    },
-    {
-      "type": "callout",
-      "variant": "info",
-      "title": "小提示",
-      "content": "MCP 適合進階用家，新手可以先熟悉基本代碼生成同 Debug。"
-    },
-
-    { "type": "horizontal-rule" },
-    { "type": "line-break" },
-
-    {
-      "type": "heading",
-      "level": 2,
       "content": "學習影片介紹（中英都有）"
     },
     {
       "type": "link",
       "title": "YouTube",
-      "href": "https://www.youtube.com/watch?v=6R_9WDFhCqg",
+      "href": "https://www.youtube.com/watch?v=YtTWNzOtkxU&t=69s",
       "content": "Cursor AI Complete Guide (English)"
     },
     {
       "type": "link",
       "title": "YouTube",
-      "href": "https://www.youtube.com/watch?v=0Zz6zIuG8o4",
+      "href": "https://www.youtube.com/watch?v=4spEPG9BU7Q",
       "content": "Cursor 全攻略 (普通話)"
     },
 
