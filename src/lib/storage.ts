@@ -51,7 +51,12 @@ export async function saveSubscriber(subscriber: Subscriber): Promise<void> {
       await kv.srem('active_subscribers', subscriber.email)
     }
   } else {
-    // Fallback to local file storage
+    // In production without KV, throw error instead of using file system
+    if (process.env.NODE_ENV === 'production' || process.env.VERCEL_ENV) {
+      throw new Error('Vercel KV is required in production. Please configure KV_REST_API_URL and KV_REST_API_TOKEN environment variables.')
+    }
+    
+    // Fallback to local file storage (development only)
     ensureDataDir()
     let subscribers: Subscriber[] = []
     
@@ -81,7 +86,12 @@ export async function getSubscriber(email: string): Promise<Subscriber | null> {
     const key = `subscriber:${email}`
     return await kv.get<Subscriber>(key)
   } else {
-    // Fallback to local file storage
+    // In production without KV, throw error instead of using file system
+    if (process.env.NODE_ENV === 'production' || process.env.VERCEL_ENV) {
+      throw new Error('Vercel KV is required in production. Please configure KV_REST_API_URL and KV_REST_API_TOKEN environment variables.')
+    }
+    
+    // Fallback to local file storage (development only)
     ensureDataDir()
     if (!existsSync(SUBSCRIBERS_FILE)) return null
     
@@ -110,7 +120,12 @@ export async function getAllActiveSubscribers(): Promise<Subscriber[]> {
     
     return subscribers.sort((a, b) => new Date(b.subscribedAt).getTime() - new Date(a.subscribedAt).getTime())
   } else {
-    // Fallback to local file storage
+    // In production without KV, throw error instead of using file system
+    if (process.env.NODE_ENV === 'production' || process.env.VERCEL_ENV) {
+      throw new Error('Vercel KV is required in production. Please configure KV_REST_API_URL and KV_REST_API_TOKEN environment variables.')
+    }
+    
+    // Fallback to local file storage (development only)
     ensureDataDir()
     if (!existsSync(SUBSCRIBERS_FILE)) return []
     
