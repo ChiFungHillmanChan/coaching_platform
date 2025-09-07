@@ -103,14 +103,14 @@
         },
         {
           "id": "claude",
-          "title": "3.5 Googld Gemini 深入教學",
+          "title": "3.5 Google Gemini 深入教學",
           "href": "/03-ai-tools-intro/05-gemini",
           "order": 5
         },
         {
-          "id": "comparison-table",
-          "title": "3.6 比較圖表",
-          "href": "/03-ai-tools-intro/06-comparison-table",
+          "id": "api-token-overview",
+          "title": "3.6 API Token 全面介紹",
+          "href": "/03-ai-tools-intro/06-api-token-overview",
           "order": 6
         }
       ]

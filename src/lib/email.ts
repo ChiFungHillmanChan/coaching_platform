@@ -58,7 +58,7 @@ export function getWelcomeEmailTemplate(subscriberEmail: string) {
         
         <p>Hi there! 👋</p>
         
-        <p>We're excited to have you on board! You've successfully subscribed to receive updates about:</p>
+        <p>I am Hillman! Thank you sooooo much for subscribing to my newsletter! You've successfully subscribed to receive updates about:</p>
         
         <ul style="color: #4b5563; margin: 20px 0;">
           <li>🤖 <strong>AI Tools & Tutorials</strong> - Learn about the latest AI tools and how to use them</li>
@@ -67,22 +67,22 @@ export function getWelcomeEmailTemplate(subscriberEmail: string) {
           <li>🚀 <strong>New Course Updates</strong> - Be the first to know about new content</li>
         </ul>
         
-        <p>We'll only send you valuable content - no spam, we promise! 📧</p>
+        <p>I will only send you valuable content - no spam 📧</p>
         
         <div style="background-color: #f3f4f6; padding: 20px; border-radius: 8px; margin: 20px 0;">
           <h3 style="margin-top: 0; color: #1f2937;">🎯 Quick Start Guide</h3>
-          <p style="margin-bottom: 0;">Ready to dive in? Check out our <a href="${process.env.NEXT_PUBLIC_SITE_URL || 'https://your-site.com'}/welcome" style="color: #2563eb; text-decoration: none;">getting started guide</a> to make the most of our platform.</p>
+          <p style="margin-bottom: 0;">Ready to dive in? Check out our <a href="${process.env.NEXT_PUBLIC_FRONT_PAGE || process.env.NEXT_PUBLIC_SITE_URL || 'https://coaching-platform-omega.vercel.app'}/welcome" style="color: #2563eb; text-decoration: none;">getting started guide</a> to make the most of our platform.</p>
         </div>
         
         <hr style="border: none; height: 1px; background-color: #e5e7eb; margin: 30px 0;">
         
         <p style="font-size: 14px; color: #6b7280;">
-          If you ever want to unsubscribe, you can do so <a href="${process.env.NEXT_PUBLIC_SITE_URL || 'https://your-site.com'}/unsubscribe?email=${encodeURIComponent(subscriberEmail)}" style="color: #6b7280;">here</a>.
+          If you ever want to unsubscribe, you can do so <a href="${process.env.NEXT_PUBLIC_SITE_URL || 'https://coaching-platform-omega.vercel.app'}/unsubscribe?email=${encodeURIComponent(subscriberEmail)}" style="color: #6b7280;">here</a>.
         </p>
         
         <p style="margin-bottom: 0;">
           Best regards,<br>
-          <strong>The AI Coaching Platform Team</strong>
+          <strong>Hillman Chan</strong>
         </p>
       </div>
     </body>
@@ -132,7 +132,7 @@ export function getNewsletterTemplate(content: {
         
         <p style="font-size: 14px; color: #6b7280;">
           You're receiving this because you subscribed to AI Coaching Platform updates. 
-          <a href="${process.env.NEXT_PUBLIC_SITE_URL || 'https://your-site.com'}/unsubscribe?email=${encodeURIComponent(content.subscriberEmail)}" style="color: #6b7280;">Unsubscribe</a>
+          <a href="${process.env.NEXT_PUBLIC_SITE_URL || 'https://coaching-platform-omega.vercel.app'}/unsubscribe?email=${encodeURIComponent(content.subscriberEmail)}" style="color: #6b7280;">Unsubscribe</a>
         </p>
       </div>
     </body>

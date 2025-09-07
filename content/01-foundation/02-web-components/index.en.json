@@ -1,7 +1,7 @@
 {
-  "slug": "web-components",
+  "slug": "web-components-simple",
   "category": "foundation",
-  "lastModified": "2025-09-06T00:00:00.000Z",
+  "lastModified": "2025-09-07T00:00:00.000Z",
   "blocks": [
     {
       "type": "heading",
@@ -10,14 +10,11 @@
     },
     {
       "type": "text",
-      "content": "A complete website is not just what you see in the browser—it is made up of several parts working together. Frontend, Backend, Database, and Hosting are the four core pillars of web development."
+      "content": "A website is not just what you see on the screen. Behind the scenes, several parts work together. Let’s use an **online bookstore** as an example to explain the four main components."
     },
-    {
-      "type": "horizontal-rule"
-    },
-    {
-      "type": "line-break"
-    },
+
+    { "type": "horizontal-rule" }, { "type": "line-break" },
+
     {
       "type": "heading",
       "level": 2,
@@ -25,29 +22,20 @@
     },
     {
       "type": "text",
-      "content": "The frontend is the part that users directly see and interact with. It is mainly responsible for **interface design, interactive logic, and user experience**."
+      "content": "The frontend is what you see when you open a website, such as the book list, shopping cart button, or login form."
     },
     {
       "type": "list",
       "listType": "unordered",
       "items": [
-        "**Core technologies**: HTML (structure), CSS (style), JavaScript (interaction).",
-        "**Frameworks/Tools**: React, Vue.js, Angular, Tailwind CSS.",
-        "**Key learning points**: UI/UX design principles, responsive design, cross-browser compatibility."
+        "🔑 **Main Role**: Display content and provide interactions (e.g., clicking “Add to Cart”).",
+        "📚 **Technologies**: HTML (structure), CSS (styling), JavaScript (interaction).",
+        "🎨 **Analogy**: Like the store’s storefront and decorations – the first thing customers see."
       ]
     },
-    {
-      "type": "callout",
-      "variant": "info",
-      "title": "Tip",
-      "content": "The frontend is like the 'storefront,' shaping the user's first impression and interactive experience."
-    },
-    {
-      "type": "horizontal-rule"
-    },
-    {
-      "type": "line-break"
-    },
+
+    { "type": "horizontal-rule" }, { "type": "line-break" },
+
     {
       "type": "heading",
       "level": 2,
@@ -55,35 +43,20 @@
     },
     {
       "type": "text",
-      "content": "The backend handles business logic, data exchange, and server operations. It is the 'brain' of the website, ensuring the frontend actions receive proper responses."
+      "content": "When you click a button on the frontend, such as “Checkout,” the backend handles the logic behind it."
     },
     {
       "type": "list",
       "listType": "unordered",
       "items": [
-        "**Common languages**: Node.js (JavaScript), Python (Django, Flask), Java (Spring), PHP (Laravel).",
-        "**API**: Provides data interfaces for the frontend, such as REST API or GraphQL.",
-        "**Key learning points**: Understanding server architecture, API design, security authentication."
+        "🔑 **Main Role**: Process user requests (e.g., calculate the total price, verify login).",
+        "📚 **Technologies**: Node.js, Python Django, PHP Laravel.",
+        "🍳 **Analogy**: Like a restaurant kitchen – the frontend takes the order, the backend cooks the meal."
       ]
     },
-    {
-      "type": "callout",
-      "variant": "info",
-      "title": "Tip",
-      "content": "If the frontend is the storefront, the backend is the 'kitchen,' handling orders and logical operations."
-    },
-    {
-      "type": "horizontal-rule"
-    },
-    {
-      "type": "line-break"
-    },
-    {
-      "type": "horizontal-rule"
-    },
-    {
-      "type": "line-break"
-    },
+
+    { "type": "horizontal-rule" }, { "type": "line-break" },
+
     {
       "type": "heading",
       "level": 2,
@@ -91,29 +64,20 @@
     },
     {
       "type": "text",
-      "content": "The database is responsible for storing and managing data. Whether it's user accounts, product lists, or message content, the database handles storage and retrieval."
+      "content": "Every bookstore needs a place to record books and customer data. That’s the role of the database."
     },
     {
       "type": "list",
       "listType": "unordered",
       "items": [
-        "**Types**: Relational (MySQL, PostgreSQL), Non-relational (NoSQL: MongoDB, Firebase).",
-        "**Features**: Relational databases are suitable for structured data; NoSQL offers more flexibility and supports unstructured data.",
-        "**Key learning points**: CRUD operations (Create, Read, Update, Delete), indexing, query languages (SQL)."
+        "🔑 **Main Role**: Store and manage information (e.g., book titles, prices, customer orders).",
+        "📚 **Common Types**: MySQL, PostgreSQL (structured), MongoDB, Firebase (flexible).",
+        "📦 **Analogy**: Like a warehouse where all the goods and records are stored."
       ]
     },
-    {
-      "type": "callout",
-      "variant": "info",
-      "title": "Tip",
-      "content": "The database is like the 'warehouse,' responsible for securely storing and quickly providing data."
-    },
-    {
-      "type": "horizontal-rule"
-    },
-    {
-      "type": "line-break"
-    },
+
+    { "type": "horizontal-rule" }, { "type": "line-break" },
+
     {
       "type": "heading",
       "level": 2,
@@ -121,28 +85,55 @@
     },
     {
       "type": "text",
-      "content": "Hosting makes a website available on the internet, allowing users to access it anytime."
+      "content": "Hosting means putting your website on the Internet so that anyone can visit your online bookstore anytime."
     },
     {
       "type": "list",
       "listType": "unordered",
       "items": [
-        "**Free platforms**: GitHub Pages, Netlify, Vercel, Lovable.",
-        "**Paid platforms**: AWS, WordPress.com, Wix, Squarespace.",
-        "**Key learning points**: Deployment process, domain setup, HTTPS encryption."
+        "🔑 **Main Role**: Keep the website online 24/7 and handle visitor traffic.",
+        "📚 **Platforms**: Free – GitHub Pages, Netlify; Professional – AWS, Vercel.",
+        "🌍 **Analogy**: Like renting a shop space on the street so everyone can enter."
       ]
     },
+
+    { "type": "horizontal-rule" }, { "type": "line-break" },
+
     {
-      "type": "horizontal-rule"
+      "type": "heading",
+      "level": 2,
+      "content": "🔄 Website Workflow (Suggested Diagram)"
     },
     {
-      "type": "line-break"
+      "type": "text",
+      "content": "Here is a simple flow you can visualize as a diagram:\n\nUser → Frontend (browser view) → Backend (logic processing) → Database (read/store data) → Hosting (public Internet service) → Response back to user"
     },
+
+    { "type": "horizontal-rule" }, { "type": "line-break" },
+
+    {
+      "type": "heading",
+      "level": 2,
+      "content": "📊 Comparison of the Four Components"
+    },
+    {
+      "type": "table",
+      "headers": ["Component", "Main Role", "Example Technologies", "Analogy"],
+      "rows": [
+        ["Frontend", "Display content, provide interaction", "HTML, CSS, JavaScript, React", "Storefront and decoration"],
+        ["Backend", "Handle logic, operations, APIs", "Node.js, Django, Laravel", "Restaurant kitchen"],
+        ["Database", "Store and manage data", "MySQL, PostgreSQL, MongoDB", "Warehouse"],
+        ["Hosting", "Make the site available online", "GitHub Pages, AWS, Vercel", "Shop space on the street"]
+      ]
+    },
+
+    { "type": "horizontal-rule" }, { "type": "line-break" },
+
     {
       "type": "callout",
       "variant": "info",
-      "title": "Tip",
-      "content": "Hosting is like the 'location'—just like placing a store inside a mall, it makes it convenient for customers to visit anytime."
+      "title": "📖 Quick Summary",
+      "content": "👉 Frontend: The part users see\n👉 Backend: The logic and actions behind the scenes\n👉 Database: Stores all information\n👉 Hosting: Publishes the site online\n\nAll four parts work together – like an online bookstore:\nUser selects a book (Frontend) → System calculates price (Backend) → Check book info (Database) → Make it available online for purchase (Hosting)."
     }
   ]
 }

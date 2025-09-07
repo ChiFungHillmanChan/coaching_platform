@@ -1,48 +1,63 @@
 {
   "slug": "web-computer-basics",
   "category": "foundation",
-  "lastModified": "2025-09-05T00:00:00.000Z",
+  "lastModified": "2025-09-07T00:00:00.000Z",
   "blocks": [
     {
       "type": "heading",
       "level": 1,
-      "content": "1.1 Web & Computer Basics"
+      "content": "1.1 Web and Computer Fundamentals"
     },
     {
       "type": "text",
-      "content": "Before diving into web development, it is essential to understand the basic principles of computers and the internet. This foundational knowledge will help you more effectively grasp web design and development."
+      "content": "Before learning web development, it is essential to understand how computers work and the basics of the Internet. This knowledge acts as the foundation, helping you quickly grasp how browsers and servers interact, making HTML, CSS, and JavaScript easier to learn."
     },
-    {
-      "type": "horizontal-rule"
-    },
-    {
-      "type": "line-break"
-    },
+
+    { "type": "horizontal-rule" }, { "type": "line-break" },
+
     {
       "type": "heading",
       "level": 2,
-      "content": "Computer Basics"
+      "content": "Computer Basics (Simplified Overview)"
     },
     {
       "type": "list",
       "listType": "unordered",
       "items": [
-        "💻 **Central Processing Unit (CPU)**: Executes program instructions and is the core computing unit of a computer.",
-        "🧠 **Memory (RAM)**: Temporarily stores data to ensure smooth and fast processing.",
-        "💾 **Storage (Hard Drive/SSD)**: Stores the system, applications, and data long-term.",
-        "🖥️ **Operating System (OS)**: Provides the interface between hardware and software, e.g., Windows, macOS, Linux."
+        "💻 **CPU (Central Processing Unit)**: The brain of the computer, responsible for executing all logic and mathematical operations.",
+        "🧠 **RAM (Random Access Memory)**: Short-term workspace that allows the computer to quickly access data used by running programs.",
+        "💾 **Storage (Hard Drive / SSD)**: Long-term memory that saves the operating system, applications, and files.",
+        "🖥️ **Operating System (OS)**: The coordinator that manages hardware and software, such as Windows, macOS, and Linux."
       ]
     },
     {
       "type": "text",
-      "content": "Understanding how computer hardware and operating systems work together helps you set up the foundational environment required for web development."
+      "content": "Analogy: The CPU is the brain, RAM is short-term memory, Storage is the library’s bookshelf, and the OS is the librarian managing everything."
     },
     {
-      "type": "horizontal-rule"
+      "type": "image",
+      "src": "/assets/01-foundation/01-web-computer-basics/CRSO.png",
+      "alt": "Computer hardware components",
+      "caption": "Four Core Components of a Computer: CPU, RAM, Storage, OS"
+    },
+
+    { "type": "line-break" },
+    {
+      "type": "heading",
+      "level": 3,
+      "content": "Everyday Examples"
     },
     {
-      "type": "line-break"
+      "type": "list",
+      "listType": "unordered",
+      "items": [
+        "When you open YouTube: The CPU processes video playback logic, RAM temporarily stores video segments, Storage saves downloaded files, and the OS manages the video application.",
+        "When you write a Word document: The CPU handles formatting, RAM stores the paragraph you’re typing, and Storage saves the file permanently."
+      ]
     },
+
+    { "type": "horizontal-rule" }, { "type": "line-break" },
+
     {
       "type": "heading",
       "level": 2,
@@ -52,27 +67,52 @@
       "type": "list",
       "listType": "unordered",
       "items": [
-        "🌐 **IP Address**: A unique identifier for devices on the network.",
-        "📡 **DNS (Domain Name System)**: Translates human-readable domain names (like google.com) into IP addresses.",
-        "✉️ **HTTP/HTTPS Protocol**: Defines how data is transmitted between browsers and servers.",
-        "🔗 **Client-Server Model**: Users send requests via the client (browser), and the server responds with data."
+        "🌐 **IP Address**: Like a home address, used to uniquely identify devices on the Internet.",
+        "📡 **DNS (Domain Name System)**: Works like a phonebook, converting website names (google.com) into IP addresses.",
+        "✉️ **HTTP/HTTPS Protocol**: Defines how data is transmitted between browsers and servers. HTTPS is more secure because it uses encryption.",
+        "🔗 **Client-Server Model**: The browser (Client) sends a request, and the server (Server) responds with data."
       ]
     },
     {
       "type": "text",
-      "content": "Internet basics help you understand how browsers connect to servers, retrieve data, and display content—an indispensable background for web development."
+      "content": "Example: When you type www.youtube.com → DNS translates it into an IP address → the browser sends a request using HTTPS → the server responds with video data → the browser displays the video."
+    },
+
+    { "type": "line-break" },
+    {
+      "type": "heading",
+      "level": 3,
+      "content": "Frontend vs Backend"
     },
     {
-      "type": "horizontal-rule"
+      "type": "text",
+      "content": "In web development:\n- **Frontend**: The part users can see, such as buttons, text, and images. Common technologies include HTML, CSS, and JavaScript.\n- **Backend**: The hidden logic running on servers, handling requests, accessing databases, and returning results. Common languages include Python, Node.js, and Java."
     },
-    {
-      "type": "line-break"
-    },
+
+    { "type": "horizontal-rule" }, { "type": "line-break" },
+
     {
       "type": "callout",
       "variant": "info",
-      "title": "💡 Key Learning Point",
-      "content": "Understanding the basic components of computers and the internet will help you more quickly master the tools and principles in the web development process."
+      "title": "💡 Key Takeaways",
+      "content": "Understanding how computers and the Internet work helps you see:\n1. Why browsers need HTML, CSS, and JS to display content.\n2. Why servers need programming languages and databases to process data.\n3. How frontend and backend collaborate to build a complete website."
+    },
+
+    { "type": "horizontal-rule" }, { "type": "line-break" },
+
+    {
+      "type": "heading",
+      "level": 2,
+      "content": "Practice Exercises"
+    },
+    {
+      "type": "list",
+      "listType": "ordered",
+      "items": [
+        "Describe in one sentence the role of CPU, RAM, and Storage.",
+        "Type a website URL in your browser and think about the steps happening in the background (DNS, HTTP, server response).",
+        "Look at an app you use daily and identify which parts are frontend and which parts are backend."
+      ]
     }
   ]
 }

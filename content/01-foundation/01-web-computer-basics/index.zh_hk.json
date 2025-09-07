@@ -1,7 +1,7 @@
 {
   "slug": "web-computer-basics",
   "category": "foundation",
-  "lastModified": "2025-09-05T00:00:00.000Z",
+  "lastModified": "2025-09-07T00:00:00.000Z",
   "blocks": [
     {
       "type": "heading",
@@ -10,45 +10,54 @@
     },
     {
       "type": "text",
-      "content": "Vibe Coding講求網頁開發，係開發前，理解電腦同互聯網嘅基本原理好必須。呢啲基礎知識可以幫助你更有效率咁掌握網站設計同開發。"
+      "content": "在學習網頁開發之前，理解電腦運作與互聯網基礎十分重要。這些知識能幫助你快速理解瀏覽器與伺服器如何合作，並在學習 HTML、CSS、JavaScript 時事半功倍。"
     },
-    {
-      "type": "horizontal-rule"
-    },
-    {
-      "type": "line-break"
-    },
+
+    { "type": "horizontal-rule" }, { "type": "line-break" },
+
     {
       "type": "heading",
       "level": 2,
-      "content": "電腦基礎（簡單講解版）"
+      "content": "電腦基礎（簡明介紹）"
     },
     {
       "type": "list",
       "listType": "unordered",
       "items": [
-        "💻 **中央處理器 (CPU)**: 負責執行程式指令，係電腦嘅核心運算單元。",
-        "🧠 **記憶體 (RAM)**: 暫存資料，確保運算過程快速流暢。",
-        "💾 **硬碟 (Storage)**: 長期儲存系統、應用同數據。",
-        "🖥️ **作業系統 (OS)**: 提供軟硬件之間嘅接口，例如 Windows、macOS、Linux。"
+        "💻 **中央處理器 (CPU)**：電腦的大腦，負責執行所有邏輯與數學運算。",
+        "🧠 **記憶體 (RAM)**：短期工作區，讓電腦快速存取運行中的程式數據。",
+        "💾 **硬碟 / 固態硬碟 (Storage)**：長期記憶，用來保存系統、應用程式與檔案。",
+        "🖥️ **作業系統 (OS)**：協調軟體與硬體的橋樑，例如 Windows、macOS、Linux。"
       ]
     },
     {
       "type": "text",
-      "content": "了解電腦硬件同作業系統嘅協同運作，可以幫助你掌握網站開發所需嘅基礎環境。"
+      "content": "比喻：CPU 就像大腦，RAM 就像短期記憶，Storage 就像圖書館的書櫃，而 OS 就像圖書館的管理員，負責協調一切。"
     },
     {
       "type": "image",
       "src": "/assets/01-foundation/01-web-computer-basics/CRSO.png",
-      "alt": "電腦硬件組成",
-      "caption": "**電腦硬件組成**：CPU、RAM、Storage、OS。"
+      "alt": "電腦硬體組成",
+      "caption": "電腦四大核心組件：CPU、RAM、Storage、OS"
+    },
+
+    { "type": "line-break" },
+    {
+      "type": "heading",
+      "level": 3,
+      "content": "生活化例子"
     },
     {
-      "type": "horizontal-rule"
+      "type": "list",
+      "listType": "unordered",
+      "items": [
+        "當你打開 YouTube：CPU 負責處理影片播放邏輯，RAM 快速暫存影片片段，Storage 保存下載檔案，OS 管理播放應用程式。",
+        "當你編寫 Word 文件：CPU 計算文字排版，RAM 儲存你正在輸入的段落，Storage 將文件長期保存。"
+      ]
     },
-    {
-      "type": "line-break"
-    },
+
+    { "type": "horizontal-rule" }, { "type": "line-break" },
+
     {
       "type": "heading",
       "level": 2,
@@ -58,27 +67,52 @@
       "type": "list",
       "listType": "unordered",
       "items": [
-        "🌐 **IP 地址 (IP Address)**: 唯一標識網路上嘅設備。",
-        "📡 **DNS (Domain Name System)**: 將人類可讀嘅域名（如 google.com）轉換成 IP 地址。",
-        "✉️ **HTTP/HTTPS 協議**: 定義咗數據喺瀏覽器同伺服器之間點樣傳輸。",
-        "🔗 **Client-Server 模型**: 使用者透過 Client（瀏覽器）發出請求，由 Server 回應數據。"
+        "🌐 **IP 地址**：像門牌號碼，用來在網路上識別裝置。",
+        "📡 **DNS (Domain Name System)**：就像電話簿，將網址（google.com）轉換為 IP 地址。",
+        "✉️ **HTTP/HTTPS 協定**：定義資料如何在瀏覽器與伺服器之間傳遞；HTTPS 更安全，因為有加密。",
+        "🔗 **用戶端－伺服器模型 (Client-Server Model)**：瀏覽器 (Client) 發送請求，伺服器 (Server) 回傳資料。"
       ]
     },
     {
       "type": "text",
-      "content": "互聯網基礎知識幫助你理解瀏覽器點樣連接伺服器、獲取數據同顯示內容，係網站開發不可或缺嘅背景知識。點解要知道呢啲識，因為vibe coding set up都一定會用到呢啲技術。"
+      "content": "案例：當你輸入 www.youtube.com → DNS 將其轉換為 IP → 瀏覽器用 HTTPS 發送請求 → 伺服器回應影片資料 → 瀏覽器顯示影片畫面。"
+    },
+
+    { "type": "line-break" },
+    {
+      "type": "heading",
+      "level": 3,
+      "content": "前端與後端的差別"
     },
     {
-      "type": "horizontal-rule"
+      "type": "text",
+      "content": "在網站開發中：\n- **前端 (Frontend)**：使用者看得到的部分，例如按鈕、文字、圖片。常用技術是 HTML、CSS、JavaScript。\n- **後端 (Backend)**：隱藏在伺服器後的邏輯，負責處理請求、存取資料庫，並回傳結果。常見語言有 Python、Node.js、Java。"
     },
-    {
-      "type": "line-break"
-    },
+
+    { "type": "horizontal-rule" }, { "type": "line-break" },
+
     {
       "type": "callout",
       "variant": "info",
       "title": "💡 學習重點",
-      "content": "理解電腦同互聯網嘅基本組成，有助於你更快掌握網站開發過程入面嘅工具同原理。"
+      "content": "掌握電腦與互聯網的運作，能幫助你理解：\n1. 為什麼瀏覽器需要 HTML/CSS/JS 來顯示內容。\n2. 為什麼伺服器需要程式語言與資料庫來處理資料。\n3. 前端與後端如何合作完成一個網站。"
+    },
+
+    { "type": "horizontal-rule" }, { "type": "line-break" },
+
+    {
+      "type": "heading",
+      "level": 2,
+      "content": "小練習"
+    },
+    {
+      "type": "list",
+      "listType": "ordered",
+      "items": [
+        "試著用一句話形容 CPU、RAM、Storage 各自的角色。",
+        "上網輸入一個網址，思考背後經歷了哪些步驟（DNS、HTTP、伺服器回應）。",
+        "觀察日常使用的應用程式，分辨哪些屬於前端、哪些屬於後端。"
+      ]
     }
   ]
 }

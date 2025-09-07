@@ -100,6 +100,27 @@
     {
       "type": "heading",
       "level": 2,
+      "content": "📊 API Token "
+    },
+    {
+      "type": "text",
+      "content": "當你要用 AI（例如 GPT、Claude、Cursor 入面揀模型）時，你嘅程式要同 AI 服務器溝通。但服務器唔會亂咁比人用，所以會要求你提供一個 API Token："
+    },
+    {
+      "type": "list",
+      "items": [
+        "身份證明：代表「你係邊個，用戶合法」。",
+        "使用權限：決定你可以用乜嘢功能、用幾多資源。",
+        "計費依據：AI 服務商會根據 Token 記錄你嘅用量，然後計費或者扣額度。"
+      ]
+    },
+    
+    { "type": "horizontal-rule" },
+    { "type": "line-break" },
+
+    {
+      "type": "heading",
+      "level": 2,
       "content": "📊 AI 工具功能對照表"
     },
     {

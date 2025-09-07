@@ -1,7 +1,7 @@
 {
-  "slug": "why-version-control-hosting-security",
+  "slug": "why-version-control-hosting-security-simple",
   "category": "foundation",
-  "lastModified": "2025-09-06T00:00:00.000Z",
+  "lastModified": "2025-09-07T00:00:00.000Z",
   "blocks": [
     {
       "type": "heading",
@@ -10,103 +10,155 @@
     },
     {
       "type": "text",
-      "content": "網站開發唔單止係寫程式，仲要考慮團隊協作、部署同資安。呢三個部分確保專案能夠順利發展、上線同長期維護。"
+      "content": "網站開發唔單止係寫程式，仲要考慮團隊協作（版本控制）、上線（Hosting）同保護（安全性）。如果用『網上書店』做例子，你會見到呢三樣嘢缺一不可。"
     },
-    {
-      "type": "horizontal-rule"
-    },
-    {
-      "type": "line-break"
-    },
+
+    { "type": "horizontal-rule" }, { "type": "line-break" },
+
     {
       "type": "heading",
       "level": 2,
       "content": "📂 版本控制 (Version Control)"
     },
     {
+      "type": "text",
+      "content": "想像你同三個朋友一齊開發網上書店網站："
+    },
+    {
       "type": "list",
       "listType": "unordered",
       "items": [
-        "**定義**: 用工具追蹤代碼歷史，方便協作與回溯。",
-        "**常用工具**: Git, GitHub, GitLab。",
-        "**好處**: 支援多人同時開發、快速找到問題版本、避免代碼遺失。",
-        "**學習重點**: Git Commit Convention、Branch Workflow。"
+        "朋友 A 改緊『書本清單』",
+        "朋友 B 改緊『購物車』",
+        "你改緊『結帳頁面』"
+      ]
+    },
+    {
+      "type": "text",
+      "content": "冇版本控制 = 你哋可能互相覆蓋對方嘅代碼，出現混亂。\n有版本控制 (Git) = 每個人改動都會記錄，有問題時可以回到之前版本。"
+    },
+    {
+      "type": "list",
+      "listType": "unordered",
+      "items": [
+        "**工具**: Git, GitHub, GitLab",
+        "**入門步驟**: `git init → git add → git commit`",
+        "**好處**: 支援多人合作、快速找到 bug、避免代碼遺失"
       ]
     },
     {
       "type": "callout",
       "variant": "info",
       "title": "比喻",
-      "content": "版本控制就好似『時光機』，隨時可以返到舊版本，避免改到網站崩潰，例如bug。"
+      "content": "版本控制就好似『時光機』，幫你隨時回到網站健康版本。(章節2.1有詳細介紹)"
     },
-    {
-      "type": "horizontal-rule"
-    },
-    {
-      "type": "line-break"
-    },
-    
+
+    { "type": "horizontal-rule" }, { "type": "line-break" },
+
     {
       "type": "heading",
       "level": 2,
       "content": "☁️ Hosting"
     },
     {
+      "type": "text",
+      "content": "網站寫好之後，仲要放上互聯網先有人可以睇到。"
+    },
+    {
+      "type": "text",
+      "content": "例如：\n- 冇 Hosting：你只可以喺自己電腦開到網站。\n- 有 Hosting：放到 Netlify 或 AWS，任何人輸入網址就可以開到你嘅網上書店。"
+    },
+    {
       "type": "list",
       "listType": "unordered",
       "items": [
-        "**定義**: 將網站放到伺服器，讓互聯網用戶可以存取。",
-        "**免費選項**: GitHub Pages, Netlify, Vercel。",
-        "**付費選項**: AWS, WordPress.com, DigitalOcean。",
-        "**好處**: 全球可訪問、支援自動部署、可加強性能與擴展性。",
-        "**學習重點**: 部署流程、域名設定、HTTPS。"
+        "**免費平台**: GitHub Pages, Netlify, Vercel",
+        "**付費平台**: AWS, WordPress.com, DigitalOcean",
+        "**好處**: 全球可訪問、自動部署、穩定可靠"
       ]
     },
     {
       "type": "callout",
       "variant": "info",
       "title": "比喻",
-      "content": "Hosting 就係『租舖位』，如果冇 Hosting，就算你有完整嘅網站，用戶都無法上門。"
+      "content": "Hosting 就係『租舖位』，冇舖位，顧客根本上唔到門。"
     },
-    {
-      "type": "horizontal-rule"
-    },
-    {
-      "type": "line-break"
-    },
+
+    { "type": "horizontal-rule" }, { "type": "line-break" },
+
     {
       "type": "heading",
       "level": 2,
       "content": "🔒 安全性 (Security)"
     },
     {
+      "type": "text",
+      "content": "如果冇安全保護，你嘅『網上書店』隨時俾黑客入侵，偷客戶資料或者令網站崩潰。"
+    },
+    { "type": "line-break" },
+    {
+      "type": "heading",
+      "level": 3,
+      "content": "常見攻擊"
+    },
+    {
       "type": "list",
       "listType": "unordered",
       "items": [
-        "**定義**: 保護網站同用戶資料，避免被惡意攻擊。",
-        "**常見攻擊**: SQL Injection、XSS、CSRF。",
-        "**好處**: 增加用戶信任、防止資料外洩、確保服務穩定。",
-        "**學習重點**: 輸入驗證、權限管理、HTTPS 加密。"
+        "- SQL Injection（資料庫注入，黑客偷用戶資料）",
+        "- XSS（跨網站腳本，插入惡意代碼）",
+        "- CSRF（偽造請求，令用戶做咗自己唔知嘅操作）",
+        "- DDoS（流量攻擊，令網站癱瘓）"
       ]
     },
+
+    {
+      "type": "heading",
+      "level": 3,
+      "content": "防護方法"
+    },
+    {
+      "type": "list",
+      "listType": "unordered",
+      "items": [
+        "- 驗證用戶輸入（避免惡意代碼）",
+        "- 權限管理（唔好比普通用戶有管理員權限）",
+        "- 使用 HTTPS（加密傳輸資料）",
+        "- 加防火牆或 CDN（例如 Cloudflare 抵禦 DDoS）"
+      ]
+    },
+    { "type": "line-break" },
     {
       "type": "callout",
       "variant": "info",
       "title": "比喻",
-      "content": "安全性就好似『保安系統』，冇咗佢，你嘅網站就隨時俾人入侵。"
+      "content": "安全性就好似『保安系統』，冇咗佢，你嘅舖頭隨時俾人爆格。"
     },
 
+    { "type": "horizontal-rule" }, { "type": "line-break" },
+
     {
-      "type": "horizontal-rule"
+      "type": "heading",
+      "level": 2,
+      "content": "📊 有 vs 無 比較表"
     },
     {
-      "type": "line-break"
+      "type": "table",
+      "headers": ["項目", "有", "無"],
+      "rows": [
+        ["版本控制", "多人協作、隨時回到舊版本", "代碼混亂、錯誤難以修復"],
+        ["Hosting", "全球用戶都可以訪問網站", "網站只可以喺自己電腦打開"],
+        ["安全性", "保護用戶資料、增強信任", "容易被入侵、資料外洩、網站停擺"]
+      ]
     },
+
+    { "type": "horizontal-rule" }, { "type": "line-break" },
+
     {
       "type": "callout",
       "variant": "success",
       "title": "小總結",
-      "content": "要有完整而專業嘅網站：**版本控制**確保開發有序、**Hosting**令網站上線、**安全性**保障長遠穩定。三者缺一不可。"
+      "content": "要有完整而專業嘅網站：**版本控制**令開發有序，**Hosting**令網站上線，**安全性**保障穩定可靠。三者缺一不可。"
     }
   ]
 }

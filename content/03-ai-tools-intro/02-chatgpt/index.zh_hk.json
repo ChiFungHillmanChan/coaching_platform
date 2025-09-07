@@ -403,6 +403,17 @@
     {
       "type": "heading",
       "level": 2,
+      "content": "ChatGPT API 使用"  
+    },
+    {
+      "type": "text",
+      "content": "ChatGPT API 可以幫你更靈活地使用 ChatGPT，例如："
+    },
+
+    
+    {
+      "type": "heading",
+      "level": 2,
       "content": "總結"
     },
 

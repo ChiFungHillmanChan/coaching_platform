@@ -132,9 +132,10 @@ function VideoPlayer({ src, className }: VideoPlayerProps) {
         ref={videoRef}
         className="w-full h-auto object-contain"
         controls
-        autoPlay
         muted
         preload="metadata"
+        playsInline
+        {...({'webkit-playsinline': 'true'} as any)}
         onPlay={() => setIsPlaying(true)}
         onPause={() => setIsPlaying(false)}
         onEnded={() => setIsPlaying(false)}
@@ -337,19 +338,19 @@ export function ContentRenderer({ blocks, className, showTableOfContents = true 
             if (!size) return 'w-full max-w-4xl'
             
             const sizeMap = {
-              1: 'w-32 max-w-32',     // 128px - very small
-              2: 'w-48 max-w-48',     // 192px - small
-              3: 'w-64 max-w-64',     // 256px - small-medium
-              4: 'w-80 max-w-80',     // 320px - medium-small
-              5: 'w-96 max-w-96',     // 384px - medium
-              6: 'w-[30rem] max-w-[30rem]', // 480px - medium-large
-              7: 'w-[36rem] max-w-[36rem]', // 576px - large
-              8: 'w-[42rem] max-w-[42rem]', // 672px - large-extra
-              9: 'w-[48rem] max-w-[48rem]', // 768px - extra-large
-              10: 'w-full max-w-4xl'  // full width - largest
+              1: 'w-32 max-w-32 sm:w-32 sm:max-w-32',     // 128px - very small
+              2: 'w-40 max-w-40 sm:w-48 sm:max-w-48',     // Mobile: 160px, Desktop: 192px - small
+              3: 'w-48 max-w-48 sm:w-64 sm:max-w-64',     // Mobile: 192px, Desktop: 256px - small-medium
+              4: 'w-56 max-w-56 sm:w-80 sm:max-w-80',     // Mobile: 224px, Desktop: 320px - medium-small
+              5: 'w-64 max-w-64 sm:w-96 sm:max-w-96',     // Mobile: 256px, Desktop: 384px - medium
+              6: 'w-72 max-w-72 sm:w-[30rem] sm:max-w-[30rem]', // Mobile: 288px, Desktop: 480px - medium-large
+              7: 'w-80 max-w-80 sm:w-[36rem] sm:max-w-[36rem]', // Mobile: 320px, Desktop: 576px - large
+              8: 'w-full max-w-sm sm:w-[42rem] sm:max-w-[42rem]', // Mobile: full width up to 384px, Desktop: 672px
+              9: 'w-full max-w-md sm:w-[48rem] sm:max-w-[48rem]', // Mobile: full width up to 448px, Desktop: 768px
+              10: 'w-full max-w-2xl sm:max-w-4xl'  // Mobile: full width up to 672px, Desktop: full width
             }
             
-            return sizeMap[size as keyof typeof sizeMap] || 'w-full max-w-4xl'
+            return sizeMap[size as keyof typeof sizeMap] || 'w-full max-w-2xl sm:max-w-4xl'
           }
 
           const toggleZoom = () => {
@@ -389,7 +390,8 @@ export function ContentRenderer({ blocks, className, showTableOfContents = true 
                     alt={block.alt || ''}
                     width={800}
                     height={400}
-                    className="w-full h-auto transition-transform duration-300"
+                    className="w-full h-auto transition-transform duration-300 object-contain"
+                    sizes="(max-width: 640px) 100vw, (max-width: 768px) 90vw, 80vw"
                   />
                   {/* Zoom button overlay */}
                   <div className="absolute top-3 right-3 opacity-0 group-hover:opacity-100 transition-opacity duration-200">
@@ -465,19 +467,19 @@ export function ContentRenderer({ blocks, className, showTableOfContents = true 
           if (!size) return 'w-full max-w-4xl'
           
           const sizeMap = {
-            1: 'w-32 max-w-32',     // 128px - very small
-            2: 'w-48 max-w-48',     // 192px - small
-            3: 'w-64 max-w-64',     // 256px - small-medium
-            4: 'w-80 max-w-80',     // 320px - medium-small
-            5: 'w-96 max-w-96',     // 384px - medium
-            6: 'w-[30rem] max-w-[30rem]', // 480px - medium-large
-            7: 'w-[36rem] max-w-[36rem]', // 576px - large
-            8: 'w-[42rem] max-w-[42rem]', // 672px - large-extra
-            9: 'w-[48rem] max-w-[48rem]', // 768px - extra-large
-            10: 'w-full max-w-4xl'  // full width - largest
+            1: 'w-32 max-w-32 sm:w-32 sm:max-w-32',     // 128px - very small
+            2: 'w-40 max-w-40 sm:w-48 sm:max-w-48',     // Mobile: 160px, Desktop: 192px - small
+            3: 'w-48 max-w-48 sm:w-64 sm:max-w-64',     // Mobile: 192px, Desktop: 256px - small-medium
+            4: 'w-56 max-w-56 sm:w-80 sm:max-w-80',     // Mobile: 224px, Desktop: 320px - medium-small
+            5: 'w-64 max-w-64 sm:w-96 sm:max-w-96',     // Mobile: 256px, Desktop: 384px - medium
+            6: 'w-72 max-w-72 sm:w-[30rem] sm:max-w-[30rem]', // Mobile: 288px, Desktop: 480px - medium-large
+            7: 'w-80 max-w-80 sm:w-[36rem] sm:max-w-[36rem]', // Mobile: 320px, Desktop: 576px - large
+            8: 'w-full max-w-sm sm:w-[42rem] sm:max-w-[42rem]', // Mobile: full width up to 384px, Desktop: 672px
+            9: 'w-full max-w-md sm:w-[48rem] sm:max-w-[48rem]', // Mobile: full width up to 448px, Desktop: 768px
+            10: 'w-full max-w-2xl sm:max-w-4xl'  // Mobile: full width up to 672px, Desktop: full width
           }
           
-          return sizeMap[size as keyof typeof sizeMap] || 'w-full max-w-4xl'
+          return sizeMap[size as keyof typeof sizeMap] || 'w-full max-w-2xl sm:max-w-4xl'
         }
 
         // Check if video is upcoming

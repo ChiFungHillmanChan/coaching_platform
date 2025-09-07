@@ -1,0 +1,262 @@
+{
+  "slug": "api-token-intro",
+  "category": "ai-tools",
+  "lastModified": "2025-09-07T00:00:00.000Z",
+  "blocks": [
+    {
+      "type": "heading",
+      "level": 1,
+      "content": "API Token Full Introduction"
+    },
+    {
+      "type": "text",
+      "content": "API Token is like a 🔑 key, allowing you to communicate securely with AI platforms (such as OpenAI). Without a Token, your program cannot use the API; with a Token, the system knows you are a legitimate user and records your usage."
+    },
+
+    { "type": "horizontal-rule" },
+    { "type": "line-break" },
+
+    {
+      "type": "heading",
+      "level": 2,
+      "content": "What is an API Token? How is it different from other AI platforms?"
+    },
+    {
+      "type": "text",
+      "content": "The biggest difference is that it allows you to use AI inside your own code, not just on the platform."
+    },
+
+    { "type": "line-break" },
+    {
+      "type": "heading",
+      "level": 3,
+      "content": "API Simple Introduction and Usage"
+    },
+
+    {
+      "type": "list",
+      "listType": "unordered",
+      "items": [
+        "**Authentication**: Verify that you are a legitimate user",
+        "**Access Rights**: Decide what features or models you can use",
+        "**Billing Basis**: Calculate cost based on usage (number of tokens)"
+      ]
+    },
+
+    {
+      "type": "blockquote",
+      "content": "API Token = Membership card + Octopus card + Access card.",
+      "title": "Simple Analogy"
+    },
+
+    { "type": "line-break" },
+    { "type": "horizontal-rule" },
+    { "type": "line-break" },
+    {
+      "type": "heading",
+      "level": 3,
+      "content": "The strongest and free API Token right now: Google Gemini"
+    },
+    {
+      "type": "link",
+      "title": "Google Gemini API Link",
+      "href": "https://aistudio.google.com/apikey",
+      "content": "Get free Google Gemini API"
+    },
+    { "type": "line-break" },
+
+    {
+      "type": "heading",
+      "level": 3,
+      "content": "Example: A game I designed using Google Gemini API"
+    },
+    {
+      "type": "link",
+      "title": "Prompt Hunter",
+      "href": "https://prompt-hunter.vercel.app/"
+    },
+
+    
+
+    { "type": "horizontal-rule" },
+    { "type": "line-break" },
+
+    {
+      "type": "heading",
+      "level": 2,
+      "content": "Strongest Model: ChatGPT5 API Token Usage Steps"
+    },
+    {
+      "type": "list",
+      "listType": "ordered",
+      "items": [
+        "Go to the OpenAI platform and generate a new Token",
+        "Store the Token securely (recommended to use environment variables ENV)",
+        "Reference the Token in your code to call the API"
+      ]
+    },
+    {
+      "type": "code",
+      "language": "python",
+      "title": "Python API Token Usage Example",
+      "content": "import openai\n\nopenai.api_key = \"your_API_Token\"\n\nresponse = openai.ChatCompletion.create(\n    model=\"gpt-4\",\n    messages=[{\"role\": \"user\", \"content\": \"Explain what an API Token is\"}]\n)\nprint(response.choices[0].message[\"content\"])"
+    },
+    { "type": "line-break" },
+    { "type": "horizontal-rule" },
+    { "type": "line-break" },
+
+    {
+      "type": "heading",
+      "level": 2,
+      "content": "Major AI Model API Price Comparison"
+    },
+
+    {
+      "type": "table",
+      "title": "Major AI Model API Token Price Table (In USD) ",
+      "headers": ["Model", "Positioning", "Input (per million tokens)", "Cached Input (per million tokens)", "Output (per million tokens)"],
+      "rows": [
+        [
+          "Claude 4 Opus",
+          "Strongest model, suitable for highly complex tasks",
+          "$15.000",
+          "N/A",
+          "$75.000"
+        ],
+        [
+          "Claude 4 Sonnet",
+          "Balanced reasoning power and cost",
+          "$3.000",
+          "N/A",
+          "$15.000"
+        ],
+        [
+          "Grok-4",
+          "Flagship Grok model, for large-scale enterprise tasks",
+          "$3.000",
+          "N/A",
+          "$15.000"
+        ],
+        [
+          "Gemini 2.5 Pro",
+          "Google’s strongest model, supports long prompts",
+          "$1.250–$2.500",
+          "N/A",
+          "$10.000–$15.000"
+        ],
+        [
+          "GPT-5",
+          "Strongest model, suitable for cross-industry coding and intelligent agent tasks",
+          "$1.250",
+          "$0.125",
+          "$10.000"
+        ],
+        [
+          "Claude 3.5 Haiku",
+          "Cheapest and fastest model",
+          "$0.800",
+          "N/A",
+          "$4.000"
+        ],
+        [
+          "GPT-5 mini",
+          "Faster and cheaper, suitable for well-defined tasks",
+          "$0.250",
+          "$0.025",
+          "$2.000"
+        ],
+        [
+          "Grok-code-fast-1",
+          "Ultra-fast agentic coding model",
+          "$0.200",
+          "N/A",
+          "$1.500"
+        ],
+        [
+          "Grok-3 mini",
+          "Lightweight version, good for math/reasoning tasks",
+          "$0.300",
+          "N/A",
+          "$0.500"
+        ],
+        [
+          "GPT-5 nano",
+          "Fastest and cheapest, good for summarization and classification",
+          "$0.050",
+          "$0.005",
+          "$0.400"
+        ],
+        [
+          "Gemini 2.0 Flash",
+          "Google standard multimodal model",
+          "$0.075",
+          "N/A",
+          "$0.300"
+        ]
+      ]
+    },
+    
+
+    {
+      "type": "callout",
+      "variant": "warning",
+      "title": "⚠️ Security Tip",
+      "content": "API Token leaked = anyone can use your quota, which may lead to extra charges!"
+    },
+
+    { "type": "horizontal-rule" },
+    { "type": "line-break" },
+
+    {
+      "type": "heading",
+      "level": 2,
+      "content": "FAQ"
+    },
+    {
+      "type": "definition-list",
+      "definitions": [
+        {
+          "term": "Does the API Token expire?",
+          "definition": "Normally it won’t expire automatically, but you can manually reset it anytime."
+        },
+        {
+          "term": "How many Tokens can I have?",
+          "definition": "You can generate multiple, convenient for different projects."
+        },
+        {
+          "term": "What if my Token is leaked?",
+          "definition": "Go to the OpenAI console immediately to delete/reset the Token and check account usage."
+        }
+      ]
+    },
+
+    { "type": "horizontal-rule" },
+    { "type": "line-break" },
+
+    {
+      "type": "heading",
+      "level": 2,
+      "content": "Summary"
+    },
+    {
+      "type": "callout",
+      "variant": "success",
+      "title": "Key Point",
+      "content": "API Token = **ID card + Key + Billing unit**. If kept safe, you can confidently call AI APIs."
+    },
+
+    {
+      "type": "heading",
+      "level": 3,
+      "content": "Try It Out"
+    },
+    {
+      "type": "task-list",
+      "items": [
+        { "content": "Generate a new API Token on the OpenAI platform", "completed": false },
+        { "content": "Store the Token using environment variables (ENV)", "completed": false },
+        { "content": "Write a Python test script and successfully call the API", "completed": false }
+      ]
+    }
+  ]
+}

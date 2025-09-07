@@ -108,9 +108,9 @@
           "order": 5
         },
         {
-          "id": "comparison-table",
-          "title": "3.3 Comparison Table",
-          "href": "/03-ai-tools-intro/06-comparison-table",
+          "id": "api-token-overview",
+          "title": "3.6 API Token Overview",
+          "href": "/03-ai-tools-intro/06-api-token-overview",
           "order": 6
         }
       ]

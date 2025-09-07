@@ -1,0 +1,262 @@
+{
+  "slug": "api-token-intro",
+  "category": "ai-tools",
+  "lastModified": "2025-09-07T00:00:00.000Z",
+  "blocks": [
+    {
+      "type": "heading",
+      "level": 1,
+      "content": "API Token 全面介紹"
+    },
+    {
+      "type": "text",
+      "content": "API Token 就好似一把🔑鑰匙，畀你同 AI 平台（例如 OpenAI）安全溝通。冇 Token，你嘅程式冇辦法用 API；有咗 Token，系統就知道你係合法用戶，並記錄你嘅用量。"
+    },
+
+    { "type": "horizontal-rule" },
+    { "type": "line-break" },
+
+    {
+      "type": "heading",
+      "level": 2,
+      "content": "API Token 是什麽？與其他AI平台的分別是什麽？"
+    },
+    {
+      "type": "text",
+      "content": "最大分別在於，它可以讓你在自己的程式碼中使用AI，而不是只能使用平台。"
+    },
+
+    { "type": "line-break" },
+    {
+      "type": "heading",
+      "level": 3,
+      "content": "API 簡單介紹及用處"
+    },
+
+    {
+      "type": "list",
+      "listType": "unordered",
+      "items": [
+        "**身份驗證**：確認你是合法用戶",
+        "**使用權限**：決定你可以用乜嘢功能或模型",
+        "**計費依據**：根據用量（token 數）計算費用"
+      ]
+    },
+
+    {
+      "type": "blockquote",
+      "content": "API Token = 會員卡 + 八達通 + 門禁卡。",
+      "title": "簡單比喻"
+    },
+
+    { "type": "line-break" },
+    { "type": "horizontal-rule" },
+    { "type": "line-break" },
+    {
+      "type": "heading",
+      "level": 3,
+      "content": "目前最強又免費的API Token是：Google Gemini"
+    },
+    {
+      "type": "link",
+      "title": "Google Gemini API Link",
+      "href": "https://aistudio.google.com/apikey",
+      "content": "獲取免費的Google Gemini API"
+    },
+    { "type": "line-break" },
+
+    {
+      "type": "heading",
+      "level": 3,
+      "content": "例子：一個我設計，要用google gemini api的遊戲"
+    },
+    {
+      "type": "link",
+      "title": "Prompt Hunter",
+      "href": "https://prompt-hunter.vercel.app/"
+    },
+
+    
+
+    { "type": "horizontal-rule" },
+    { "type": "line-break" },
+
+    {
+      "type": "heading",
+      "level": 2,
+      "content": "最強模型：ChatGPT5 API Token 使用步驟"
+    },
+    {
+      "type": "list",
+      "listType": "ordered",
+      "items": [
+        "去 OpenAI 平台生成一個新嘅 Token",
+        "將 Token 儲存在安全嘅地方（建議用環境變量 ENV）",
+        "喺程式碼中引用 Token，用嚟調用 API"
+      ]
+    },
+    {
+      "type": "code",
+      "language": "python",
+      "title": "Python 使用 API Token 示例",
+      "content": "import openai\n\nopenai.api_key = \"你的_API_Token\"\n\nresponse = openai.ChatCompletion.create(\n    model=\"gpt-4\",\n    messages=[{\"role\": \"user\", \"content\": \"解釋一下 API Token\"}]\n)\nprint(response.choices[0].message[\"content\"])"
+    },
+    { "type": "line-break" },
+    { "type": "horizontal-rule" },
+    { "type": "line-break" },
+
+    {
+      "type": "heading",
+      "level": 2,
+      "content": "各大 AI 模型 API 價格比較"
+    },
+
+    {
+      "type": "table",
+      "title": "主要 AI 模型 API Token 價格表（截至 2025-09-07，按 Output 價格排序）",
+      "headers": ["模型", "定位", "Input (每百萬 tokens)", "Cached Input (每百萬 tokens)", "Output (每百萬 tokens)"],
+      "rows": [
+        [
+          "Claude 4 Opus",
+          "最強模型，適合高度複雜任務",
+          "$15.000",
+          "N/A",
+          "$75.000"
+        ],
+        [
+          "Claude 4 Sonnet",
+          "平衡推理力與成本",
+          "$3.000",
+          "N/A",
+          "$15.000"
+        ],
+        [
+          "Grok-4",
+          "旗艦 Grok 模型，處理大型企業任務",
+          "$3.000",
+          "N/A",
+          "$15.000"
+        ],
+        [
+          "Gemini 2.5 Pro",
+          "Google 最強模型，支援長 prompt",
+          "$1.250–$2.500",
+          "N/A",
+          "$10.000–$15.000"
+        ],
+        [
+          "GPT-5",
+          "最強模型，適合跨行業代碼與智能代理任務",
+          "$1.250",
+          "$0.125",
+          "$10.000"
+        ],
+        [
+          "Claude 3.5 Haiku",
+          "最便宜快速模型",
+          "$0.800",
+          "N/A",
+          "$4.000"
+        ],
+        [
+          "GPT-5 mini",
+          "更快更便宜，適合定義清晰嘅任務",
+          "$0.250",
+          "$0.025",
+          "$2.000"
+        ],
+        [
+          "Grok-code-fast-1",
+          "超快 agentic coding 模型",
+          "$0.200",
+          "N/A",
+          "$1.500"
+        ],
+        [
+          "Grok-3 mini",
+          "輕量版本，數學／推理類任務較適合",
+          "$0.300",
+          "N/A",
+          "$0.500"
+        ],
+        [
+          "GPT-5 nano",
+          "最快最便宜，適合摘要與分類任務",
+          "$0.050",
+          "$0.005",
+          "$0.400"
+        ],
+        [
+          "Gemini 2.0 Flash",
+          "Google 多模態模型（標準）",
+          "$0.075",
+          "N/A",
+          "$0.300"
+        ]
+      ]
+    },
+    
+
+    {
+      "type": "callout",
+      "variant": "warning",
+      "title": "⚠️ 安全提示",
+      "content": "API Token 洩露 = 任何人都可以用你嘅額度，可能導致額外收費！"
+    },
+
+    { "type": "horizontal-rule" },
+    { "type": "line-break" },
+
+    {
+      "type": "heading",
+      "level": 2,
+      "content": "常見問題"
+    },
+    {
+      "type": "definition-list",
+      "definitions": [
+        {
+          "term": "API Token 會過期嗎？",
+          "definition": "一般情況下唔會自動過期，但你可以隨時手動重置。"
+        },
+        {
+          "term": "可以有幾多個 Token？",
+          "definition": "可以生成多個，方便唔同專案使用。"
+        },
+        {
+          "term": "Token 洩露咗點算？",
+          "definition": "立即去 OpenAI 後台刪除 / 重設 Token，並檢查帳號用量。"
+        }
+      ]
+    },
+
+    { "type": "horizontal-rule" },
+    { "type": "line-break" },
+
+    {
+      "type": "heading",
+      "level": 2,
+      "content": "總結"
+    },
+    {
+      "type": "callout",
+      "variant": "success",
+      "title": "重點",
+      "content": "API Token = **身份證 + 鑰匙 + 計費單位**。用得安全，就可以放心咁調用 AI API。"
+    },
+
+    {
+      "type": "heading",
+      "level": 3,
+      "content": "試試看"
+    },
+    {
+      "type": "task-list",
+      "items": [
+        { "content": "去 OpenAI 平台生成一個新 API Token", "completed": false },
+        { "content": "用環境變量 (ENV) 儲存 Token", "completed": false },
+        { "content": "寫一個 Python 測試程式，成功調用 API", "completed": false }
+      ]
+    }
+  ]
+}
