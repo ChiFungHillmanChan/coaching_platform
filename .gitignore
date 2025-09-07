@@ -96,3 +96,10 @@ claude-admin-task.json
 
 # Build info files
 *.tsbuildinfo
+
+# Playwright
+node_modules/
+/test-results/
+/playwright-report/
+/blob-report/
+/playwright/.cache/

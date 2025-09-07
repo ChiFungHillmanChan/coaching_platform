@@ -1,0 +1,336 @@
+{
+  "slug": "deep-dive-claude",
+  "category": "ai-tools",
+  "lastModified": "2025-09-07T00:00:00.000Z",
+  "blocks": [
+    {
+      "type": "heading",
+      "level": 1,
+      "content": "3.4 The Most Comprehensive Claude Deep Dive"
+    },
+    {
+      "type": "text",
+      "content": "Claude AI, developed by Anthropic, is currently my main Vibe Coding tool."
+    },
+
+    { "type": "horizontal-rule" },
+    { "type": "line-break" },
+
+    {
+      "type": "heading",
+      "level": 2,
+      "content": "Claude Features Overview"
+    },
+    {
+      "type": "list",
+      "listType": "unordered",
+      "items": [
+        "**Model Versions**: Claude Sonnet 4, Claude Opus 4, Claude Opus 4.1",
+        "Summarize text, answer questions, extract information, translate text, explain and generate code.",
+        "Process and analyze visual input, and generate text and code from images.",
+        "**Sub-agent Support**: Simulate multiple sub-agents that collaborate for debugging, code generation, and refactoring.",
+        "**Security Review**: Especially good at identifying security vulnerabilities in code (SQL Injection, XSS, etc.).",
+        "**Multi-purpose**: Besides coding, it can analyze documents and support technical research."
+      ]
+    },
+
+    { "type": "horizontal-rule" },
+    { "type": "line-break" },
+
+    {
+      "type": "heading",
+      "level": 2,
+      "content": "⚙️ Installation and Setup"
+    },
+
+    {
+      "type": "link",
+      "title": "Official Website",
+      "href": "https://claude.ai/new",
+      "content": "Claude Official Website"
+    },
+    {
+      "type": "link",
+      "title": "Official Docs",
+      "href": "https://docs.anthropic.com/en/docs/get-started",
+      "content": "Claude Official Documentation"
+    },
+    { "type": "horizontal-rule" },
+    { "type": "line-break" },
+
+    {
+      "type": "heading",
+      "level": 2,
+      "content": "Claude Model Comparison"
+    },
+
+    {
+      "type": "table",
+      "headers": ["Function", "Description", "Capability", "Analysis Time", "Weakness"],
+      "rows": [
+        ["Claude Sonnet 4", "Daily coding, building websites, writing articles, writing code", "Balanced performance, suitable for general use", "Fast", "Weaker in mathematical logic"],
+        ["Claude Opus 4", "Used for large code analysis or scientific research", "Very high intelligence, excellent coding ability", "Medium, requires more time", "Expensive (API pricing)"],
+        ["Claude Opus 4.1", "Enhanced version of Opus 4, for large code analysis or research", "The strongest Claude model", "Medium, requires more time", "Expensive (API pricing)"]
+      ],
+      "title": "Claude Model Comparison (Recommended to choose among these three)"
+    },
+
+    { "type": "line-break" },
+    { "type": "horizontal-rule" },
+    { "type": "line-break" },
+
+    {
+      "type": "heading",
+      "level": 2,
+      "content": "Claude Code Installation and Setup"
+    },
+    {
+      "type": "text",
+      "content": "Claude Code is similar to Cursor Agent — it can directly rewrite and generate code. Why introduce Cursor first (previous section)? Because Claude Code can be used inside Cursor, which is like having two professional developers helping you. Here’s how to use Claude Code in Cursor."
+    },
+    {
+      "type": "callout",
+      "variant": "warning",
+      "title": "⚠️ Important",
+      "content": "You need a Claude Pro or higher subscription to use Claude Code. Pricing is around $17/month (depending on region)."
+    },
+    { "type": "line-break" },
+    {
+      "type": "text",
+      "content": "1: Install Claude Code"
+    },
+    {
+      "type": "terminal",
+      "content": "npm install -g @anthropic-ai/claude-code ",
+      "title": "If you already have Node.js 18 or later installed:"
+    },
+    { "type": "line-break" },
+    {
+      "type": "text",
+      "content": "2: Log in to your account (Claude Code requires an account. When you start a session with the `claude` command, you will be asked to log in):"
+    },
+    {
+      "type": "terminal",
+      "content": "claude\n# On first use you will be prompted to log in"
+    },
+    {
+      "type": "terminal",
+      "content": "/login\n# Follow the prompts to log in with your account"
+    },
+    {
+      "type": "text",
+      "content": "You can log in using either account type:"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Claude.ai (subscription plan – recommended)",
+        "Anthropic Console (prepaid API access)"
+      ]
+    },
+    { "type": "line-break" },
+
+    {
+      "type": "text",
+      "content": "3: Start using Claude Code"
+    },
+    {
+      "type": "terminal",
+      "content": "claude\n# Start Claude Code"
+    },
+
+    { "type": "line-break" },
+    { "type": "horizontal-rule" },
+    { "type": "line-break" },
+
+    {
+      "type": "heading",
+      "level": 2,
+      "content": "Extensions"
+    },
+
+    {
+      "type": "text",
+      "content": "Cursor has an extension store where you can install different add-ons to make using Claude easier. I strongly recommend installing **Claude Code for VS Code** for one-click usage."
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "content": "1. Go to the Cursor Extension Store"
+    },
+    { 
+      "type": "image",
+      "src": "/assets/03-ai-tools-intro/04-claude/extension.png",
+      "size": 6
+    },
+    { "type": "line-break" },
+
+    {
+      "type": "heading",
+      "level": 3,
+      "content": "2. Install Claude Code for VS Code"
+    },
+    { 
+      "type": "image",
+      "src": "/assets/03-ai-tools-intro/04-claude/claude_vs_code.png",
+      "size": 6
+    },
+    { "type": "line-break" },
+
+    {
+      "type": "heading",
+      "level": 3,
+      "content": "3. Click the orange button on the top right — you can start using Claude Code instantly!"
+    },
+    {
+      "type": "video",
+      "src": "/assets/03-ai-tools-intro/04-claude/claude_code_vs_code.mp4",
+      "size": 7
+    },
+
+    { "type": "line-break" },
+    { "type": "horizontal-rule" },
+    { "type": "line-break" },
+
+    {
+      "type": "heading",
+      "level": 2,
+      "content": "Sub-agent"
+    },
+
+    {
+      "type": "text",
+      "content": "Sub-agent is Claude’s most powerful feature — it allows you to delegate different tasks to different agents. For example:"
+    },
+
+    {
+      "type": "list",
+      "listType": "unordered",
+      "items": [
+        "UI design",
+        "Code security review",
+        "Code refactoring",
+        "Frontend development"
+      ]
+    },
+
+    {
+      "type": "heading",
+      "level": 3,
+      "content": "One-click download of the Sub-agents I use!"
+    },
+    {
+      "type": "download-link",
+      "title": "Sub-agent Download",
+      "content": "Zip file containing all Sub-agents. Perfect for beginners to get started quickly. Just unzip and place in the `.claude/` folder and it will work automatically. (If `.claude/` does not exist, you can create it manually in the Cursor file area.)",
+      "href": "/assets/03-ai-tools-intro/04-claude/agents.zip",
+      "fileType": "Zip file",
+      "fileSize": "34 KB"
+    },
+
+    {
+      "type": "horizontal-rule"
+    },
+    {
+      "type": "line-break" }
+    ,
+    {
+      "type": "heading",
+      "level": 3,
+      "content": "Benefits of Sub-agents"
+    },
+    {
+      "type": "list",
+      "listType": "unordered",
+      "items": [
+        "Distribute complex tasks to specialized agents, improving efficiency.",
+        "Avoid overly long or incomplete single responses.",
+        "Example: Security Agent focuses on vulnerability checks, UI Agent focuses on interface design."
+      ]
+    },
+
+    {
+      "type": "horizontal-rule"
+    },
+    { "type": "line-break" },
+
+    {
+      "type": "heading",
+      "level": 2,
+      "content": "MCP (Model Context Protocol)"
+    },
+    {
+      "type": "text",
+      "content": "MCP is a standard protocol that allows Claude to directly connect with external resources (file systems, APIs, databases). Compared to copy-paste, it is much more efficient and secure."
+    },
+    {
+      "type": "list",
+      "listType": "unordered",
+      "items": [
+        "Directly read local or cloud files for analysis.",
+        "Connect to GitHub repos for code reviews.",
+        "Query database schema and generate SQL queries.",
+        "Integrate APIs to reduce manual work.",
+        "Currently not recommended for beginners. Learn Claude Code first and practice manual workflows!"
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "info",
+      "title": "Tip",
+      "content": "Think of MCP as the bridge between Claude and the outside world — best suited for project-level applications."
+    },
+
+    { "type": "line-break" },
+    { "type": "horizontal-rule" },
+    { "type": "line-break" },
+
+    {
+      "type": "heading",
+      "level": 2,
+      "content": "Learning Videos (English & Chinese)"
+    },
+
+    {
+      "type": "link",
+      "title": "YouTube (English)",
+      "href": "https://www.youtube.com/watch?v=amEUIuBKwvg&t=637s",
+      "content": "Claude Code Complete Guide (English)"
+    },
+    {
+      "type": "link",
+      "title": "YouTube (Chinese)",
+      "href": "https://www.youtube.com/watch?v=e5O8A5pcVgg&t=890s",
+      "content": "Claude Code Tutorial (Chinese)"
+    },
+
+    { "type": "line-break" },
+    { "type": "horizontal-rule" },
+    { "type": "line-break" },
+
+    {
+      "type": "heading",
+      "level": 2,
+      "content": "Summary"
+    },
+    {
+      "type": "callout",
+      "variant": "success",
+      "title": "Summary",
+      "content": "Claude Code = **Long context + Security review + Multi-agent collaboration**. Ideal for large projects, technical research, and security checks. A strong complement to ChatGPT and Cursor."
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "content": "Try It Out"
+    },
+    {
+      "type": "task-list",
+      "items": [
+        { "content": "Open Claude, input a large code file, and ask it to generate an architectural explanation.", "completed": false },
+        { "content": "Ask Claude to run a security review on code (e.g., SQL Injection).", "completed": false },
+        { "content": "Try using Claude to refactor old code into modern syntax.", "completed": false }
+      ]
+    }
+  ]
+}

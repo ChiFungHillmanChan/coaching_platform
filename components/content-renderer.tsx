@@ -5,7 +5,7 @@ import Image from 'next/image'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { cn } from '@/lib/utils'
 import { ContentBlock } from '@/lib/content'
-import { AlertTriangle, CheckCircle, Info, XCircle, ExternalLink, Terminal, Check, X, Download, FileText, Copy, CheckCheck } from 'lucide-react'
+import { AlertTriangle, CheckCircle, Info, XCircle, ExternalLink, Terminal, Check, X, Download, FileText, Copy, CheckCheck, ZoomIn, ZoomOut } from 'lucide-react'
 import { TableOfContents } from '@/components/table-of-contents'
 import { EmailSubscriptionForm } from '@/components/email-subscription-form'
 
@@ -170,8 +170,6 @@ function VideoPlayer({ src, className }: VideoPlayerProps) {
 }
 
 export function ContentRenderer({ blocks, className, showTableOfContents = true }: ContentRendererProps) {
-  let headingCounter = 0
-
   const renderBlock = (block: ContentBlock, index: number) => {
     switch (block.type) {
       case 'heading':
@@ -184,7 +182,8 @@ export function ContentRenderer({ blocks, className, showTableOfContents = true 
           5: 'text-base font-medium',
           6: 'text-sm font-medium'
         }
-        const headingId = block.level && block.level <= 2 ? `heading-${headingCounter++}` : undefined
+        // Generate ID for headings level 1-4, using the same index-based logic as TableOfContents
+        const headingId = block.level && block.level <= 4 ? `heading-${index}` : undefined
         return (
           <HeadingTag 
             key={index} 
@@ -331,46 +330,93 @@ export function ContentRenderer({ blocks, className, showTableOfContents = true 
         return <CodeBlockComponent key={index} />
 
       case 'image':
-        const getImageSizeClasses = (size?: number) => {
-          if (!size) return 'w-full max-w-4xl'
+        const ImageWithZoom = () => {
+          const [isZoomed, setIsZoomed] = React.useState(false)
           
-          const sizeMap = {
-            1: 'w-32 max-w-32',     // 128px - very small
-            2: 'w-48 max-w-48',     // 192px - small
-            3: 'w-64 max-w-64',     // 256px - small-medium
-            4: 'w-80 max-w-80',     // 320px - medium-small
-            5: 'w-96 max-w-96',     // 384px - medium
-            6: 'w-[30rem] max-w-[30rem]', // 480px - medium-large
-            7: 'w-[36rem] max-w-[36rem]', // 576px - large
-            8: 'w-[42rem] max-w-[42rem]', // 672px - large-extra
-            9: 'w-[48rem] max-w-[48rem]', // 768px - extra-large
-            10: 'w-full max-w-4xl'  // full width - largest
+          const getImageSizeClasses = (size?: number, zoomed?: boolean) => {
+            if (zoomed) return 'w-full max-w-6xl'
+            if (!size) return 'w-full max-w-4xl'
+            
+            const sizeMap = {
+              1: 'w-32 max-w-32',     // 128px - very small
+              2: 'w-48 max-w-48',     // 192px - small
+              3: 'w-64 max-w-64',     // 256px - small-medium
+              4: 'w-80 max-w-80',     // 320px - medium-small
+              5: 'w-96 max-w-96',     // 384px - medium
+              6: 'w-[30rem] max-w-[30rem]', // 480px - medium-large
+              7: 'w-[36rem] max-w-[36rem]', // 576px - large
+              8: 'w-[42rem] max-w-[42rem]', // 672px - large-extra
+              9: 'w-[48rem] max-w-[48rem]', // 768px - extra-large
+              10: 'w-full max-w-4xl'  // full width - largest
+            }
+            
+            return sizeMap[size as keyof typeof sizeMap] || 'w-full max-w-4xl'
+          }
+
+          const toggleZoom = () => {
+            setIsZoomed(!isZoomed)
           }
           
-          return sizeMap[size as keyof typeof sizeMap] || 'w-full max-w-4xl'
+          return (
+            <div className="mb-6">
+              <div className={cn(
+                "relative rounded-lg overflow-hidden mr-auto group transition-all duration-300 ease-in-out",
+                getImageSizeClasses(block.size, isZoomed)
+              )}>
+                <div 
+                  className="relative cursor-pointer"
+                  onClick={toggleZoom}
+                >
+                  <Image
+                    src={block.src || ''}
+                    alt={block.alt || ''}
+                    width={800}
+                    height={400}
+                    className="w-full h-auto transition-transform duration-300"
+                  />
+                  {/* Zoom button overlay */}
+                  <div className="absolute top-3 right-3 opacity-0 group-hover:opacity-100 transition-opacity duration-200">
+                    <button
+                      onClick={(e) => {
+                        e.stopPropagation()
+                        toggleZoom()
+                      }}
+                      className="flex items-center gap-1 px-3 py-2 bg-black/60 hover:bg-black/80 text-white rounded-md text-sm font-medium transition-colors backdrop-blur-sm"
+                      title={isZoomed ? "Zoom out" : "Zoom in"}
+                    >
+                      {isZoomed ? (
+                        <>
+                          <ZoomOut className="h-4 w-4" />
+                          <span className="hidden sm:inline">Small</span>
+                        </>
+                      ) : (
+                        <>
+                          <ZoomIn className="h-4 w-4" />
+                          <span className="hidden sm:inline">Full</span>
+                        </>
+                      )}
+                    </button>
+                  </div>
+                  {/* Click hint overlay */}
+                  {!isZoomed && (
+                    <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-200 bg-black/10">
+                      <div className="bg-black/60 text-white px-3 py-2 rounded-md text-sm backdrop-blur-sm">
+                        Click to zoom
+                      </div>
+                    </div>
+                  )}
+                </div>
+                {(block.caption || block.alt) && (
+                  <p className="text-sm text-muted-foreground mt-3 text-center italic px-4">
+                    {parseMarkdown(block.caption || block.alt || '')}
+                  </p>
+                )}
+              </div>
+            </div>
+          )
         }
         
-        return (
-          <div key={index} className="mb-6">
-            <div className={cn(
-              "relative rounded-lg overflow-hidden mr-auto",
-              getImageSizeClasses(block.size)
-            )}>
-              <Image
-                src={block.src || ''}
-                alt={block.alt || ''}
-                width={800}
-                height={400}
-                className="w-full h-auto"
-              />
-              {(block.caption || block.alt) && (
-                <p className="text-sm text-muted-foreground mt-3 text-center italic px-4">
-                  {parseMarkdown(block.caption || block.alt || '')}
-                </p>
-              )}
-            </div>
-          </div>
-        )
+        return <ImageWithZoom key={index} />
 
       case 'video':
         const getVideoSizeClasses = (size?: number) => {

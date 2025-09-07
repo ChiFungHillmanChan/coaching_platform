@@ -18,15 +18,19 @@ interface TableOfContentsProps {
 export function TableOfContents({ blocks, className }: TableOfContentsProps) {
   const [activeId, setActiveId] = React.useState<string>('')
 
-  // Extract headings from content blocks (only levels 1 and 2)
+  // Extract headings from content blocks (levels 1-4)
   const tocItems: TocItem[] = React.useMemo(() => {
-    return blocks
-      .filter(block => block.type === 'heading' && block.level && block.level <= 2)
-      .map((block, index) => ({
-        id: `heading-${index}`,
-        title: block.content,
-        level: block.level || 2
-      }))
+    const headingItems: TocItem[] = []
+    blocks.forEach((block, index) => {
+      if (block.type === 'heading' && block.level && block.level <= 4) {
+        headingItems.push({
+          id: `heading-${index}`,
+          title: block.content,
+          level: block.level || 2
+        })
+      }
+    })
+    return headingItems
   }, [blocks])
 
   // Track active section on scroll
@@ -93,7 +97,8 @@ export function TableOfContents({ blocks, className }: TableOfContentsProps) {
                   {
                     'text-primary bg-accent': activeId === item.id,
                     'text-muted-foreground': activeId !== item.id,
-                    'pl-2': item.level >= 1,
+                    'pl-2': item.level <= 2,
+                    'pl-10': item.level >= 3,
                   }
                 )}
               >

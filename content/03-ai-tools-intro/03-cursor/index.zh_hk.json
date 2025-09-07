@@ -1,0 +1,192 @@
+{
+  "slug": "deep-dive-cursor",
+  "category": "ai-tools",
+  "lastModified": "2025-09-07T00:00:00.000Z",
+  "blocks": [
+    {
+      "type": "heading",
+      "level": 1,
+      "content": "3.3 最詳盡的 Cursor 深入教學"
+    },
+    {
+      "type": "text",
+      "content": "Cursor 係一個基於 VS Code 打造嘅 AI 編輯器，支援多種 AI 模型（Claude、GPT、Grok），係目前最好用嘅 AI IDE 之一。"
+    },
+
+    { "type": "horizontal-rule" },
+    { "type": "line-break" },
+
+    {
+      "type": "heading",
+      "level": 2,
+      "content": "Cursor 功能總覽"
+    },
+    {
+      "type": "list",
+      "listType": "unordered",
+      "items": [
+        "支援多種 AI 模型（Claude、GPT、Grok）",
+        "即時代碼補全、重構、解釋",
+        "支援自然語言 Debug",
+        "內置版本控制、支援 GitHub 整合",
+        "可用於大型專案嘅代碼檢查、重構、代碼生成"
+      ]
+    },
+
+    { "type": "horizontal-rule" },
+    { "type": "line-break" },
+
+    {
+      "type": "heading",
+      "level": 2,
+      "content": "⚙️ 安裝與設定"
+    },
+    {
+      "type": "text",
+      "content": "你可以直接去官方網站下載 Cursor，支援 Windows / macOS / Linux。安裝後登入帳號，就可以選擇要用嘅 AI 模型。"
+    },
+    {
+      "type": "link",
+      "title": "Cursor 官方網站",
+      "href": "https://cursor.sh",
+      "content": "下載 Cursor"
+    },
+
+    { "type": "horizontal-rule" },
+    { "type": "line-break" },
+
+    {
+      "type": "heading",
+      "level": 2,
+      "content": "Cursor 模型比較"
+    },
+    {
+      "type": "table",
+      "title": "Cursor 可選模型比較( ⚠️ ：只有14天**使用量**試用，而且計算Token使用量 )",
+      "headers": ["模型", "主要用途", "優點", "缺點", "推薦場景", "免費可用"],
+      "rows": [
+        ["Auto Mode", "自動模型選擇", "幫你揀最合適模型", "可控性低", "懶人模式，日常使用", "✅"],
+        ["Max Mode", "追求最強輸出", "調用最高等級模型", "貴、耗時", "科研、精密代碼分析", "❌"],
+        ["Claude 4 Sonnet", "日常代碼編寫、Debug", "快速、性價比高", "上下文長度有限", "日常開發、網站專案", "⚠️"],
+        ["Claude 4 Sonnet -1m", "長上下文代碼分析", "支援百萬Token上下文", "更耗時更貴", "大型專案、跨檔案重構", "⚠️"],
+        ["Claude 3.5 Sonnet", "基礎代碼生成", "穩定、便宜", "推理力較弱", "學習/簡單程式", "⚠️"],
+        ["GPT-5", "進階代碼與推理", "推理力最強、全能", "需要Pro帳號", "複雜算法、系統設計", "⚠️"],
+        ["GPT-4o", "多模態任務", "支援文字+圖像輸入", "速度比 GPT-5 慢少少", "需要圖像/文件處理嘅專案", "⚠️"],
+        ["Grok-code-fast-1", "代碼生成、即時回應", "反應極快", "推理力較弱", "即時問答、快速原型", "⚠️"]
+      ]
+    },
+
+    { "type": "horizontal-rule" },
+    { "type": "line-break" },
+
+    {
+      "type": "heading",
+      "level": 2,
+      "content": "擴展商店 (Extensions)"
+    },
+    {
+      "type": "text",
+      "content": "Cursor 內置擴展商店，可以安裝不同插件，增強開發體驗。例如 Claude Code、GitHub Copilot、Lint 工具。"
+    },
+    {
+      "type": "image",
+      "src": "/assets/03-ai-tools-intro/03-cursor/extensions.png",
+      "size": 6
+    },
+
+    { "type": "horizontal-rule" },
+    { "type": "line-break" },
+
+    {
+      "type": "heading",
+      "level": 2,
+      "content": "特色功能"
+    },
+    {
+      "type": "list",
+      "listType": "unordered",
+      "items": [
+        "💡 **Refactor**：一鍵代碼重構，保持功能一致但可讀性更高。",
+        "🐞 **Debug**：用自然語言描述錯誤，Cursor 會提供 Debug 建議。",
+        "📖 **Code Explain**：選中代碼，要求 Cursor 解釋。",
+        "🤖 **Sub-agent 支援**：可以同 Claude Sub-agent 協作。",
+        "📂 **版本控制**：直接在 IDE 內使用 Git 功能。"
+      ]
+    },
+
+    { "type": "horizontal-rule" },
+    { "type": "line-break" },
+
+    {
+      "type": "heading",
+      "level": 2,
+      "content": "MCP (Model Context Protocol)"
+    },
+    {
+      "type": "text",
+      "content": "Cursor 同樣支援 MCP，可以令 AI 直接讀取外部資源，例如："
+    },
+    {
+      "type": "list",
+      "listType": "unordered",
+      "items": [
+        "讀取本地檔案進行代碼分析",
+        "連接 GitHub Repo 做代碼審查",
+        "查詢 Database Schema 生成 SQL",
+        "調用 API 減少人工操作"
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "info",
+      "title": "小提示",
+      "content": "MCP 適合進階用家，新手可以先熟悉基本代碼生成同 Debug。"
+    },
+
+    { "type": "horizontal-rule" },
+    { "type": "line-break" },
+
+    {
+      "type": "heading",
+      "level": 2,
+      "content": "學習影片介紹（中英都有）"
+    },
+    {
+      "type": "link",
+      "title": "YouTube",
+      "href": "https://www.youtube.com/watch?v=6R_9WDFhCqg",
+      "content": "Cursor AI Complete Guide (English)"
+    },
+    {
+      "type": "link",
+      "title": "YouTube",
+      "href": "https://www.youtube.com/watch?v=0Zz6zIuG8o4",
+      "content": "Cursor 全攻略 (普通話)"
+    },
+
+    { "type": "horizontal-rule" },
+    { "type": "line-break" },
+
+    {
+      "type": "heading",
+      "level": 2,
+      "content": "總結"
+    },
+    {
+      "type": "callout",
+      "variant": "success",
+      "title": "總結",
+      "content": "Cursor = **多模型支援 + IDE 深度整合 + Debug + Refactor**。特別適合需要實戰開發、多人協作、長期專案管理。"
+    },
+
+    { "type": "heading", "level": 3, "content": "試試看" },
+    {
+      "type": "task-list",
+      "items": [
+        { "content": "安裝 Cursor，試下選擇 Claude 4 Sonnet -1m，叫佢幫你分析一個大型專案", "completed": false },
+        { "content": "打開一段代碼，叫 Cursor 幫你重構成更清晰版本", "completed": false },
+        { "content": "試下用 Auto Mode，輸入一個 Debug 問題，觀察 Cursor 自動揀模型嘅結果", "completed": false }
+      ]
+    }
+  ]
+}
