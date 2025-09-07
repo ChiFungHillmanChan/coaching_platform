@@ -5,7 +5,7 @@ import Image from 'next/image'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { cn } from '@/lib/utils'
 import { ContentBlock } from '@/lib/content'
-import { AlertTriangle, CheckCircle, Info, XCircle, ExternalLink, Terminal, Check, X, Download, FileText, Copy, CheckCheck, ZoomIn, ZoomOut } from 'lucide-react'
+import { AlertTriangle, CheckCircle, Info, XCircle, ExternalLink, Terminal, Check, X, Download, FileText, Copy, CheckCheck, ZoomIn, ZoomOut, Clock } from 'lucide-react'
 import { TableOfContents } from '@/components/table-of-contents'
 import { EmailSubscriptionForm } from '@/components/email-subscription-form'
 
@@ -480,13 +480,30 @@ export function ContentRenderer({ blocks, className, showTableOfContents = true 
           return sizeMap[size as keyof typeof sizeMap] || 'w-full max-w-4xl'
         }
 
+        // Check if video is upcoming
+        const isUpcomingVideo = block.src === '/upcoming' || block.src?.startsWith('/upcoming')
+
         return (
           <div key={index} className="mb-4">
             <div className={cn("mr-auto", getVideoSizeClasses(block.size))}>
-              <VideoPlayer src={block.src || ''} className="w-full" />
+              {isUpcomingVideo ? (
+                // Upcoming video placeholder
+                <div className="relative w-full aspect-video bg-muted/30 rounded-lg border-2 border-dashed border-muted-foreground/30 flex items-center justify-center">
+                  <div className="text-center space-y-3">
+                    <Clock className="h-12 w-12 text-muted-foreground/60 mx-auto" />
+                    <div className="space-y-1">
+                      <p className="text-lg font-medium text-muted-foreground">Video Coming Soon</p>
+                      <p className="text-sm text-muted-foreground/80">This content is currently in production</p>
+                    </div>
+                  </div>
+                </div>
+              ) : (
+                // Regular video player
+                <VideoPlayer src={block.src || ''} className="w-full" />
+              )}
               {block.alt && (
                 <p className="text-sm text-muted-foreground mt-2 text-center italic">
-                  {block.alt}
+                  {parseMarkdown(block.alt)}
                 </p>
               )}
             </div>
@@ -731,11 +748,58 @@ export function ContentRenderer({ blocks, className, showTableOfContents = true 
                   <tbody className="divide-y divide-gray-800 dark:divide-gray-200">
                     {block.rows?.map((row, rowIdx) => (
                       <tr key={rowIdx} className="hover:bg-muted/30 transition-colors">
-                        {row.map((cell, cellIdx) => (
-                          <td key={cellIdx} className="px-4 py-3 text-sm text-muted-foreground border-r border-black dark:border-gray-600 last:border-r-0">
-                            {parseMarkdown(cell)}
-                          </td>
-                        ))}
+                        {row.map((cell, cellIdx) => {
+                          // Enhanced table cell rendering with list support
+                          const renderTableCell = (content: string) => {
+                            // Check if content contains semicolon-separated items (common list pattern)
+                            if (content.includes('；') || content.includes(';')) {
+                              const separator = content.includes('；') ? '；' : ';'
+                              const items = content.split(separator).map(item => item.trim()).filter(item => item.length > 0)
+                              
+                              if (items.length > 1) {
+                                return (
+                                  <ul className="space-y-1 text-sm">
+                                    {items.map((item, idx) => (
+                                      <li key={idx} className="flex items-start">
+                                        <span className="inline-block w-1 h-1 bg-current rounded-full mt-2 mr-2 flex-shrink-0"></span>
+                                        <span>{parseMarkdown(item)}</span>
+                                      </li>
+                                    ))}
+                                  </ul>
+                                )
+                              }
+                            }
+                            
+                            // Check for numbered list pattern (1. 2. 3.)
+                            if (content.match(/^\d+\./)) {
+                              const items = content.split(/(?=\d+\.)/).map(item => item.trim()).filter(item => item.length > 0)
+                              
+                              if (items.length > 1) {
+                                return (
+                                  <ol className="space-y-1 text-sm">
+                                    {items.map((item, idx) => (
+                                      <li key={idx} className="flex items-start">
+                                        <span className="inline-block min-w-[1.2rem] text-xs text-muted-foreground mr-1">
+                                          {idx + 1}.
+                                        </span>
+                                        <span>{parseMarkdown(item.replace(/^\d+\./, '').trim())}</span>
+                                      </li>
+                                    ))}
+                                  </ol>
+                                )
+                              }
+                            }
+                            
+                            // Default markdown parsing
+                            return parseMarkdown(content)
+                          }
+                          
+                          return (
+                            <td key={cellIdx} className="px-4 py-3 text-sm text-muted-foreground border-r border-black dark:border-gray-600 last:border-r-0 align-top">
+                              {renderTableCell(cell)}
+                            </td>
+                          )
+                        })}
                       </tr>
                     ))}
                   </tbody>

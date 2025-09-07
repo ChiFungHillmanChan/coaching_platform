@@ -130,6 +130,37 @@
       "size": 6
     },
 
+    {
+      "type": "heading",
+      "level": 3,
+      "content": "我使用中的Extension清單"
+    },
+
+    {
+      "type": "table",
+      "title": "",
+      "headers": ["名字", "用途", "推薦星星"],
+      "rows": [
+        ["Claude Code for VSCode", "Claude Code必備（下篇介紹）", "⭐⭐⭐⭐⭐"],
+        ["Prettier - Code Formatter", "代碼格式化，保持風格一致", "⭐⭐⭐⭐⭐"],
+        ["Python", "Python 語言支援，語法提示", "⭐⭐⭐⭐⭐"],
+        ["ESLint", "JavaScript/TypeScript 代碼規範檢查", "⭐⭐⭐⭐⭐"],
+        ["GitLens", "增強 Git 體驗，追蹤代碼歷史", "⭐⭐⭐⭐⭐"],
+        ["Python Debugger", "Python 除錯工具", "⭐⭐⭐⭐"],
+        ["Docker", "管理 Docker 容器，容器化開發", "⭐⭐⭐⭐"],
+        ["GitHub Actions", "CI/CD 工作流管理", "⭐⭐⭐⭐"],
+        ["Error Lens", "即時顯示代碼錯誤和警告", "⭐⭐⭐⭐"],
+        ["REST Client", "直接在 VS Code 測試 API", "⭐⭐⭐⭐"],
+        ["Thunder Client", "輕量級 Postman，做 API 測試", "⭐⭐⭐⭐"],
+        ["Live Server", "啟動本地伺服器，前端即時預覽", "⭐⭐⭐⭐"],
+        ["vscode-pdf", "直接在 VS Code 打開 PDF", "⭐⭐⭐"],
+        ["Container Tools", "整合 Azure 容器工具，方便部署", "⭐⭐⭐"],
+        ["Makefile Tools", "支援 GNU Makefile，適合 C/C++ 專案", "⭐⭐⭐"]
+      ]
+    },
+
+    
+    { "type": "line-break" },
     { "type": "horizontal-rule" },
     { "type": "line-break" },
 

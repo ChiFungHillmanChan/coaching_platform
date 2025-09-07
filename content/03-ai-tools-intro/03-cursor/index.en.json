@@ -130,6 +130,35 @@
       "size": 6
     },
 
+    {
+      "type": "heading",
+      "level": 3,
+      "content": "My Installed Extensions List"
+    },
+    
+    {
+      "type": "table",
+      "title": "",
+      "headers": ["Name", "Usage", "Recommendation"],
+      "rows": [
+        ["Claude Code for VSCode", "Essential for Claude Code (introduced in the next section)", "⭐⭐⭐⭐⭐"],
+        ["Prettier - Code Formatter", "Code formatting, maintain consistent style", "⭐⭐⭐⭐⭐"],
+        ["Python", "Python language support, syntax hints", "⭐⭐⭐⭐⭐"],
+        ["ESLint", "JavaScript/TypeScript linting and code quality", "⭐⭐⭐⭐⭐"],
+        ["GitLens", "Enhanced Git experience, track code history", "⭐⭐⭐⭐⭐"],
+        ["Python Debugger", "Debugging tool for Python", "⭐⭐⭐⭐"],
+        ["Docker", "Manage Docker containers, containerized development", "⭐⭐⭐⭐"],
+        ["GitHub Actions", "CI/CD workflow management", "⭐⭐⭐⭐"],
+        ["Error Lens", "Display errors and warnings inline in code", "⭐⭐⭐⭐"],
+        ["REST Client", "Test APIs directly inside VS Code", "⭐⭐⭐⭐"],
+        ["Thunder Client", "Lightweight Postman alternative for API testing", "⭐⭐⭐⭐"],
+        ["Live Server", "Launch local server, real-time front-end preview", "⭐⭐⭐⭐"],
+        ["vscode-pdf", "Open PDF files directly in VS Code", "⭐⭐⭐"],
+        ["Container Tools", "Integrate Azure container tools for easier deployment", "⭐⭐⭐"],
+        ["Makefile Tools", "Support for GNU Makefile, suitable for C/C++ projects", "⭐⭐⭐"]
+      ]
+    },
+    { "type": "line-break" },
     { "type": "horizontal-rule" },
     { "type": "line-break" },
 
