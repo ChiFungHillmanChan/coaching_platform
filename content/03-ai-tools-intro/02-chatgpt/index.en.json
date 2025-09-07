@@ -6,129 +6,428 @@
     {
       "type": "heading",
       "level": 1,
-      "content": "3.2 ChatGPT Deep Dive"
+      "content": "3.2 Deep Dive into ChatGPT 5"
     },
     {
       "type": "text",
-      "content": "ChatGPT is not just a conversation tool—it can become a mentor, coding assistant, or even a project partner through **Custom Instructions** and **precise prompts**."
+      "content": "ChatGPT 5 is no longer just a conversation tool, but a **multimodal AI platform**: it can understand text, images, and documents, combined with strong reasoning power and memory functions, becoming your project partner."
     },
-    {
-      "type": "horizontal-rule"
-    },
-    {
-      "type": "line-break"
-    },
+
+    { "type": "horizontal-rule" },
+    { "type": "line-break" },
+
     {
       "type": "heading",
       "level": 2,
-      "content": "⚙️ Basics & Settings"
+      "content": "ChatGPT 5 Feature Overview"
     },
     {
       "type": "list",
       "listType": "unordered",
       "items": [
-        "**Model Versions**: GPT-3.5 (free), GPT-4 / GPT-4o (paid, advanced reasoning and tool support).",
-        "**Interface Features**: Supports chat, Code Interpreter, plugins (Browser, Python, File Upload).",
-        "**Custom Instructions**: Define 'What you’d like ChatGPT to know about you' and 'How you’d like ChatGPT to respond.' For example: reply tone, level of detail, or preferred language."
+        "**Model Versions**: GPT-5 (free/paid) → faster, more accurate, supports very long context.",
+        "**Multimodal**: process text + images + documents (PDF/Excel/CSV).",
+        "**Persistent Memory**: can remember user preferences across sessions, e.g., 'Always explain in English'.",
+        "**Advanced Reasoning**: better at handling complex data analysis, system design, algorithm explanations."
       ]
     },
-    {
-      "type": "callout",
-      "variant": "info",
-      "title": "Tip",
-      "content": "Using Custom Instructions makes responses fit your style better, e.g., 'Reply in Cantonese, simple but professional.'"
-    },
-    {
-      "type": "horizontal-rule"
-    },
-    {
-      "type": "line-break"
-    },
+
+    { "type": "horizontal-rule" },
+    { "type": "line-break" },
+
     {
       "type": "heading",
       "level": 2,
-      "content": "💡 Prompt Techniques"
+      "content": "⚙️ ChatGPT 5 Custom Settings"
     },
-    {
-      "type": "list",
-      "listType": "unordered",
-      "items": [
-        "**Role Play**: e.g., 'You are a Python expert, explain this code to me.'",
-        "**Format Control**: Request outputs in JSON, Markdown, or tables.",
-        "**Process Control**: Define steps, e.g., 'Reason step by step, then summarize at the end.'",
-        "**Debug Prompt**: 'Check the following code for errors and suggest fixes.'"
-      ]
-    },
-    {
-      "type": "horizontal-rule"
-    },
-    {
-      "type": "line-break"
-    },
-    {
-      "type": "heading",
-      "level": 2,
-      "content": "🌱 Idea Generation"
-    },
+
     {
       "type": "text",
-      "content": "ChatGPT is not only for solving problems—it can also help you discover inspiration."
+      "content": "Many people use ChatGPT 5 with default settings, but detailed customization helps you control its behavior more precisely. You can set ChatGPT’s response style, language, and tone."
+    },
+    { "type": "line-break" },
+
+    {
+      "type": "heading",
+      "level": 3,
+      "content": "How to Customize"
+    },
+
+    {
+      "type": "text",
+      "content": "1. Go to Customize ChatGPT settings."
     },
     {
-      "type": "list",
-      "listType": "unordered",
-      "items": [
-        "Project inspiration: Brainstorm website features or app ideas.",
-        "Learning plans: Design daily study tasks, e.g., '30-day JavaScript learning plan.'",
-        "Creative writing: Draft story outlines, scripts, or ad copy."
-      ]
+      "type": "image",
+      "src": "/assets/03-ai-tools-intro/02-chatgpt/1.Customize_setting.jpg",
+      "size": 6
+    },
+    { "type": "line-break" },
+    {
+      "type": "text",
+      "content": "2. In Customize ChatGPT settings, you can configure response style, language, and tone."
     },
     {
-      "type": "horizontal-rule"
+      "type": "image",
+      "src": "/assets/03-ai-tools-intro/02-chatgpt/2.Customize_GPT.jpg",
+      "size": 6
     },
-    {
-      "type": "line-break"
-    },
+
+    { "type": "horizontal-rule" },
+    { "type": "line-break" },
+
     {
       "type": "heading",
       "level": 2,
-      "content": "🧰 Common Prompt Examples"
+      "content": "Customization Suggestions & Analysis"
     },
+
+    { "type": "line-break" },
+    {
+      "type": "heading",
+      "level": 3,
+      "content": "1. Personality Presets"
+    },
+    {
+      "type": "definition-list",
+      "definitions": [
+        {
+          "term": "Default",
+          "definition": "Minimal personalization. Behavior changes according to user queries."
+        },
+        {
+          "term": "Cynic",
+          "definition": "Slightly sarcastic, ironic, humorous. Choose this if you want a more personalized character."
+        },
+        {
+          "term": "Robot",
+          "definition": "Mechanical, strictly professional and accurate. Best when you want no extra wording."
+        },
+        {
+          "term": "Listener",
+          "definition": "Acts as a good listener, useful when you need ChatGPT as a mentor or advisor."
+        },
+        {
+          "term": "Nerd",
+          "definition": "Ideal when you want ChatGPT to absorb new knowledge and provide professional answers."
+        }
+      ]
+    },
+
+    { "type": "line-break" },
+    { "type": "horizontal-rule" },
+    { "type": "line-break" },
+    
+    {
+      "type": "heading",
+      "level": 3,
+      "content": "2. What Traits Should ChatGPT Have?"
+    },
+
+    {
+      "type": "definition-list",
+      "definitions": [
+        {
+          "term": "**Expert Role**",
+          "definition": "Acts as a senior software engineer with 10+ years of experience."
+        },
+        {
+          "term": "**Before Responding**",
+          "definition": "It must clarify and confirm all technical details before answering or starting tasks."
+        },  
+        {
+          "term": "**While Responding**",
+          "definition": "Respond in precise, formal, and professional language, always with examples."
+        }, 
+        {
+          "term": "**Research**",
+          "definition": "Accuracy, clarity, and correctness are non-negotiable. Every claim must have a reliable source when available."
+        },
+        {
+          "term": "Coding Guidelines",
+          "definition": "When writing code, follow best practices: clean, commented, readable, maintainable, tested."
+        },
+        {
+          "term": "**Process**",
+          "definition": "Values process, discipline, and industry best practices over speed."
+        }
+      ]
+    },
+    { "type": "line-break" },
+    { "type": "horizontal-rule" },
+    { "type": "line-break" },
+    
     {
       "type": "code",
-      "content": "You are a professional coding tutor, explain the following code step by step: ..."
+      "language": "markdown",
+      "title": "My Custom Setting (modifiable)",
+      "content": "ChatGPT should act like a senior software engineer with 10+ years of experience. It must clarify and confirm all technical details before answering or starting any task, ensuring it fully understands the goal. It should respond in a precise, formal, and technical manner, always using examples to illustrate points. Accuracy, clarity, and correctness are non-negotiable; every claim must be supported by proven sources when available. ChatGPT should value process, discipline, and industrial best practices above speed."
     },
+
+    { "type": "line-break" },
+    { "type": "horizontal-rule" },
+    { "type": "line-break" },
+
+    {
+      "type": "heading",
+      "level": 3,
+      "content": "3. What Should ChatGPT Know About You?"
+    },
+    { "type": "line-break" },
+
     {
       "type": "code",
-      "content": "Compare GitHub Copilot and Cursor in a table format"
+      "language": "markdown",
+      "title": "My Custom Setting (modifiable)",
+      "content": "When I request answers or technical tasks, ChatGPT must never jump straight to solutions. First, it should confirm all requirements and ask detailed technical questions to remove ambiguity. If a coding project or multi-step task is requested, ChatGPT should:\n\n1. Provide a TODO list of phases and tasks for approval.\n2. Deliver one task at a time, waiting for my confirmation before proceeding.\n3. Ensure all code is production-ready: clean, efficient, warning-free, error-free, no duplication, compliant with standards.\n4. Treat me as the client and confirm understanding before execution."
+    },
+
+    { "type": "line-break" },
+
+    { "type": "horizontal-rule" },
+    { "type": "line-break" },
+
+    {
+      "type": "heading",
+      "level": 2,
+      "content": "ChatGPT 5 Modes"
+    },
+
+    {
+      "type": "text",
+      "content": "Modes allow you to balance efficiency vs quality, depending on your needs. (⚠️ Note: some modes have limits depending on your plan.)"
+    },
+    { "type": "line-break" },
+
+    {
+      "type": "image",
+      "src": "/assets/03-ai-tools-intro/02-chatgpt/3.GPT_modes.jpg",
+      "size": 6
+    },
+    { "type": "line-break" },
+
+    {
+      "type": "definition-list",
+      "title": "Mode Selection",
+      "definitions": [
+        {
+          "term": "Agent Mode",
+          "items": [
+            "Handles tasks and automation (e.g., reminders, data tracking, conditional triggers).", 
+            "Acts like an assistant, remembers goals, checks and updates regularly.",
+            "Suggested use: long-term tracking, weekly repo review, reminders."
+          ],
+          "listType": "unordered"
+        }, 
+        {
+          "term": "Deep Research Mode",
+          "items": [
+            "Focuses on in-depth research, organizes multiple sources, produces detailed conclusions.", 
+            "Best for verification, long reports, or decision-making analysis.",
+            "Suggested use: literature review, academic research, pre-report analysis."
+          ],
+          "listType": "unordered"
+        }, 
+        {
+          "term": "Create Image Mode",
+          "items": [
+            "Generates images based on descriptions.", 
+            "Can be illustrations, design drafts, mockups, or edits (add elements, change style).",
+            "Best for creative and visualization needs.",
+            "Suggested use: poster design, UI prototyping, illustration."
+          ],
+          "listType": "unordered"
+        }, 
+        {
+          "term": "Study and Learn Mode",
+          "items": [
+            "Supports study and training: review, step-by-step explanations, exercises.", 
+            "Can simulate teachers or peers for interactive learning.",
+            "Ideal for long-term learning plans: languages, courses, skills.",
+            "Suggested use: daily study plan, practice exams, language learning."
+          ],
+          "listType": "unordered"
+        },
+        {
+          "term": "Web Search Mode",
+          "items": [
+            "Accesses the latest online information.", 
+            "Solves cutoff limitations (news, real-time data, sports results).",
+            "Best when you need updated or local info.",
+            "Suggested use: news updates, live data, local events."
+          ],
+          "listType": "unordered"
+        },
+        {
+          "term": "Canva Integration (Canvas / Canva)",
+          "items": [
+            "Canvas (internal): side-panel workspace for document collaboration and editing.", 
+            "Canva (platform): integrate with Canva for slides, social media, layouts.",
+            "Suggested use: collaborative editing, quick slide design, social media content."
+          ],
+          "listType": "unordered"
+        }
+      ]
+    },
+
+    { "type": "line-break" },
+
+    { "type": "horizontal-rule" },
+    { "type": "line-break" },
+
+    {
+      "type": "heading",
+      "level": 2,
+      "content": "ChatGPT Model Analysis"
+    },
+    
+    {
+      "type": "text",
+      "content": "Choosing the right model helps you work more efficiently. Below are some references."
+    },
+
+    { "type": "line-break" },
+
+    {
+      "type": "video",
+      "src": "/assets/03-ai-tools-intro/02-chatgpt/GPT_model_video.mp4",
+      "size": 7
+    },
+
+    { "type": "line-break" },
+
+    {
+      "type": "heading",
+      "level": 3,
+      "content": "ChatGPT 5 Model Analysis"
     },
     {
-      "type": "code",
-      "content": "Check the following SQL statement for SQL Injection risks: ..."
-    },
+      "type": "definition-list",
+      "definitions": [
+        {
+          "term": "Auto (recommended)",
+          "items": [
+            "Automatically picks the most suitable model.",
+            "No need to care about versions, system switches automatically.",
+            "Use directly without technical setup.",
+            "Suggested use: general usage, flexible tasks, new users."
+          ],
+          "listType": "unordered"
+        },
+        {
+          "term": "Instant",
+          "items": [
+            "Very fast response time.",
+            "Less detailed, but fast.",
+            "Best for casual chat, quick answers, simple queries.",
+            "Suggested use: real-time Q&A, brainstorming, casual queries."
+          ],
+          "listType": "unordered"
+        },
+        {
+          "term": "Thinking Mini",
+          "items": [
+            "Lightweight reasoning model.",
+            "Balances reasoning and speed with lower resource usage.",
+            "Best for medium complexity tasks (debugging, basic analysis).",
+            "Suggested use: debugging, step-by-step problem solving, lightweight analysis."
+          ],
+          "listType": "unordered"
+        },
+        {
+          "term": "Thinking",
+          "items": [
+            "Full reasoning mode.",
+            "Provides deeper, more logical, more accurate answers.",
+            "Best for logic-heavy tasks, math, research.",
+            "Suggested use: research questions, math, long reasoning chains."
+          ],
+          "listType": "unordered"
+        }
+      ]
+    },    
+
+    { "type": "line-break" },
+    { "type": "horizontal-rule" },
+    { "type": "line-break" },
+
     {
-      "type": "code",
-      "content": "Explain what an API is in Cantonese and give a real-world website example"
+      "type": "heading",
+      "level": 3,
+      "content": "Legacy ChatGPT Models"  
     },
+
     {
-      "type": "code",
-      "content": "Generate a 30-day JavaScript learning plan with no more than 2 hours of daily tasks"
-    },
+      "type": "definition-list",
+      "definitions": [
+        {
+          "term": "4o",
+          "items": [
+            "GPT-4 Omni / optimized version.",
+            "Stable, strong language understanding, supports image input.",
+            "Best for professional writing, complex conversations, multimodal tasks."
+          ],
+          "listType": "unordered"
+        },
+        {
+          "term": "4.1",
+          "items": [
+            "Updated version of 4o.",
+            "Faster, more accurate, stronger reasoning.",
+            "Best for technical writing, research, precise answers."
+          ],
+          "listType": "unordered"
+        },
+        {
+          "term": "o3",
+          "items": [
+            "Latest reasoning expert model.",
+            "Specialized in difficult reasoning (math, logic, multi-step problems).",
+            "Best for scientific research, engineering analysis, math problems."
+          ],
+          "listType": "unordered"
+        },
+        {
+          "term": "o4-mini",
+          "items": [
+            "Lightweight version of o-series.",
+            "Faster than o3, slightly weaker reasoning, efficient.",
+            "Best for balancing speed and intelligence, not for highly complex tasks."
+          ],
+          "listType": "unordered"
+        }
+      ]
+    },    
+
+    { "type": "line-break" },
+
+    { "type": "horizontal-rule" },
+    { "type": "line-break" },
+
     {
-      "type": "code",
-      "content": "Brainstorm 5 interactive feature ideas for an environmental-themed website"
+      "type": "heading",
+      "level": 2,
+      "content": "Summary"
     },
-    {
-      "type": "horizontal-rule"
-    },
-    {
-      "type": "line-break"
-    },
+
     {
       "type": "callout",
       "variant": "success",
       "title": "Summary",
-      "content": "Making the most of ChatGPT = **Set Custom Instructions + Write precise prompts + Use for idea generation**. That way, ChatGPT becomes not just an assistant, but your project partner."
+      "content": "The value of ChatGPT 5 = **Multimodal + Long Context + Memory + Strong Reasoning**. Used well, it becomes your mentor, analyst, and teammate."
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "content": "Try It Out"
+    },
+    {
+      "type": "task-list",
+      "items": [
+        { "content": "Set ChatGPT to always reply in English, then ask it a technical question", "completed": false },
+        { "content": "Use the 'Listener' personality preset and ask ChatGPT to analyze a study plan", "completed": false },
+        { "content": "Pick one mode (e.g., Deep Research) and ask ChatGPT to summarize a long article", "completed": false }
+      ]
     }
   ]
 }

@@ -15,6 +15,7 @@ export interface ContentBlock {
   src?: string // for images/videos/links
   alt?: string // for images
   caption?: string // for images with captions
+  size?: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 // for image size levels (1=smallest, 10=largest)
   items?: string[] // for lists
   taskItems?: TaskItem[] // for task-lists
   title?: string // for cards/callouts/links
@@ -30,7 +31,7 @@ export interface ContentBlock {
   fileType?: string // for download links
   footnoteId?: string // for footnotes
   footnoteText?: string // for footnotes
-  definitions?: { term: string; definition: string }[] // for definition lists
+  definitions?: { term: string; definition?: string; items?: string[]; listType?: 'unordered' | 'ordered' }[] // for definition lists
 }
 
 export interface Article {

@@ -130,14 +130,40 @@ function VideoPlayer({ src, className }: VideoPlayerProps) {
     <div className={cn('relative rounded-lg overflow-hidden bg-muted', className)}>
       <video
         ref={videoRef}
-        className="w-full h-auto"
+        className="w-full h-auto object-contain"
         controls
+        autoPlay
+        muted
+        preload="metadata"
         onPlay={() => setIsPlaying(true)}
         onPause={() => setIsPlaying(false)}
         onEnded={() => setIsPlaying(false)}
+        style={{ aspectRatio: 'auto' }}
       >
+        {/* MP4 - Most widely supported */}
         <source src={src} type="video/mp4" />
-        Your browser does not support the video tag.
+        {/* WebM - Good for modern browsers */}
+        <source src={src.replace(/\.[^/.]+$/, '.webm')} type="video/webm" />
+        {/* OGV - Firefox fallback */}
+        <source src={src.replace(/\.[^/.]+$/, '.ogv')} type="video/ogg" />
+        {/* Fallback message with better styling */}
+        <div className="flex items-center justify-center h-48 text-center p-8">
+          <div className="space-y-2">
+            <p className="text-muted-foreground text-sm">
+              Your browser does not support video playback.
+            </p>
+            <p className="text-xs text-muted-foreground">
+              Please try updating your browser or use a modern browser like Chrome, Firefox, Safari, or Edge.
+            </p>
+            <a 
+              href={src} 
+              download 
+              className="inline-flex items-center gap-2 text-primary hover:underline text-sm font-medium"
+            >
+              Download Video
+            </a>
+          </div>
+        </div>
       </video>
     </div>
   )
@@ -182,7 +208,51 @@ export function ContentRenderer({ blocks, className, showTableOfContents = true 
           
           const handleCopy = async () => {
             try {
-              await navigator.clipboard.writeText(block.content)
+              // Process the content to handle \n and \t characters
+              let processedContent = block.content
+              
+              // Replace \n and \t with empty strings when not inside quotes
+              let inQuotes = false
+              let quoteChar = ''
+              let result = ''
+              
+              for (let i = 0; i < processedContent.length; i++) {
+                const char = processedContent[i]
+                const nextChar = processedContent[i + 1]
+                
+                // Check for quote characters
+                if ((char === '"' || char === "'" || char === '`') && processedContent[i - 1] !== '\\') {
+                  if (!inQuotes) {
+                    inQuotes = true
+                    quoteChar = char
+                    result += char
+                  } else if (char === quoteChar) {
+                    inQuotes = false
+                    quoteChar = ''
+                    result += char
+                  } else {
+                    result += char
+                  }
+                }
+                // Handle escape sequences
+                else if (char === '\\' && (nextChar === 'n' || nextChar === 't')) {
+                  if (inQuotes) {
+                    // Inside quotes: keep the actual characters
+                    result += char === '\\' && nextChar === 'n' ? '\n' : 
+                             char === '\\' && nextChar === 't' ? '\t' : char
+                    if (nextChar === 'n' || nextChar === 't') i++ // skip next character
+                  } else {
+                    // Outside quotes: replace with empty string (skip both characters)
+                    i++ // skip the next character (n or t)
+                  }
+                }
+                // Regular characters
+                else {
+                  result += char
+                }
+              }
+              
+              await navigator.clipboard.writeText(result)
               setCopied(true)
               setTimeout(() => setCopied(false), 2000)
             } catch (err) {
@@ -261,9 +331,31 @@ export function ContentRenderer({ blocks, className, showTableOfContents = true 
         return <CodeBlockComponent key={index} />
 
       case 'image':
+        const getImageSizeClasses = (size?: number) => {
+          if (!size) return 'w-full max-w-4xl'
+          
+          const sizeMap = {
+            1: 'w-32 max-w-32',     // 128px - very small
+            2: 'w-48 max-w-48',     // 192px - small
+            3: 'w-64 max-w-64',     // 256px - small-medium
+            4: 'w-80 max-w-80',     // 320px - medium-small
+            5: 'w-96 max-w-96',     // 384px - medium
+            6: 'w-[30rem] max-w-[30rem]', // 480px - medium-large
+            7: 'w-[36rem] max-w-[36rem]', // 576px - large
+            8: 'w-[42rem] max-w-[42rem]', // 672px - large-extra
+            9: 'w-[48rem] max-w-[48rem]', // 768px - extra-large
+            10: 'w-full max-w-4xl'  // full width - largest
+          }
+          
+          return sizeMap[size as keyof typeof sizeMap] || 'w-full max-w-4xl'
+        }
+        
         return (
           <div key={index} className="mb-6">
-            <div className="relative rounded-lg overflow-hidden border shadow-sm">
+            <div className={cn(
+              "relative rounded-lg overflow-hidden mr-auto",
+              getImageSizeClasses(block.size)
+            )}>
               <Image
                 src={block.src || ''}
                 alt={block.alt || ''}
@@ -271,24 +363,45 @@ export function ContentRenderer({ blocks, className, showTableOfContents = true 
                 height={400}
                 className="w-full h-auto"
               />
+              {(block.caption || block.alt) && (
+                <p className="text-sm text-muted-foreground mt-3 text-center italic px-4">
+                  {parseMarkdown(block.caption || block.alt || '')}
+                </p>
+              )}
             </div>
-            {(block.caption || block.alt) && (
-              <p className="text-sm text-muted-foreground mt-3 text-center italic px-4">
-                {parseMarkdown(block.caption || block.alt || '')}
-              </p>
-            )}
           </div>
         )
 
       case 'video':
+        const getVideoSizeClasses = (size?: number) => {
+          if (!size) return 'w-full max-w-4xl'
+          
+          const sizeMap = {
+            1: 'w-32 max-w-32',     // 128px - very small
+            2: 'w-48 max-w-48',     // 192px - small
+            3: 'w-64 max-w-64',     // 256px - small-medium
+            4: 'w-80 max-w-80',     // 320px - medium-small
+            5: 'w-96 max-w-96',     // 384px - medium
+            6: 'w-[30rem] max-w-[30rem]', // 480px - medium-large
+            7: 'w-[36rem] max-w-[36rem]', // 576px - large
+            8: 'w-[42rem] max-w-[42rem]', // 672px - large-extra
+            9: 'w-[48rem] max-w-[48rem]', // 768px - extra-large
+            10: 'w-full max-w-4xl'  // full width - largest
+          }
+          
+          return sizeMap[size as keyof typeof sizeMap] || 'w-full max-w-4xl'
+        }
+
         return (
           <div key={index} className="mb-4">
-            <VideoPlayer src={block.src || ''} />
-            {block.alt && (
-              <p className="text-sm text-muted-foreground mt-2 text-center italic">
-                {block.alt}
-              </p>
-            )}
+            <div className={cn("mr-auto", getVideoSizeClasses(block.size))}>
+              <VideoPlayer src={block.src || ''} className="w-full" />
+              {block.alt && (
+                <p className="text-sm text-muted-foreground mt-2 text-center italic">
+                  {block.alt}
+                </p>
+              )}
+            </div>
           </div>
         )
 
@@ -410,7 +523,51 @@ export function ContentRenderer({ blocks, className, showTableOfContents = true 
           
           const handleCopy = async () => {
             try {
-              await navigator.clipboard.writeText(block.content)
+              // Process the content to handle \n and \t characters
+              let processedContent = block.content
+              
+              // Replace \n and \t with empty strings when not inside quotes
+              let inQuotes = false
+              let quoteChar = ''
+              let result = ''
+              
+              for (let i = 0; i < processedContent.length; i++) {
+                const char = processedContent[i]
+                const nextChar = processedContent[i + 1]
+                
+                // Check for quote characters
+                if ((char === '"' || char === "'" || char === '`') && processedContent[i - 1] !== '\\') {
+                  if (!inQuotes) {
+                    inQuotes = true
+                    quoteChar = char
+                    result += char
+                  } else if (char === quoteChar) {
+                    inQuotes = false
+                    quoteChar = ''
+                    result += char
+                  } else {
+                    result += char
+                  }
+                }
+                // Handle escape sequences
+                else if (char === '\\' && (nextChar === 'n' || nextChar === 't')) {
+                  if (inQuotes) {
+                    // Inside quotes: keep the actual characters
+                    result += char === '\\' && nextChar === 'n' ? '\n' : 
+                             char === '\\' && nextChar === 't' ? '\t' : char
+                    if (nextChar === 'n' || nextChar === 't') i++ // skip next character
+                  } else {
+                    // Outside quotes: replace with empty string (skip both characters)
+                    i++ // skip the next character (n or t)
+                  }
+                }
+                // Regular characters
+                else {
+                  result += char
+                }
+              }
+              
+              await navigator.clipboard.writeText(result)
               setCopied(true)
               setTimeout(() => setCopied(false), 2000)
             } catch (err) {
@@ -618,7 +775,29 @@ export function ContentRenderer({ blocks, className, showTableOfContents = true 
                     {parseMarkdown(def.term)}
                   </dt>
                   <dd className="text-sm text-muted-foreground leading-relaxed">
-                    {parseMarkdown(def.definition)}
+                    {def.definition ? (
+                      parseMarkdown(def.definition)
+                    ) : def.items ? (
+                      <div className="mt-1">
+                        {def.listType === 'ordered' ? (
+                          <ol className="list-decimal list-inside space-y-1">
+                            {def.items.map((item, itemIdx) => (
+                              <li key={itemIdx} className="leading-relaxed">
+                                {parseMarkdown(item)}
+                              </li>
+                            ))}
+                          </ol>
+                        ) : (
+                          <ul className="list-disc list-inside space-y-1">
+                            {def.items.map((item, itemIdx) => (
+                              <li key={itemIdx} className="leading-relaxed">
+                                {parseMarkdown(item)}
+                              </li>
+                            ))}
+                          </ul>
+                        )}
+                      </div>
+                    ) : null}
                   </dd>
                 </div>
               ))}

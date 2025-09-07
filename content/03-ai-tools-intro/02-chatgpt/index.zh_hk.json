@@ -6,7 +6,7 @@
     {
       "type": "heading",
       "level": 1,
-      "content": "3.2 ChatGPT 5 深入教學"
+      "content": "3.2 最詳盡的ChatGPT 5 深入教學"
     },
     {
       "type": "text",
@@ -19,7 +19,7 @@
     {
       "type": "heading",
       "level": 2,
-      "content": "⚙️ ChatGPT 5 新功能"
+      "content": "ChatGPT 5 功能總覽"
     },
     {
       "type": "list",
@@ -38,17 +38,39 @@
     {
       "type": "heading",
       "level": 2,
-      "content": "💡 Prompt 使用技巧 (GPT-5 專用)"
+      "content": "⚙️ ChatGPT 5 自訂設定"
+    },
+
+    {
+      "type": "text",
+      "content": "很多人都ChatGPT 5 的預設設定，但一個詳細的設定可以幫助你更準確地控制ChatGPT的行為。你可以設置ChatGPT的回應方式、回答的語言、回答的風格等。"
+    },
+    { "type": "line-break" },
+
+    {
+      "type": "heading",
+      "level": 3,
+      "content": "自訂設定方法"
+    },
+
+    {
+      "type": "text",
+      "content": "1. 先去Customize Chatgpt的設定"
     },
     {
-      "type": "list",
-      "listType": "unordered",
-      "items": [
-        "**Chain-of-Thought Prompting**: 『逐步推理，最後再總結』。",
-        "**Memory-aware Prompting**: 『根據我之前問過嘅 API 課題，再幫我寫一個實例』。",
-        "**多模態 Debug**: 上傳 screenshot + 補一句『請解釋錯誤訊息，並提供修正方法』。",
-        "**文件總結**: 『請總結以下 PDF 內容並提出 3 個重點』。"
-      ]
+      "type": "image",
+      "src": "/assets/03-ai-tools-intro/02-chatgpt/1.Customize_setting.jpg",
+      "size": 6
+    },
+    { "type": "line-break" },
+    {
+      "type": "text",
+      "content": "2. 在Customize Chatgpt的設定中，你可以設置ChatGPT的回應方式、語言、風格等。"
+    },
+    {
+      "type": "image",
+      "src": "/assets/03-ai-tools-intro/02-chatgpt/2.Customize_GPT.jpg",
+      "size": 6
     },
 
     { "type": "horizontal-rule" },
@@ -57,33 +79,351 @@
     {
       "type": "heading",
       "level": 2,
-      "content": "🧰 常用 Prompt 範例 (GPT-5)"
+      "content": "自訂設定建議及分析"
+    },
+
+    { "type": "line-break" },
+    {
+      "type": "heading",
+      "level": 3,
+      "content": "1. ChatGPT個性建議"
     },
     {
-      "type": "code",
-      "content": "你係一名系統架構師，請分析以下 ER 圖，指出數據庫設計問題。"
+      "type": "definition-list",
+      "definitions": [
+        {
+          "term": "預設 （Default）",
+          "definition": "預設設定，不會有太多個人化設定。會隨用戶的問題改變"
+        },
+        {
+          "term": "嘲諷 （Cynic）",
+          "definition": "有點嘲諷，有點諷刺，有點幽默。如果你希望ChatGPT有個性化，可以選擇這個設定。"
+        },
+        {
+          "term": "機械化 （Robot）",
+          "definition": "有點機械化，在需要專業及準確，不需多餘的回答時，可以選擇這個設定。"
+        },
+        {
+          "term": "聆聽 （Listener） **本人設定**",
+          "definition": "會聆聽用戶的聲音，如果需要ChatGPT成為導師、給予建議時，可以選擇這個設定。"
+        },
+        {
+          "term": "書呆子 （Nerd）",
+          "definition": "如果需要ChatGPT接收新知識並提供專業解答時，可以選擇這個設定。"
+        }
+      ]
     },
+
+    { "type": "line-break" },
+    { "type": "horizontal-rule" },
+    { "type": "line-break" },
+    
+    {
+      "type": "heading",
+      "level": 3,
+      "content": "2. ChatGPT應該具備哪些特質"
+    },
+
+    {
+      "type": "definition-list",
+      "definitions": [
+        {
+          "term": "**專家角色**",
+          "definition": "扮演擁有 10 年以上經驗的高級軟體工程師。"
+        },
+        {
+          "term": "**回覆前**",
+          "definition": "在回答問題或開始任何任務之前，它必須澄清並確認所有技術細節，確保完全理解目標"
+        },  
+        {
+          "term": "**回覆時**",
+          "definition": "它應該以精準、正式且專業的語言進行回應，並始終使用範例來闡明觀點"
+        }, 
+        {
+          "term": "**資料蒐集**",
+          "definition": "準確性、清晰度和正確性是不可妥協的；每項主張都必須有可靠的來源（如有）"
+        },
+        {
+          "term": "程式碼指引",
+          "definition": "編寫程式碼時，遵循最佳實踐：編寫清晰、帶有註釋的程式碼；遵守標準的風格指南；並確保可讀性、可維護性和適當的測試"
+        },
+        {
+          "term": "**流程**",
+          "definition": "ChatGPT 應該重視流程、紀律和行業最佳實踐，而不是速度"
+        }
+      ]
+    },
+    { "type": "line-break" },
+    { "type": "horizontal-rule" },
+    { "type": "line-break" },
+    
     {
       "type": "code",
-      "content": "我會上傳一份 Excel，請幫我：\n1. 清理空值\n2. 畫一張銷售趨勢圖\n3. 用一句話解釋圖表結果"
+      "language": "markdown",
+      "title": "我的個人設定參考（你都可以自行修改）",
+      "content": "ChatGPT 應該扮演擁有 10 年以上經驗的高級軟體工程師。在回答問題或開始任何任務之前，它必須澄清並確認所有技術細節，確保完全理解目標。它應該以精準、正式且專業的語言進行回應，並始終使用範例來闡明觀點。準確性、清晰度和正確性是不可妥協的；每項主張都必須有可靠的來源（如有）。 ChatGPT 應該重視流程、紀律和行業最佳實踐，而不是速度。"
     },
+
+    { "type": "line-break" },
+    { "type": "horizontal-rule" },
+    { "type": "line-break" },
+
+    {
+      "type": "heading",
+      "level": 3,
+      "content": "3. ChatGPT 還應該了解您的哪些資訊？"
+    },
+    { "type": "line-break" },
+
     {
       "type": "code",
-      "content": "呢張 screenshot 出現咗 Python stack trace，請幫我逐步解釋錯誤原因，並修正代碼。"
+      "language": "markdown",
+      "title": "我的個人設定參考（可以自行修改）",
+      "content": "當我要求答案或技術任務時，ChatGPT 絕對不能直接跳到解決方案。首先，它應該確認所有需求，並提出詳細的技術問題以消除歧義。如果請求的是編碼項目或多步驟任務，ChatGPT 應該：\n\n1. 提供計畫階段和任務的待辦事項清單以供審批。\n2. 一次交付一項任務，等待我的確認後再繼續。\n3. 確保所有程式碼都已投入生產：乾淨、有效率、無警告、無錯誤、無重複，並符合專業的行業標準。\n4. 將我視為客戶，並在執行前確認理解。"
     },
-    {
-      "type": "code",
-      "content": "根據我之前設定嘅『廣東話解釋 + 簡單』指令，請解釋什麼係 CI/CD pipeline。"
-    },
+
+    { "type": "line-break" },
 
     { "type": "horizontal-rule" },
     { "type": "line-break" },
+
+    {
+      "type": "heading",
+      "level": 2,
+      "content": "ChatGPT 5 模式設定"
+    },
+
+    {
+      "type": "text",
+      "content": "模式嘅設定意義，就係讓你根據實際需要，揀最合適嘅模式來攞到最好嘅回覆。（ ⚠️注意，部份模式即事付費版本都有上限！）"
+    },
+    { "type": "line-break" },
+
+    {
+      "type": "image",
+      "src": "/assets/03-ai-tools-intro/02-chatgpt/3.GPT_modes.jpg",
+      "size": 6
+    },
+    { "type": "line-break" },
+
+    {
+      "type": "definition-list",
+      "title": "模式選擇",
+      "definitions": [
+        {
+          "term": "Agent 模式",
+          "items": [
+            "可以幫你處理任務同自動化，例如幫你定時提醒、追蹤某啲資料、甚至根據條件觸發。", 
+            "偏向「助手」角色，可以長期記住目標，定期幫你檢查或者更新",
+            "建議用法：長期追蹤數據、每週review、定時提醒。"
+          ],
+          "listType": "unordered"
+        }, 
+        {
+          "term": "Deep Research 模式",
+          "items": [
+            "專注深入研究，會幫你整理多個資料來源，拉長時間分析，做出比較完整嘅結論。", 
+            "用於需要查證、長篇調查、文獻整合。適合做報告或者大型決策之前嘅調研。",
+            "建議用法：文獻整理、課題研究、寫長篇報告前。"
+          ],
+          "listType": "unordered"
+        }, 
+        {
+          "term": "Create Image 模式",
+          "items": [
+            "利用圖像生成技術，可以根據你嘅描述畫圖。", 
+            "可以係插圖、設計草稿、示意圖，甚至改圖（例如加元素、轉風格）。",
+            "適合創意同視覺化需求。",
+            "建議用法：設計草稿、示意圖、改圖。"
+          ],
+          "listType": "unordered"
+        }, 
+        {
+          "term": "Study and Learn 模式",
+          "items": [
+            "幫助學習同訓練，例如複習考試內容、逐步解釋概念、出練習題。", 
+            "可以用互動方式教學，模擬老師/同學角色。",
+            "適合長期學習計劃，例如語言、專業課題、技能提升。",
+            "建議用法：每日學習計劃、模擬考試練習、逐步學語言。"
+          ],
+          "listType": "unordered"
+        },
+        {
+          "term": "Web Search 模式",
+          "items": [
+            "可以即時上網搵最新資料。" ,
+            "解決知識庫 cutoff 後無法更新嘅問題（例如最新新聞、即時數據、比賽結果）。",
+            "適合任何需要「最新」或者「地區性」資訊嘅場景。",
+            "建議用法：最新資訊、即時數據、比賽結果。"
+          ],
+          "listType": "unordered"
+        },
+        {
+          "term": "Canva 整合（Canvas / Canva）",
+          "items": [
+            "Canvas（內部）：可以喺對話側邊打開文件畫布，一齊協作、改寫或者審閱長文檔。" ,
+            "Canva（設計平台）：有啲版本可以直接連接 Canva，用嚟做簡報、社交媒體圖、設計版面。",
+            "建議用法：協作修改文檔、快速生成簡報、設計社交媒體內容。"
+          ],
+          "listType": "unordered"
+        }
+      ]
+    },
+
+    { "type": "line-break" },
+
+    { "type": "horizontal-rule" },
+    { "type": "line-break" },
+
+    {
+      "type": "heading",
+      "level": 2,
+      "content": "ChatGPT 模型分析"
+    },
+    
+    {
+      "type": "text",
+      "content": "用合適嘅模型可以幫你事半功倍，以下係一啲分析作參考。"
+    },
+
+    { "type": "line-break" },
+
+    {
+      "type": "video",
+      "src": "/assets/03-ai-tools-intro/02-chatgpt/GPT_model_video.mp4",
+      "size": 7
+    },
+
+    { "type": "line-break" },
+
+    {
+      "type": "heading",
+      "level": 3,
+      "content": "ChatGPT 5 模型分析"
+    },
+    {
+      "type": "definition-list",
+      "definitions": [
+        {
+          "term": "Auto（建議使用）",
+          "items": [
+            "自動幫你揀最合適嘅模型。",
+            "用戶唔需要理會版本，系統會根據場景（例如快 vs 深入）自動切換。",
+            "可以直接使用，不用考慮技術細節。"
+          ],
+          "listType": "unordered"
+        },
+        {
+          "term": "Instant",
+          "items": [
+            "快速回應，反應時間短。",
+            "可能冇咁深入，但速度快。",
+            "適合日常聊天、即時解答、簡單問題。"
+          ],
+          "listType": "unordered"
+        },
+        {
+          "term": "Thinking Mini",
+          "items": [
+            "輕量化嘅 reasoning 模型。",
+            "兼顧推理力同埋速度，用資源少。",
+            "適合中等複雜度問題，例如程式 debug、基本分析。"
+          ],
+          "listType": "unordered"
+        },
+        {
+          "term": "Thinking",
+          "items": [
+            "完整 reasoning 模式。",
+            "回覆會深度思考，分析較長、較準。",
+            "適合需要邏輯鏈推演、數學、研究性問題。"
+          ],
+          "listType": "unordered"
+        }
+      ]
+    },    
+
+    { "type": "line-break" },
+    { "type": "horizontal-rule" },
+    { "type": "line-break" },
+
+    {
+      "type": "heading",
+      "level": 3,
+      "content": "舊版 ChatGPT 模型分析"  
+    },
+
+    {
+      "type": "definition-list",
+      "definitions": [
+        {
+          "term": "4o",
+          "items": [
+            "GPT-4 Omni / GPT-4 optimized 模型。",
+            "表現穩定，對語言理解好，支援圖像輸入。",
+            "適合專業寫作、複雜對話、多模態任務。"
+          ],
+          "listType": "unordered"
+        },
+        {
+          "term": "4.1",
+          "items": [
+            "4o 嘅更新版本。",
+            "更快、更準，推理力較高。",
+            "適合嚴謹任務，例如技術文檔、研究、精確回答。"
+          ],
+          "listType": "unordered"
+        },
+        {
+          "term": "o3",
+          "items": [
+            "最新嘅「推理專家」模型。",
+            "專注高難度 reasoning（數學、邏輯、多步推演）。",
+            "適合科研、工程分析、數學/理論題。"
+          ],
+          "listType": "unordered"
+        },
+        {
+          "term": "o4-mini",
+          "items": [
+            "o 系列嘅輕量版。",
+            "比 o3 快，推理力弱少少，但效能高。",
+            "適合需要平衡速度同智能，但唔係極端複雜任務。"
+          ],
+          "listType": "unordered"
+        }
+      ]
+    },    
+
+    { "type": "line-break" },
+
+    { "type": "horizontal-rule" },
+    { "type": "line-break" },
+
+    {
+      "type": "heading",
+      "level": 2,
+      "content": "總結"
+    },
 
     {
       "type": "callout",
       "variant": "success",
       "title": "總結",
       "content": "ChatGPT 5 嘅價值 = **多模態 + 長上下文 + 記憶功能 + 強推理**。用得好，佢就係你嘅導師、分析師、同事。"
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "content": "試試看"
+    },
+    {
+      "type": "task-list",
+      "items": [
+        { "content": "設定 ChatGPT 回答永遠用廣東話，試問佢一條技術問題", "completed": false },
+        { "content": "用『Listener』個性設定，叫 ChatGPT 幫你分析一個學習計劃", "completed": false },
+        { "content": "揀一個模式（例如 Deep Research），叫 ChatGPT 幫你總結一篇長文章", "completed": false }
+      ]
     }
   ]
 }
