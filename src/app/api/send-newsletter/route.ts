@@ -1,77 +1,35 @@
 import { NextRequest, NextResponse } from 'next/server'
-import { readFileSync, existsSync } from 'fs'
-import { join } from 'path'
+import { cookies } from 'next/headers'
 import { sendEmail, getNewsletterTemplate } from '@/lib/email'
-
-// Check if we're in a Vercel environment
-const isVercel = process.env.VERCEL === '1';
+import { getAllActiveSubscribers, saveNewsletterLog, getNewsletterLogs, type NewsletterLog } from '@/lib/storage'
 
 // Force dynamic rendering
 export const dynamic = 'force-dynamic'
 
-const SUBSCRIBERS_FILE = join(process.cwd(), '.local-data', 'subscribers.json')
-const NEWSLETTER_LOG_FILE = join(process.cwd(), '.local-data', 'newsletter-log.json')
-
-interface Subscriber {
-  email: string
-  subscribedAt: string
-  isActive: boolean
-}
-
-interface NewsletterLog {
-  sentAt: string
-  subject: string
-  contentTitle: string
-  contentUrl: string
-  recipientCount: number
-}
-
-// In-memory stores for Vercel
-let inMemorySubscribers: Subscriber[] = []
-let inMemoryNewsletterLogs: NewsletterLog[] = []
-
-function getSubscribers(): Subscriber[] {
-  if (isVercel) {
-    return inMemorySubscribers
-  }
+// Middleware to check admin authentication
+async function checkAdminAuth() {
+  const cookieStore = await cookies()
+  const sessionCookie = cookieStore.get('admin-session')
   
-  if (!existsSync(SUBSCRIBERS_FILE)) {
-    return []
+  if (!sessionCookie) {
+    return false
   }
   
   try {
-    const data = readFileSync(SUBSCRIBERS_FILE, 'utf-8')
-    return JSON.parse(data)
-  } catch (error) {
-    console.error('Error reading subscribers file:', error)
-    return []
-  }
-}
-
-function logNewsletter(log: NewsletterLog) {
-  if (isVercel) {
-    inMemoryNewsletterLogs.push(log)
-    return
-  }
-  
-  const logFile = NEWSLETTER_LOG_FILE
-  let logs: NewsletterLog[] = []
-  
-  if (existsSync(logFile)) {
-    try {
-      const data = readFileSync(logFile, 'utf-8')
-      logs = JSON.parse(data)
-    } catch (error) {
-      console.error('Error reading newsletter log:', error)
+    const session = JSON.parse(sessionCookie.value)
+    
+    // Check if session is expired (4 hours)
+    const loginTime = new Date(session.loginTime)
+    const now = new Date()
+    const hoursDiff = (now.getTime() - loginTime.getTime()) / (1000 * 60 * 60)
+    
+    if (hoursDiff > 4 || !session.isAdmin) {
+      return false
     }
-  }
-  
-  logs.push(log)
-  
-  try {
-    require('fs').writeFileSync(logFile, JSON.stringify(logs, null, 2))
+    
+    return true
   } catch (error) {
-    console.error('Error saving newsletter log:', error)
+    return false
   }
 }
 
@@ -124,6 +82,16 @@ function generateEmailTemplate(contentTitle: string, contentUrl: string): string
 
 export async function POST(request: NextRequest) {
   try {
+    // Check admin authentication
+    const isAuthenticated = await checkAdminAuth()
+    
+    if (!isAuthenticated) {
+      return NextResponse.json(
+        { error: 'Unauthorized. Admin access required.' },
+        { status: 401 }
+      )
+    }
+    
     // Check if Resend API key is configured
     if (!process.env.RESEND_API_KEY) {
       return NextResponse.json(
@@ -157,7 +125,7 @@ export async function POST(request: NextRequest) {
       )
     }
     
-    const subscribers = getSubscribers().filter(sub => sub.isActive)
+    const subscribers = await getAllActiveSubscribers()
     
     if (subscribers.length === 0) {
       return NextResponse.json(
@@ -187,7 +155,7 @@ export async function POST(request: NextRequest) {
           to: subscriber.email,
           subject: emailSubject,
           html: newsletterHtml,
-          from: process.env.EMAIL_FROM || 'AI Coaching Platform <newsletter@yourdomain.com>'
+          from: process.env.EMAIL_FROM || 'AI Coaching Platform <onboarding@resend.dev>'
         })
       })
       
@@ -209,13 +177,18 @@ export async function POST(request: NextRequest) {
     console.log(`Newsletter sent: ${successful} successful, ${failed} failed`)
     
     // Log the newsletter sending
-    logNewsletter({
+    const newsletterLog: NewsletterLog = {
+      id: `newsletter_${Date.now()}`,
       sentAt: new Date().toISOString(),
       subject: emailSubject,
       contentTitle: contentTitle || emailSubject,
       contentUrl: contentUrl || '',
-      recipientCount: successful
-    })
+      recipientCount: subscribers.length,
+      successCount: successful,
+      failedCount: failed
+    }
+    
+    await saveNewsletterLog(newsletterLog)
     
     return NextResponse.json({
       message: 'Newsletter sent successfully',
@@ -238,23 +211,20 @@ export async function POST(request: NextRequest) {
 
 export async function GET() {
   try {
-    if (isVercel) {
-      return NextResponse.json({ 
-        newsletters: inMemoryNewsletterLogs.sort((a: NewsletterLog, b: NewsletterLog) => new Date(b.sentAt).getTime() - new Date(a.sentAt).getTime())
-      })
+    // Check admin authentication
+    const isAuthenticated = await checkAdminAuth()
+    
+    if (!isAuthenticated) {
+      return NextResponse.json(
+        { error: 'Unauthorized. Admin access required.' },
+        { status: 401 }
+      )
     }
     
-    const logFile = NEWSLETTER_LOG_FILE
-    
-    if (!existsSync(logFile)) {
-      return NextResponse.json({ newsletters: [] })
-    }
-    
-    const data = readFileSync(logFile, 'utf-8')
-    const logs = JSON.parse(data)
+    const newsletters = await getNewsletterLogs(50)
     
     return NextResponse.json({ 
-      newsletters: logs.sort((a: NewsletterLog, b: NewsletterLog) => new Date(b.sentAt).getTime() - new Date(a.sentAt).getTime())
+      newsletters
     })
     
   } catch (error) {

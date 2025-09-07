@@ -24,7 +24,7 @@ export async function sendEmail(options: EmailOptions) {
     }
 
     const result = await client.emails.send({
-      from: options.from || 'AI Coaching Platform <noreply@yourdomain.com>',
+      from: options.from || 'AI Coaching Platform <onboarding@resend.dev>',
       to: options.to,
       subject: options.subject,
       html: options.html,

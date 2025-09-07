@@ -1,70 +1,9 @@
 import { NextRequest, NextResponse } from 'next/server'
-import { writeFileSync, readFileSync, existsSync } from 'fs'
-import { join } from 'path'
 import { sendEmail, getWelcomeEmailTemplate } from '@/lib/email'
-
-// Check if we're in a Vercel environment
-const isVercel = process.env.VERCEL === '1';
+import { saveSubscriber, getSubscriber, getAllActiveSubscribers, unsubscribeUser, type Subscriber } from '@/lib/storage'
 
 // Force dynamic rendering
 export const dynamic = 'force-dynamic'
-
-const SUBSCRIBERS_FILE = join(process.cwd(), '.local-data', 'subscribers.json')
-
-interface Subscriber {
-  email: string
-  subscribedAt: string
-  isActive: boolean
-  unsubscribedAt?: string
-}
-
-// In-memory store for Vercel (since file system is read-only)
-let inMemorySubscribers: Subscriber[] = []
-
-function ensureDataDirectory() {
-  if (isVercel) return; // Skip in Vercel
-  
-  const dataDir = join(process.cwd(), '.local-data')
-  if (!existsSync(dataDir)) {
-    require('fs').mkdirSync(dataDir, { recursive: true })
-  }
-}
-
-function getSubscribers(): Subscriber[] {
-  if (isVercel) {
-    return inMemorySubscribers
-  }
-  
-  ensureDataDirectory()
-  
-  if (!existsSync(SUBSCRIBERS_FILE)) {
-    return []
-  }
-  
-  try {
-    const data = readFileSync(SUBSCRIBERS_FILE, 'utf-8')
-    return JSON.parse(data)
-  } catch (error) {
-    console.error('Error reading subscribers file:', error)
-    return []
-  }
-}
-
-function saveSubscribers(subscribers: Subscriber[]) {
-  if (isVercel) {
-    inMemorySubscribers = subscribers
-    return
-  }
-  
-  ensureDataDirectory()
-  
-  try {
-    writeFileSync(SUBSCRIBERS_FILE, JSON.stringify(subscribers, null, 2))
-  } catch (error) {
-    console.error('Error saving subscribers:', error)
-    throw new Error('Failed to save subscription')
-  }
-}
 
 export async function POST(request: NextRequest) {
   try {
@@ -88,10 +27,8 @@ export async function POST(request: NextRequest) {
       )
     }
     
-    const subscribers = getSubscribers()
-    
     // Check if email already exists
-    const existingSubscriber = subscribers.find(sub => sub.email === normalizedEmail)
+    const existingSubscriber = await getSubscriber(normalizedEmail)
     if (existingSubscriber) {
       if (existingSubscriber.isActive) {
         return NextResponse.json(
@@ -102,17 +39,19 @@ export async function POST(request: NextRequest) {
         // Reactivate subscription
         existingSubscriber.isActive = true
         existingSubscriber.subscribedAt = new Date().toISOString()
+        existingSubscriber.unsubscribedAt = undefined
+        await saveSubscriber(existingSubscriber)
       }
     } else {
       // Add new subscriber
-      subscribers.push({
+      const newSubscriber: Subscriber = {
         email: normalizedEmail,
         subscribedAt: new Date().toISOString(),
-        isActive: true
-      })
+        isActive: true,
+        source: 'popup'
+      }
+      await saveSubscriber(newSubscriber)
     }
-    
-    saveSubscribers(subscribers)
     
     // Send welcome email if Resend API key is configured
     if (process.env.RESEND_API_KEY) {
@@ -122,7 +61,7 @@ export async function POST(request: NextRequest) {
           to: normalizedEmail,
           subject: 'Welcome to AI Coaching Platform! 🎉',
           html: welcomeHtml,
-          from: process.env.EMAIL_FROM || 'AI Coaching Platform <noreply@yourdomain.com>'
+          from: process.env.EMAIL_FROM || 'AI Coaching Platform <onboarding@resend.dev>'
         })
         
         if (emailResult.success) {
@@ -152,14 +91,14 @@ export async function POST(request: NextRequest) {
 
 export async function GET(request: NextRequest) {
   try {
-    const subscribers = getSubscribers()
-    const activeSubscribers = subscribers.filter(sub => sub.isActive)
+    const activeSubscribers = await getAllActiveSubscribers()
     
     return NextResponse.json({
       total: activeSubscribers.length,
       subscribers: activeSubscribers.map(sub => ({
         email: sub.email,
-        subscribedAt: sub.subscribedAt
+        subscribedAt: sub.subscribedAt,
+        source: sub.source
       }))
     })
     
@@ -195,10 +134,7 @@ export async function DELETE(request: NextRequest) {
       )
     }
     
-    const subscribers = getSubscribers()
-    
-    // Find and deactivate subscriber
-    const existingSubscriber = subscribers.find(sub => sub.email === normalizedEmail)
+    const existingSubscriber = await getSubscriber(normalizedEmail)
     if (!existingSubscriber) {
       return NextResponse.json(
         { error: 'Email not found in subscription list' },
@@ -213,11 +149,13 @@ export async function DELETE(request: NextRequest) {
       )
     }
     
-    // Deactivate subscription
-    existingSubscriber.isActive = false
-    existingSubscriber.unsubscribedAt = new Date().toISOString()
-    
-    saveSubscribers(subscribers)
+    const success = await unsubscribeUser(normalizedEmail)
+    if (!success) {
+      return NextResponse.json(
+        { error: 'Failed to unsubscribe' },
+        { status: 500 }
+      )
+    }
     
     return NextResponse.json(
       { message: 'Successfully unsubscribed from updates' },
