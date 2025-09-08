@@ -82,9 +82,10 @@ export function TableOfContents({ blocks, className }: TableOfContentsProps) {
   }
 
   return (
-    <div className={cn('hidden xl:block fixed top-24 right-8 w-64', className)}>
-      <div className="sticky top-24">
-        <div className="bg-card p-4">
+    <div className={cn('hidden xl:block fixed top-24 right-8 w-64 max-h-[calc(100vh-6rem)] overflow-y-auto', className)}>
+      <div className="sticky top-0">
+        <div className="bg-card border rounded-lg shadow-sm p-4">
+          <h3 className="text-sm font-semibold text-foreground mb-3">On This Page</h3>
           <nav className="space-y-1">
             {tocItems.map((item) => (
               <button

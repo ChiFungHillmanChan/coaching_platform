@@ -1,0 +1,365 @@
+{
+  "slug": "deep-dive-gemini",
+  "category": "ai-tools",
+  "lastModified": "2025-09-08T00:00:00.000Z",
+  "blocks": [
+    {
+      "type": "heading",
+      "level": 1,
+      "content": "3. The Most Comprehensive Google Gemini Deep Dive"
+    },
+    {
+      "type": "text",
+      "content": "Google Gemini isn’t just chat—it’s a **native multimodal AI platform**: it understands text, images, audio, video, and PDFs, offers long context (up to ~1,000,000 tokens depending on model/endpoint), and provides a developer-friendly API & AI Studio."
+    },
+
+    { "type": "horizontal-rule" },
+    { "type": "line-break" },
+
+    {
+      "type": "heading",
+      "level": 2,
+      "content": "Gemini Feature Overview"
+    },
+    {
+      "type": "list",
+      "listType": "unordered",
+      "items": [
+        "**Model family**: 2.5 Pro (deep reasoning), 2.5 Flash (cost-effective), 2.5 Flash-Lite (lowest latency/high throughput), 2.5 Flash Image (aka “nano-banana”, image generation/editing), Veo 3 / Veo 3 Fast (video generation).",
+        "**Multimodal**: inputs can be text/image/audio/video/PDF; supports long-context analysis.",
+        "**API & AI Studio**: you can **create a free API key**, easy to start; advanced usage and video generation are typically paid tiers.",
+        "**Safety & labeling**: generated images carry **SynthID** watermarks for provenance/identification."
+      ]
+    },
+
+    { "type": "line-break" },
+    { "type": "horizontal-rule" },
+    { "type": "line-break" },
+
+    {
+      "type": "heading",
+      "level": 2,
+      "content": "Gemini Model Analysis"
+    },
+    
+    {
+      "type": "table",
+      "title": "Gemini Model Family Comparison",
+      "headers": ["Model", "Best For ✅", "Limitations/Notes ❌"],
+      "rows": [
+        [
+          "Gemini 2.5 Pro",
+          "Deep reasoning, long-document synthesis, code understanding, cross-media analysis",
+          "Higher latency and cost; subject to endpoint quotas"
+        ],
+        [
+          "Gemini 2.5 Flash",
+          "Everyday Q&A, summarization, image-text understanding; fast and cost-effective",
+          "Not as strong as Pro for ultra-long context/complex reasoning"
+        ],
+        [
+          "Gemini 2.5 Flash-Lite",
+          "Low-latency/high-throughput batch or real-time systems",
+          "Weaker capabilities and context vs Pro/Flash"
+        ],
+        [
+          "Gemini 2.5 Flash Image (nano-banana)",
+          "Image generation/local edits, character consistency, multi-image fusion",
+          "Outputs include watermark; focused on imaging, not text output"
+        ],
+        [
+          "Veo 3 / Veo 3 Fast",
+          "Text/image → video (with audio), supports vertical 9:16/1080p",
+          "Video-only specialization; cost/quotas need assessment"
+        ],
+        [
+          "Gemini Nano (on-device)",
+          "Offline/low-latency tasks, privacy-first (Pixel/Android)",
+          "Constrained by device compute; weaker than cloud LLMs"
+        ]
+      ]
+    },
+    { "type": "line-break" },
+    { "type": "horizontal-rule" },
+    { "type": "line-break" },
+
+    {
+      "type": "heading",
+      "level": 2,
+      "content": "⚙️ Gemini Setup & Getting Started (AI Studio / API Key) (Full details in the next lesson; this page first shows how to obtain an API key)"
+    },
+    {
+      "type": "text",
+      "content": "Beginners should try models in **Google AI Studio** first, then port successful prompts into code. Creating an API key takes just a few steps; the free tier already covers most text/multimodal experiments."
+    },
+    { "type": "line-break" },
+
+    {
+      "type": "heading",
+      "level": 3,
+      "content": "1. Go to AI Studio to get an API key."
+    },
+    {
+      "type": "image",
+      "src": "/assets/03-ai-tools-intro/05-gemini/1.get-api-key.png",
+      "size": 6
+    },
+    { "type": "line-break" },
+    {
+      "type": "heading",
+      "level": 3,
+      "content": "2. Find the “Create API key” button in the top right"
+    },
+    {
+      "type": "image",
+      "src": "/assets/03-ai-tools-intro/05-gemini/2.create-api.png",
+      "size": 6
+    },
+
+    { "type": "line-break" },
+    {
+      "type": "heading",
+      "level": 3,
+      "content": "3. Choose an existing project (optional), click “Create API key”, and you’re done!"
+    },
+    {
+      "type": "image",
+      "src": "/assets/03-ai-tools-intro/05-gemini/3.success.png",
+      "size": 6
+    },
+    {
+      "type": "callout",
+      "variant": "warning",
+      "title": "Attention ⚠️ Attention ⚠️ Attention ⚠️ (repeating because it’s important)",
+      "content": "Do **not** leak your API key, or your tokens may be consumed rapidly and even incur extra charges!"
+    },
+
+    { "type": "line-break" },
+    { "type": "horizontal-rule" },
+    { "type": "line-break" },
+
+    {
+      "type": "heading",
+      "level": 2,
+      "content": "Usage Tips & Analysis (Beginner-Friendly)"
+    },
+
+    { "type": "line-break" },
+    {
+      "type": "heading",
+      "level": 3,
+      "content": "1. Model Selection Guide"
+    },
+    {
+      "type": "definition-list",
+      "definitions": [
+        {
+          "term": "2.5 Flash-Lite (my top personal pick)",
+          "definition": "Ultra-low latency/high throughput, suitable for large-scale batch or real-time systems; ~200 daily uses and currently completely free!!!"
+        },
+        {
+          "term": "2.5 Flash (personally recommended)",
+          "definition": "Fast and cost-effective, covers most daily tasks (QA, summarization, image-text understanding); currently free as well."
+        },
+        {
+          "term": "2.5 Pro",
+          "definition": "Focused on **deep reasoning + long context (~1,000,000 tokens)**. Great for long-document synthesis, complex analysis, and code understanding."
+        },
+        
+        {
+          "term": "2.5 Flash Image (nano-banana)",
+          "definition": "**Image generation/editing** specialist: portrait/character consistency, natural-language local edits, multi-image fusion; list price about **$0.039/image**."
+        },
+        {
+          "term": "Veo 3 / Veo 3 Fast",
+          "definition": "**Video generation** (with audio): supports 1080p and 16:9/9:16. Veo 3 ~ **$0.40/sec**; Veo 3 Fast ~ **$0.15/sec**."
+        }
+      ]
+    },
+
+    { "type": "line-break" },
+    { "type": "horizontal-rule" },
+    { "type": "line-break" },
+    
+    {
+      "type": "heading",
+      "level": 3,
+      "content": "2. Gemini Strengths & Weaknesses (Beginner’s view)"
+    },
+
+    {
+      "type": "definition-list",
+      "definitions": [
+        {
+          "term": "**Strengths**",
+          "items": [
+            "Native **multimodality**: mix text/image/audio/video/PDF in one conversation.",
+            "**Long context**: more stable for long docs, frame-by-frame video explanation, cross-file synthesis.",
+            "**Image/video generation** improving continuously (nano-banana / Veo 3).",
+            "**API-friendly**: AI Studio + free API key; great for teaching and prototyping."
+          ],
+          "listType": "unordered"
+        },
+        {
+          "term": "**Limitations/Notes**",
+          "items": [
+            "Free tier has **quota and rate limits**; video generation is typically paid.",
+            "Different entry points (Gemini App / API / Vertex AI) have **different model availability and quotas**—check official pages before deploying.",
+            "Generated images contain **SynthID** (visible/invisible) watermarks; if you require “no watermark” images, evaluate separately."
+          ],
+          "listType": "unordered"
+        }
+      ]
+    },
+
+    { "type": "line-break" },
+    { "type": "horizontal-rule" },
+    { "type": "line-break" },
+    
+    {
+      "type": "callout",
+      "variant": "success",
+      "title": "Classroom Tip",
+      "content": "Suggested demo flow: start with 2.5 Flash-Lite for a PDF summary → switch to 2.5 Pro to show long context & reasoning → use 2.5 Flash Image for local edits → finish with Veo 3 Fast to generate a vertical (9:16) short video."
+    },
+
+    { "type": "line-break" },
+    { "type": "horizontal-rule" },
+    { "type": "line-break" },
+
+    {
+      "type": "heading",
+      "level": 2,
+      "content": "Gemini Model Analysis"
+    },
+    {
+      "type": "text",
+      "content": "Pick the right model for the job and you’ll get twice the results for half the effort. Common scenarios:"
+    },
+    { "type": "line-break" },
+
+    {
+      "type": "definition-list",
+      "definitions": [
+        {
+          "term": "Getting started / classroom demos",
+          "items": [
+            "→ 2.5 Flash or 2.5 Flash-Lite (low cost, responsive)",
+            "Examples: classroom Q&A, short summaries, basic image understanding."
+          ],
+          "listType": "unordered"
+        },
+        {
+          "term": "Research / long docs / code understanding",
+          "items": [
+            "→ 2.5 Pro (long context + strong reasoning)",
+            "Examples: read long PDFs, merge multiple reports, code review."
+          ],
+          "listType": "unordered"
+        },
+        {
+          "term": "Image creation/editing",
+          "items": [
+            "→ 2.5 Flash Image (nano-banana)",
+            "Examples: character consistency, natural-language local edits, multi-image fusion."
+          ],
+          "listType": "unordered"
+        },
+        {
+          "term": "Short-form/vertical video",
+          "items": [
+            "→ Veo 3 / Veo 3 Fast (9:16, 1080p supported)",
+            "Examples: social shorts, instructional clips."
+          ],
+          "listType": "unordered"
+        }
+      ]
+    },
+
+    { "type": "line-break" },
+
+    {
+      "type": "heading",
+      "level": 3,
+      "content": "nano-banana Example (I can’t believe this is my anime style!!!)"
+    },
+    {
+      "type": "image",
+      "src": "/assets/03-ai-tools-intro/05-gemini/nano.png",
+      "size": 6
+    },
+
+    { "type": "line-break" },
+
+    {
+      "type": "heading",
+      "level": 3,
+      "content": "Veo 3 Example"
+    },
+    {
+      "type": "image",
+      "src": "/assets/03-ai-tools-intro/05-gemini/veo3.png",
+      "size": 6
+    },
+
+    { "type": "line-break" },
+    { "type": "horizontal-rule" },
+    { "type": "line-break" },
+
+    {
+      "type": "heading",
+      "level": 2,
+      "content": "FAQ"
+    },
+    {
+      "type": "definition-list",
+      "definitions": [
+        {
+          "term": "Is the API key free?",
+          "definition": "You can **create one for free** and test under the free tier; higher quotas or video generation are typically paid."
+        },
+        {
+          "term": "How long is the context?",
+          "definition": "2.5 Pro/Flash typically support about **1,000,000 tokens**; actual limits vary by endpoint and feature."
+        },
+        {
+          "term": "Why do images/videos have watermarks?",
+          "definition": "Gemini adds **SynthID** (visible/invisible) watermarks to generated images for provenance and identification."
+        },
+        {
+          "term": "Difference between Flash and Flash-Lite?",
+          "definition": "Flash balances intelligence and speed; Flash-Lite targets **lowest latency/high throughput/lowest cost**, ideal for real-time and large-scale workloads."
+        }
+      ]
+    },
+
+    { "type": "horizontal-rule" },
+    { "type": "line-break" },
+
+    {
+      "type": "heading",
+      "level": 2,
+      "content": "Summary"
+    },
+    {
+      "type": "callout",
+      "variant": "success",
+      "title": "Summary",
+      "content": "Gemini’s value = **multimodality + long context + image/video generation + developer-friendliness**. Start with Flash/Flash-Lite, switch to Pro for deeper analysis; use nano-banana for images and Veo 3/Fast for video."
+    },
+
+    {
+      "type": "heading",
+      "level": 3,
+      "content": "Try It"
+    },
+    {
+      "type": "task-list",
+      "items": [
+        { "content": "Request an API key in AI Studio and test 2.5 Flash on a PDF summary (list key points with page numbers)", "completed": false },
+        { "content": "Use 2.5 Flash Image (nano-banana) to convert a selfie into a formal ID-style portrait (preserve facial identity)", "completed": false },
+        { "content": "Use Veo 3 Fast to generate an 8-second 9:16 video: campus-life montage (with ambient audio)", "completed": false }
+      ]
+    }
+  ]
+}

@@ -6,11 +6,18 @@
     {
       "type": "heading",
       "level": 1,
-      "content": "API Token Full Introduction"
+      "content": "Comprehensive Introduction to API Tokens"
     },
     {
       "type": "text",
-      "content": "API Token is like a 🔑 key, allowing you to communicate securely with AI platforms (such as OpenAI). Without a Token, your program cannot use the API; with a Token, the system knows you are a legitimate user and records your usage."
+      "content": "An API token is like a 🔑 key that lets you communicate securely with AI platforms (e.g., OpenAI). Without a token, your program can’t call the API; with a token, the system knows you’re an authorized user and records your usage."
+    },
+    { "type": "line-break" },
+    {
+      "type": "callout",
+      "variant": "warning",
+      "title": "⚠️ Safety Note Before You Start",
+      "content": "If your API token leaks, anyone can spend your quota—which may incur extra charges. Keep it safe!"
     },
 
     { "type": "horizontal-rule" },
@@ -19,33 +26,33 @@
     {
       "type": "heading",
       "level": 2,
-      "content": "What is an API Token? How is it different from other AI platforms?"
+      "content": "What Is an API Token? How Does It Differ From Using an AI Platform?"
     },
     {
       "type": "text",
-      "content": "The biggest difference is that it allows you to use AI inside your own code, not just on the platform."
+      "content": "The key difference: it lets you use AI from your own code, not only inside the provider’s UI."
     },
 
     { "type": "line-break" },
     {
       "type": "heading",
       "level": 3,
-      "content": "API Simple Introduction and Usage"
+      "content": "Quick API Overview and Uses"
     },
 
     {
       "type": "list",
       "listType": "unordered",
       "items": [
-        "**Authentication**: Verify that you are a legitimate user",
-        "**Access Rights**: Decide what features or models you can use",
-        "**Billing Basis**: Calculate cost based on usage (number of tokens)"
+        "**Authentication**: verifies you’re a legitimate user",
+        "**Authorization**: controls which features/models you can access",
+        "**Billing**: charges based on usage (token counts)"
       ]
     },
 
     {
       "type": "blockquote",
-      "content": "API Token = Membership card + Octopus card + Access card.",
+      "content": "API Token = membership card + transit card + access badge.",
       "title": "Simple Analogy"
     },
 
@@ -55,28 +62,305 @@
     {
       "type": "heading",
       "level": 3,
-      "content": "The strongest and free API Token right now: Google Gemini"
+      "content": "The Most Capable Free API Token Right Now: Google Gemini"
     },
     {
       "type": "link",
       "title": "Google Gemini API Link",
       "href": "https://aistudio.google.com/apikey",
-      "content": "Get free Google Gemini API"
+      "content": "Get a free Google Gemini API key"
     },
     { "type": "line-break" },
 
     {
       "type": "heading",
       "level": 3,
-      "content": "Example: A game I designed using Google Gemini API"
+      "content": "Example: A Game I Built Using the Google Gemini API"
     },
     {
       "type": "link",
       "title": "Prompt Hunter",
       "href": "https://prompt-hunter.vercel.app/"
     },
-
     
+    { "type": "line-break" },
+    { "type": "horizontal-rule" },
+    { "type": "line-break" },
+
+    {
+      "type": "heading",
+      "level": 2,
+      "content": "API Key Security: How to Hide and Manage Keys (Hands-On)"
+    },
+    {
+      "type": "callout",
+      "variant": "warning",
+      "title": "⚠️ Core Principles",
+      "content": "Never hardcode API keys in the frontend (browser/mobile apps). Keys should only exist in your **server or protected cloud environment**. If a leak happens: revoke immediately, rotate a new key, and review usage."
+    },
+  
+    { "type": "line-break" },
+  
+    {
+      "type": "table",
+      "title": "Ways to Hide API Keys — Comparison",
+      "headers": ["Method", "Best For ✅", "Characteristics", "Limitations/Notes ❌"],
+      "rows": [
+        [
+          "Environment variables (.env + system ENV)",
+          "Local dev, simple deployments",
+          "Easy to start; with `.gitignore` you avoid accidental commits; code reads `os.environ['...']`",
+          "Never commit `.env`; manage backups and permissions carefully"
+        ],
+        [
+          "Backend proxy / API gateway",
+          "Frontend needs Gemini but you must not expose keys",
+          "Frontend calls your API; backend forwards to Gemini; you can add rate limiting and auditing",
+          "You must maintain servers and auth; set CORS/auth correctly"
+        ],
+        [
+          "Cloud Secret Manager (GCP/AWS/Azure)",
+          "Production, teams",
+          "Fine-grained IAM; audit, versioning, rotation; centralized management",
+          "Requires cloud billing/setup; steeper learning curve"
+        ],
+        [
+          "Platform Secrets (Vercel/Netlify/Cloudflare, etc.)",
+          "Serverless/edge functions",
+          "Simple UI; injected into runtime automatically",
+          "Platform differences; configure scopes/visibility per env"
+        ],
+        [
+          "Kubernetes/Docker Secrets",
+          "Containerized/enterprise deployments",
+          "Infra-integrated; can pair with KMS encryption",
+          "Requires DevOps skills; misconfig of volumes/ENV can leak"
+        ]
+      ]
+    },
+  
+    {
+      "type": "table",
+      "title": "Common Mistakes vs Correct Practices",
+      "headers": ["Bad Practice ❌", "Risk", "Correct Practice ✅"],
+      "rows": [
+        [
+          "Hardcoding keys in frontend JS/mobile apps",
+          "Anyone can extract your key",
+          "Frontend calls your backend only; store keys only in backend/Secret Manager"
+        ],
+        [
+          "Committing `.env` to GitHub",
+          "Permanent exposure; scraped by bots",
+          "Add `.env` to `.gitignore`; if leaked, revoke and rotate immediately"
+        ],
+        [
+          "Printing keys in logs",
+          "Centralized logs become a leak source",
+          "Log masking; never print sensitive strings"
+        ],
+        [
+          "Placing keys in URL query parameters",
+          "Proxies/analytics will capture them",
+          "Use headers only; HTTPS; least privilege/short-lived creds"
+        ]
+      ]
+    },
+  
+    { "type": "line-break" },
+  
+    {
+      "type": "heading",
+      "level": 3,
+      "content": "Local & Deployments: Environment Variables (.env)"
+    },
+    {
+      "type": "code",
+      "language": "python",
+      "title": "Python: Load Environment Variables (with .env)",
+      "content": "import os\nfrom dotenv import load_dotenv  # pip install python-dotenv\n\n# Create a .env at the project root (see below)\nload_dotenv()\n\nAPI_KEY = os.getenv('GOOGLE_API_KEY')\nassert API_KEY, 'Please set GOOGLE_API_KEY in .env or system environment variables'\n\nprint('Key loaded (value not printed)')"
+    },
+    {
+      "type": "code",
+      "language": "python",
+      "title": ".env and .gitignore Examples (text content)",
+      "content": "# .env content (do NOT commit)\nGOOGLE_API_KEY=replace-with-your-key\n\n# .gitignore should include:\n# .env\n# *.env\n# **/.env\n"
+    },
+  
+    { "type": "line-break" },
+  
+    {
+      "type": "heading",
+      "level": 3,
+      "content": "Frontend Safety: Use a Backend Proxy to Call Gemini (Avoid Exposing Keys)"
+    },
+    {
+      "type": "code",
+      "language": "python",
+      "title": "FastAPI Proxy (key lives on the server)",
+      "content": "from fastapi import FastAPI, HTTPException\nfrom pydantic import BaseModel\nimport os\nfrom google import genai\n\napp = FastAPI()\nclient = genai.Client(api_key=os.environ['GOOGLE_API_KEY'])\n\nclass AskPayload(BaseModel):\n    query: str\n\n@app.post('/api/ask')\ndef ask(p: AskPayload):\n    try:\n        resp = client.models.generate_content(\n            model='gemini-2.5-flash',\n            contents=p.query\n        )\n        # Return only what the frontend needs—never return your key\n        return {\"text\": getattr(resp, 'text', '')}\n    except Exception as e:\n        raise HTTPException(status_code=500, detail=str(e))"
+    },
+    {
+      "type": "callout",
+      "variant": "success",
+      "title": "Pro Tip",
+      "content": "In the frontend: `fetch('/api/ask', { method: 'POST', body: JSON.stringify({ query }) })`. Lock down CORS, add rate limiting and simple auth (e.g., API token/JWT)."
+    },
+  
+    { "type": "line-break" },
+  
+    {
+      "type": "heading",
+      "level": 3,
+      "content": "Cloud Secret Manager / Platform Secrets (Concepts)"
+    },
+    {
+      "type": "table",
+      "title": "Choosing a Secret Manager / Platform Secrets",
+      "headers": ["Option", "Best For", "Pros ✅", "Notes ❌"],
+      "rows": [
+        [
+          "GCP Secret Manager",
+          "Teams on GCP/Vertex/GCE/K8s",
+          "Granular IAM, auditing, versioning/rotation",
+          "Requires service accounts; test permission granularity"
+        ],
+        [
+          "AWS Secrets Manager",
+          "AWS stack (Lambda/ECS/EKS)",
+          "Strong with KMS/VPC/CloudWatch integrations",
+          "Consider pricing and rotation policies"
+        ],
+        [
+          "Vercel/Netlify/Cloudflare Secrets",
+          "Serverless/edge functions",
+          "Fast UI setup; injected into runtime",
+          "Separate dev/preview/prod environments clearly"
+        ]
+      ]
+    },
+  
+    { "type": "line-break" },
+  
+    {
+      "type": "heading",
+      "level": 3,
+      "content": "Key Rotation & Least Privilege"
+    },
+    {
+      "type": "list",
+      "listType": "unordered",
+      "items": [
+        "Rotate keys regularly (e.g., every 30–90 days); phase out old keys",
+        "Use **different keys** per environment (dev/preview/prod) to avoid cross-impact",
+        "Use **short-lived** tokens or pipeline secrets in CI/CD; restrict scope and lifetime",
+        "Enable quota/rate limits and billing alerts",
+        "Scan repos to avoid committing keys (pre-commit + git-secrets/truffleHog, etc.)"
+      ]
+    },  
+
+    { "type": "line-break" },
+    { "type": "horizontal-rule" },
+    { "type": "line-break" },
+
+    {
+      "type": "heading",
+      "level": 2,
+      "content": "Tutorial: Using the Free Gemini API"
+    },
+    { "type": "line-break" },
+
+    {
+      "type": "heading",
+      "level": 3,
+      "content": "Environment & Initialization"
+    },
+    {
+      "type": "code",
+      "language": "python",
+      "content": "import os\nfrom google import genai\n\n# Set your API key as environment variable GOOGLE_API_KEY\naoi = os.environ.get('GOOGLE_API_KEY')\nassert aoi, 'Please set GOOGLE_API_KEY in your system or .env file'\nclient = genai.Client(api_key=aoi)\nprint('Gemini client ready')"
+    },
+
+    { "type": "line-break" },
+    {
+      "type": "heading",
+      "level": 3,
+      "content": "Streaming Responses: Incremental Output (2.5 Flash-Lite)"
+    },
+    {
+      "type": "code",
+      "language": "python",
+      "content": "with client.responses.stream(\n    model='gemini-2.5-flash-lite',\n    input='Explain “multimodal” to middle school students in 3 bullet points and give 1 real-life example.'\n) as stream:\n    for event in stream:\n        if hasattr(event, 'text'):  # depends on SDK events\n            print(event.text, end='')\nprint('\\n[done]')"
+    },
+    { "type": "line-break" },
+    {
+      "type": "heading",
+      "level": 3,
+      "content": "Image Understanding: Description & Tags (2.5 Flash)"
+    },
+    {
+      "type": "code",
+      "language": "python",
+      "content": "from PIL import Image\nimg = Image.open('campus.jpg')  # replace with your image\n\nresp = client.models.generate_content(\n    model='gemini-2.5-flash',\n    contents=[\n        'Describe this photo in bullet points: scene, people, actions, likely use (<=5 points).',\n        img\n    ]\n)\nprint(resp.text)"
+    },
+    { "type": "line-break" },
+    {
+      "type": "heading",
+      "level": 3,
+      "content": "Image Editing: Local Edits & Consistency (2.5 Flash Image / nano-banana)"
+    },
+    {
+      "type": "code",
+      "language": "python",
+      "content": "from PIL import Image\nportrait = Image.open('portrait.png')  # replace with your image\n\nresp = client.models.generate_content(\n    model='gemini-2.5-flash-image-preview',\n    contents=[\n        'Change the outfit to a black suit while preserving facial identity; set the background to an indoor office with soft lighting.',\n        portrait\n    ]\n)\n# Save output per SDK docs (omitted)\nprint('Image generation/editing completed (save the output per SDK)')"
+    },
+    { "type": "line-break" },
+    {
+      "type": "heading",
+      "level": 3,
+      "content": "Video Generation: Vertical 9:16 Clip (Veo 3 Fast)"
+    },
+    {
+      "type": "code",
+      "language": "python",
+      "content": "from google.genai import types\n\nop = client.models.generate_videos(\n    model='veo-3.0-fast-generate-001',\n    prompt='a golden retriever running through a sunflower field with soft ambient audio',\n    config=types.GenerateVideosConfig(aspect_ratio='9:16', resolution='1080p', duration_seconds=8)\n)\n# Poll/wait for completion and download output (omitted)\nprint('Video job submitted; track and download per SDK guidance')"
+    },
+    { "type": "line-break" },
+
+    {
+      "type": "heading",
+      "level": 3,
+      "content": "PDF Summarization: Upload and Add Page Numbers (2.5 Pro)"
+    },
+    {
+      "type": "code",
+      "language": "python",
+      "content": "from google.genai import types\n\n# Assuming the SDK supports file upload (check official examples)\nfile = client.files.upload(file_path='syllabus.pdf')\nresp = client.models.generate_content(\n    model='gemini-2.5-pro',\n    contents=[\n        types.Part.from_text('Summarize the PDF in 5 points and append (p.xx) page numbers to each point.'),\n        file\n    ]\n)\nprint(resp.text)"
+    },
+    { "type": "line-break" },
+    {
+      "type": "heading",
+      "level": 3,
+      "content": "Text/Multimodal: Long-Document Key-Point Summary (2.5 Pro)"
+    },
+    {
+      "type": "code",
+      "language": "python",
+      "content": "from textwrap import dedent\n\nprompt = dedent('''\\\nYou are a teaching assistant. Summarize the following in three bullet points,\nmax 20 characters per point, then add one sentence: what should the student do next?\n---\n<paste content here>\n''')\n\nresp = client.models.generate_content(\n    model='gemini-2.5-pro',\n    contents=prompt\n)\nprint(resp.text)"
+    },
+    { "type": "line-break" },
+    {
+      "type": "heading",
+      "level": 3,
+      "content": "Error Handling & Retries (Exponential Backoff)"
+    },
+    {
+      "type": "code",
+      "language": "python",
+      "content": "import time\n\ndef with_retry(fn, max_tries=5):\n    delay = 1.0\n    for i in range(max_tries):\n        try:\n            return fn()\n        except Exception as e:\n            if i == max_tries - 1:\n                raise\n            time.sleep(delay)\n            delay *= 2\n\n# Example usage:\nresult = with_retry(lambda: client.models.generate_content(\n    model='gemini-2.5-flash',\n    contents='Explain in 5 lines why training data de-duplication matters.'\n))\nprint(getattr(result, 'text', result))"
+    },
+    
+    { "type": "line-break" },
 
     { "type": "horizontal-rule" },
     { "type": "line-break" },
@@ -84,22 +368,22 @@
     {
       "type": "heading",
       "level": 2,
-      "content": "Strongest Model: ChatGPT5 API Token Usage Steps"
+      "content": "Using a ChatGPT-5 API Token (Steps)"
     },
     {
       "type": "list",
       "listType": "ordered",
       "items": [
-        "Go to the OpenAI platform and generate a new Token",
-        "Store the Token securely (recommended to use environment variables ENV)",
-        "Reference the Token in your code to call the API"
+        "Create a new token in the OpenAI platform",
+        "Store the token securely (ENV variables recommended)",
+        "Reference the token in code to call the API"
       ]
     },
     {
       "type": "code",
       "language": "python",
-      "title": "Python API Token Usage Example",
-      "content": "import openai\n\nopenai.api_key = \"your_API_Token\"\n\nresponse = openai.ChatCompletion.create(\n    model=\"gpt-4\",\n    messages=[{\"role\": \"user\", \"content\": \"Explain what an API Token is\"}]\n)\nprint(response.choices[0].message[\"content\"])"
+      "title": "Python Example: Using an API Token",
+      "content": "import openai\n\nopenai.api_key = \"your_API_token\"\n\nresponse = openai.ChatCompletion.create(\n    model=\"gpt-4\",\n    messages=[{\"role\": \"user\", \"content\": \"Explain what an API token is.\"}]\n)\nprint(response.choices[0].message[\"content\"])"
     },
     { "type": "line-break" },
     { "type": "horizontal-rule" },
@@ -108,31 +392,31 @@
     {
       "type": "heading",
       "level": 2,
-      "content": "Major AI Model API Price Comparison"
+      "content": "AI Model API Pricing Comparison"
     },
 
     {
       "type": "table",
-      "title": "Major AI Model API Token Price Table (In USD) ",
+      "title": "Major AI Model API Token Pricing (as of 2025-09-07, sorted by Output price)",
       "headers": ["Model", "Positioning", "Input (per million tokens)", "Cached Input (per million tokens)", "Output (per million tokens)"],
       "rows": [
         [
           "Claude 4 Opus",
-          "Strongest model, suitable for highly complex tasks",
+          "Top-tier model for highly complex tasks",
           "$15.000",
           "N/A",
           "$75.000"
         ],
         [
           "Claude 4 Sonnet",
-          "Balanced reasoning power and cost",
+          "Balance of reasoning and cost",
           "$3.000",
           "N/A",
           "$15.000"
         ],
         [
           "Grok-4",
-          "Flagship Grok model, for large-scale enterprise tasks",
+          "Flagship Grok model for large enterprise workloads",
           "$3.000",
           "N/A",
           "$15.000"
@@ -146,21 +430,21 @@
         ],
         [
           "GPT-5",
-          "Strongest model, suitable for cross-industry coding and intelligent agent tasks",
+          "Top model for cross-industry coding and agentic tasks",
           "$1.250",
           "$0.125",
           "$10.000"
         ],
         [
           "Claude 3.5 Haiku",
-          "Cheapest and fastest model",
+          "Fastest and most affordable in the family",
           "$0.800",
           "N/A",
           "$4.000"
         ],
         [
           "GPT-5 mini",
-          "Faster and cheaper, suitable for well-defined tasks",
+          "Faster and cheaper for well-defined tasks",
           "$0.250",
           "$0.025",
           "$2.000"
@@ -174,35 +458,28 @@
         ],
         [
           "Grok-3 mini",
-          "Lightweight version, good for math/reasoning tasks",
+          "Lightweight version, good for math/reasoning",
           "$0.300",
           "N/A",
           "$0.500"
         ],
         [
           "GPT-5 nano",
-          "Fastest and cheapest, good for summarization and classification",
+          "Fastest and cheapest, suited for summarization/classification",
           "$0.050",
           "$0.005",
           "$0.400"
         ],
         [
           "Gemini 2.0 Flash",
-          "Google standard multimodal model",
+          "Google’s standard multimodal model",
           "$0.075",
           "N/A",
           "$0.300"
         ]
       ]
     },
-    
 
-    {
-      "type": "callout",
-      "variant": "warning",
-      "title": "⚠️ Security Tip",
-      "content": "API Token leaked = anyone can use your quota, which may lead to extra charges!"
-    },
 
     { "type": "horizontal-rule" },
     { "type": "line-break" },
@@ -216,16 +493,16 @@
       "type": "definition-list",
       "definitions": [
         {
-          "term": "Does the API Token expire?",
-          "definition": "Normally it won’t expire automatically, but you can manually reset it anytime."
+          "term": "Do API tokens expire?",
+          "definition": "They usually don’t expire automatically, but you can reset them anytime."
         },
         {
-          "term": "How many Tokens can I have?",
-          "definition": "You can generate multiple, convenient for different projects."
+          "term": "How many tokens can I have?",
+          "definition": "You can create multiple tokens for different projects."
         },
         {
-          "term": "What if my Token is leaked?",
-          "definition": "Go to the OpenAI console immediately to delete/reset the Token and check account usage."
+          "term": "What if my token leaks?",
+          "definition": "Immediately delete/reset it in the provider dashboard and review your usage."
         }
       ]
     },
@@ -241,21 +518,21 @@
     {
       "type": "callout",
       "variant": "success",
-      "title": "Key Point",
-      "content": "API Token = **ID card + Key + Billing unit**. If kept safe, you can confidently call AI APIs."
+      "title": "Key Points",
+      "content": "API token = **identity + key + billing unit**. Handle it safely so you can call AI APIs with confidence."
     },
 
     {
       "type": "heading",
       "level": 3,
-      "content": "Try It Out"
+      "content": "Try It"
     },
     {
       "type": "task-list",
       "items": [
-        { "content": "Generate a new API Token on the OpenAI platform", "completed": false },
-        { "content": "Store the Token using environment variables (ENV)", "completed": false },
-        { "content": "Write a Python test script and successfully call the API", "completed": false }
+        { "content": "Create a new API token in the OpenAI platform", "completed": false },
+        { "content": "Store the token using environment variables (ENV)", "completed": false },
+        { "content": "Write a small Python script and successfully call the API", "completed": false }
       ]
     }
   ]

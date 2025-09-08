@@ -12,6 +12,13 @@
       "type": "text",
       "content": "API Token 就好似一把🔑鑰匙，畀你同 AI 平台（例如 OpenAI）安全溝通。冇 Token，你嘅程式冇辦法用 API；有咗 Token，系統就知道你係合法用戶，並記錄你嘅用量。"
     },
+    { "type": "line-break" },
+    {
+      "type": "callout",
+      "variant": "warning",
+      "title": "⚠️ 學習前的安全提示",
+      "content": "API Token 洩露 = 任何人都可以用你嘅額度，可能導致額外收費！所以要收好它！"
+    },
 
     { "type": "horizontal-rule" },
     { "type": "line-break" },
@@ -75,8 +82,285 @@
       "title": "Prompt Hunter",
       "href": "https://prompt-hunter.vercel.app/"
     },
-
     
+    { "type": "line-break" },
+    { "type": "horizontal-rule" },
+    { "type": "line-break" },
+
+    {
+      "type": "heading",
+      "level": 2,
+      "content": "API Key 安全：如何隱藏與管理（實戰）"
+    },
+    {
+      "type": "callout",
+      "variant": "warning",
+      "title": "⚠️ 關鍵原則",
+      "content": "前端（瀏覽器/行動 App）**永遠唔可以**夾硬放 API Key。Key 只可以出現喺你控制嘅**伺服器/雲端受保護環境**。如不慎外洩：立即撤銷、旋轉（rotate）新 Key、檢查用量。"
+    },
+  
+    { "type": "line-break" },
+  
+    {
+      "type": "table",
+      "title": "隱藏 API Key 方法比較",
+      "headers": ["方法", "適用場景 ✅", "特點", "限制/注意 ❌"],
+      "rows": [
+        [
+          "環境變數（.env + 系統 ENV）",
+          "本機開發、簡單部署",
+          "易上手；配合 `.gitignore` 可防止誤上傳；程式以 `os.environ['...']` 讀取",
+          "`.env` 千祈唔好 commit；要控管備份/權限"
+        ],
+        [
+          "後端 Proxy / API Gateway",
+          "前端需調 Gemini，但唔想暴露 Key",
+          "前端改 call 你自家 API，後端代轉向 Gemini；可加速率限制、審計",
+          "要維護伺服器與權限；CORS/認證要設好"
+        ],
+        [
+          "雲端 Secret Manager（GCP/AWS/Azure）",
+          "生產環境、多人合作",
+          "權限細緻（IAM）；審計、版本化、輪換；集中管理",
+          "需雲平台帳務與設定；學習曲線較高"
+        ],
+        [
+          "平台內建 Secrets（Vercel/Netlify/Cloudflare 等）",
+          "Serverless/邊緣函式部署",
+          "UI 設定簡單；直接注入執行時環境",
+          "不同平台介面略有差異；要設定權限/可見範圍"
+        ],
+        [
+          "Kubernetes/Docker Secrets",
+          "容器化/企業級部署",
+          "與基礎設施整合；可配合 KMS 加密",
+          "需 DevOps 能力；設錯 Volume/ENV 會外洩"
+        ]
+      ]
+    },
+  
+    {
+      "type": "table",
+      "title": "常見錯誤 vs 正確做法",
+      "headers": ["錯誤做法 ❌", "風險", "正確做法 ✅"],
+      "rows": [
+        [
+          "把 Key 寫死喺前端 JS/行動 App",
+          "任何人都可攞走 Key",
+          "前端只 call 你自家後端；Key 只放後端/Secret Manager"
+        ],
+        [
+          "把 `.env` commit 上 GitHub",
+          "永久曝光、被爬蟲撈走",
+          "把 `.env` 加入 `.gitignore`；外洩即時撤銷並旋轉 Key"
+        ],
+        [
+          "在日誌 print 出 key",
+          "集中式日誌亦會成為外洩點",
+          "日誌遮罩（masking）；禁止輸出敏感字串"
+        ],
+        [
+          "把 Key 放在 URL Query",
+          "Proxy/Analytics 會收錄",
+          "只放 Header；HTTPS；最少權限/短期憑證"
+        ]
+      ]
+    },
+  
+    { "type": "line-break" },
+  
+    {
+      "type": "heading",
+      "level": 3,
+      "content": "本機與部署：環境變數（.env）"
+    },
+    {
+      "type": "code",
+      "language": "python",
+      "title": "Python：讀取環境變數（配合 .env）",
+      "content": "import os\nfrom dotenv import load_dotenv  # pip install python-dotenv\n\n# 於專案根目錄建立 .env（見下）\nload_dotenv()\n\nAPI_KEY = os.getenv('GOOGLE_API_KEY')\nassert API_KEY, '請在 .env 或系統環境變數設定 GOOGLE_API_KEY'\n\nprint('Key 已載入（不顯示內容）')"
+    },
+    {
+      "type": "code",
+      "language": "python",
+      "title": ".env 與 .gitignore 範例（文字內容）",
+      "content": "# .env 內容（請勿 commit）\nGOOGLE_API_KEY=替換成你的Key\n\n# .gitignore 需包含：\n# .env\n# *.env\n# **/.env\n"
+    },
+  
+    { "type": "line-break" },
+  
+    {
+      "type": "heading",
+      "level": 3,
+      "content": "前端安全：用後端 Proxy 代叫 Gemini（避免暴露 Key）"
+    },
+    {
+      "type": "code",
+      "language": "python",
+      "title": "FastAPI Proxy（伺服器端持有 Key）",
+      "content": "from fastapi import FastAPI, HTTPException\nfrom pydantic import BaseModel\nimport os\nfrom google import genai\n\napp = FastAPI()\nclient = genai.Client(api_key=os.environ['GOOGLE_API_KEY'])\n\nclass AskPayload(BaseModel):\n    query: str\n\n@app.post('/api/ask')\ndef ask(p: AskPayload):\n    try:\n        resp = client.models.generate_content(\n            model='gemini-2.5-flash',\n            contents=p.query\n        )\n        # 只回傳需要的字段，千祈唔好把 Key 回傳前端\n        return {\"text\": getattr(resp, 'text', '')}\n    except Exception as e:\n        raise HTTPException(status_code=500, detail=str(e))"
+    },
+    {
+      "type": "callout",
+      "variant": "success",
+      "title": "小提示",
+      "content": "前端只需 `fetch('/api/ask', { method: 'POST', body: JSON.stringify({ query }) })`。CORS 設定限制來源、加上速率限制與簡單認證（例如 API Token/JWT）。"
+    },
+  
+    { "type": "line-break" },
+  
+    {
+      "type": "heading",
+      "level": 3,
+      "content": "雲端 Secret Manager / 平台 Secrets（觀念）"
+    },
+    {
+      "type": "table",
+      "title": "Secret Manager 與平台 Secrets 選擇",
+      "headers": ["方案", "啱用場景", "優點 ✅", "注意事項 ❌"],
+      "rows": [
+        [
+          "GCP Secret Manager",
+          "用 GCP/Vertex/GCE/K8s 的團隊",
+          "IAM 權限細緻、審計、版本/輪轉",
+          "需設定服務帳戶；權限粒度要測試清楚"
+        ],
+        [
+          "AWS Secrets Manager",
+          "AWS 生態（Lambda/ECS/EKS）",
+          "與 KMS/VPC/CloudWatch 集成強",
+          "計費與輪轉策略要評估"
+        ],
+        [
+          "Vercel/Netlify/Cloudflare Secrets",
+          "Serverless/邊緣函式",
+          "UI 設定快；自動注入 Runtime",
+          "環境（dev/preview/prod）變數要分開管理"
+        ]
+      ]
+    },
+  
+    { "type": "line-break" },
+  
+    {
+      "type": "heading",
+      "level": 3,
+      "content": "Key 旋轉（Rotate）、存取最小化（Least Privilege）"
+    },
+    {
+      "type": "list",
+      "listType": "unordered",
+      "items": [
+        "定期旋轉 Key（例如每 30～90 日），舊 Key 逐步撤銷",
+        "分環境（開發/預覽/正式）使用**不同 Key**，避免互相影響",
+        "CI/CD 用**臨時 Token**或 pipeline secrets，限制作用域與存活時間",
+        "開啟配額/速率限制與用量告警（Billing/Quota Alert）",
+        "掃描存庫避免把 Key commit（可用 pre-commit + git-secrets/truffleHog）"
+      ]
+    },  
+
+    { "type": "line-break" },
+    { "type": "horizontal-rule" },
+    { "type": "line-break" },
+
+    {
+      "type": "heading",
+      "level": 2,
+      "content": "教學！免費的API介紹： Gemini API 使用"
+    },
+    { "type": "line-break" },
+
+    {
+      "type": "heading",
+      "level": 3,
+      "content": "環境與初始化"
+    },
+    {
+      "type": "code",
+      "language": "python",
+      "content": "import os\nfrom google import genai\n\n# 將你的 API key 設為環境變數 GOOGLE_API_KEY\naoi = os.environ.get('GOOGLE_API_KEY')\nassert aoi, '請先在系統或 .env 設定 GOOGLE_API_KEY'\nclient = genai.Client(api_key=aoi)\nprint('Gemini client 就緒')"
+    },
+
+    { "type": "line-break" },
+    {
+      "type": "heading",
+      "level": 3,
+      "content": "串流回應：逐段輸出（2.5 Flash-lite ）"
+    },
+    {
+      "type": "code",
+      "language": "python",
+      "content": "with client.responses.stream(\n    model='gemini-2.5-flash-lite',\n    input='用 3 點向中學生解釋「多模態」是什麼，舉 1 個生活例子'\n) as stream:\n    for event in stream:\n        if hasattr(event, 'text'):  # 視 SDK 事件介面而定\n            print(event.text, end='')\nprint('\\n[完成]')"
+    },
+    { "type": "line-break" },
+    {
+      "type": "heading",
+      "level": 3,
+      "content": "圖片理解：描述與標註（2.5 Flash）"
+    },
+    {
+      "type": "code",
+      "language": "python",
+      "content": "from PIL import Image\nimg = Image.open('campus.jpg')  # 置換為你的圖片\n\nresp = client.models.generate_content(\n    model='gemini-2.5-flash',\n    contents=[\n        '請用要點描述這張相片：場景、人物、動作、可能的用途（<=5點）',\n        img\n    ]\n)\nprint(resp.text)"
+    },
+    { "type": "line-break" },
+    {
+      "type": "heading",
+      "level": 3,
+      "content": "圖像編修：局部修改與一致性（2.5 Flash Image / nano-banana）"
+    },
+    {
+      "type": "code",
+      "language": "python",
+      "content": "from PIL import Image\nportrait = Image.open('portrait.png')  # 置換為你的圖片\n\nresp = client.models.generate_content(\n    model='gemini-2.5-flash-image-preview',\n    contents=[\n        '把此人像換上黑色西裝並保留原臉部特徵，背景改為室內辦公室柔光',\n        portrait\n    ]\n)\n# 依 SDK 文檔將輸出保存為圖片檔（略）\nprint('已完成影像生成/編修（請依 SDK 保存輸出）')"
+    },
+    { "type": "line-break" },
+    {
+      "type": "heading",
+      "level": 3,
+      "content": "影片生成：直式 9:16 短片（Veo 3 Fast）"
+    },
+    {
+      "type": "code",
+      "language": "python",
+      "content": "from google.genai import types\n\nop = client.models.generate_videos(\n    model='veo-3.0-fast-generate-001',\n    prompt='a golden retriever running through a sunflower field with soft ambient audio',\n    config=types.GenerateVideosConfig(aspect_ratio='9:16', resolution='1080p', duration_seconds=8)\n)\n# 實務上需輪詢/等待作業完成，再下載輸出（略）\nprint('已提交影片生成作業，請依 SDK 追蹤並下載輸出')"
+    },
+    { "type": "line-break" },
+
+    {
+      "type": "heading",
+      "level": 3,
+      "content": "PDF 摘要：上載文件並標註頁碼（2.5 Pro）"
+    },
+    {
+      "type": "code",
+      "language": "python",
+      "content": "from google.genai import types\n\n# 假設 SDK 提供檔案上載（實際以官方範例為準）\nfile = client.files.upload(file_path='syllabus.pdf')\nresp = client.models.generate_content(\n    model='gemini-2.5-pro',\n    contents=[\n        types.Part.from_text('請用 5 點摘要 PDF 的重點，並在每點後面加 (p.xx) 頁碼'),\n        file\n    ]\n)\nprint(resp.text)"
+    },
+    { "type": "line-break" },
+    {
+      "type": "heading",
+      "level": 3,
+      "content": "文字/多模態：長文重點摘要（2.5 Pro）"
+    },
+    {
+      "type": "code",
+      "language": "python",
+      "content": "from textwrap import dedent\n\nprompt = dedent('''\\\n你係教學助理。請用 bullet points 總結以下內容三個最重要重點，\n每點最多 20 字，最後附一句：學生應該下一步做咩？\n---\n<內容粘貼於此>\n''')\n\nresp = client.models.generate_content(\n    model='gemini-2.5-pro',\n    contents=prompt\n)\nprint(resp.text)"
+    },
+    { "type": "line-break" },
+    {
+      "type": "heading",
+      "level": 3,
+      "content": "錯誤處理與重試（指數退避）"
+    },
+    {
+      "type": "code",
+      "language": "python",
+      "content": "import time\n\ndef with_retry(fn, max_tries=5):\n    delay = 1.0\n    for i in range(max_tries):\n        try:\n            return fn()\n        except Exception as e:\n            if i == max_tries - 1:\n                raise\n            time.sleep(delay)\n            delay *= 2\n\n# 用法示例：\nresult = with_retry(lambda: client.models.generate_content(\n    model='gemini-2.5-flash',\n    contents='用 5 行說明為何要訓練數據去重'\n))\nprint(getattr(result, 'text', result))"
+    },
+    
+    { "type": "line-break" },
 
     { "type": "horizontal-rule" },
     { "type": "line-break" },
@@ -195,14 +479,7 @@
         ]
       ]
     },
-    
 
-    {
-      "type": "callout",
-      "variant": "warning",
-      "title": "⚠️ 安全提示",
-      "content": "API Token 洩露 = 任何人都可以用你嘅額度，可能導致額外收費！"
-    },
 
     { "type": "horizontal-rule" },
     { "type": "line-break" },

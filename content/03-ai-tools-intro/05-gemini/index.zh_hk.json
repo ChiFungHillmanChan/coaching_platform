@@ -1,0 +1,365 @@
+{
+  "slug": "deep-dive-gemini",
+  "category": "ai-tools",
+  "lastModified": "2025-09-08T00:00:00.000Z",
+  "blocks": [
+    {
+      "type": "heading",
+      "level": 1,
+      "content": "3. 最詳盡的 Google Gemini 深入教學"
+    },
+    {
+      "type": "text",
+      "content": "Google Gemini 唔只係聊天，而係**原生多模態 AI 平台**：同時理解文字、圖片、音訊、影片、PDF，配合長上下文（最高約 100 萬 tokens，視型號/端點），同開發者友善嘅 API & AI Studio。"
+    },
+
+    { "type": "horizontal-rule" },
+    { "type": "line-break" },
+
+    {
+      "type": "heading",
+      "level": 2,
+      "content": "Gemini 功能總覽"
+    },
+    {
+      "type": "list",
+      "listType": "unordered",
+      "items": [
+        "**模型家族**：2.5 Pro（深度推理）、2.5 Flash（高性價比）、2.5 Flash-Lite（最低延遲/高吞吐）、2.5 Flash Image（又名「nano-banana」，圖像生成/編修）、Veo 3 / Veo 3 Fast（影片生成）。",
+        "**多模態**：輸入可為文字/圖片/音訊/影片/PDF；支援長上下文分析。",
+        "**API & AI Studio**：可**免費建立 API key**，入門容易；進階用量與影片生成通常屬付費階梯。",
+        "**安全與標註**：生成影像帶 **SynthID** 水印，用於溯源與識別。"
+      ]
+    },
+
+    { "type": "line-break" },
+    { "type": "horizontal-rule" },
+    { "type": "line-break" },
+
+    {
+      "type": "heading",
+      "level": 2,
+      "content": "Gemini 型號分析"
+    },
+    
+    {
+      "type": "table",
+      "title": "Gemini 模型家族比較",
+      "headers": ["型號", "最啱用於 ✅", "限制/留意 ❌"],
+      "rows": [
+        [
+          "Gemini 2.5 Pro",
+          "深度推理、長文檔整合、代碼理解、跨媒體分析",
+          "延遲較高、成本較高；需配合端點配額"
+        ],
+        [
+          "Gemini 2.5 Flash",
+          "日常問答、摘要、圖文理解；性價比高、反應快",
+          "極長上下文/複雜推理不及 Pro"
+        ],
+        [
+          "Gemini 2.5 Flash-Lite",
+          "低延遲/高吞吐的大規模批處理或即時系統",
+          "智能與上下文能力較 Pro/Flash 弱"
+        ],
+        [
+          "Gemini 2.5 Flash Image（nano-banana）",
+          "圖像生成/局部編修、角色一致性、多圖融合",
+          "輸出含水印；專注影像任務，文本輸出非主軸"
+        ],
+        [
+          "Veo 3 / Veo 3 Fast",
+          "文字/圖像→影片（含聲）、支援直式 9:16/1080p",
+          "屬影片生成專用；成本與配額需評估"
+        ],
+        [
+          "Gemini Nano（裝置端）",
+          "離線/低延遲任務、私隱優先（Pixel/Android）",
+          "算力受裝置限制，能力弱於雲端大模型"
+        ]
+      ]
+    },
+    { "type": "line-break" },
+    { "type": "horizontal-rule" },
+    { "type": "line-break" },
+
+    {
+      "type": "heading",
+      "level": 2,
+      "content": "⚙️ Gemini 設定與起步（AI Studio / API Key） (下一課會詳細教學，這篇先教你如何取得API Key)"
+    },
+    {
+      "type": "text",
+      "content": "新手建議喺 **Google AI Studio** 先試模型，再把成功嘅提示詞搬去程式碼。建立 API key 只需幾步，免費層已可做大多數文字/多模態實驗。"
+    },
+    { "type": "line-break" },
+
+    {
+      "type": "heading",
+      "level": 3,
+      "content": "1. 前往 AI Studio 取得 API Key。）"
+    },
+    {
+      "type": "image",
+      "src": "/assets/03-ai-tools-intro/05-gemini/1.get-api-key.png",
+      "size": 6
+    },
+    { "type": "line-break" },
+    {
+      "type": "heading",
+      "level": 3,
+      "content": "2. 到右上找到 create API key 按鈕"
+    },
+    {
+      "type": "image",
+      "src": "/assets/03-ai-tools-intro/05-gemini/2.create-api.png",
+      "size": 6
+    },
+
+    { "type": "line-break" },
+    {
+      "type": "heading",
+      "level": 3,
+      "content": "3. 找一個已有的project (也可以不用！）按下 Create API key 按鈕，就可以了！"
+    },
+    {
+      "type": "image",
+      "src": "/assets/03-ai-tools-intro/05-gemini/3.success.png",
+      "size": 6
+    },
+    {
+      "type": "callout",
+      "variant": "warning",
+      "title": "注意⚠️注意⚠️注意⚠️（重要的事說三次）",
+      "content": "API key 不能洩露，否則可能會超快地用光你的token，甚至導致額外收費！"
+    },
+
+    { "type": "line-break" },
+    { "type": "horizontal-rule" },
+    { "type": "line-break" },
+
+    {
+      "type": "heading",
+      "level": 2,
+      "content": "使用建議及分析（新手友善）"
+    },
+
+    { "type": "line-break" },
+    {
+      "type": "heading",
+      "level": 3,
+      "content": "1. 型號揀選指南"
+    },
+    {
+      "type": "definition-list",
+      "definitions": [
+        {
+          "term": "2.5 Flash-Lite （個人最推薦）",
+          "definition": "極低延遲/高吞吐，適合大規模批處理或即時系統，每日使用次數有200次，而且目前完全免費！！!"
+        },
+        {
+          "term": "2.5 Flash （個人推薦）",
+          "definition": "反應快、性價比高，覆蓋多數日常任務（QA、摘要、圖文理解），目前也是免費。"
+        },
+        {
+          "term": "2.5 Pro",
+          "definition": "主打**深度推理 + 長上下文（約 1,000,000 tokens）**。適合長文檔歸納、複雜分析、程式理解。"
+        },
+        
+        {
+          "term": "2.5 Flash Image（nano-banana）",
+          "definition": "**影像生成/編修**專長：人像/角色一致性、局部自然語言編修、多圖融合；定價約 **$0.039/張**。"
+        },
+        {
+          "term": "Veo 3 / Veo 3 Fast",
+          "definition": "**影片生成**（含聲）：支援 1080p、16:9/9:16。Veo 3 約 **$0.40/秒**，Veo 3 Fast 約 **$0.15/秒**。"
+        }
+      ]
+    },
+
+    { "type": "line-break" },
+    { "type": "horizontal-rule" },
+    { "type": "line-break" },
+    
+    {
+      "type": "heading",
+      "level": 3,
+      "content": "2. Gemini 的強弱（從新手角度）"
+    },
+
+    {
+      "type": "definition-list",
+      "definitions": [
+        {
+          "term": "**強項**",
+          "items": [
+            "原生**多模態**：同一對話混合文字/圖像/音訊/影片/PDF。",
+            "**長上下文**：處理長文檔、影片逐幀說明、跨檔彙整更穩。",
+            "**影像/影片生成**能力持續更新（nano-banana / Veo 3）。",
+            "**API 友善**：AI Studio + 免費 API key，教學/原型快上手。"
+          ],
+          "listType": "unordered"
+        },
+        {
+          "term": "**限制/注意**",
+          "items": [
+            "免費層**有額度與速率限制**；影片生成多屬付費階梯。",
+            "不同入口（Gemini App / API / Vertex AI）**可用型號與配額不同**，部署前要核對官方頁。",
+            "生成影像含 **SynthID**（可見/不可見）水印；如需「完全無水印」影像，需另評估。"
+          ],
+          "listType": "unordered"
+        }
+      ]
+    },
+
+    { "type": "line-break" },
+    { "type": "horizontal-rule" },
+    { "type": "line-break" },
+    
+    {
+      "type": "callout",
+      "variant": "success",
+      "title": "課堂小提示",
+      "content": "Demo 順序建議：先用 2.5 Flash-lite 做 PDF 摘要 → 換 2.5 Pro 展示長上下文與推理 → 以 2.5 Flash Image 做局部修圖 → 最後用 Veo 3 Fast 生成短片（9:16）。"
+    },
+
+    { "type": "line-break" },
+    { "type": "horizontal-rule" },
+    { "type": "line-break" },
+
+    {
+      "type": "heading",
+      "level": 2,
+      "content": "Gemini 型號分析"
+    },
+    {
+      "type": "text",
+      "content": "用啱型號，事半功倍。以下列出常見場景對應："
+    },
+    { "type": "line-break" },
+
+    {
+      "type": "definition-list",
+      "definitions": [
+        {
+          "term": "入門/教學 Demo",
+          "items": [
+            "→ 2.5 Flash 或 2.5 Flash-Lite（低成本、反應快）",
+            "例：課堂 Q&A、短文摘要、圖片理解。"
+          ],
+          "listType": "unordered"
+        },
+        {
+          "term": "研究/長文/代碼理解",
+          "items": [
+            "→ 2.5 Pro（長上下文 + 高推理）",
+            "例：讀長篇 PDF、合併多份報告、程式碼審閱。"
+          ],
+          "listType": "unordered"
+        },
+        {
+          "term": "影像創作/修圖",
+          "items": [
+            "→ 2.5 Flash Image（nano-banana）",
+            "例：角色一致性、局部自然語言編修、多圖融合。"
+          ],
+          "listType": "unordered"
+        },
+        {
+          "term": "短片生成/直式內容",
+          "items": [
+            "→ Veo 3 / Veo 3 Fast（9:16、1080p 支援）",
+            "例：社交媒體短片、教學片段。"
+          ],
+          "listType": "unordered"
+        }
+      ]
+    },
+
+    { "type": "line-break" },
+
+    {
+      "type": "heading",
+      "level": 3,
+      "content": "nano-banana 的示例 (我沒辦法相信這是我的動漫風格！！！)"
+    },
+    {
+      "type": "image",
+      "src": "/assets/03-ai-tools-intro/05-gemini/nano.png",
+      "size": 6
+    },
+
+    { "type": "line-break" },
+
+    {
+      "type": "heading",
+      "level": 3,
+      "content": "Veo 3 的示例"
+    },
+    {
+      "type": "image",
+      "src": "/assets/03-ai-tools-intro/05-gemini/veo3.png",
+      "size": 6
+    },
+
+    { "type": "line-break" },
+    { "type": "horizontal-rule" },
+    { "type": "line-break" },
+
+    {
+      "type": "heading",
+      "level": 2,
+      "content": "常見問題（FAQ）"
+    },
+    {
+      "type": "definition-list",
+      "definitions": [
+        {
+          "term": "API Key 是否免費？",
+          "definition": "可以**免費建立**並於免費層測試；高額度或影片生成通常屬付費階梯。"
+        },
+        {
+          "term": "上下文有幾長？",
+          "definition": "2.5 Pro/Flash 典型支援約**100 萬 tokens**；實際視端點與功能。"
+        },
+        {
+          "term": "為何圖片/影片有水印？",
+          "definition": "Gemini 對生成影像加入 **SynthID**（可見/不可見）水印，方便溯源與辨識。"
+        },
+        {
+          "term": "Flash 與 Flash-Lite 差別？",
+          "definition": "Flash 兼顧智能與速度；Flash-Lite 走**最低延遲/高吞吐/最低成本**，適合即時與大規模。"
+        }
+      ]
+    },
+
+    { "type": "horizontal-rule" },
+    { "type": "line-break" },
+
+    {
+      "type": "heading",
+      "level": 2,
+      "content": "總結"
+    },
+    {
+      "type": "callout",
+      "variant": "success",
+      "title": "總結",
+      "content": "Gemini 價值 = **多模態 + 長上下文 + 影像/影片生成 + 開發者友善**。入門用 Flash/Flash-Lite，進階分析切 Pro；影像用 nano-banana，影片用 Veo 3/Fast。"
+    },
+
+    {
+      "type": "heading",
+      "level": 3,
+      "content": "試試看"
+    },
+    {
+      "type": "task-list",
+      "items": [
+        { "content": "在 AI Studio 申請 API key，測試 2.5 Flash 做 PDF 摘要（列出重點與頁碼）", "completed": false },
+        { "content": "用 2.5 Flash Image（nano-banana）把自拍換成正式證件風格（保持臉部一致）", "completed": false },
+        { "content": "用 Veo 3 Fast 生成 8 秒 9:16 影片：校園生活日常剪影（含背景聲）", "completed": false }
+      ]
+    }
+  ]
+}
