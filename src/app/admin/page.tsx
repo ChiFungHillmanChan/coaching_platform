@@ -488,12 +488,29 @@ export default function AdminPanel() {
     });
   }, [subscribers]);
 
+  const checkAuthStatus = async () => {
+    try {
+      const response = await fetch('/api/admin/auth');
+      if (response.ok) {
+        const data = await response.json();
+        setIsAuthenticated(data.isAuthenticated);
+        if (data.isAuthenticated) {
+          loadAdminData();
+        }
+      }
+    } catch (error) {
+      console.error('Auth check failed:', error);
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
   // Check authentication status
   useEffect(() => {
     checkAuthStatus();
-  }, []);
+  }, [checkAuthStatus]);
 
-  const checkAuthStatus = async () => {
+  const loadAdminData = async () => {
     try {
       const response = await fetch('/api/admin/auth');
       if (response.ok) {

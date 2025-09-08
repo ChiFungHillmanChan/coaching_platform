@@ -18,13 +18,6 @@ export default function UnsubscribePage() {
   const [isError, setIsError] = useState(false)
   const [isSuccess, setIsSuccess] = useState(false)
 
-  // Auto-unsubscribe if email is provided in URL
-  useEffect(() => {
-    if (emailFromUrl) {
-      handleUnsubscribe(emailFromUrl)
-    }
-  }, [emailFromUrl])
-
   const handleUnsubscribe = async (emailToUnsubscribe?: string) => {
     const targetEmail = emailToUnsubscribe || email
     if (!targetEmail.trim()) return
@@ -61,6 +54,13 @@ export default function UnsubscribePage() {
     }
   }
 
+  // Auto-unsubscribe if email is provided in URL
+  useEffect(() => {
+    if (emailFromUrl) {
+      handleUnsubscribe(emailFromUrl)
+    }
+  }, [emailFromUrl, handleUnsubscribe])
+
   const handleFormSubmit = (e: React.FormEvent) => {
     e.preventDefault()
     handleUnsubscribe()
@@ -77,7 +77,7 @@ export default function UnsubscribePage() {
               </div>
               <h3 className="text-xl font-semibold text-gray-900 mb-2">Unsubscribed Successfully</h3>
               <p className="text-gray-600 mb-6">
-                You won't receive any more emails from us. We're sorry to see you go!
+                You won&apos;t receive any more emails from us. We&apos;re sorry to see you go!
               </p>
               
               <div className="space-y-3">
@@ -109,7 +109,7 @@ export default function UnsubscribePage() {
           </div>
           <CardTitle className="text-xl text-gray-900">Unsubscribe from Newsletter</CardTitle>
           <p className="text-sm text-gray-600 mt-2">
-            We're sorry to see you go! Enter your email address to unsubscribe from our updates.
+            We&apos;re sorry to see you go! Enter your email address to unsubscribe from our updates.
           </p>
         </CardHeader>
         <CardContent>

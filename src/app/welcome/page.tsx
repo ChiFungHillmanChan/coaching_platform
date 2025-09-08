@@ -11,12 +11,12 @@ export default function WelcomePage() {
             Welcome to AI Coaching Platform! 🎉
           </h1>
           <p className="text-xl text-gray-600 mb-8 max-w-3xl mx-auto">
-            Thank you for subscribing to my newsletter! I'm Hillman, and I'm excited to share 
+            Thank you for subscribing to my newsletter! I&apos;m Hillman, and I&apos;m excited to share 
             cutting-edge AI tools, web development tips, and learning resources with you.
           </p>
           <div className="inline-flex items-center gap-2 bg-green-100 text-green-800 px-4 py-2 rounded-full font-semibold">
             <Sparkles className="h-5 w-5" />
-            You're now part of the community!
+            You&apos;re now part of the community!
           </div>
         </div>
 
