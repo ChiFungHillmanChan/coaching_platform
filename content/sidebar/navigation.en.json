@@ -4,7 +4,7 @@
   "sections": [
     {
       "id": "base",
-      "title": "Base Content",
+      "title": "Base Content (for styling reference)",
       "href": "/base",
       "icon": "FileText",
       "order": 0
@@ -150,7 +150,7 @@
     },
     {
       "id": "bonus-materials",
-      "title": "Bonus Materials",
+        "title": "Bonus Materials",
       "href": "/05-bonus-materials",
       "icon": "Gift",
       "order": 5,

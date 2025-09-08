@@ -29,78 +29,10 @@
       "type": "list",
       "items": [
         "**AI-Powered Coaching**: Intelligent system that learns and adapts to your patterns",
-        "**Goal Planning**: Comprehensive tracking with smart milestone suggestions", 
+        "**Goal Planning**: Comprehensive tracking with smart milestone suggestions",
         "**Progress Analytics**: Real-time monitoring with detailed insights",
         "**Habit Formation**: Tools based on proven behavioral psychology",
         "**Background Agents**: Continuous optimization of your coaching experience"
-      ]
-    },
-    {
-      "type": "heading",
-      "level": 2,
-      "content": "Quick Demo"
-    },
-    {
-      "type": "callout",
-      "variant": "info",
-      "title": "🎬 Video Demo",
-      "content": "Interactive platform demo coming soon! Experience our intuitive interface and powerful AI coaching features."
-    },
-    {
-      "type": "heading",
-      "level": 2,
-      "content": "Sample Code Integration"
-    },
-    {
-      "type": "text",
-      "content": "Here's how you can integrate with our API:"
-    },
-    {
-      "type": "code",
-      "language": "javascript",
-      "content": "import { AICoaching } from '@ai-coaching/sdk';\n\nconst coach = new AICoaching({\n  apiKey: 'your-api-key',\n  userId: 'user-123'\n});\n\n// Start a coaching session\nconst session = await coach.startSession({\n  type: 'goal-setting',\n  duration: 30 // minutes\n});\n\n// Session started successfully\nreturn session.id;"
-    },
-    {
-      "type": "heading",
-      "level": 2,
-      "content": "Success Stories"
-    },
-    {
-      "type": "card",
-      "title": "🎯 Sarah's Transformation",
-      "description": "Marketing Manager • 6 months with AI Coaching",
-      "content": "Increased productivity by 40% and achieved work-life balance through personalized coaching strategies. The AI coach helped me identify my peak performance hours and optimize my daily routine."
-    },
-    {
-      "type": "card",
-      "title": "🚀 Mike's Career Growth",
-      "description": "Software Developer • 1 year with AI Coaching",
-      "content": "Promoted to Tech Lead after developing leadership skills through structured coaching programs. The habit tracking feature was game-changing for my professional development."
-    },
-    {
-      "type": "heading",
-      "level": 2,
-      "content": "Platform Overview"
-    },
-    {
-      "type": "callout",
-      "variant": "success",
-      "title": "📊 Dashboard Preview",
-      "content": "Our intuitive dashboard provides comprehensive progress tracking, upcoming sessions overview, goal monitoring, and personalized insights - all designed for optimal coaching experience."
-    },
-    {
-      "type": "heading",
-      "level": 3,
-      "content": "Dashboard Features"
-    },
-    {
-      "type": "list",
-      "items": [
-        "**Progress Visualization**: Interactive charts showing your growth over time",
-        "**Session Calendar**: Schedule and manage your coaching sessions",
-        "**Goal Tracker**: Monitor progress on all your active goals",
-        "**Insights Panel**: AI-generated recommendations and insights",
-        "**Habit Streaks**: Visual representation of your consistency"
       ]
     },
     {
@@ -108,30 +40,6 @@
       "variant": "success",
       "title": "✨ Ready to Begin?",
       "content": "Your AI coaching journey starts now. Explore the Core section to learn about our coaching methodology, or dive into specific features in the documentation."
-    },
-    {
-      "type": "heading",
-      "level": 2,
-      "content": "Next Steps"
-    },
-    {
-      "type": "text",
-      "content": "Here are some recommended next steps to get the most out of AI Coaching:"
-    },
-    {
-      "type": "list",
-      "items": [
-        "🧠 **Explore Core Concepts**: Learn about our AI coach, programs, and methodology",
-        "📊 **Set Up Your Goals**: Define what you want to achieve with our goal planner",
-        "📈 **Track Your Progress**: Use our analytics to monitor your growth",
-        "🔄 **Build Habits**: Create lasting change with our habit formation tools"
-      ]
-    },
-    {
-      "type": "callout",
-      "variant": "warning",
-      "title": "💡 Pro Tip",
-      "content": "The more you engage with the platform, the smarter your AI coach becomes. Regular check-ins and honest feedback help create a truly personalized experience."
     },
     {
       "type": "heading",
@@ -239,12 +147,302 @@
     },
     {
       "type": "video",
-      "src": "/demo/onboarding-flow.mp4",
+      "src": "/assets/videos/demos/onboarding-flow.mp4",
       "alt": "Complete onboarding process walkthrough showing account setup, goal definition, and first coaching session"
     },
     {
       "type": "text",
       "content": "Video content enhances documentation by providing visual walkthroughs of complex processes."
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "content": "Code Blocks"
+    },
+    {
+      "type": "text",
+      "content": "Code blocks are used to display and highlight programming code:"
+    },
+    {
+      "type": "code",
+      "language": "javascript",
+      "content": "// AI Coaching System Initialization\nclass AICoach {\n  constructor(userProfile) {\n    this.profile = userProfile;\n    this.goals = [];\n    this.progress = new Map();\n  }\n\n  async generateRecommendations() {\n    const insights = await this.analyzeProgress();\n    return this.createPersonalizedPlan(insights);\n  }\n\n  trackGoal(goal) {\n    this.goals.push(goal);\n    console.log(`Goal added: ${goal.title}`);\n  }\n}",
+      "title": "AI Coach Initialization Example"
+    },
+    {
+      "type": "code",
+      "language": "python",
+      "content": "# Habit Tracker Implementation\nclass HabitTracker:\n    def __init__(self, user_id):\n        self.user_id = user_id\n        self.habits = {}\n        self.streaks = {}\n    \n    def add_habit(self, habit_name, target_frequency):\n        self.habits[habit_name] = {\n            'target': target_frequency,\n            'completed': 0,\n            'created_at': datetime.now()\n        }\n        print(f\"Habit created: {habit_name}\")\n    \n    def complete_habit(self, habit_name):\n        if habit_name in self.habits:\n            self.habits[habit_name]['completed'] += 1\n            self.update_streak(habit_name)\n            return True\n        return False",
+      "title": "Python Habit Tracker"
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "content": "Terminal Commands"
+    },
+    {
+      "type": "text",
+      "content": "Terminal blocks are used to display command line instructions and output:"
+    },
+    {
+      "type": "terminal",
+      "content": "$ npm install @ai-coach/core\n+ @ai-coach/core@2.1.0\nadded 15 packages in 3.2s\n\n$ npm run setup-coach\n> ai-coach@1.0.0 setup-coach\n> node scripts/initialize-coaching-system.js\n\n✅ Setting up AI coaching environment...\n✅ Creating user profile...\n✅ Initializing goal tracking system...\n✅ Connecting progress analytics engine...\n\n🚀 AI Coaching system ready!",
+      "title": "Installation and Setup Commands"
+    },
+    {
+      "type": "terminal",
+      "content": "$ git clone https://github.com/ai-coach/platform.git\nCloning into 'platform'...\nremote: Enumerating objects: 1247, done.\nremote: Total 1247 (delta 0), reused 0 (delta 0)\nReceiving objects: 100% (1247/1247), 2.3 MiB | 1.8 MiB/s, done.\nResolving deltas: 100% (456/456), done.\n\n$ cd platform && npm install\n$ npm run dev\n\n> Development server running at http://localhost:3000\n> AI Coaching platform ready!",
+      "title": "Project Setup"
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "content": "Tables"
+    },
+    {
+      "type": "text",
+      "content": "Tables are used to organize and display structured data:"
+    },
+    {
+      "type": "table",
+      "headers": ["Feature", "Basic", "Professional", "Enterprise"],
+      "rows": [
+        ["AI Coaching Sessions", "5 per month", "Unlimited", "Unlimited"],
+        ["Goal Tracking", "3 goals", "10 goals", "Unlimited"],
+        ["Progress Analytics", "Basic reports", "Advanced analytics", "Deep insights"],
+        ["Habit Tracking", "5 habits", "20 habits", "Unlimited"],
+        ["Customization", "Basic settings", "Advanced customization", "Full customization"],
+        ["Support", "Email support", "Priority support", "24/7 dedicated support"]
+      ],
+      "title": "AI Coaching Platform Pricing Comparison"
+    },
+    {
+      "type": "table",
+      "headers": ["Phase", "Duration", "Main Activities", "Expected Outcomes"],
+      "rows": [
+        ["Onboarding", "Week 1-2", "Account setup, goal definition", "Personalized profile"],
+        ["Habit Building", "Week 3-8", "Daily coaching sessions, habit formation", "Stable routines"],
+        ["Accelerated Growth", "Week 9-16", "Advanced techniques, challenge setting", "Significant skill improvement"],
+        ["Mastery", "Week 17-24", "Self-directed learning, mentoring role", "Achievement of major goals"],
+        ["Continuous Optimization", "Ongoing", "System fine-tuning, new goals", "Long-term success maintenance"]
+      ],
+      "title": "AI Coaching Development Phases"
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "content": "Task Lists"
+    },
+    {
+      "type": "text",
+      "content": "Task lists help track completion progress and manage to-do items:"
+    },
+    {
+      "type": "task-list",
+      "title": "AI Coaching Onboarding Checklist",
+      "items": [
+        {
+          "content": "Create your AI coaching account",
+          "completed": true
+        },
+        {
+          "content": "Complete initial assessment questionnaire",
+          "completed": true
+        },
+        {
+          "content": "Set your first three primary goals",
+          "completed": false
+        },
+        {
+          "content": "Choose your preferred coaching schedule",
+          "completed": false
+        },
+        {
+          "content": "Connect your productivity tools (optional)",
+          "completed": false
+        },
+        {
+          "content": "Complete first AI coaching session",
+          "completed": false
+        }
+      ]
+    },
+    {
+      "type": "task-list",
+      "title": "Weekly Progress Check",
+      "items": [
+        {
+          "content": "Review last week's goal completion",
+          "completed": true
+        },
+        {
+          "content": "Analyze progress report and AI recommendations",
+          "completed": true
+        },
+        {
+          "content": "Adjust next week's coaching focus",
+          "completed": false
+        },
+        {
+          "content": "Schedule three AI coaching sessions",
+          "completed": false
+        },
+        {
+          "content": "Update habit tracking settings",
+          "completed": false
+        }
+      ]
+    },
+    {
+      "type": "task-list",
+      "title": "Advanced Feature Exploration",
+      "items": [
+        {
+          "content": "🎯 Set up smart goal milestones",
+          "completed": false
+        },
+        {
+          "content": "📊 Enable advanced analytics dashboard",
+          "completed": false
+        },
+        {
+          "content": "🤖 Configure background AI agents",
+          "completed": false
+        },
+        {
+          "content": "📱 Download and setup mobile app",
+          "completed": false
+        },
+        {
+          "content": "🔄 Integrate third-party tools",
+          "completed": false
+        },
+        {
+          "content": "👥 Invite accountability partners (optional)",
+          "completed": false
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "content": "Advanced Markdown Syntax"
+    },
+    {
+      "type": "text",
+      "content": "Our system supports advanced Markdown syntax for richer content formatting."
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "content": "Text Formatting"
+    },
+    {
+      "type": "text",
+      "content": "In addition to **bold** and *italic*, we also support ~~strikethrough~~, ==highlighted text==, subscript H~2~O and superscript X^2^."
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "content": "Images with Captions"
+    },
+    {
+      "type": "image",
+      "src": "/assets/images/ui/ai-coach-dashboard.png",
+      "alt": "AI coaching system main dashboard interface",
+      "caption": "**AI Coaching System Main Dashboard**: Shows personalized learning progress, goal tracking, and recommended actions. This intuitive interface is designed to help users easily manage their learning journey."
+    },
+    {
+      "type": "image",
+      "src": "/assets/images/ui/progress-analytics.png",
+      "alt": "Detailed progress analytics charts",
+      "caption": "*Progress Analytics View*: Displays comprehensive analysis of user learning trajectory, habit formation, and goal completion rates, equipped with intelligent suggestions to help optimize learning strategies."
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "content": "Download Resources"
+    },
+    {
+      "type": "download-link",
+      "title": "AI Coaching Quick Start Guide",
+      "content": "Comprehensive PDF guide including system setup, feature introduction, and best practices. Perfect for beginners to quickly get started.",
+      "href": "/assets/downloads/ai-coach-quickstart-guide-en.pdf",
+      "fileType": "PDF",
+      "fileSize": "2.3 MB"
+    },
+    {
+      "type": "download-link",
+      "title": "Markdown Syntax Cheat Sheet",
+      "content": "Complete **Markdown syntax reference** including basic and advanced features. Quick reference to improve writing efficiency.",
+      "href": "/assets/downloads/markdown-cheat-sheet-en.pdf",
+      "fileType": "PDF",
+      "fileSize": "856 KB"
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "content": "Definition Lists"
+    },
+    {
+      "type": "definition-list",
+      "title": "AI Coaching Terminology",
+      "definitions": [
+        {
+          "term": "**Intelligent Agent**",
+          "definition": "An AI system component that can learn user behavior patterns and provide personalized recommendations, continuously running in the background to optimize user experience."
+        },
+        {
+          "term": "*Habit Tracking*",
+          "definition": "Systematic monitoring and recording of user daily behaviors, using data analysis to help build positive habits and break negative patterns."
+        },
+        {
+          "term": "~~Traditional Coaching~~ → **AI Coaching**",
+          "definition": "Using artificial intelligence technology to provide 24/7 personalized guidance, replacing or supplementing traditional human coaching services."
+        },
+        {
+          "term": "Goal Milestones",
+          "definition": "Breaking down large goals into manageable small steps, with each milestone equipped with specific ==success metrics== and completion timelines."
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "content": "Footnote Examples"
+    },
+    {
+      "type": "text",
+      "content": "Our AI coaching system is based on the latest machine learning research[^1], combined with behavioral psychology principles[^2] to provide the most effective personalized guidance experience."
+    },
+    {
+      "type": "footnote",
+      "footnoteId": "1",
+      "footnoteText": "For details, see the research report \"Applications of Artificial Intelligence in Personal Development\", *MIT Technology Review*, 2024."
+    },
+    {
+      "type": "footnote",
+      "footnoteId": "2",
+      "footnoteText": "Based on **B.J. Fogg**'s behavior model and **Charles Duhigg**'s habit loop theory."
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "content": "Practical Tool Downloads"
+    },
+    {
+      "type": "download-link",
+      "title": "Daily Goal Planning Template",
+      "content": "Editable Excel template to help you plan daily, weekly, and monthly goals. Works even better when combined with AI coaching!",
+      "href": "/assets/downloads/daily-goal-planner-template.xlsx",
+      "fileType": "Excel",
+      "fileSize": "124 KB"
+    },
+    {
+      "type": "callout",
+      "variant": "success",
+      "title": "💡 Content Creation Tips",
+      "content": "Using these new content formats can make your documentation richer and more readable. Remember to use **bold**, *italic*, ==highlighting== and other formatting to emphasize important information!"
     }
   ]
 }
