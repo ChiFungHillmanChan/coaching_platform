@@ -488,6 +488,27 @@ export default function AdminPanel() {
     });
   }, [subscribers]);
 
+  const loadAdminData = async () => {
+    try {
+      // Load subscribers
+      const subscribersResponse = await fetch('/api/admin/subscribers');
+      if (subscribersResponse.ok) {
+        const subscribersData = await subscribersResponse.json();
+        setSubscribers(subscribersData.subscribers);
+        setStats(subscribersData.stats);
+      }
+
+      // Load newsletters
+      const newslettersResponse = await fetch('/api/send-newsletter');
+      if (newslettersResponse.ok) {
+        const newslettersData = await newslettersResponse.json();
+        setNewsletters(newslettersData.newsletters);
+      }
+    } catch (error) {
+      console.error('Failed to load admin data:', error);
+    }
+  };
+
   const checkAuthStatus = async () => {
     try {
       const response = await fetch('/api/admin/auth');
@@ -508,24 +529,7 @@ export default function AdminPanel() {
   // Check authentication status
   useEffect(() => {
     checkAuthStatus();
-  }, [checkAuthStatus]);
-
-  const loadAdminData = async () => {
-    try {
-      const response = await fetch('/api/admin/auth');
-      if (response.ok) {
-        const data = await response.json();
-        setIsAuthenticated(data.isAuthenticated);
-        if (data.isAuthenticated) {
-          loadAdminData();
-        }
-      }
-    } catch (error) {
-      console.error('Auth check failed:', error);
-    } finally {
-      setIsLoading(false);
-    }
-  };
+  }, [checkAuthStatus, loadAdminData]);
 
   const login = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -558,27 +562,6 @@ export default function AdminPanel() {
       setPassword('');
     } catch (error) {
       console.error('Logout failed:', error);
-    }
-  };
-
-  const loadAdminData = async () => {
-    try {
-      // Load subscribers
-      const subscribersResponse = await fetch('/api/admin/subscribers');
-      if (subscribersResponse.ok) {
-        const subscribersData = await subscribersResponse.json();
-        setSubscribers(subscribersData.subscribers);
-        setStats(subscribersData.stats);
-      }
-
-      // Load newsletters
-      const newslettersResponse = await fetch('/api/send-newsletter');
-      if (newslettersResponse.ok) {
-        const newslettersData = await newslettersResponse.json();
-        setNewsletters(newslettersData.newsletters);
-      }
-    } catch (error) {
-      console.error('Failed to load admin data:', error);
     }
   };
 
