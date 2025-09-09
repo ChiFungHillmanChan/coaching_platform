@@ -6,11 +6,11 @@
     {
       "type": "heading",
       "level": 1,
-      "content": "1.2 Web Components: Frontend / Backend / Database / Hosting"
+      "content": "1.2 Website Components: Frontend / Backend / Database / Hosting"
     },
     {
       "type": "text",
-      "content": "A website is not just what you see on the screen. Behind the scenes, several parts work together. Let’s use an **online bookstore** as an example to explain the four main components."
+      "content": "A website is more than just what you see on the screen. Behind it, multiple parts work together. Let’s use an online bookstore as an example to explain the four main components step by step."
     },
 
     { "type": "horizontal-rule" }, { "type": "line-break" },
@@ -30,7 +30,7 @@
       "items": [
         "🔑 **Main Role**: Display content and provide interactions (e.g., clicking “Add to Cart”).",
         "📚 **Technologies**: HTML (structure), CSS (styling), JavaScript (interaction).",
-        "🎨 **Analogy**: Like the store’s storefront and decorations – the first thing customers see."
+        "🎨 **Analogy**: Like the storefront and interior design of a shop — the first thing users see."
       ]
     },
 
@@ -43,15 +43,15 @@
     },
     {
       "type": "text",
-      "content": "When you click a button on the frontend, such as “Checkout,” the backend handles the logic behind it."
+      "content": "When you click a button on the frontend, such as “Checkout,” the backend handles the logic behind the scenes."
     },
     {
       "type": "list",
       "listType": "unordered",
       "items": [
-        "🔑 **Main Role**: Process user requests (e.g., calculate the total price, verify login).",
-        "📚 **Technologies**: Node.js, Python Django, PHP Laravel.",
-        "🍳 **Analogy**: Like a restaurant kitchen – the frontend takes the order, the backend cooks the meal."
+        "🔑 **Main Role**: Process user requests (e.g., calculate total price, verify login).",
+        "📚 **Examples**: Node.js, Python Django, PHP Laravel.",
+        "🍳 **Analogy**: Like a restaurant kitchen — the frontend takes the order, the backend does the cooking."
       ]
     },
 
@@ -64,15 +64,15 @@
     },
     {
       "type": "text",
-      "content": "Every bookstore needs a place to record books and customer data. That’s the role of the database."
+      "content": "An online bookstore needs a place to record book information and user data — that’s the database."
     },
     {
       "type": "list",
       "listType": "unordered",
       "items": [
-        "🔑 **Main Role**: Store and manage information (e.g., book titles, prices, customer orders).",
+        "🔑 **Main Role**: Store and manage data (e.g., book titles, prices, user orders).",
         "📚 **Common Types**: MySQL, PostgreSQL (structured), MongoDB, Firebase (flexible).",
-        "📦 **Analogy**: Like a warehouse where all the goods and records are stored."
+        "📦 **Analogy**: Like a warehouse, where all goods and records are stored."
       ]
     },
 
@@ -85,15 +85,15 @@
     },
     {
       "type": "text",
-      "content": "Hosting means putting your website on the Internet so that anyone can visit your online bookstore anytime."
+      "content": "Hosting is deploying your website to the Internet so anyone can access your online bookstore anytime."
     },
     {
       "type": "list",
       "listType": "unordered",
       "items": [
-        "🔑 **Main Role**: Keep the website online 24/7 and handle visitor traffic.",
-        "📚 **Platforms**: Free – GitHub Pages, Netlify; Professional – AWS, Vercel.",
-        "🌍 **Analogy**: Like renting a shop space on the street so everyone can enter."
+        "🔑 **Main Role**: Keep the website online 24/7 and handle traffic.",
+        "📚 **Platforms**: Free options include GitHub Pages, Netlify; professional options include AWS, Vercel.",
+        "🌍 **Analogy**: Like renting a shop on the street so anyone can walk in."
       ]
     },
 
@@ -106,7 +106,7 @@
     },
     {
       "type": "text",
-      "content": "Here is a simple flow you can visualize as a diagram:\n\nUser → Frontend (browser view) → Backend (logic processing) → Database (read/store data) → Hosting (public Internet service) → Response back to user"
+      "content": "Here’s a simple flow that can be shown with a diagram:\n\nUser → Frontend (browser interface) → Backend (logic processing) → Database (read/store data) → Hosting (public network service) → Return result to user screen"
     },
 
     { "type": "horizontal-rule" }, { "type": "line-break" },
@@ -118,12 +118,12 @@
     },
     {
       "type": "table",
-      "headers": ["Component", "Main Role", "Example Technologies", "Analogy"],
+      "headers": ["Component", "Main Function", "Example Technologies", "Analogy"],
       "rows": [
-        ["Frontend", "Display content, provide interaction", "HTML, CSS, JavaScript, React", "Storefront and decoration"],
-        ["Backend", "Handle logic, operations, APIs", "Node.js, Django, Laravel", "Restaurant kitchen"],
+        ["Frontend", "Display content, provide interaction", "HTML, CSS, JavaScript, React", "Storefront and interior design"],
+        ["Backend", "Handle logic, computation, APIs", "Node.js, Django, Laravel", "Restaurant kitchen"],
         ["Database", "Store and manage data", "MySQL, PostgreSQL, MongoDB", "Warehouse"],
-        ["Hosting", "Make the site available online", "GitHub Pages, AWS, Vercel", "Shop space on the street"]
+        ["Hosting", "Deploy website to the Internet", "GitHub Pages, AWS, Vercel", "Street shop"]
       ]
     },
 
@@ -132,8 +132,8 @@
     {
       "type": "callout",
       "variant": "info",
-      "title": "📖 Quick Summary",
-      "content": "👉 Frontend: The part users see\n👉 Backend: The logic and actions behind the scenes\n👉 Database: Stores all information\n👉 Hosting: Publishes the site online\n\nAll four parts work together – like an online bookstore:\nUser selects a book (Frontend) → System calculates price (Backend) → Check book info (Database) → Make it available online for purchase (Hosting)."
+      "title": "📖 Summary",
+      "content": "👉 Frontend: What users see\n👉 Backend: Logic and operations\n👉 Database: Stores all data\n👉 Hosting: Makes the site publicly accessible\n\nThese four parts work together to run an online bookstore:\nUser selects a book (Frontend) → System calculates the price (Backend) → Data is queried (Database) → Website is deployed for purchase (Hosting)."
     }
   ]
 }

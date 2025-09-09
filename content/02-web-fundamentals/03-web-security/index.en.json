@@ -6,11 +6,11 @@
     {
       "type": "heading",
       "level": 1,
-      "content": "2.3 Web Security Intro"
+      "content": "2.3 Basic Web Security"
     },
     {
       "type": "text",
-      "content": "Web development is not only about implementing features—it must also consider security. Without proper protection, user data may be leaked, and the website may be compromised."
+      "content": "Web development is not only about features — security must also be prioritized. Without proper protection, user data may leak and the site could be compromised."
     },
     {
       "type": "horizontal-rule"
@@ -32,8 +32,8 @@
       "listType": "unordered",
       "items": [
         "**Example**: Entering `admin' OR '1'='1` in a login form to bypass authentication and log in directly.",
-        "**Risk**: Unauthorized reading, modifying, or even deleting database contents.",
-        "**Prevention**: Use Prepared Statements (parameterized queries), input validation, and the principle of least privilege."
+        "**Risk**: Unauthorized read, modification, or deletion of database content.",
+        "**Prevention**: Use prepared statements (parameterized queries), validate inputs, apply least privilege."
       ]
     },
     {
@@ -49,15 +49,15 @@
     },
     {
       "type": "text",
-      "content": "Attackers inject malicious scripts into web pages. When users view the page, the script executes in the browser."
+      "content": "Attackers inject malicious scripts into a webpage, which execute in the browser when users visit the page."
     },
     {
       "type": "list",
       "listType": "unordered",
       "items": [
-        "**Example**: Entering `<script>alert('Hacked!')</script>` in a comment section, causing an alert box to appear when other visitors open the page.",
-        "**Risk**: Stealing cookies, impersonating users, defacing interfaces.",
-        "**Prevention**: Input/output encoding, using Content Security Policy (CSP), avoiding direct trust in user input."
+        "**Example**: Posting `<script>alert('Hacked!')</script>` in a comment section, which triggers an alert when others view the page.",
+        "**Risk**: Stealing cookies, impersonating users, disrupting the interface.",
+        "**Prevention**: Apply input/output encoding, use Content Security Policy (CSP), never fully trust user input."
       ]
     },
     {
@@ -66,8 +66,8 @@
     {
       "type": "callout",
       "variant": "warning",
-      "title": "Why avoid these?",
-      "content": "SQL Injection and XSS are the most common attack methods, leading to **data breaches, loss of user trust, and even legal liability**. Basic protections must be implemented."
+      "title": "Why Avoid It?",
+      "content": "SQL Injection and XSS are among the most common attacks, leading to **data leaks, loss of user trust, and even legal consequences**. Basic protections must be enforced."
     },
     {
       "type": "horizontal-rule"
@@ -78,8 +78,8 @@
     {
       "type": "callout",
       "variant": "success",
-      "title": "Key Learning Point",
-      "content": "Security is not optional—it’s mandatory. **Input validation, access control, and encrypted transmission** are baseline requirements for any project."
+      "title": "Key Takeaways",
+      "content": "Security is not optional — it’s essential. **Input validation, access control, and encrypted transmission** are required in every project."
     }
   ]
 }

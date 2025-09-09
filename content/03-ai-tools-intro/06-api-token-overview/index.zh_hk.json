@@ -10,14 +10,14 @@
     },
     {
       "type": "text",
-      "content": "API Token 就好似一把🔑鑰匙，畀你同 AI 平台（例如 OpenAI）安全溝通。冇 Token，你嘅程式冇辦法用 API；有咗 Token，系統就知道你係合法用戶，並記錄你嘅用量。"
+      "content": "API Token 就像一把🔑鑰匙，讓你能與 AI 平台（例如 OpenAI）安全通訊。沒有 Token，你的程式無法使用 API；擁有 Token，系統即可識別你為合法使用者，並紀錄你的用量。"
     },
     { "type": "line-break" },
     {
       "type": "callout",
       "variant": "warning",
       "title": "⚠️ 學習前的安全提示",
-      "content": "API Token 洩露 = 任何人都可以用你嘅額度，可能導致額外收費！所以要收好它！"
+      "content": "API Token 外洩 = 任何人都能消耗你的額度，甚至導致額外費用！務必妥善保管。"
     },
 
     { "type": "horizontal-rule" },
@@ -26,33 +26,33 @@
     {
       "type": "heading",
       "level": 2,
-      "content": "API Token 是什麽？與其他AI平台的分別是什麽？"
+      "content": "什麼是 API Token？與僅用平台操作有何不同？"
     },
     {
       "type": "text",
-      "content": "最大分別在於，它可以讓你在自己的程式碼中使用AI，而不是只能使用平台。"
+      "content": "最大差異在於：API Token 允許你在自己的程式碼中直接調用 AI，而非只能透過平台介面操作。"
     },
 
     { "type": "line-break" },
     {
       "type": "heading",
       "level": 3,
-      "content": "API 簡單介紹及用處"
+      "content": "API 簡介與用途"
     },
 
     {
       "type": "list",
       "listType": "unordered",
       "items": [
-        "**身份驗證**：確認你是合法用戶",
-        "**使用權限**：決定你可以用乜嘢功能或模型",
-        "**計費依據**：根據用量（token 數）計算費用"
+        "**身分驗證**：確認你為合法使用者",
+        "**使用權限**：決定可使用的功能或模型",
+        "**計費依據**：依用量（token 數）計算費用"
       ]
     },
 
     {
       "type": "blockquote",
-      "content": "API Token = 會員卡 + 八達通 + 門禁卡。",
+      "content": "API Token = 會員卡 + 交通卡 + 門禁卡。",
       "title": "簡單比喻"
     },
 
@@ -62,20 +62,20 @@
     {
       "type": "heading",
       "level": 3,
-      "content": "目前最強又免費的API Token是：Google Gemini"
+      "content": "目前功能強且提供免費層的 API：Google Gemini"
     },
     {
       "type": "link",
       "title": "Google Gemini API Link",
       "href": "https://aistudio.google.com/apikey",
-      "content": "獲取免費的Google Gemini API"
+      "content": "取得免費的 Google Gemini API"
     },
     { "type": "line-break" },
 
     {
       "type": "heading",
       "level": 3,
-      "content": "例子：一個我設計，要用google gemini api的遊戲"
+      "content": "範例：一款我設計並使用 Google Gemini API 的遊戲"
     },
     {
       "type": "link",
@@ -90,13 +90,13 @@
     {
       "type": "heading",
       "level": 2,
-      "content": "API Key 安全：如何隱藏與管理（實戰）"
+      "content": "API Key 安全：如何隱藏與管理（實作）"
     },
     {
       "type": "callout",
       "variant": "warning",
       "title": "⚠️ 關鍵原則",
-      "content": "前端（瀏覽器/行動 App）**永遠唔可以**夾硬放 API Key。Key 只可以出現喺你控制嘅**伺服器/雲端受保護環境**。如不慎外洩：立即撤銷、旋轉（rotate）新 Key、檢查用量。"
+      "content": "前端（瀏覽器／行動 App）**絕對不可**硬編入 API Key。Key 只能存在於你可控的**伺服器或受保護的雲端環境**。若不慎外洩：請立即撤銷、旋轉（rotate）新 Key，並檢查用量。"
     },
   
     { "type": "line-break" },
@@ -104,37 +104,37 @@
     {
       "type": "table",
       "title": "隱藏 API Key 方法比較",
-      "headers": ["方法", "適用場景 ✅", "特點", "限制/注意 ❌"],
+      "headers": ["方法", "適用場景 ✅", "特點", "限制／注意 ❌"],
       "rows": [
         [
           "環境變數（.env + 系統 ENV）",
-          "本機開發、簡單部署",
-          "易上手；配合 `.gitignore` 可防止誤上傳；程式以 `os.environ['...']` 讀取",
-          "`.env` 千祈唔好 commit；要控管備份/權限"
+          "本機開發、簡易部署",
+          "容易上手；配合 `.gitignore` 可避免誤上傳；程式以 `os.environ['...']` 讀取",
+          "請**勿**提交（commit）`.env`；須控管備份與存取權限"
         ],
         [
-          "後端 Proxy / API Gateway",
-          "前端需調 Gemini，但唔想暴露 Key",
-          "前端改 call 你自家 API，後端代轉向 Gemini；可加速率限制、審計",
-          "要維護伺服器與權限；CORS/認證要設好"
+          "後端 Proxy／API Gateway",
+          "前端需調用 Gemini 但不欲暴露 Key",
+          "前端僅呼叫自家 API，由後端轉發至 Gemini；可加入速率限制與審計",
+          "需維運伺服器與權限；需正確設定 CORS／身分驗證"
         ],
         [
-          "雲端 Secret Manager（GCP/AWS/Azure）",
-          "生產環境、多人合作",
-          "權限細緻（IAM）；審計、版本化、輪換；集中管理",
+          "雲端 Secret Manager（GCP／AWS／Azure）",
+          "生產環境、多人協作",
+          "權限細緻（IAM）、具審計／版本化／輪換；集中管理",
           "需雲平台帳務與設定；學習曲線較高"
         ],
         [
-          "平台內建 Secrets（Vercel/Netlify/Cloudflare 等）",
-          "Serverless/邊緣函式部署",
-          "UI 設定簡單；直接注入執行時環境",
-          "不同平台介面略有差異；要設定權限/可見範圍"
+          "平台內建 Secrets（Vercel／Netlify／Cloudflare 等）",
+          "Serverless／邊緣函式部署",
+          "UI 設定簡便；可直接注入執行階段環境",
+          "各平台介面略有差異；需設定權限與可見範圍"
         ],
         [
-          "Kubernetes/Docker Secrets",
-          "容器化/企業級部署",
-          "與基礎設施整合；可配合 KMS 加密",
-          "需 DevOps 能力；設錯 Volume/ENV 會外洩"
+          "Kubernetes／Docker Secrets",
+          "容器化／企業級部署",
+          "與基礎設施整合；可結合 KMS 加密",
+          "需具備 DevOps 能力；錯誤掛載 Volume／ENV 可能外洩"
         ]
       ]
     },
@@ -145,24 +145,24 @@
       "headers": ["錯誤做法 ❌", "風險", "正確做法 ✅"],
       "rows": [
         [
-          "把 Key 寫死喺前端 JS/行動 App",
-          "任何人都可攞走 Key",
-          "前端只 call 你自家後端；Key 只放後端/Secret Manager"
+          "將 Key 寫死在前端 JS／行動 App",
+          "任何人都能擷取 Key",
+          "前端僅呼叫自家後端；Key 只存放於後端或 Secret Manager"
         ],
         [
-          "把 `.env` commit 上 GitHub",
-          "永久曝光、被爬蟲撈走",
-          "把 `.env` 加入 `.gitignore`；外洩即時撤銷並旋轉 Key"
+          "將 `.env` 提交到 GitHub",
+          "永久曝光，易被爬蟲收集",
+          "將 `.env` 納入 `.gitignore`；一旦外洩立即撤銷並旋轉 Key"
         ],
         [
-          "在日誌 print 出 key",
-          "集中式日誌亦會成為外洩點",
-          "日誌遮罩（masking）；禁止輸出敏感字串"
+          "在日誌輸出（print）Key",
+          "集中式日誌將成為外洩風險",
+          "啟用日誌遮罩（masking）；禁止輸出敏感字串"
         ],
         [
           "把 Key 放在 URL Query",
-          "Proxy/Analytics 會收錄",
-          "只放 Header；HTTPS；最少權限/短期憑證"
+          "Proxy／Analytics 會記錄",
+          "僅放於 Header；使用 HTTPS；最小權限與短期憑證"
         ]
       ]
     },
@@ -192,19 +192,19 @@
     {
       "type": "heading",
       "level": 3,
-      "content": "前端安全：用後端 Proxy 代叫 Gemini（避免暴露 Key）"
+      "content": "前端安全：以後端 Proxy 轉呼 Gemini（避免暴露 Key）"
     },
     {
       "type": "code",
       "language": "python",
       "title": "FastAPI Proxy（伺服器端持有 Key）",
-      "content": "from fastapi import FastAPI, HTTPException\nfrom pydantic import BaseModel\nimport os\nfrom google import genai\n\napp = FastAPI()\nclient = genai.Client(api_key=os.environ['GOOGLE_API_KEY'])\n\nclass AskPayload(BaseModel):\n    query: str\n\n@app.post('/api/ask')\ndef ask(p: AskPayload):\n    try:\n        resp = client.models.generate_content(\n            model='gemini-2.5-flash',\n            contents=p.query\n        )\n        # 只回傳需要的字段，千祈唔好把 Key 回傳前端\n        return {\"text\": getattr(resp, 'text', '')}\n    except Exception as e:\n        raise HTTPException(status_code=500, detail=str(e))"
+      "content": "from fastapi import FastAPI, HTTPException\nfrom pydantic import BaseModel\nimport os\nfrom google import genai\n\napp = FastAPI()\nclient = genai.Client(api_key=os.environ['GOOGLE_API_KEY'])\n\nclass AskPayload(BaseModel):\n    query: str\n\n@app.post('/api/ask')\ndef ask(p: AskPayload):\n    try:\n        resp = client.models.generate_content(\n            model='gemini-2.5-flash',\n            contents=p.query\n        )\n        # 僅回傳必要欄位，切勿將 Key 回傳至前端\n        return {\"text\": getattr(resp, 'text', '')}\n    except Exception as e:\n        raise HTTPException(status_code=500, detail=str(e))"
     },
     {
       "type": "callout",
       "variant": "success",
       "title": "小提示",
-      "content": "前端只需 `fetch('/api/ask', { method: 'POST', body: JSON.stringify({ query }) })`。CORS 設定限制來源、加上速率限制與簡單認證（例如 API Token/JWT）。"
+      "content": "前端可呼叫 `fetch('/api/ask', { method: 'POST', body: JSON.stringify({ query }) })`。請設定 CORS 限制來源，並加入速率限制及簡易認證（例如 API Token／JWT）。"
     },
   
     { "type": "line-break" },
@@ -212,30 +212,30 @@
     {
       "type": "heading",
       "level": 3,
-      "content": "雲端 Secret Manager / 平台 Secrets（觀念）"
+      "content": "雲端 Secret Manager／平台 Secrets（觀念）"
     },
     {
       "type": "table",
       "title": "Secret Manager 與平台 Secrets 選擇",
-      "headers": ["方案", "啱用場景", "優點 ✅", "注意事項 ❌"],
+      "headers": ["方案", "適用場景", "優點 ✅", "注意事項 ❌"],
       "rows": [
         [
           "GCP Secret Manager",
-          "用 GCP/Vertex/GCE/K8s 的團隊",
-          "IAM 權限細緻、審計、版本/輪轉",
-          "需設定服務帳戶；權限粒度要測試清楚"
+          "使用 GCP／Vertex／GCE／K8s 的團隊",
+          "IAM 權限細緻、具審計、版本化與輪換",
+          "需設定服務帳戶；權限粒度需充分測試"
         ],
         [
           "AWS Secrets Manager",
-          "AWS 生態（Lambda/ECS/EKS）",
-          "與 KMS/VPC/CloudWatch 集成強",
-          "計費與輪轉策略要評估"
+          "AWS 生態（Lambda／ECS／EKS）",
+          "與 KMS／VPC／CloudWatch 整合度高",
+          "需評估計費與輪換策略"
         ],
         [
-          "Vercel/Netlify/Cloudflare Secrets",
-          "Serverless/邊緣函式",
-          "UI 設定快；自動注入 Runtime",
-          "環境（dev/preview/prod）變數要分開管理"
+          "Vercel／Netlify／Cloudflare Secrets",
+          "Serverless／邊緣函式",
+          "UI 設定快速；自動注入執行環境",
+          "需分離管理 dev／preview／prod 之環境變數"
         ]
       ]
     },
@@ -245,17 +245,17 @@
     {
       "type": "heading",
       "level": 3,
-      "content": "Key 旋轉（Rotate）、存取最小化（Least Privilege）"
+      "content": "Key 旋轉（Rotate）與最小存取（Least Privilege）"
     },
     {
       "type": "list",
       "listType": "unordered",
       "items": [
-        "定期旋轉 Key（例如每 30～90 日），舊 Key 逐步撤銷",
-        "分環境（開發/預覽/正式）使用**不同 Key**，避免互相影響",
-        "CI/CD 用**臨時 Token**或 pipeline secrets，限制作用域與存活時間",
-        "開啟配額/速率限制與用量告警（Billing/Quota Alert）",
-        "掃描存庫避免把 Key commit（可用 pre-commit + git-secrets/truffleHog）"
+        "定期旋轉 Key（例如每 30～90 天），逐步撤銷舊 Key",
+        "依環境（開發／預覽／正式）使用**不同 Key**，避免互相影響",
+        "CI／CD 使用**臨時 Token**或 pipeline secrets，限制作用域與存活時間",
+        "啟用配額／速率限制與用量告警（Billing／Quota Alert）",
+        "掃描版本庫避免提交 Key（可用 pre-commit + git-secrets／truffleHog）"
       ]
     },  
 
@@ -266,7 +266,7 @@
     {
       "type": "heading",
       "level": 2,
-      "content": "教學！免費的API介紹： Gemini API 使用"
+      "content": "教學：免費 API 範例——Gemini API 使用"
     },
     { "type": "line-break" },
 
@@ -285,7 +285,7 @@
     {
       "type": "heading",
       "level": 3,
-      "content": "串流回應：逐段輸出（2.5 Flash-lite ）"
+      "content": "串流回應：逐段輸出（2.5 Flash-lite）"
     },
     {
       "type": "code",
@@ -307,7 +307,7 @@
     {
       "type": "heading",
       "level": 3,
-      "content": "圖像編修：局部修改與一致性（2.5 Flash Image / nano-banana）"
+      "content": "圖像編修：局部修改與一致性（2.5 Flash Image／nano-banana）"
     },
     {
       "type": "code",
@@ -330,23 +330,23 @@
     {
       "type": "heading",
       "level": 3,
-      "content": "PDF 摘要：上載文件並標註頁碼（2.5 Pro）"
+      "content": "PDF 摘要：上傳文件並標註頁碼（2.5 Pro）"
     },
     {
       "type": "code",
       "language": "python",
-      "content": "from google.genai import types\n\n# 假設 SDK 提供檔案上載（實際以官方範例為準）\nfile = client.files.upload(file_path='syllabus.pdf')\nresp = client.models.generate_content(\n    model='gemini-2.5-pro',\n    contents=[\n        types.Part.from_text('請用 5 點摘要 PDF 的重點，並在每點後面加 (p.xx) 頁碼'),\n        file\n    ]\n)\nprint(resp.text)"
+      "content": "from google.genai import types\n\n# 假設 SDK 提供檔案上傳（實際以官方範例為準）\nfile = client.files.upload(file_path='syllabus.pdf')\nresp = client.models.generate_content(\n    model='gemini-2.5-pro',\n    contents=[\n        types.Part.from_text('請用 5 點摘要 PDF 的重點，並在每點後面加 (p.xx) 頁碼'),\n        file\n    ]\n)\nprint(resp.text)"
     },
     { "type": "line-break" },
     {
       "type": "heading",
       "level": 3,
-      "content": "文字/多模態：長文重點摘要（2.5 Pro）"
+      "content": "文字／多模態：長文重點摘要（2.5 Pro）"
     },
     {
       "type": "code",
       "language": "python",
-      "content": "from textwrap import dedent\n\nprompt = dedent('''\\\n你係教學助理。請用 bullet points 總結以下內容三個最重要重點，\n每點最多 20 字，最後附一句：學生應該下一步做咩？\n---\n<內容粘貼於此>\n''')\n\nresp = client.models.generate_content(\n    model='gemini-2.5-pro',\n    contents=prompt\n)\nprint(resp.text)"
+      "content": "from textwrap import dedent\n\nprompt = dedent('''\\\n你是教學助理。請用 bullet points 總結以下內容三個最重要重點，\n每點最多 20 字，最後附一句：學生下一步應該做什麼？\n---\n<內容粘貼於此>\n''')\n\nresp = client.models.generate_content(\n    model='gemini-2.5-pro',\n    contents=prompt\n)\nprint(resp.text)"
     },
     { "type": "line-break" },
     {
@@ -368,21 +368,21 @@
     {
       "type": "heading",
       "level": 2,
-      "content": "最強模型：ChatGPT5 API Token 使用步驟"
+      "content": "進階：ChatGPT 5 API Token 使用步驟"
     },
     {
       "type": "list",
       "listType": "ordered",
       "items": [
-        "去 OpenAI 平台生成一個新嘅 Token",
-        "將 Token 儲存在安全嘅地方（建議用環境變量 ENV）",
-        "喺程式碼中引用 Token，用嚟調用 API"
+        "至 OpenAI 後台產生新的 Token",
+        "將 Token 安全儲存（建議使用環境變數 ENV）",
+        "於程式碼中引用 Token 以調用 API"
       ]
     },
     {
       "type": "code",
       "language": "python",
-      "title": "Python 使用 API Token 示例",
+      "title": "Python 使用 API Token 範例",
       "content": "import openai\n\nopenai.api_key = \"你的_API_Token\"\n\nresponse = openai.ChatCompletion.create(\n    model=\"gpt-4\",\n    messages=[{\"role\": \"user\", \"content\": \"解釋一下 API Token\"}]\n)\nprint(response.choices[0].message[\"content\"])"
     },
     { "type": "line-break" },
@@ -398,81 +398,81 @@
     {
       "type": "table",
       "title": "主要 AI 模型 API Token 價格表（截至 2025-09-07，按 Output 價格排序）",
-      "headers": ["模型", "定位", "Input (每百萬 tokens)", "Cached Input (每百萬 tokens)", "Output (每百萬 tokens)"],
+      "headers": ["模型", "定位", "Input（每百萬 tokens）", "Cached Input（每百萬 tokens）", "Output（每百萬 tokens）"],
       "rows": [
         [
           "Claude 4 Opus",
-          "最強模型，適合高度複雜任務",
+          "旗艦級，適用高度複雜任務",
           "$15.000",
           "N/A",
           "$75.000"
         ],
         [
           "Claude 4 Sonnet",
-          "平衡推理力與成本",
+          "平衡推理能力與成本",
           "$3.000",
           "N/A",
           "$15.000"
         ],
         [
           "Grok-4",
-          "旗艦 Grok 模型，處理大型企業任務",
+          "Grok 旗艦模型，面向大型企業任務",
           "$3.000",
           "N/A",
           "$15.000"
         ],
         [
           "Gemini 2.5 Pro",
-          "Google 最強模型，支援長 prompt",
+          "Google 高階模型，支援長提示",
           "$1.250–$2.500",
           "N/A",
           "$10.000–$15.000"
         ],
         [
           "GPT-5",
-          "最強模型，適合跨行業代碼與智能代理任務",
+          "通用最強型，適合跨領域程式與智能代理",
           "$1.250",
           "$0.125",
           "$10.000"
         ],
         [
           "Claude 3.5 Haiku",
-          "最便宜快速模型",
+          "高速低價模型",
           "$0.800",
           "N/A",
           "$4.000"
         ],
         [
           "GPT-5 mini",
-          "更快更便宜，適合定義清晰嘅任務",
+          "更快更省，適合定義明確的任務",
           "$0.250",
           "$0.025",
           "$2.000"
         ],
         [
           "Grok-code-fast-1",
-          "超快 agentic coding 模型",
+          "極速 agentic coding 模型",
           "$0.200",
           "N/A",
           "$1.500"
         ],
         [
           "Grok-3 mini",
-          "輕量版本，數學／推理類任務較適合",
+          "輕量版，偏重數學／推理任務",
           "$0.300",
           "N/A",
           "$0.500"
         ],
         [
           "GPT-5 nano",
-          "最快最便宜，適合摘要與分類任務",
+          "最快最省，適合摘要與分類",
           "$0.050",
           "$0.005",
           "$0.400"
         ],
         [
           "Gemini 2.0 Flash",
-          "Google 多模態模型（標準）",
+          "Google 多模態標準模型",
           "$0.075",
           "N/A",
           "$0.300"
@@ -493,16 +493,16 @@
       "type": "definition-list",
       "definitions": [
         {
-          "term": "API Token 會過期嗎？",
-          "definition": "一般情況下唔會自動過期，但你可以隨時手動重置。"
+          "term": "API Token 會自動過期嗎？",
+          "definition": "一般不會自動過期，但你可隨時手動重置。"
         },
         {
-          "term": "可以有幾多個 Token？",
-          "definition": "可以生成多個，方便唔同專案使用。"
+          "term": "可以建立多少個 Token？",
+          "definition": "可建立多個，以利不同專案分流管理。"
         },
         {
-          "term": "Token 洩露咗點算？",
-          "definition": "立即去 OpenAI 後台刪除 / 重設 Token，並檢查帳號用量。"
+          "term": "若 Token 外洩怎麼辦？",
+          "definition": "請立即前往後台刪除或重設 Token，並檢查帳戶用量。"
         }
       ]
     },
@@ -519,7 +519,7 @@
       "type": "callout",
       "variant": "success",
       "title": "重點",
-      "content": "API Token = **身份證 + 鑰匙 + 計費單位**。用得安全，就可以放心咁調用 AI API。"
+      "content": "API Token = **身分證明 + 鑰匙 + 計費單位**。只要妥善管理與防護，即可安心調用各類 AI API。"
     },
 
     {
@@ -530,9 +530,9 @@
     {
       "type": "task-list",
       "items": [
-        { "content": "去 OpenAI 平台生成一個新 API Token", "completed": false },
-        { "content": "用環境變量 (ENV) 儲存 Token", "completed": false },
-        { "content": "寫一個 Python 測試程式，成功調用 API", "completed": false }
+        { "content": "至 OpenAI 平台產生一個新的 API Token", "completed": false },
+        { "content": "以環境變數（ENV）安全儲存 Token", "completed": false },
+        { "content": "撰寫一個 Python 測試程式並成功調用 API", "completed": false }
       ]
     }
   ]

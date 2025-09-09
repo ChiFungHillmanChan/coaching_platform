@@ -6,11 +6,11 @@
     {
       "type": "heading",
       "level": 1,
-      "content": "3.3 The Most Comprehensive Cursor Deep Dive"
+      "content": "3.3 In-Depth Guide to Cursor"
     },
     {
       "type": "text",
-      "content": "Cursor is an AI-powered editor built on top of VS Code, supporting multiple AI models (Claude, GPT, Grok). Originally, Cursor was not highly regarded because its accuracy and response quality were not as strong as Claude Code. However, with the release of GPT-5, Cursor's accuracy and response quality have greatly improved, making it a strong competitor to Claude Code."
+      "content": "Cursor is an AI editor built on VS Code that supports multiple AI models (Claude, GPT, Grok). Early versions of Cursor were not highly regarded due to lower accuracy and response quality compared with Claude Code. With the release of GPT-5, Cursor has improved significantly in both areas and is now a strong competitor to Claude Code."
     },
 
     { "type": "horizontal-rule" },
@@ -27,9 +27,9 @@
       "items": [
         "Supports multiple AI models (Claude, GPT, Grok)",
         "Real-time code completion, refactoring, and explanation",
-        "Supports natural language debugging",
-        "Built-in version control, GitHub integration",
-        "Usable for large-scale projects: code review, refactoring, code generation"
+        "Natural-language debugging",
+        "Built-in version control with GitHub integration",
+        "Code review, refactor, and generation for large projects"
       ]
     },
 
@@ -43,11 +43,11 @@
     },
     {
       "type": "text",
-      "content": "You can directly download Cursor from the official website. It supports Windows / macOS / Linux. After installation, log in to your account and select which AI model you want to use."
+      "content": "Download Cursor from the official site for Windows, macOS, or Linux. After installation, sign in and choose the AI model you want to use."
     },
     {
       "type": "link",
-      "title": "Cursor Official Website",
+      "title": "Cursor Official Site",
       "href": "https://cursor.sh",
       "content": "Download Cursor"
     },
@@ -63,7 +63,7 @@
     {
       "type": "heading",
       "level": 3,
-      "content": "1. Finding the Agent in Cursor"
+      "content": "1. Locate the Agent in Cursor"
     },
     {
       "type": "image",
@@ -75,7 +75,7 @@
     {
       "type": "heading",
       "level": 3,
-      "content": "2. Agent Selection"
+      "content": "2. Choose an Agent"
     },
     {
       "type": "image",
@@ -85,6 +85,7 @@
     { "type": "line-break" },
     { "type": "horizontal-rule" },
     { "type": "line-break" },
+
     {
       "type": "heading",
       "level": 2,
@@ -92,24 +93,24 @@
     },
     {
       "type": "table",
-      "title": "Cursor Model Comparison (⚠️: Only 14 days of usage-based trial, token consumption applies)",
-      "headers": ["Model", "Main Use", "Advantages", "Disadvantages", "Recommended Use Case", "Free to Use"],
+      "title": "Available Models in Cursor",
+      "headers": ["Model", "Primary Use", "Pros", "Cons", "Recommended Scenarios", "Free Availability"],
       "rows": [
-        ["Auto Mode", "Automatic model selection", "Automatically selects the best model", "Less control", "Casual daily use", "✅"],
-        ["Max Mode", "Highest output quality", "Invokes the strongest model", "Expensive, slower", "Research, precise code analysis", "❌"],
-        ["Claude 4 Sonnet", "Daily coding, debugging", "Fast, cost-effective", "Limited context length", "Day-to-day development, website projects", "⚠️"],
-        ["Claude 4 Sonnet -1m", "Long-context code analysis", "Supports million-token context", "Slower and more expensive", "Large projects, cross-file refactoring", "⚠️"],
-        ["Claude 3.5 Sonnet", "Basic code generation", "Stable, cheaper", "Weaker reasoning ability", "Learning / simple scripts", "⚠️"],
-        ["GPT-5", "Advanced coding and reasoning", "Strongest reasoning, versatile", "Requires Pro account", "Complex algorithms, system design", "⚠️"],
-        ["GPT-4o", "Multimodal tasks", "Supports text + image input", "Slightly slower than GPT-5", "Projects requiring image/document handling", "⚠️"],
-        ["Grok-code-fast-1", "Code generation, instant response", "Extremely fast", "Weaker reasoning", "Quick Q&A, rapid prototyping", "⚠️"]
+        ["Auto Mode", "Automatic model selection", "Picks the most suitable model automatically", "Less controllable", "Convenient for daily use", "✅"],
+        ["Max Mode", "Highest-quality output", "Calls top-tier models", "High cost, slower", "Research, precise code analysis", "❌"],
+        ["Claude 4 Sonnet", "Everyday coding and debugging", "Fast, good value", "Limited context length", "Daily development, web projects", "⚠️"],
+        ["Claude 4 Sonnet -1m", "Long-context code analysis", "Supports million-token context", "Slower, higher cost", "Large projects, cross-file refactors", "⚠️"],
+        ["Claude 3.5 Sonnet", "Basic code generation", "Stable, relatively low price", "Weaker reasoning", "Learning / simple code", "⚠️"],
+        ["GPT-5", "Advanced coding and reasoning", "Strongest reasoning, highly versatile", "Requires Pro account", "Complex algorithms, system design", "⚠️"],
+        ["GPT-4o", "Multimodal tasks", "Text + image inputs supported", "Slightly slower than GPT-5", "Projects needing image/document processing", "⚠️"],
+        ["Grok-code-fast-1", "Code generation and quick replies", "Very fast responses", "Weaker reasoning", "Real-time Q&A, rapid prototyping", "⚠️"]
       ]
     },
     {
       "type": "callout",
       "variant": "info",
       "title": "Tip",
-      "content": "⚠️ = 14 days free usage trial, subscription required afterwards"
+      "content": "⚠️ A 14-day usage trial may apply, with token-based metering."
     },
 
     { "type": "horizontal-rule" },
@@ -118,11 +119,11 @@
     {
       "type": "heading",
       "level": 2,
-      "content": "Extension Store"
+      "content": "Extensions Store"
     },
     {
       "type": "text",
-      "content": "Cursor has a built-in extension store where you can install plugins to enhance the development experience. For example: Claude Code, GitHub Copilot, Linting tools."
+      "content": "Cursor includes an extensions store where you can add plugins to enhance development, such as Claude Code, GitHub Copilot, and various linters."
     },
     {
       "type": "image",
@@ -133,31 +134,32 @@
     {
       "type": "heading",
       "level": 3,
-      "content": "My Installed Extensions List"
+      "content": "Extensions I Use"
     },
-    
+
     {
       "type": "table",
       "title": "",
-      "headers": ["Name", "Usage", "Recommendation"],
+      "headers": ["Name", "Purpose", "Recommendation"],
       "rows": [
-        ["Claude Code for VSCode", "Essential for Claude Code (introduced in the next section)", "⭐⭐⭐⭐⭐"],
-        ["Prettier - Code Formatter", "Code formatting, maintain consistent style", "⭐⭐⭐⭐⭐"],
-        ["Python", "Python language support, syntax hints", "⭐⭐⭐⭐⭐"],
-        ["ESLint", "JavaScript/TypeScript linting and code quality", "⭐⭐⭐⭐⭐"],
+        ["Claude Code for VSCode", "Must-have for Claude Code (covered next)", "⭐⭐⭐⭐⭐"],
+        ["Prettier - Code Formatter", "Code formatting for consistent style", "⭐⭐⭐⭐⭐"],
+        ["Python", "Python language support and IntelliSense", "⭐⭐⭐⭐⭐"],
+        ["ESLint", "JavaScript/TypeScript linting", "⭐⭐⭐⭐⭐"],
         ["GitLens", "Enhanced Git experience, track code history", "⭐⭐⭐⭐⭐"],
-        ["Python Debugger", "Debugging tool for Python", "⭐⭐⭐⭐"],
-        ["Docker", "Manage Docker containers, containerized development", "⭐⭐⭐⭐"],
+        ["Python Debugger", "Debugging tools for Python", "⭐⭐⭐⭐"],
+        ["Docker", "Manage Docker containers for containerized dev", "⭐⭐⭐⭐"],
         ["GitHub Actions", "CI/CD workflow management", "⭐⭐⭐⭐"],
-        ["Error Lens", "Display errors and warnings inline in code", "⭐⭐⭐⭐"],
-        ["REST Client", "Test APIs directly inside VS Code", "⭐⭐⭐⭐"],
+        ["Error Lens", "Inline display of errors and warnings", "⭐⭐⭐⭐"],
+        ["REST Client", "Test APIs directly in VS Code", "⭐⭐⭐⭐"],
         ["Thunder Client", "Lightweight Postman alternative for API testing", "⭐⭐⭐⭐"],
-        ["Live Server", "Launch local server, real-time front-end preview", "⭐⭐⭐⭐"],
-        ["vscode-pdf", "Open PDF files directly in VS Code", "⭐⭐⭐"],
-        ["Container Tools", "Integrate Azure container tools for easier deployment", "⭐⭐⭐"],
-        ["Makefile Tools", "Support for GNU Makefile, suitable for C/C++ projects", "⭐⭐⭐"]
+        ["Live Server", "Local server for instant frontend preview", "⭐⭐⭐⭐"],
+        ["vscode-pdf", "Open PDFs directly in VS Code", "⭐⭐⭐"],
+        ["Container Tools", "Azure container tooling integration for deployment", "⭐⭐⭐"],
+        ["Makefile Tools", "GNU Makefile support (C/C++ projects)", "⭐⭐⭐"]
       ]
     },
+
     { "type": "line-break" },
     { "type": "horizontal-rule" },
     { "type": "line-break" },
@@ -171,18 +173,21 @@
       "type": "list",
       "listType": "unordered",
       "items": [
-        "💡 **Refactor**: One-click refactor for more readable code with the same functionality.",
-        "🐞 **Debug**: Describe an error in natural language, and Cursor will suggest debugging steps.",
+        "💡 **Refactor**: One-click refactoring that preserves behavior and improves readability.",
+        "🐞 **Debug**: Describe issues in natural language; Cursor suggests fixes.",
         "📖 **Code Explain**: Select code and ask Cursor to explain it.",
-        "🤖 **Sub-agent Support**: Can collaborate with Claude Sub-agents.",
-        "📂 **Version Control**: Use Git features directly within the IDE."
+        "🤖 **Sub-agent Support**: Collaborate with Claude sub-agents.",
+        "📂 **Version Control**: Use Git features directly in the IDE."
       ]
     },
+
+    { "type": "horizontal-rule" },
+    { "type": "line-break" },
 
     {
       "type": "heading",
       "level": 2,
-      "content": "Learning Videos (English & Chinese)"
+      "content": "Tutorial Videos (English & Chinese)"
     },
     {
       "type": "link",
@@ -194,7 +199,7 @@
       "type": "link",
       "title": "YouTube",
       "href": "https://www.youtube.com/watch?v=4spEPG9BU7Q",
-      "content": "Cursor Full Tutorial (Mandarin Chinese)"
+      "content": "Cursor Complete Guide (Mandarin)"
     },
 
     { "type": "horizontal-rule" },
@@ -209,16 +214,16 @@
       "type": "callout",
       "variant": "success",
       "title": "Summary",
-      "content": "Cursor = **Multi-model support + Deep IDE integration + Debug + Refactor**. It is especially suitable for real-world development, team collaboration, and long-term project management."
+      "content": "Cursor = **multi-model support + deep IDE integration + debugging + refactoring**. It’s especially suitable for hands-on development, team collaboration, and long-term project management."
     },
 
-    { "type": "heading", "level": 3, "content": "Try It Out" },
+    { "type": "heading", "level": 3, "content": "Try It" },
     {
       "type": "task-list",
       "items": [
-        { "content": "Install Cursor, choose Claude 4 Sonnet -1m, and ask it to analyze a large project", "completed": false },
-        { "content": "Open a piece of code and ask Cursor to refactor it into a clearer version", "completed": false },
-        { "content": "Use Auto Mode, input a debugging problem, and observe how Cursor automatically selects the model", "completed": false }
+        { "content": "Install Cursor, choose Claude 4 Sonnet -1m, and analyze a large project", "completed": false },
+        { "content": "Open a code snippet and ask Cursor to refactor it for clarity", "completed": false },
+        { "content": "Use Auto Mode, ask a debugging question, and observe the chosen model", "completed": false }
       ]
     }
   ]

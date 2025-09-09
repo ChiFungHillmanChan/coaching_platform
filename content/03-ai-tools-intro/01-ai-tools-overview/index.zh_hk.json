@@ -10,7 +10,7 @@
     },
     {
       "type": "text",
-      "content": "市面上 AI 工具愈來愈多，每個有唔同強項。以下會逐一介紹，附加落地示例，幫助你知道「幾時用邊個」。"
+      "content": "市面上的 AI 工具日益增多，各有不同強項。以下將逐一介紹，並附加實際示例，幫助你理解「何時應該使用哪一種工具」。"
     },
 
     { "type": "horizontal-rule" },
@@ -19,7 +19,7 @@
     {
       "type": "heading",
       "level": 2,
-      "content": "🧑‍💻 Coding 相關"
+      "content": "🧑‍💻 與程式開發相關"
     },
     {
       "type": "heading",
@@ -28,19 +28,19 @@
     },
     {
       "type": "text",
-      "content": "GPT-5 嘅突破在於 **推理能力** 同 **多模態**。適合用於：\n- 大型代碼解釋與重構\n- 安全審核（SQL Injection、XSS）\n- 系統設計 / 架構建議\n- 圖片 + 文字錯誤排查"
+      "content": "GPT-5 的突破在於 **推理能力** 與 **多模態**。適合用於：\n- 大型程式碼解釋與重構\n- 安全審核（SQL Injection、XSS）\n- 系統設計與架構建議\n- 圖片 + 文字錯誤排查"
     },
     {
       "type": "code",
       "language": "markdown",
       "title": "示例 Prompt",
-      "content": "你係一名**資深安全審核員**，請幫我檢查以下 Python API，指出 SQL Injection 風險，並提出修改建議。"
+      "content": "你是一名 **資深安全審核員**，請協助檢查以下 Python API，指出可能存在的 SQL Injection 風險，並提出修改建議。"
     },
     {
       "type": "callout",
       "variant": "warning",
       "title": "限制",
-      "content": "GPT-5 模型需要付費訂閱；多模態功能未必喺所有平台都開放。"
+      "content": "GPT-5 模型需要付費訂閱；多模態功能未必在所有平台開放。"
     },
 
     { "type": "horizontal-rule" },
@@ -49,11 +49,11 @@
     {
       "type": "heading",
       "level": 3,
-      "content": "Cursor (含 CLI)"
+      "content": "Cursor（含 CLI）"
     },
     {
       "type": "text",
-      "content": "Cursor 除咗係 AI IDE，仲有 **CLI 工具**，可以直接操作整個 repo：\n- 自動生成專案結構解釋\n- 修復指定文件\n- 代碼全面審核"
+      "content": "Cursor 不僅是一款 AI IDE，還具備 **CLI 工具**，可直接操作整個程式庫：\n- 自動生成專案結構說明\n- 修復指定檔案\n- 程式碼全面審核"
     },
     {
       "type": "terminal",
@@ -64,8 +64,8 @@
       "type": "task-list",
       "title": "課後任務",
       "items": [
-        { "content": "安裝 Cursor 並試用 `cursor explain` 解釋一個開源 repo", "completed": false },
-        { "content": "用 `cursor fix` 修復一段有 bug 嘅 Python 代碼", "completed": false }
+        { "content": "安裝 Cursor 並試用 `cursor explain` 解釋一個開源程式庫", "completed": false },
+        { "content": "使用 `cursor fix` 修復一段存在錯誤的 Python 程式碼", "completed": false }
       ]
     },
 
@@ -79,19 +79,19 @@
     },
     {
       "type": "text",
-      "content": "Claude Code 強項係 **超長上下文 (100k tokens)**，非常適合：\n- 一次性讀完整個專案\n- 使用 Sub-agent 進行多角度分析（安全 / 效能 / 文件）\n- Security Review"
+      "content": "Claude Code 的優勢在於 **超長上下文（100k tokens）**，非常適合：\n- 一次性閱讀完整專案\n- 使用 Sub-agent 進行多角度分析（安全性 / 效能 / 文件）\n- Security Review（安全審查）"
     },
     {
       "type": "code",
       "language": "markdown",
       "title": "Sub-agent Prompt 範例",
-      "content": "你係一個 **安全專家代理**。請審核以下 Node.js 專案：\n1. 檢查依賴漏洞\n2. 檢查 API 是否防止 SQL Injection\n3. 提出修正建議"
+      "content": "你是一名 **安全專家代理**。請審核以下 Node.js 專案：\n1. 檢查依賴是否存在漏洞\n2. 檢查 API 是否防範 SQL Injection\n3. 提出修正建議"
     },
     {
       "type": "callout",
       "variant": "info",
-      "title": "注意",
-      "content": "Claude Code 分析力強，但生成速度比 Cursor 慢。適合用於大型 Debug 或一次性長文檔審查。"
+      "title": "注意事項",
+      "content": "Claude Code 的分析能力強，但生成速度較 Cursor 慢。更適合大型 Debug 或一次性長文檔審查。"
     },
 
     { "type": "horizontal-rule" },
@@ -100,18 +100,18 @@
     {
       "type": "heading",
       "level": 2,
-      "content": "📊 API Token "
+      "content": "📊 API Token"
     },
     {
       "type": "text",
-      "content": "當你要用 AI（例如 GPT、Claude、Cursor 入面揀模型）時，你嘅程式要同 AI 服務器溝通。但服務器唔會亂咁比人用，所以會要求你提供一個 API Token："
+      "content": "當你需要使用 AI（例如 GPT、Claude、Cursor 中的模型）時，程式必須與 AI 伺服器通信。但伺服器不會無限制地開放使用，因此需要你提供 API Token："
     },
     {
       "type": "list",
       "items": [
-        "身份證明：代表「你係邊個，用戶合法」。",
-        "使用權限：決定你可以用乜嘢功能、用幾多資源。",
-        "計費依據：AI 服務商會根據 Token 記錄你嘅用量，然後計費或者扣額度。"
+        "身分識別：確認「使用者為何人，是否合法」。",
+        "使用權限：決定可使用的功能與資源數量。",
+        "計費依據：AI 服務商會根據 Token 記錄使用量，並進行計費或扣除額度。"
       ]
     },
     
@@ -125,27 +125,42 @@
     },
     {
       "type": "table",
-      "title": "AI 工具功能對照表 (合併版)",
-      "headers": ["AI 工具", "寫程式 / 除錯", "搜尋 / 資料研究", "圖像設計", "推理 / 文本理解", "靈感 / 構思", "文件分析"],
+      "title": "AI 工具功能對照表（合併版）",
+      "headers": ["AI 工具", "程式撰寫 / 除錯", "搜尋 / 資料研究", "圖像設計", "推理 / 文本理解", "靈感 / 構思", "文件分析"],
       "rows": [
         ["ChatGPT", "✅ ✅", "✅", "✅", "✅ ✅", "✅", "✅"],
-        ["Cursor", "✅ ✅", "❌", "❌", "✅ (程式上下文)", "⚠️ (有限)", "✅ (代碼層面)"],
-        ["Claude Code", "✅ ✅", "❌", "❌", "✅", "⚠️", "✅ (長文件/代碼)"],
+        ["Cursor", "✅ ✅", "❌", "❌", "✅（程式上下文）", "⚠️（有限）", "✅（程式碼層面）"],
+        ["Claude Code", "✅ ✅", "❌", "❌", "✅", "⚠️", "✅（長文件/程式碼）"],
         ["GitHub Copilot", "✅", "❌", "❌", "⚠️", "❌", "❌"],
-        ["Lovable", "✅ (建站)", "❌", "❌", "❌", "⚠️ (生成網站構思)", "❌"],
-        ["Perplexity", "❌", "✅ ✅", "❌", "⚠️ (摘要)", "❌", "✅ (知識引用)"],
-        ["Grok", "❌", "✅ (社交數據)", "❌", "⚠️", "❌", "❌"],
-        ["Gemini", "✅ (部分代碼生成)", "✅", "⚠️", "✅ ✅", "✅", "✅ (文件處理)"],
-        ["Canva", "❌", "❌", "✅ ✅", "❌", "✅ (設計靈感)", "❌"],
-        ["Kuse", "❌", "❌", "❌", "❌", "✅ (影片構思)", "✅"],
-        ["Notion", "❌", "⚠️ (知識庫搜尋)", "❌", "⚠️ (AI 摘要)", "✅", "✅ (筆記/文件)"]
+        ["Lovable", "✅（建站）", "❌", "❌", "❌", "⚠️（生成網站構思）", "❌"],
+        ["Perplexity", "❌", "✅ ✅", "❌", "⚠️（摘要）", "❌", "✅（知識引用）"],
+        ["Grok", "❌", "✅（社交數據）", "❌", "⚠️", "❌", "❌"],
+        ["Gemini", "✅（部分程式碼生成）", "✅", "⚠️", "✅ ✅", "✅", "✅（文件處理）"],
+        ["Canva", "❌", "❌", "✅ ✅", "❌", "✅（設計靈感）", "❌"],
+        ["Kuse", "❌", "❌", "❌", "❌", "✅（影片構思）", "✅"],
+        ["Notion", "❌", "⚠️（知識庫搜尋）", "❌", "⚠️（AI 摘要）", "✅", "✅（筆記/文件）"]
       ]
     },
     {
       "type": "callout",
       "variant": "info",
-      "title": "符號解釋",
+      "title": "符號說明",
       "content": "✅ = 強支援；⚠️ = 部分支援 / 有限制；❌ = 不支援"
+    },
+    { "type": "line-break" },
+    { "type": "horizontal-rule" },
+    { "type": "line-break" },
+
+    {
+      "type": "heading",
+      "level": 2,
+      "content": "總結"
+    },
+    {
+      "type": "callout",
+      "variant": "success",
+      "title": "總結",
+      "content": "AI 工具的價值 = **多模態 + 長上下文 + 記憶功能 + 強推理**。若能有效運用，它既能充當導師，也能擔任分析師與協作同事。下一章將逐一深入介紹各類 AI 工具，以及一些鮮少被討論的細節。"
     }
   ]
 }

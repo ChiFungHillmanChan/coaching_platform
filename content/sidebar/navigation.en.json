@@ -124,7 +124,7 @@
       "children": [
         {
           "id": "chatgpt-settings",
-          "title": "4.1 My ChatGPT Settings & Prompts",
+          "title": "4.1 My AI Settings & Prompts",
           "href": "/04-prompt-design/01-chatgpt-settings",
           "order": 1
         },
@@ -162,28 +162,22 @@
           "order": 1
         },
         {
-          "id": "ai-tools-comparison-table",
-          "title": "b) AI Tools Comparison Table",
-          "href": "/05-bonus-materials/b-ai-tools-comparison-table",
+          "id": "prompt-cheat-sheet",
+          "title": "b) Prompt Cheat Sheet",
+          "href": "/05-bonus-materials/b-prompt-cheat-sheet",
           "order": 2
         },
         {
-          "id": "prompt-cheat-sheet",
-          "title": "c) Prompt Cheat Sheet",
-          "href": "/05-bonus-materials/c-prompt-cheat-sheet",
+          "id": "example-project-repo",
+          "title": "c) Example Project Repo for Forking",
+          "href": "/05-bonus-materials/c-example-project-repo",
           "order": 3
         },
         {
-          "id": "example-project-repo",
-          "title": "d) Example Project Repo for Forking",
-          "href": "/05-bonus-materials/d-example-project-repo",
-          "order": 4
-        },
-        {
           "id": "documentation-recap",
-          "title": "e) Documentation Recap",
-          "href": "/05-bonus-materials/e-documentation-recap",
-          "order": 5
+          "title": "d) Documentation Recap",
+          "href": "/05-bonus-materials/d-documentation-recap",
+          "order": 4
         }
       ]
     }

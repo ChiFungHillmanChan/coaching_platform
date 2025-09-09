@@ -1,8 +1,8 @@
 {
   "title": "2.1 Version Control",
-  "description": "From basics to advanced, learn the meaning, workflow, and best practices of version control using Git & GitHub. Content maintains the original structured style while enhancing explanations and clarity.",
+  "description": "From basics to best practices, explaining the meaning, workflow, and advantages of version control through Git and GitHub. The structure is preserved while enhancing clarity and adding explanations.",
   "slug": "version-control",
-  "category": "web-fundamentals", 
+  "category": "web-fundamentals",
   "lastModified": "2025-09-08T00:00:00.000Z",
   "blocks": [
     {
@@ -11,148 +11,111 @@
       "content": "2.1 Version Control"
     },
 
-    {
-      "type": "line-break"
-    },
+    { "type": "line-break" },
     {
       "type": "callout",
       "variant": "info",
-      "title": "Understanding in One Sentence",
-      "content": "Version control is like **Google Docs revision history**: you can compare, view, or even restore any previous modification at any time. The difference is that Git is designed specifically for code projects with more comprehensive features, supporting branching, merging, and multi-person collaboration."
+      "title": "One-Sentence Summary",
+      "content": "Version control is like **Google Docs history**: you can compare, view, or restore any change at any time. The difference is that Git is built for code projects, with more complete features including branching, merging, and team collaboration."
     },
 
-    {
-      "type": "line-break"
-    },
-    {
-      "type": "horizontal-rule"
-    },
+    { "type": "line-break" }, { "type": "horizontal-rule" },
     {
       "type": "heading",
       "level": 2,
-      "content": "What is Version Control and Why is it Important?"
+      "content": "What Is Version Control and Why Does It Matter?"
     },
-    {
-      "type": "line-break"
-    },
+    { "type": "line-break" },
     {
       "type": "text",
-      "content": "Version Control is a method used to record the state of project files at different times. Through a Version Control System (VCS), developers can track modification history, check differences, quickly rollback when errors occur, and even switch between different versions."
+      "content": "Version control (VCS) records the state of project files at different points in time. With a Version Control System, developers can track history, check differences, roll back when errors occur, and switch between versions."
     },
-    {
-      "type": "line-break"
-    },
+    { "type": "line-break" },
     {
       "type": "list",
       "listType": "unordered",
       "items": [
-        "**Traceability**: Every modification is automatically recorded, including time, content, and author.",
-        "**Risk Reduction**: If new features break, you can instantly return to a stable state, avoiding major losses.",
-        "**Multi-person Collaboration**: Team members can develop simultaneously, with the system helping resolve conflicts.",
-        "**Multi-version Management**: Supports branches, allowing parallel development of new features while maintaining old versions.",
-        "**Project Workflow Foundation**: CI/CD, automated testing, and Code Review are all built on version control."
+        "**Traceability**: Every change is recorded automatically, including time, content, and author.",
+        "**Reduced Risk**: If a new feature fails, you can quickly return to a stable state.",
+        "**Collaboration**: Team members can work in parallel, with the system helping to resolve conflicts.",
+        "**Multi-Version Management**: Supports branches, enabling new features to be developed while maintaining older versions.",
+        "**Foundation for Workflow**: CI/CD, automated testing, and code reviews all build on version control."
       ]
     },
-    {
-      "type": "line-break"
-    },
-    {
-      "type": "horizontal-rule"
-    },
-    {
-      "type": "line-break"
-    },
+
+    { "type": "line-break" }, { "type": "horizontal-rule" }, { "type": "line-break" },
+
     {
       "type": "heading",
       "level": 2,
-      "content": "Git vs GitHub — Understanding Their Roles"
+      "content": "Git vs GitHub — Know the Difference"
     },
     {
       "type": "heading",
       "level": 3,
       "content": "Core Concepts"
     },
-    {
-      "type": "line-break"
-    },
+    { "type": "line-break" },
     {
       "type": "definition-list",
       "definitions": [
         {
           "term": "**Git**",
-          "definition": "A distributed version control system. Everyone's computer has the complete history, no need to depend on a central server. Suitable for offline work with high efficiency."
+          "definition": "A distributed version control system. Each developer’s computer holds the full history, without relying on a central server. Works offline and is efficient."
         },
         {
           "term": "**GitHub**",
-          "definition": "A cloud platform based on Git. Besides hosting code, it also provides Pull Requests, Issue management, Actions automation, facilitating team collaboration and open source community interaction."
+          "definition": "A cloud platform built on Git. Beyond hosting code, it provides pull requests, issue tracking, and automation with Actions, supporting team collaboration and open-source communities."
         },
         {
           "term": "**Repo (Repository)**",
-          "definition": "The home of a project, where all version history is stored. Can be a local repo or placed on GitHub remotely."
+          "definition": "A container for a project, storing its entire version history. Can be local or remote (e.g., on GitHub)."
         },
         {
           "term": "**Commit**",
-          "definition": "A saved state with a message, recording a set of file modifications. Like a save point in a game."
+          "definition": "A snapshot with a message, recording a set of file changes. Like a save point in a game."
         },
         {
           "term": "**Branch**",
-          "definition": "Creating a parallel timeline, allowing developers to experiment or add features without affecting the main line."
+          "definition": "A parallel line of development, allowing features or experiments without affecting the main line."
         }
       ]
     },
-    {
-      "type": "line-break"
-    },
+    { "type": "line-break" },
     {
       "type": "callout",
       "variant": "success",
-      "title": "Quick Tip",
+      "title": "Tip",
       "content": "**Git = Tool (local operations)**; **GitHub = Platform (cloud collaboration)**"
     },
-    {
-      "type": "line-break"
-    },
-    {
-      "type": "horizontal-rule"
-    },
-    {
-      "type": "line-break"
-    },
+
+    { "type": "line-break" }, { "type": "horizontal-rule" }, { "type": "line-break" },
+
     {
       "type": "heading",
       "level": 2,
-      "content": "Minimal Workflow — Beginner Version"
+      "content": "Minimal Workflow — Beginner’s Guide"
     },
     {
       "type": "text",
-      "content": "Here's the simplest workflow: create a new project → make changes → commit → upload to GitHub. Just follow step by step."
+      "content": "Here’s the most basic workflow: create a project → make changes → commit → push to GitHub. Just follow the steps."
     },
-    {
-      "type": "line-break"
-    },
+    { "type": "line-break" },
     {
       "type": "terminal",
       "title": "Workflow Example",
-      "content": "$ mkdir my-app && cd my-app\n$ git init                         # Initialize repository\n$ echo \"hello\" > README.md        # Create file\n$ git add README.md                # Stage file\n$ git commit -m \"feat: init\"      # Create commit\n\n# Push to GitHub (need to create repo on GitHub first)\n$ git branch -M main\n$ git remote add origin https://github.com/<user>/my-app.git\n$ git push -u origin main"
+      "content": "$ mkdir my-app && cd my-app\n$ git init                         # Initialize repo\n$ echo \"hello\" > README.md        # Create file\n$ git add README.md                # Stage file\n$ git commit -m \"feat: init\"      # Commit\n\n# Push to GitHub (repo must exist on GitHub first)\n$ git branch -M main\n$ git remote add origin https://github.com/<user>/my-app.git\n$ git push -u origin main"
     },
-    {
-      "type": "line-break"
-    },
+    { "type": "line-break" },
     {
       "type": "callout",
       "variant": "info",
       "title": "Reminder",
-      "content": "If push fails, check:\n1) Are you logged in?\n2) Is the remote URL correct?\n3) Does the remote repo already have content?\n\nCommon solution: `git pull --rebase origin main` then push."
+      "content": "If push fails, check:\n1) Are you logged in?\n2) Is the remote URL correct?\n3) Does the remote repo already contain content?\n\nCommon fix: run `git pull --rebase origin main` before pushing."
     },
-    {
-      "type": "line-break"
-    },
-    {
-      "type": "horizontal-rule"
-    },
-    {
-      "type": "line-break"
-    },
+
+    { "type": "line-break" }, { "type": "horizontal-rule" }, { "type": "line-break" },
+
     {
       "type": "heading",
       "level": 2,
@@ -162,57 +125,47 @@
       "type": "list",
       "listType": "ordered",
       "items": [
-        "`git status` → Check current change status",
+        "`git status` → View current changes",
         "`git add .` / `git add <file>` → Stage changes",
-        "`git commit -m \"message\"` → Create commit",
+        "`git commit -m \"message\"` → Commit changes",
         "`git log --oneline --graph --decorate` → View history concisely",
-        "`git branch` / `git switch -c feature/x` → Create or switch branch",
-        "`git merge <branch>` / `git rebase <branch>` → Merge or reorganize history",
+        "`git branch` / `git switch -c feature/x` → Create or switch branches",
+        "`git merge <branch>` / `git rebase <branch>` → Merge or rebase",
         "`git pull` / `git push` → Sync with remote"
       ]
     },
-    {
-      "type": "line-break"
-    },
+
+    { "type": "line-break" },
     {
       "type": "heading",
       "level": 3,
-      "content": "gitignore"
+      "content": ".gitignore"
     },
     {
       "type": "text",
-      "content": "The purpose of .gitignore is to avoid redundancy, protect secrets, and keep the repo lightweight. Only source code, configuration files, and necessary documentation should be tracked by Git."
+      "content": "The purpose of .gitignore is to avoid redundancy, protect secrets, and keep the repo lightweight. Only source code, configuration, and necessary files should be tracked."
     },
     {
       "type": "list",
       "listType": "unordered",
       "items": [
-        "`node_modules/`: Folder for dependencies, can be hundreds of MB. Content can be rebuilt through package.json + npm install, no need in repo.",
-        "`.env`: Environment variables file, usually contains passwords, API keys, database connection strings, etc. Uploading creates security risks.",
-        "`.DS_Store`: macOS automatically generated file, only used by Finder to record folder display settings, meaningless for projects.",
-        "`dist/`: Compiled or packaged artifacts, like static files built from frontend. Usually generated automatically by CI/CD process, no need in repo.",
-        "`coverage/`: Test coverage tool generated reports, temporary files, no need to track.",
-        "`*.log`: System or application runtime generated logs, usually large content that updates frequently, no version control value."
+        "`node_modules/`: Dependency folder, often hundreds of MB. Can be rebuilt via package.json + npm install, no need to track.",
+        "`.env`: Environment variables file, usually containing passwords, API keys, and database connection strings. Uploading it creates security risks.",
+        "`.DS_Store`: Auto-generated by macOS, stores folder display settings. No value to the project.",
+        "`dist/`: Build or compiled artifacts, like frontend static files. Usually generated by CI/CD, no need to track.",
+        "`coverage/`: Test coverage reports, temporary files not worth tracking.",
+        "`*.log`: Logs generated by systems or apps, large and constantly changing. No version control value."
       ]
     },
-    {
-      "type": "line-break"
-    },
+    { "type": "line-break" },
     {
       "type": "code",
-      "language": "gitignore", 
+      "language": "gitignore",
       "title": ".gitignore Example (Node.js Project)",
       "content": "node_modules/\n.env\n.DS_Store\ndist/\ncoverage/\n*.log\n"
     },
-    {
-      "type": "line-break"
-    },
-    {
-      "type": "horizontal-rule"
-    },
-    {
-      "type": "line-break"
-    },
+
+    { "type": "line-break" }, { "type": "horizontal-rule" }, { "type": "line-break" },
 
     {
       "type": "heading",
@@ -223,19 +176,19 @@
       "type": "callout",
       "variant": "success",
       "title": "Summary",
-      "content": "The value of version control = **Safe rollback + Multi-person collaboration + Clear history + Efficient workflow**. Used well, Git and GitHub are your safety vault, team bridge, and work logbook."
+      "content": "The value of version control = **safe rollback + team collaboration + clear history + efficient workflow**. Used properly, Git and GitHub become your safe, your team bridge, and your project journal."
     },
     {
       "type": "heading",
       "level": 3,
-      "content": "Try It Out"
+      "content": "Try It"
     },
     {
       "type": "task-list",
       "items": [
-          { "content": "Create a local Git repo and try making one commit", "completed": false },
-          { "content": "Upload to GitHub and confirm remote sync success", "completed": false },
-          { "content": "Add a branch feature/hello, then merge back to main", "completed": false }
+        { "content": "Create a local Git repo and make one commit", "completed": false },
+        { "content": "Push it to GitHub and confirm remote sync", "completed": false },
+        { "content": "Create a branch feature/hello and merge it back into main", "completed": false }
       ]
     }
   ]

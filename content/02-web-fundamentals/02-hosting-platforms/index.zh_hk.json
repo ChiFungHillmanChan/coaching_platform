@@ -94,23 +94,23 @@
       "rows": [
         [
           "GitHub Pages",
-          "完全免費、適合靜態網站；與 GitHub Repo / Actions 無縫整合；支援自訂網域與自動 SSL；新手友好、教學資源多",
-          "僅支援靜態內容；無內建後端／Serverless；儲存約 1GB、每小時 ~10 次部署限制；部分地區存取速度受限"
+          "完全免費、適合靜態網站；與 GitHub Repo / Actions 無縫整合；支援自訂網域與自動 SSL；入門友善、教學資源豐富",
+          "僅支援靜態內容；無內建後端／Serverless；儲存上限約 1GB、每小時約 10 次部署限制；部分地區存取速度可能受影響"
         ],
         [
           "Netlify",
-          "Git 連動一鍵 CI/CD、Deploy Preview；內建 Netlify Functions、表單、身份驗證；全球 CDN、自訂網域 + SSL；自動化程度高",
-          "免費方案採點數額度（每月約 300 點）；函數執行時間/記憶體有限；高流量與進階功能需付費"
+          "與 Git 連動的 CI/CD 與 Deploy Preview；內建 Functions、表單與身分驗證；全球 CDN、自訂網域與 SSL；自動化程度高",
+          "免費方案採點數額度（每月約 300 點）；函數執行時間與記憶體有限；高流量或進階功能需付費"
         ],
         [
           "Vercel",
-          "零配置部署、對 Next.js 友好；Preview URL、即時回滾；Serverless/Edge Functions；全球 Edge Network，效能佳",
-          "Hobby 方案有流量/請求/函數時間配額；大型後端能力有限；原始碼大小/部署次數有上限"
+          "零設定部署、對 Next.js 友善；Preview URL、即時回滾；Serverless / Edge Functions；全球 Edge Network，效能佳",
+          "Hobby 方案有流量／請求／函數時間配額；大型後端能力有限；原始碼大小與部署次數具上限"
         ],
         [
           "Lovable",
-          "AI 輔助生成前後端與資料庫；所見即所得編輯；一鍵部署、可綁定網域；提供免費試用以體驗全流程",
-          "後端偏向 Supabase 等特定服務；複雜專案需工程師介入；功能更新快與配額較小，長期策略未定"
+          "提供 AI 輔助生成前後端與資料庫；所見即所得編輯；一鍵部署並可綁定網域；提供免費試用以體驗全流程",
+          "後端偏向使用如 Supabase 等特定服務；複雜專案需工程師介入；功能更新頻繁且配額較小，長期策略未明確"
         ]
       ]
     },
@@ -127,23 +127,23 @@
       "rows": [
         [
           "AWS",
-          "最全面雲端服務；S3+CloudFront/Amplify 等滿足各類架構；高擴展性與安全；按量計費、彈性大",
-          "學習曲線高、配置較繁瑣；費用結構複雜、需成本監控；基礎設施維運責任在用戶"
+          "雲端服務最為完整；S3 + CloudFront / Amplify 等可滿足多種架構；高擴展性與安全性；按量計費，彈性大",
+          "學習曲線陡峭、配置相對繁瑣；費用結構複雜，需進行成本監控；基礎設施維運責任由使用者承擔"
         ],
         [
           "WordPress.com",
-          "成熟 CMS、生態插件（商業方案起）；快速上線內容網站；免費起步、升級彈性大",
-          "低階方案無法裝外掛；PHP 架構對前端客製自由度較低；高流量下受平台資源共享影響"
+          "成熟 CMS 與外掛生態（商業方案起）；可快速上線內容型網站；免費起步並具備升級彈性",
+          "低階方案無法安裝外掛；PHP 架構使前端客製自由度較低；高流量時可能受共享資源影響"
         ],
         [
           "Wix",
-          "拖放式編輯器、範本豐富；應用市集與 SEO/行銷工具；主機與維護全包，省心",
-          "程式碼自由度低；平台綁定難以遷移；進階功能/電商成本較高"
+          "拖放式編輯器、範本豐富；應用市集與 SEO／行銷工具完善；主機與維護由平台提供，管理負擔低",
+          "程式碼自由度有限；平台綁定度高、遷移不易；進階功能與電商成本相對較高"
         ],
         [
           "Squarespace",
-          "高質感模板、風格一致；官方功能整合完整；行動端友好、客服支援好",
-          "無永久免費方案；自由度低於 Wix/自架；外掛生態較小、客製受限"
+          "高質感模板且風格一致；官方功能整合度高；行動端體驗佳、客服支援完善",
+          "無永久免費方案；自由度低於 Wix 或自建方案；外掛生態較小，客製化受限"
         ]
       ]
     },    
@@ -159,18 +159,18 @@
     {
       "type": "heading",
       "level": 2,
-      "content": "Demo：把一個小網站部署到 Vercel（我最常用）"
+      "content": "示範：將小型網站部署至 Vercel（常用流程）"
     },
     {
       "type": "list",
       "listType": "ordered",
       "items": [
-        "準備一個網站（含 index.html），並推送到 GitHub Repository。",
-        "登入 Vercel 帳號（可用 GitHub 直接登入）。",
-        "於 Vercel Dashboard 選擇 **New Project**。",
-        "授權並連結 GitHub Repository。",
-        "選擇要部署的專案，Vercel 自動偵測並配置。",
-        "完成後 Vercel 會提供一個預設域名，即可訪問網站。"
+        "準備一個網站（包含 index.html），並推送至 GitHub Repository。",
+        "登入 Vercel 帳號（可使用 GitHub 進行登入）。",
+        "在 Vercel 主控台選擇 **New Project**。",
+        "授權並連結對應的 GitHub Repository。",
+        "選擇要部署的專案，Vercel 會自動偵測並完成設定。",
+        "部署完成後，Vercel 會提供預設網域，即可對外訪問。"
       ]
     },
     {
@@ -179,11 +179,11 @@
     {
       "type": "video",
       "src": "/upcoming ",
-      "alt": "示範如何將靜態網站從 GitHub 自動部署到 Vercel"
+      "alt": "示範如何將靜態網站自 GitHub 自動部署至 Vercel"
     },
     {
       "type": "blockquote",
-      "content": "📌 推送更新到 GitHub，Vercel 就會自動重新部署，確保網站保持最新。"
+      "content": "📌 只要將更新推送至 GitHub，Vercel 便會自動重新部署，確保網站維持最新狀態。"
     },    
     {
       "type": "line-break"
@@ -197,8 +197,8 @@
     {
       "type": "callout",
       "variant": "success",
-      "title": "小提示",
-      "content": "Netlify 同 Vercel 都支援 GitHub / GitLab / Bitbucket 自動部署，推送代碼即可自動更新網站。"
+      "title": "提示",
+      "content": "Netlify 與 Vercel 皆支援透過 GitHub／GitLab／Bitbucket 進行自動部署；推送程式碼後，網站將自動更新。"
     }
   ]
 }

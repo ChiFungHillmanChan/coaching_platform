@@ -6,11 +6,11 @@
     {
       "type": "heading",
       "level": 1,
-      "content": "1.3 Why Version Control, Hosting, and Security Matter"
+      "content": "1.3 Why Version Control, Hosting, and Security Are Needed"
     },
     {
       "type": "text",
-      "content": "Web development is not just about writing code. You also need to think about **team collaboration (Version Control)**, **deployment (Hosting)**, and **protection (Security)**. Using the example of an **online bookstore**, you’ll see why these three parts are essential."
+      "content": "Web development is not just about writing code — it also requires team collaboration (version control), deployment (hosting), and protection (security). Using an online bookstore as an example, these three elements are indispensable."
     },
 
     { "type": "horizontal-rule" }, { "type": "line-break" },
@@ -22,35 +22,35 @@
     },
     {
       "type": "text",
-      "content": "Imagine you and three friends are building an online bookstore together:"
+      "content": "Imagine you and three friends are developing an online bookstore website together:"
     },
     {
       "type": "list",
       "listType": "unordered",
       "items": [
-        "Friend A edits the “Book List” page",
-        "Friend B edits the “Shopping Cart”",
-        "You edit the “Checkout Page”"
+        "Friend A edits the book list",
+        "Friend B edits the shopping cart",
+        "You edit the checkout page"
       ]
     },
     {
       "type": "text",
-      "content": "Without version control = you might overwrite each other’s code, causing chaos.\nWith version control (Git) = every change is recorded, and you can roll back to a healthy version if something breaks."
+      "content": "Without version control = you might overwrite each other’s code, causing chaos.\nWith version control (Git) = every change is recorded, and you can roll back to a previous version if something breaks."
     },
     {
       "type": "list",
       "listType": "unordered",
       "items": [
         "**Tools**: Git, GitHub, GitLab",
-        "**Beginner Steps**: `git init → git add → git commit`",
-        "**Benefits**: Enables collaboration, quick bug tracking, prevents data loss"
+        "**Basic Steps**: `git init → git add → git commit`",
+        "**Benefits**: Supports team collaboration, quick error tracking, prevents code loss"
       ]
     },
     {
       "type": "callout",
       "variant": "info",
       "title": "Analogy",
-      "content": "Version control is like a **time machine** that lets you return to a working version of your website whenever needed. (Section 2.1 has a detailed introduction)"
+      "content": "Version control is like a time machine — you can always return to a stable version of the site. (See Section 2.1 for details.)"
     },
 
     { "type": "horizontal-rule" }, { "type": "line-break" },
@@ -62,11 +62,11 @@
     },
     {
       "type": "text",
-      "content": "Once your website is built, you need Hosting to put it online so others can access it."
+      "content": "After finishing your site, you need to deploy it to the Internet so others can access it."
     },
     {
       "type": "text",
-      "content": "Example:\n- Without Hosting: The website only works on your computer.\n- With Hosting: Deploy it to Netlify or AWS, and anyone can access your online bookstore via a URL."
+      "content": "For example:\n- Without hosting: You can only open the site on your own computer.\n- With hosting: Deploy to Netlify or AWS, and anyone can open your online bookstore via a URL."
     },
     {
       "type": "list",
@@ -74,14 +74,14 @@
       "items": [
         "**Free Platforms**: GitHub Pages, Netlify, Vercel",
         "**Paid Platforms**: AWS, WordPress.com, DigitalOcean",
-        "**Benefits**: Global access, automated deployment, stability and scalability"
+        "**Benefits**: Global accessibility, automated deployment, reliable uptime"
       ]
     },
     {
       "type": "callout",
       "variant": "info",
       "title": "Analogy",
-      "content": "Hosting is like **renting a store space**. Without it, even if you have a finished website, customers can’t walk in."
+      "content": "Hosting is like renting a storefront — without it, customers can’t walk in."
     },
 
     { "type": "horizontal-rule" }, { "type": "line-break" },
@@ -93,7 +93,7 @@
     },
     {
       "type": "text",
-      "content": "Without security measures, your online bookstore could be hacked — customer data stolen, or your site taken down."
+      "content": "Without security, your online bookstore could be hacked at any time, leaking customer data or crashing the site."
     },
     { "type": "line-break" },
     {
@@ -105,36 +105,34 @@
       "type": "list",
       "listType": "unordered",
       "items": [
-        "**Common Attacks**:",
-        "- SQL Injection (stealing data from your database)",
-        "- XSS (Cross-Site Scripting, inserting malicious code)",
-        "- CSRF (Cross-Site Request Forgery, tricking users into unintended actions)",
-        "- DDoS (overloading your site with traffic to shut it down)"
+        "- SQL Injection (steal user data through database exploits)",
+        "- XSS (Cross-Site Scripting, injecting malicious code)",
+        "- CSRF (forged requests, tricking users into unintended actions)",
+        "- DDoS (traffic overload, causing the site to crash)"
       ]
     },
-    { "type": "line-break" },
+
     {
       "type": "heading",
       "level": 3,
-      "content": "How to Protect"
+      "content": "Protection Methods"
     },
     {
       "type": "list",
       "listType": "unordered",
       "items": [
-        "- Validate user input (to block malicious code)",
-        "- Manage permissions (don’t give regular users admin access)",
+        "- Validate user input (prevent malicious code)",
+        "- Manage permissions (avoid giving admin rights to regular users)",
         "- Use HTTPS (encrypt data transfer)",
-        "- Add firewalls or CDN protection (e.g., Cloudflare to block DDoS)"
+        "- Add firewall or CDN (e.g., Cloudflare to defend against DDoS)"
       ]
     },
     { "type": "line-break" },
-
     {
       "type": "callout",
       "variant": "info",
       "title": "Analogy",
-      "content": "Security is like a **security system** for your store. Without it, anyone could break in."
+      "content": "Security is like a security system — without it, your store could be broken into anytime."
     },
 
     { "type": "horizontal-rule" }, { "type": "line-break" },
@@ -146,11 +144,11 @@
     },
     {
       "type": "table",
-      "headers": ["Feature", "With", "Without"],
+      "headers": ["Item", "With", "Without"],
       "rows": [
-        ["Version Control", "Team collaboration, rollback anytime", "Code conflicts, hard to fix errors"],
-        ["Hosting", "Website accessible globally", "Website only works on your computer"],
-        ["Security", "Protects user data, builds trust", "Easy to hack, data leaks, downtime"]
+        ["Version Control", "Team collaboration, roll back anytime", "Code chaos, hard to fix errors"],
+        ["Hosting", "Globally accessible site", "Site only runs on your computer"],
+        ["Security", "Protects user data, builds trust", "Prone to hacks, data leaks, site downtime"]
       ]
     },
 
@@ -159,8 +157,8 @@
     {
       "type": "callout",
       "variant": "success",
-      "title": "Quick Summary",
-      "content": "To build a professional website: **Version Control** keeps development organized, **Hosting** puts your site online, and **Security** ensures stability and trust. All three are essential."
+      "title": "Summary",
+      "content": "To build a complete, professional website: **Version Control** keeps development organized, **Hosting** puts the site online, and **Security** ensures stability and trust. All three are essential."
     }
   ]
 }

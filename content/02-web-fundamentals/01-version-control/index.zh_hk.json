@@ -1,6 +1,6 @@
 {
   "title": "2.1 版本控制 (Version Control)",
-  "description": "由淺入深，用 Git 與 GitHub 帶你理解版本控制的意義、流程與最佳實踐。內容保留原來竹心日戈的結構風格，同時加強文字表達與補充解釋。",
+  "description": "由淺入深，透過 Git 與 GitHub 說明版本控制的意義、流程與最佳實踐。內容保留原有結構風格，同時加強文字表達並補充解釋。",
   "slug": "version-control",
   "category": "web-fundamentals",
   "lastModified": "2025-09-08T00:00:00.000Z",
@@ -11,57 +11,40 @@
       "content": "1.1 版本控制 (Version Control)"
     },
 
-    {
-      "type": "line-break"
-    },
+    { "type": "line-break" },
     {
       "type": "callout",
       "variant": "info",
       "title": "一句話理解",
-      "content": "版本控制就好似**Google 文件嘅歷史紀錄**：你可以隨時比較、檢視甚至還原任意一次修改。唔同嘅係，Git 係針對程式碼專案而設，功能更全面，仲支援分支、合併、多人協作。"
+      "content": "版本控制就像 **Google 文件的歷史紀錄**：你可以隨時比較、檢視甚至還原任意一次修改。不同之處在於，Git 專為程式碼專案設計，功能更完整，並支援分支、合併及多人協作。"
     },
 
-    {
-      "type": "line-break"
-    },
-    {
-      "type": "horizontal-rule"
-    },
+    { "type": "line-break" }, { "type": "horizontal-rule" },
     {
       "type": "heading",
       "level": 2,
       "content": "什麼是版本控制，為何重要？"
     },
-    {
-      "type": "line-break"
-    },
+    { "type": "line-break" },
     {
       "type": "text",
-      "content": "版本控制（Version Control）係一種方法，用嚟紀錄專案檔案喺唔同時間嘅狀態。藉由版本控制系統（Version Control System, VCS），開發者可以追蹤修改歷史，檢查差異，喺出錯時快速回滾，甚至喺唔同版本之間切換。" 
+      "content": "版本控制（Version Control）是一種方法，用來記錄專案檔案在不同時間的狀態。透過版本控制系統（Version Control System, VCS），開發者可以追蹤修改歷史、檢查差異、在出錯時快速回滾，甚至能在不同版本之間切換。"
     },
-    {
-      "type": "line-break"
-    },
+    { "type": "line-break" },
     {
       "type": "list",
       "listType": "unordered",
       "items": [
-        "**可回溯性**：每一次修改都會自動紀錄，包括時間、內容同作者。",
-        "**降低風險**：如果新功能壞咗，可以秒回到穩定狀態，避免重大損失。",
-        "**多人協作**：團隊成員可以同時開發，系統會協助解決衝突。",
-        "**多版本管理**：支援分支（Branch），可以平行開發新功能同維護舊版本。",
-        "**專案流程基礎**：CI/CD、自動化測試、Code Review 都係建立喺版本控制之上。"
+        "**可追溯性**：每一次修改都會自動記錄，包括時間、內容與作者。",
+        "**降低風險**：若新功能出現問題，可立即回到穩定狀態，避免重大損失。",
+        "**多人協作**：團隊成員能同時開發，系統會協助處理衝突。",
+        "**多版本管理**：支援分支（Branch），可同時開發新功能並維護舊版本。",
+        "**專案流程基礎**：CI/CD、自動化測試、Code Review 等皆建立在版本控制之上。"
       ]
     },
-    {
-      "type": "line-break"
-    },
-    {
-      "type": "horizontal-rule"
-    },
-    {
-      "type": "line-break"
-    },
+
+    { "type": "line-break" }, { "type": "horizontal-rule" }, { "type": "line-break" },
+
     {
       "type": "heading",
       "level": 2,
@@ -72,53 +55,42 @@
       "level": 3,
       "content": "核心概念"
     },
-    {
-      "type": "line-break"
-    },
+    { "type": "line-break" },
     {
       "type": "definition-list",
-
       "definitions": [
         {
           "term": "**Git**",
-          "definition": "一個分散式版本控制系統。所有人嘅電腦都有完整歷史，無需依賴中央伺服器。適合離線工作，效率高。"
+          "definition": "一個分散式版本控制系統。每位開發者的電腦都保存完整歷史，無需依賴中央伺服器。適合離線工作，效率高。"
         },
         {
           "term": "**GitHub**",
-          "definition": "一個基於 Git 嘅雲端平台。除咗託管代碼之外，仲提供 Pull Request、Issue 管理、Actions 自動化，方便團隊協作同開源社群交流。"
+          "definition": "一個基於 Git 的雲端平台。除了代碼託管外，還提供 Pull Request、Issue 管理、Actions 自動化，便於團隊協作與開源社群交流。"
         },
         {
           "term": "**Repo（倉庫）**",
-          "definition": "專案嘅家，所有版本歷史都存放喺度。可以係本地 repo，亦可以放喺 GitHub 遠端。"
+          "definition": "專案的容器，存放所有版本歷史。可以是本地倉庫，也可以存放於 GitHub 遠端。"
         },
         {
           "term": "**Commit（提交）**",
-          "definition": "一次帶訊息嘅儲存，記錄一組檔案修改。就好似遊戲嘅存檔點。"
+          "definition": "一次附帶訊息的儲存，記錄一組檔案修改，相當於遊戲的存檔點。"
         },
         {
           "term": "**Branch（分支）**",
-          "definition": "開出一條平行線路，開發者可以喺唔影響主線情況下試驗或新增功能。"
+          "definition": "開出一條平行線路，使開發者能在不影響主線的情況下試驗或新增功能。"
         }
       ]
     },
-    {
-      "type": "line-break"
-    },
+    { "type": "line-break" },
     {
       "type": "callout",
       "variant": "success",
       "title": "小技巧",
       "content": "**Git = 工具（本地操作）**；**GitHub = 平台（雲端協作）**"
     },
-    {
-      "type": "line-break"
-    },
-    {
-      "type": "horizontal-rule"
-    },
-    {
-      "type": "line-break"
-    },
+
+    { "type": "line-break" }, { "type": "horizontal-rule" }, { "type": "line-break" },
+
     {
       "type": "heading",
       "level": 2,
@@ -126,34 +98,24 @@
     },
     {
       "type": "text",
-      "content": "以下係一個最簡單嘅流程：新建一個專案 → 做修改 → 提交 → 上傳到 GitHub。一步一步照做就得。"
+      "content": "以下是一個最基本的流程：建立專案 → 進行修改 → 提交 → 上傳到 GitHub。依照步驟操作即可。"
     },
-    {
-      "type": "line-break"
-    },
+    { "type": "line-break" },
     {
       "type": "terminal",
       "title": "工作流程示例",
-      "content": "$ mkdir my-app && cd my-app\n$ git init                         # 初始化倉庫\n$ echo \"hello\" > README.md        # 建立檔案\n$ git add README.md                # 暫存檔案\n$ git commit -m \"feat: init\"      # 建立提交\n\n# 推上 GitHub（需先喺 GitHub 建立 repo）\n$ git branch -M main\n$ git remote add origin https://github.com/<user>/my-app.git\n$ git push -u origin main"
+      "content": "$ mkdir my-app && cd my-app\n$ git init                         # 初始化倉庫\n$ echo \"hello\" > README.md        # 建立檔案\n$ git add README.md                # 暫存檔案\n$ git commit -m \"feat: init\"      # 建立提交\n\n# 推送到 GitHub（需先在 GitHub 建立 repo）\n$ git branch -M main\n$ git remote add origin https://github.com/<user>/my-app.git\n$ git push -u origin main"
     },
-    {
-      "type": "line-break"
-    },
+    { "type": "line-break" },
     {
       "type": "callout",
       "variant": "info",
       "title": "小提醒",
-      "content": "如果推送失敗，檢查：\n1）有冇登入；\n2）遠端 URL 是否正確；\n3）遠端 repo 是否已經有內容。\n\n常見解決方法：`git pull --rebase origin main` 再推送。"
+      "content": "若推送失敗，請檢查：\n1）是否已登入；\n2）遠端 URL 是否正確；\n3）遠端 repo 是否已有內容。\n\n常見解決方法：`git pull --rebase origin main` 後再推送。"
     },
-    {
-      "type": "line-break"
-    },
-    {
-      "type": "horizontal-rule"
-    },
-    {
-      "type": "line-break"
-    },
+
+    { "type": "line-break" }, { "type": "horizontal-rule" }, { "type": "line-break" },
+
     {
       "type": "heading",
       "level": 2,
@@ -172,9 +134,8 @@
         "`git pull` / `git push` → 同步遠端"
       ]
     },
-    {
-      "type": "line-break"
-    },
+
+    { "type": "line-break" },
     {
       "type": "heading",
       "level": 3,
@@ -182,38 +143,29 @@
     },
     {
       "type": "text",
-      "content": ".gitignore 嘅作用係 避免冗餘、保護機密、保持 repo 輕量。只有源碼、設定檔、必要的文檔先值得納入 Git 追蹤。"
+      "content": ".gitignore 的作用是避免冗餘、保護機密並保持倉庫輕量。只有源碼、設定檔與必要的文件才應納入 Git 追蹤。"
     },
     {
       "type": "list",
       "listType": "unordered",
       "items": [
-        "`node_modules/` : 裝依賴用嘅資料夾，可能有成百 MB。內容可以透過 package.json + npm install 重建，冇必要放 repo。",
-        "`.env` : 環境變數檔案，通常包含 密碼、API key、資料庫連線字串 等敏感資訊。上傳會造成安全風險。",
-        "`.DS_Store` : macOS 自動生成嘅檔案，只係 Finder 用嚟記錄資料夾顯示設定，對專案冇意義。",
-        "`dist/` : 編譯或打包後產物，例如前端 build 出嚟嘅靜態檔案。通常會由 CI/CD 流程自動生成，唔需要放 repo。",
-        "`coverage/` : 測試覆蓋率工具產生嘅報告，屬於臨時檔案，冇必要追蹤。",
-        "`*.log` : 系統或應用程式運行產生嘅日誌，通常內容大、隨時會更新，冇版本控制價值。"
+        "`node_modules/` : 用於安裝依賴的資料夾，可能數百 MB。內容可透過 package.json + npm install 重建，無需納入倉庫。",
+        "`.env` : 環境變數檔案，通常包含密碼、API key、資料庫連線字串等敏感資訊。上傳會造成安全風險。",
+        "`.DS_Store` : macOS 自動生成的檔案，僅供 Finder 記錄資料夾顯示設定，對專案無意義。",
+        "`dist/` : 編譯或打包後產物，例如前端 build 的靜態檔案。通常由 CI/CD 流程自動生成，無需納入倉庫。",
+        "`coverage/` : 測試覆蓋率工具生成的報告，屬於臨時檔案，無需追蹤。",
+        "`*.log` : 系統或應用程式運行產生的日誌，通常體積龐大且不斷更新，沒有版本控制價值。"
       ]
     },
-    {
-      "type": "line-break"
-    },
+    { "type": "line-break" },
     {
       "type": "code",
       "language": "gitignore",
       "title": ".gitignore 範例（Node.js 專案）",
       "content": "node_modules/\n.env\n.DS_Store\ndist/\ncoverage/\n*.log\n"
     },
-    {
-      "type": "line-break"
-    },
-    {
-      "type": "horizontal-rule"
-    },
-    {
-      "type": "line-break"
-    },
+
+    { "type": "line-break" }, { "type": "horizontal-rule" }, { "type": "line-break" },
 
     {
       "type": "heading",
@@ -224,7 +176,7 @@
       "type": "callout",
       "variant": "success",
       "title": "總結",
-      "content": "版本控制嘅價值 = **安全回滾 + 多人協作 + 清晰歷史 + 高效流程**。用得好，Git 同 GitHub 就係你嘅保險箱、團隊橋樑、同工作記錄簿。"
+      "content": "版本控制的價值 = **安全回滾 + 多人協作 + 清晰歷史 + 高效流程**。若能妥善使用，Git 與 GitHub 就是你的保險箱、團隊橋樑與工作紀錄簿。"
     },
     {
       "type": "heading",
@@ -234,9 +186,9 @@
     {
       "type": "task-list",
       "items": [
-          { "content": "建立一個本地 Git repo，試下做一次 commit", "completed": false },
-          { "content": "上傳到 GitHub，確認遠端同步成功", "completed": false },
-          { "content": "新增一個分支 feature/hello，然後合併返 main", "completed": false }
+        { "content": "建立一個本地 Git 倉庫，進行一次 commit", "completed": false },
+        { "content": "上傳到 GitHub，確認遠端同步成功", "completed": false },
+        { "content": "新增一個分支 feature/hello，然後合併回 main", "completed": false }
       ]
     }
   ]

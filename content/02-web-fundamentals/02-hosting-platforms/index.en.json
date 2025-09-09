@@ -15,31 +15,31 @@
       "type": "line-break"
     },
     { 
-      "type": "heading", "level": 2, "content": "Free Platform Introduction" 
+      "type": "heading", "level": 2, "content": "Free Platforms" 
     },
     {
       "type": "link",
-      "title": "External Documentation",
+      "title": "External Docs",
       "href": "https://pages.github.com",
-      "content": "GitHub Pages Official Website"
+      "content": "GitHub Pages Official Site"
     },
     {
       "type": "link",
-      "title": "External Documentation",
+      "title": "External Docs",
       "href": "https://www.netlify.com",
-      "content": "Netlify Official Website"
+      "content": "Netlify Official Site"
     },
     {
       "type": "link",
-      "title": "External Documentation",
+      "title": "External Docs",
       "href": "https://vercel.com",
-      "content": "Vercel Official Website"
+      "content": "Vercel Official Site"
     },
     {
       "type": "link",
-      "title": "External Documentation",
+      "title": "External Docs",
       "href": "https://lovable.dev",
-      "content": "Lovable Official Website"   
+      "content": "Lovable Official Site"   
     },
     {
       "type": "horizontal-rule"
@@ -50,31 +50,31 @@
     {
       "type": "heading",
       "level": 2,
-      "content": "Paid Platform Introduction"
+      "content": "Paid Platforms"
     },
     {
       "type": "link",
-      "title": "External Documentation",
+      "title": "External Docs",
       "href": "https://aws.amazon.com",
-      "content": "AWS Official Website"
+      "content": "AWS Official Site"
     },
     {
       "type": "link",
-      "title": "External Documentation",
+      "title": "External Docs",
       "href": "https://wordpress.com",
-      "content": "WordPress.com Official Website"
+      "content": "WordPress.com Official Site"
     },
     {
       "type": "link",
-      "title": "External Documentation",
+      "title": "External Docs",
       "href": "https://www.wix.com",
-      "content": "Wix Official Website"
+      "content": "Wix Official Site"
     },
     {
       "type": "link",
-      "title": "External Documentation",
+      "title": "External Docs",
       "href": "https://www.squarespace.com",
-      "content": "Squarespace Official Website"
+      "content": "Squarespace Official Site"
     },
     {
       "type": "horizontal-rule"
@@ -89,28 +89,28 @@
     },
     {
       "type": "table",
-      "title": "Free Hosting Platform Comparison",
-      "headers": ["Platform", "Features ✅", "Limitations ❌"],
+      "title": "Free Hosting Platforms Comparison",
+      "headers": ["Platform", "Pros ✅", "Cons ❌"],
       "rows": [
         [
           "GitHub Pages",
-          "Completely free, suitable for static websites; seamless integration with GitHub Repo / Actions; supports custom domains and automatic SSL; beginner-friendly with abundant learning resources",
-          "Only supports static content; no built-in backend/Serverless; approximately 1GB storage, ~10 deployments per hour limit; limited access speed in some regions"
+          "Completely free, best for static sites; seamless with GitHub Repos/Actions; supports custom domains and auto SSL; beginner-friendly with rich tutorials",
+          "Static content only; no built-in backend/Serverless; storage ~1GB, ~10 deploys/hour; slower access in some regions"
         ],
         [
           "Netlify",
-          "Git-connected one-click CI/CD, Deploy Preview; built-in Netlify Functions, forms, authentication; global CDN, custom domain + SSL; high level of automation",
-          "Free plan uses point quota system (approximately 300 points per month); limited function execution time/memory; high traffic and advanced features require payment"
+          "CI/CD linked to Git with Deploy Preview; built-in Functions, forms, and auth; global CDN with custom domains and SSL; highly automated",
+          "Free plan uses credits (~300/month); limited function runtime and memory; high traffic and advanced features require paid plan"
         ],
         [
           "Vercel",
-          "Zero-configuration deployment, Next.js friendly; Preview URL, instant rollback; Serverless/Edge Functions; global Edge Network with excellent performance",
-          "Hobby plan has traffic/request/function time quotas; limited large-scale backend capabilities; source code size/deployment frequency limits"
+          "Zero-config deploy, optimized for Next.js; Preview URLs, instant rollback; Serverless/Edge Functions; global Edge Network with strong performance",
+          "Hobby plan has traffic/request/function quotas; limited large backend capacity; repo size and deploys capped"
         ],
         [
           "Lovable",
-          "AI-assisted frontend, backend, and database generation; WYSIWYG editing; one-click deployment with domain binding; offers free trial to experience full workflow",
-          "Backend tends toward specific services like Supabase; complex projects require engineer intervention; rapid feature updates and smaller quotas, long-term strategy undefined"
+          "AI-assisted generation of frontend, backend, and database; WYSIWYG editor; one-click deploy with domain binding; free trial for full workflow",
+          "Backend tied to services like Supabase; complex projects need engineers; frequent feature changes, small quotas, unclear long-term roadmap"
         ]
       ]
     },
@@ -122,28 +122,28 @@
     },
     {
       "type": "table",
-      "title": "Paid Hosting Platform Comparison",
-      "headers": ["Platform", "Features ✅", "Limitations ❌"],
+      "title": "Paid Hosting Platforms Comparison",
+      "headers": ["Platform", "Pros ✅", "Cons ❌"],
       "rows": [
         [
           "AWS",
-          "Most comprehensive cloud services; S3+CloudFront/Amplify meet various architecture needs; high scalability and security; pay-as-you-go pricing with flexibility",
-          "High learning curve, complex configuration; complex fee structure requiring cost monitoring; infrastructure maintenance responsibility on users"
+          "Most comprehensive cloud services; S3 + CloudFront/Amplify cover many architectures; highly scalable and secure; pay-as-you-go pricing",
+          "Steep learning curve, complex setup; complicated cost structure requiring monitoring; infrastructure maintenance on user"
         ],
         [
           "WordPress.com",
-          "Mature CMS with plugin ecosystem (from business plans); quick content website launch; free starting point with flexible upgrades",
-          "Lower-tier plans cannot install plugins; PHP architecture limits frontend customization freedom; high traffic affected by platform resource sharing"
+          "Mature CMS with plugin ecosystem (from business plan); quick content site launch; free to start with upgrade flexibility",
+          "Lower-tier plans block plugins; PHP-based with limited frontend customization; high traffic may be affected by shared resources"
         ],
         [
           "Wix",
-          "Drag-and-drop editor with rich templates; app marketplace and SEO/marketing tools; hosting and maintenance all-inclusive for peace of mind",
-          "Low code customization freedom; platform lock-in making migration difficult; higher costs for advanced features/e-commerce"
+          "Drag-and-drop editor with rich templates; app store plus SEO/marketing tools; hosting and maintenance included, low admin overhead",
+          "Limited code freedom; vendor lock-in, hard to migrate; advanced/e-commerce features costlier"
         ],
         [
           "Squarespace",
-          "High-quality templates with consistent style; comprehensive official feature integration; mobile-friendly with good customer support",
-          "No permanent free plan; lower freedom than Wix/self-hosted; smaller plugin ecosystem with limited customization"
+          "High-quality, consistent templates; strong official feature integration; great mobile experience with solid support",
+          "No permanent free plan; less flexible than Wix or self-hosting; smaller plugin ecosystem, limited customization"
         ]
       ]
     },    
@@ -159,18 +159,18 @@
     {
       "type": "heading",
       "level": 2,
-      "content": "Demo: Deploy a Small Website to Vercel (My Most Used Platform)"
+      "content": "Demo: Deploying a Small Site to Vercel (Typical Workflow)"
     },
     {
       "type": "list",
       "listType": "ordered",
       "items": [
-        "Prepare a website (including index.html) and push it to a GitHub Repository.",
-        "Log in to your Vercel account (you can log in directly with GitHub).",
-        "Select **New Project** in the Vercel Dashboard.",
-        "Authorize and connect your GitHub Repository.",
-        "Select the project to deploy, Vercel will automatically detect and configure.",
-        "After completion, Vercel will provide a default domain name for accessing the website."
+        "Prepare a site (with index.html) and push it to a GitHub Repository.",
+        "Log in to Vercel (GitHub login supported).",
+        "In the Vercel console, select **New Project**.",
+        "Authorize and link the GitHub Repository.",
+        "Select the project, Vercel auto-detects and configures it.",
+        "After deployment, Vercel provides a default domain for public access."
       ]
     },
     {
@@ -178,12 +178,12 @@
     },
     {
       "type": "video",
-      "src": "/demo/vercel-deploy.mp4",
-      "alt": "Demonstration of how to automatically deploy a static website from GitHub to Vercel"
+      "src": "/upcoming ",
+      "alt": "Demo: auto-deploy a static site from GitHub to Vercel"
     },
     {
       "type": "blockquote",
-      "content": "📌 Push updates to GitHub, and Vercel will automatically redeploy to keep the website up to date."
+      "content": "📌 Any time you push updates to GitHub, Vercel auto-redeploys, keeping the site up to date."
     },    
     {
       "type": "line-break"
@@ -197,8 +197,8 @@
     {
       "type": "callout",
       "variant": "success",
-      "title": "Pro Tip",
-      "content": "Both Netlify and Vercel support GitHub / GitLab / Bitbucket automatic deployment - just push your code to automatically update the website."
+      "title": "Tip",
+      "content": "Both Netlify and Vercel support auto-deployment via GitHub/GitLab/Bitbucket. Push code, and the site updates automatically."
     }
   ]
 }

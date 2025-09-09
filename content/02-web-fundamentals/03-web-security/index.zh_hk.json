@@ -10,7 +10,7 @@
     },
     {
       "type": "text",
-      "content": "網站開發唔止要實現功能，仲要考慮安全性。如果無適當保護，用戶資料可能會洩漏，網站亦可能被入侵。"
+      "content": "網站開發不僅需要實現功能，還必須重視安全性。如果缺乏適當的防護，用戶資料可能外洩，網站亦可能遭受入侵。"
     },
     {
       "type": "horizontal-rule"
@@ -25,16 +25,15 @@
     },
     {
       "type": "text",
-      "content": "攻擊者透過在輸入框中注入惡意 SQL 語句，操控資料庫。"
+      "content": "攻擊者透過在輸入框中注入惡意 SQL 語句，以操控資料庫。"
     },
-
     {
       "type": "list",
       "listType": "unordered",
       "items": [
-        "**例子**: 在登入表單輸入 `admin' OR '1'='1`，繞過驗證直接登入。",
+        "**範例**: 在登入表單輸入 `admin' OR '1'='1`，即可繞過驗證直接登入。",
         "**風險**: 未經授權讀取、修改甚至刪除資料庫內容。",
-        "**防護方法**: 使用 Prepared Statements (參數化查詢)、輸入驗證、最小權限原則。"
+        "**防護方法**: 使用 Prepared Statements（參數化查詢）、輸入驗證、最小權限原則。"
       ]
     },
     {
@@ -50,27 +49,25 @@
     },
     {
       "type": "text",
-      "content": "攻擊者將惡意腳本注入到網頁中，當用戶瀏覽頁面時，腳本會在瀏覽器執行。"
+      "content": "攻擊者將惡意腳本注入網頁，當用戶瀏覽頁面時，該腳本會於瀏覽器中執行。"
     },
     {
       "type": "list",
       "listType": "unordered",
       "items": [
-        "**例子**: 在留言區輸入 `<script>alert('Hacked!')</script>`，其他訪客打開時會彈出提示框。",
-        "**風險**: 竊取 Cookies、冒充用戶、破壞介面。",
-        "**防護方法**: 輸入與輸出編碼 (Input/Output Encoding)、使用 Content Security Policy (CSP)、避免直接信任用戶輸入。"
+        "**範例**: 在留言區輸入 `<script>alert('Hacked!')</script>`，其他訪客打開頁面時會彈出提示框。",
+        "**風險**: 竊取 Cookies、冒充用戶身分、破壞介面。",
+        "**防護方法**: 進行輸入與輸出編碼（Input/Output Encoding）、使用 Content Security Policy (CSP)、避免直接信任用戶輸入。"
       ]
     },
-
     {
       "type": "horizontal-rule"
     },
-
     {
       "type": "callout",
       "variant": "warning",
-      "title": "為什麼要避免？",
-      "content": "SQL Injection 同 XSS 係最常見嘅攻擊手法，會造成 **數據外洩、用戶信任崩潰、甚至法律責任**。基本防護措施必須落實。"
+      "title": "為何必須避免？",
+      "content": "SQL Injection 與 XSS 是最常見的攻擊手法，可能造成 **資料外洩、用戶信任喪失，甚至引發法律責任**。基本防護措施必須落實。"
     },
     {
       "type": "horizontal-rule"
@@ -82,7 +79,7 @@
       "type": "callout",
       "variant": "success",
       "title": "學習重點",
-      "content": "安全性唔係加分題，而係必修課。**輸入驗證、權限控管、加密傳輸** 係任何專案的基本要求。"
+      "content": "安全性不是額外選項，而是基本要求。**輸入驗證、權限管理、加密傳輸** 是任何專案的必備措施。"
     }
   ]
 }

@@ -1,111 +1,169 @@
 {
-    "slug": "my-chatgpt-prompts",
-    "category": "prompt-design",
-    "lastModified": "2025-09-06T00:00:00.000Z",
-    "blocks": [
-      {
-        "type": "heading",
-        "level": 1,
-        "content": "4.1 My Common ChatGPT Settings & Prompts"
-      },
-      {
-        "type": "text",
-        "content": "Here are four of my most commonly used role-based prompt templates: Coding Engineer, Designer, Teacher, and Entrepreneur. Each has a 'Quick Version' and a 'Structured Template' for instant use or deeper learning."
-      },
+  "slug": "my-chatgpt-prompts",
+  "category": "prompt-design",
+  "lastModified": "2025-09-06T00:00:00.000Z",
+  "blocks": [
+    {
+      "type": "heading",
+      "level": 1,
+      "content": "4.1 My Common AI Settings and Prompts"
+    },
+ 
+    { "type": "line-break" },
+
+    {
+      "type": "heading",
+      "level": 2,
+      "content": "Why learn role-based prompts?"
+    },
+    {
+      "type": "list",
+      "listType": "ordered",
+      "items": [
+        "First, **role-based prompts help AI quickly understand who you are and what you need**, making replies more professional and context-aware.",
+        "Second, **each role maps to a common scenario**: coding for engineering tasks, designers for user experience, tutors for learning, founders for market analysis.",
+        "Third, **beginners can use the “Quick Version”** to apply templates immediately without overthinking details.",
+        "Finally, **advanced users can use the “Structured Version”** to build a reasoning framework and learn how to collaborate with AI to solve problems."
+      ]
+    },
+
+    { "type": "line-break" }, 
+
+    {
+      "type": "heading",
+      "level": 2,
+      "content": "Benefits of learning role-based prompts:"
+    },
+    {
+      "type": "list",
+      "listType": "unordered",
+      "items": [
+        "Examples mirror daily life (todo, budgeting, for loop) — beginners grasp them at a glance.",
+        "Fixed structure (Problem → Solution → Tests → Risks) trains logical thinking.",
+        "Cross-domain usage shows AI isn’t only for coding — it also helps with design, teaching, and startup analysis.",
+        "Usable out of the box (Quick Version) and deep-dive ready (Structured Version) — fits beginners through advanced learners."
+      ]
+    },
+    {
+      "type": "text",
+      "content": "Below are my four most-used role-based prompt templates: Engineer for Coding, Designer, Tutor, Founder. Each has a “Quick Version” and a “Structured Version” for instant use or deeper study."
+    },
+
+    { "type": "line-break" },
+    { "type": "horizontal-rule" },
+    { "type": "line-break" },
+
+    {
+      "type": "heading",
+      "level": 2,
+      "content": "🧑‍💻 Coding | Professional Engineer"
+    },
+    {
+      "type": "code",
+      "language": "markdown",
+      "title": "Quick Version",
+      "content": "You are a {{professional identity: e.g., \"senior full-stack engineer / security auditor / performance engineer\"}}.\nGoal: {{what to accomplish, e.g., \"refactor the module below and add unit tests\"}}.\nInput: {{code / error logs / system description}}.\nDeliver: Explanation → Plan → Code → Verification steps."
+    },
+
+    {
+      "type": "code",
+      "language": "markdown",
+      "title": "Example: Beginner-friendly Todo & Simple Money Log App",
+      "content": "[Role] You are a **senior backend / product-minded engineer** skilled at simplifying complex features into beginner-friendly mini apps.\n\n[Task] Design a \"daily money tracker\" app with a minimal approach:\n- Users can enter daily expenses or income.\n- The system shows a list of all records.\n- It calculates total expenses / total income and shows the current balance.\n- No login, no cloud — local only.\n\n[Input]\nEnvironment: Python 3 + Flask + SQLite.\n\n[Output]\n1. Problem framing:\n   - Beginners need a simple way to track daily money; existing apps are too complex.\n   - Minimal viable needs: add record, view records, compute totals.\n\n2. Solution design:\n   - API / pages:\n     - `GET /` → list records and show stats.\n     - `POST /add` → add income or expense.\n   - Table: `records(id, amount, type, note, created_at)`.\n   - Frontend: simplest HTML form.\n\n3. Minimal implementation (MVP code).\n   - Provide a Flask + SQLite skeleton that runs, accepts entries, and updates stats live.\n\n4. Tests:\n   - Add an expense and check the list updates.\n   - Add an income and check the balance.\n   - Restart the app and verify data persists (SQLite).\n\n5. Risks & rollback:\n   - Dropping the table loses data → back up `app.db`.\n   - Invalid numeric input by beginners → add basic validation (numbers only).\n"
+    },
   
-      { "type": "horizontal-rule" },
-      { "type": "line-break" },
+    { "type": "horizontal-rule" },
+    { "type": "line-break" },
   
-      {
-        "type": "heading",
-        "level": 2,
-        "content": "🧑‍💻 Coding | Professional Engineer"
-      },
-      {
-        "type": "code",
-        "language": "markdown",
-        "title": "Quick Version",
-        "content": "You are a **{{professional role: e.g., Senior Full-stack Engineer / Security Reviewer / Performance Engineer}}**.\nGoal: {{task, e.g., \"Refactor this module and add unit tests\"}}.\nInput: {{code / error message / system description}}.\nRequirements: Explain → Solution → Code → Validation steps."
-      },
-      {
-        "type": "code",
-        "language": "markdown",
-        "title": "Structured Template",
-        "content": "[Role] You are a **{{senior domain engineer}}** specialized in {{tech stack}}.\n[Task] {{Refactor / Debug / Design / Review}} the following.\n[Input]\n```{{code}}```\n[Output]\n1) Problem Identification\n2) Solution Design\n3) Minimal Patch PR (code + comments)\n4) Tests (unit/integration)\n5) Risks & Rollback Plan"
-      },
+    {
+      "type": "heading",
+      "level": 2,
+      "content": "🎨 Designer | UX / Product"
+    },
+    {
+      "type": "code",
+      "language": "markdown",
+      "title": "Quick Version",
+      "content": "You are a **product / UX designer**.\nGoal: design {{feature / flow}} for {{target users}}.\nDeliver: user stories, flow sketch, UI blocks, usability risks."
+    },
+    {
+      "type": "code",
+      "language": "markdown",
+      "title": "Example: Simple Money Log App (Beginner-friendly UX)",
+      "content": "[Role] You are a **senior UX / product designer** who turns complex finance flows into intuitive beginner experiences.\n\n[Users] Age 18–40; want to log daily income/expenses quickly; often quit existing apps due to too many fields and steps. Goal: lower input cost and build a habit (North Star: ≥ 5 days of logging within 7 days).\n\n[Output]\n1. Value proposition:\n   - **Log in one field**: complete a record with minimal steps.\n   - **Zero learning curve**: first screen accepts amount; category and tags optional.\n   - **Instant feedback**: see today/week spend and balance at a glance.\n\n2. User stories:\n   - As an office worker, I want to log breakfast in 10 seconds without breaking flow.\n   - As a student, I want a month-end view of spend per category (food, transit, etc.).\n   - As a power user, I want CSV export for simple analysis.\n\n3. Wireflow:\n   - Home (amount input on top) → enter amount → choose Expense/Income → (optional) category/note → save.\n   - After save: toast + return to top of list with newest record; bottom shows today/week totals.\n   - History → month view (donut + category %) → tap category → list view → edit/delete.\n   - Settings → CSV export, default currency, manage common categories.\n\n4. IA / UI blocks:\n   - **Home**: quick input (amount, expense/income toggle, category, note) + today/week stats card + recent list.\n   - **History**: monthly overview (donut + % per category) + category list.\n   - **Record detail**: amount, category, date, note, edit/delete.\n   - **Settings**: category management, currency, data export (CSV).\n\n5. Metrics & risks:\n   - KPIs:\n     - North Star: ≥ 5/7 days logging within first week (target ≥ 40% of users).\n     - ≥ 70% of entries completed in ≤ 10 seconds.\n     - Week-2 retention ≥ 30%.\n   - Risks:\n     - More fields → higher input cost → **Fix**: amount + category required; remember last selections.\n     - Misleading visuals (donut proportions) → **Fix**: show numbers with percentages.\n     - Data loss anxiety → **Fix**: local auto-backup + prominent CSV export.\n"
+    },
+      
+    { "type": "horizontal-rule" },
+    { "type": "line-break" },
   
-      { "type": "horizontal-rule" },
-      { "type": "line-break" },
+    {
+      "type": "heading",
+      "level": 2,
+      "content": "📚 Tutor | Teaching Mode"
+    },
+    {
+      "type": "code",
+      "language": "markdown",
+      "title": "Quick Version",
+      "content": "You are a **rigorous yet friendly programming tutor**.\nTeach {{topic}} using \"Concept first → Small example → Exercise → Answer checklist\" and explain in {{Chinese / English}}."
+    },
+    {
+      "type": "code",
+      "language": "markdown",
+      "title": "Example: Python Basics (Improved)",
+      "content": "[Role] You are a **rigorous yet friendly programming tutor** who uses simple language and step-by-step examples to build intuition.\n\n[Learner] Absolute beginner first learning Python; unfamiliar with variables and flow control.\n\n[Topic] The Python for loop.\n\n[Method]\n1. Why it matters:\n   - Programs often **repeat actions**. A for loop automates repetition without duplicating code.\n   - Examples: iterate a list, process files, inspect characters in a string.\n\n2. Minimal example:\n```python\nfor i in range(3):\n    print(\"Hello\", i)\n```\nOutput:\n```\nHello 0\nHello 1\nHello 2\n```\n   - Explanation: `range(3)` yields [0, 1, 2], so the body runs three times; `i` is the current number.\n\n3. Exercises:\n   - A: Use a for loop to **square** each number in `[2, 4, 6]` and print them.\n   - B: Write a for loop that prints each character in `Python`.\n\n4. Self-check:\n   - Do you know the difference between `for i in range(5)` (0–4) and `for num in [10, 20, 30]` (iterates list elements)?\n   - Can you explain why the loop variable can be any name (not necessarily `i`)?\n\n5. Extensions:\n   - Task A: Sum numbers 1..100 with a for loop.\n   - Task B: Then use `sum(range(1, 101))` and compare brevity.\n   - Thought: for loops are flexible, but prefer built-ins when available for cleaner code.\n"
+    },
+
+    { "type": "horizontal-rule" },
+    { "type": "line-break" },
   
-      {
-        "type": "heading",
-        "level": 2,
-        "content": "🎨 Designer | UX / Product"
-      },
-      {
-        "type": "code",
-        "language": "markdown",
-        "title": "Quick Version",
-        "content": "You are a **Product/UX Designer**.\nGoal: Design {{feature / workflow}} for {{target users}}.\nOutput: User stories, process flow sketch, UI sections, usability risks."
-      },
-      {
-        "type": "code",
-        "language": "markdown",
-        "title": "Structured Template",
-        "content": "[Role] Senior UX/Product Designer.\n[Context] Users: {{persona / pain points}}; Goal: {{north star metric}}.\n[Output]\n1) Value Proposition\n2) User Stories\n3) Wireflow Steps\n4) UI Information Architecture\n5) Metrics & Risks"
-      },
-  
-      { "type": "horizontal-rule" },
-      { "type": "line-break" },
-  
-      {
-        "type": "heading",
-        "level": 2,
-        "content": "📚 Teacher | Mentor"
-      },
-      {
-        "type": "code",
-        "language": "markdown",
-        "title": "Quick Version",
-        "content": "You are a **strict but friendly programming mentor**.\nTeach me {{topic}} using the method: Concept → Small Example → Exercise → Checklist.\nExplain clearly in {{English / plain language}}."
-      },
-      {
-        "type": "code",
-        "language": "markdown",
-        "title": "Structured Template",
-        "content": "[Role] Senior Mentor.\n[Learner Background] {{Beginner / Intermediate}}.\n[Topic] {{topic name}}.\n[Method]\n1) Why it matters\n2) Minimal Example\n3) Practice Exercises\n4) Self-checklist\n5) Extension Task"
-      },
-  
-      { "type": "horizontal-rule" },
-      { "type": "line-break" },
-  
-      {
-        "type": "heading",
-        "level": 2,
-        "content": "🚀 Entrepreneur | Founder"
-      },
-      {
-        "type": "code",
-        "language": "markdown",
-        "title": "Quick Version",
-        "content": "You are a **product-focused entrepreneur**.\nUse the framework 'Problem → Target Audience → Unique Solution → MVP → Validation Metrics → Risks' to evaluate {{idea / product}}."
-      },
-      {
-        "type": "code",
-        "language": "markdown",
-        "title": "Structured Template",
-        "content": "[Role] Serial Entrepreneur.\n[Topic] {{product / feature}}; Market: {{region}}.\n[Output]\n1) Problem & Jobs-To-Be-Done (JTBD)\n2) Target Audience / ICP\n3) Competitive Landscape & Differentiation\n4) MVP Definition (what to exclude)\n5) Validation Plan (interviews, usability tests, metrics)\n6) Risk Map (legal/data/cost/platform) + Mitigation Strategies"
-      },
-  
-      { "type": "horizontal-rule" },
-      { "type": "line-break" },
-  
-      {
-        "type": "callout",
-        "variant": "success",
-        "title": "Summary",
-        "content": "By using role-based prompts, you can instantly shift ChatGPT’s perspective:\n- Coding → Engineer-focused\n- Designer → User Experience-focused\n- Teacher → Teaching-focused\n- Entrepreneur → Business-focused\n\nThis makes ChatGPT not just an assistant, but a multi-faceted collaborator."
-      }
-    ]
-  }
-  
+    {
+      "type": "heading",
+      "level": 2,
+      "content": "🚀 Founder | PMF"
+    },
+    {
+      "type": "code",
+      "language": "markdown",
+      "title": "Quick Version",
+      "content": "You are a **product-minded founder**.\nAssess {{idea / product}} using the framework: Problem → Customer → Unique Solution → MVP → Metrics → Risks."
+    },
+    {
+      "type": "code",
+      "language": "markdown",
+      "title": "Example: Daily Money Log App (Founder’s View)",
+      "content": "[Role] You are a **product-minded founder**.\n\n[Concept] A simple daily money log app; Market: young professionals and students in Asia; Business model: free download + premium subscription (cloud backup, export reports).\n\n[Output]\n\n1. Problem\n   - Pain: Beginners want a habit of logging, but existing apps are bloated and tedious.\n   - Added concern: privacy and data leaks.\n   - Alternatives: Excel, Google Sheets, traditional apps — steep learning curve or cluttered UI.\n   - Cost of inaction: continued financial opacity and poor planning.\n\n2. Customer\n   - ICP:\n     - Students and early-career workers (18–30).\n     - 2–5 small purchases per day; need fast entry.\n   - Users: general audience (non-finance).\n   - Triggers:\n     - New semester or first job → wants a habit.\n     - Limited income → wants to know where money goes.\n\n3. Unique Solution\n   - Value prop: **One-tap logging — as fast as sending a message.**\n   - Differentiation:\n     - Minimal flow: amount → Expense/Income → save.\n     - Auto-categorization (AI on the note text, e.g., \"breakfast\" → Food).\n     - Offline-first with local save; premium syncs to cloud.\n   - Moats:\n     - Lightweight AI classifier improves UX.\n     - Consistent multi-platform (iOS/Android/Web).\n\n4. MVP\n   - Core features:\n     1) Add records (amount required; category/note optional).\n     2) List for today/week.\n     3) Simple stats card: weekly spend, balance.\n   - Storage: local SQLite; premium supports cloud sync.\n   - UI: single-page input + list.\n\n5. Metrics for Validation\n   - Problem–solution fit:\n     - ≥ 20 deep interviews; ≥ 70% say \"need something faster than Excel\".\n   - Early PMF signals:\n     - ≥ 40% log ≥ 5/7 days in week one.\n     - Week-2 retention ≥ 30%.\n   - Growth signals:\n     - Invite-friend install rate ≥ 15%.\n     - Premium conversion ≥ 5%.\n\n6. Risk Map\n   - Market: crowded category → focus on speed, go minimal.\n   - Tech: AI misclassification → allow quick recategorization with learning.\n   - Cost: cloud sync costs → limit free sync frequency.\n   - Privacy: leakage concerns → default local encryption, optional cloud sync.\n   - Habit: churn after 2 weeks → reminders + gamified streak badges.\n"
+    },
+      
+    { "type": "line-break" },
+    { "type": "horizontal-rule" },
+    { "type": "line-break" },
+
+    {
+      "type": "heading",
+      "level": 2,
+      "content": "Official site for improving ChatGPT prompts"
+    },
+    { 
+      "type": "text",
+      "content": "A newly released instruction page that helps improve ChatGPT responses in a way AI understands best."
+    },
+    {
+      "type": "link",
+      "title": "Official page for improving ChatGPT prompts",
+      "href": "https://platform.openai.com/chat/edit?models=gpt-5&optimize=true",
+      "target": "_blank"
+    },
+
+    { "type": "line-break" },
+    { "type": "horizontal-rule" },
+    { "type": "line-break" },
+
+    {
+      "type": "callout",
+      "variant": "success",
+      "title": "Summary",
+      "content": "Role-based prompts let you switch ChatGPT’s persona on demand:\n- Coding → engineer-oriented\n- Design → user-experience-oriented\n- Tutor → teaching-oriented\n- Founder → business-oriented\n\nWith this, ChatGPT becomes not just an assistant but a multi-faceted collaborator."
+    }
+  ]
+}

@@ -10,7 +10,7 @@
     },
     {
       "type": "text",
-      "content": "Claude AI 由 Anthropic 開發，係我目前最主要使用嘅Vibe Coding 工具。"
+      "content": "Claude AI 由 Anthropic 開發，是我目前主要使用的 Vibe Coding 工具。"
     },
 
     { "type": "horizontal-rule" },
@@ -25,12 +25,12 @@
       "type": "list",
       "listType": "unordered",
       "items": [
-        "**模型版本**:Claude Sonnet 4, Claude Opus 4, Claude Opus 4.1",
-        "摘要文字、回答問題、提取資料、翻譯文字，以及解釋和生成程式碼。",
-        "處理和分析視覺輸入，並從圖像生成文字和程式碼。",
-        "**Sub-agent 支援**：可以模擬多個子代理，一齊協作完成 Debug、代碼生成、重構。",
-        "**安全審查 (Security Review)**：特別擅長檢查代碼中嘅安全漏洞（SQL Injection、XSS 等）。",
-        "**多用途**：除咗代碼，仲可以分析文檔、協助技術研究。"
+        "**模型版本**：Claude Sonnet 4、Claude Opus 4、Claude Opus 4.1",
+        "可進行文字摘要、回答問題、資料提取、文字翻譯，以及解釋與生成程式碼。",
+        "支援處理與分析視覺輸入，並可從圖像生成文字與程式碼。",
+        "**Sub-agent 支援**：可模擬多個子代理，協作完成除錯、程式碼生成與重構。",
+        "**安全審查（Security Review）**：特別擅長檢查程式碼中的安全漏洞（如 SQL Injection、XSS 等）。",
+        "**多用途**：除程式開發外，亦能分析文件並協助技術研究。"
       ]
     },
 
@@ -68,11 +68,11 @@
       "type": "table",
       "headers": ["功能", "描述", "能力", "分析時間", "缺點"],
       "rows": [
-        ["Claude Sonnet 4", "日常編程，寫網站，寫文章，寫程式碼", "高智能和平衡性能，普遍適用", "快速", "數理邏輯能力較弱"],
-        ["Claude Opus 4", "大型代碼分析，或科學研究時使用", "超高智能，編程能力極強", "中等，需要考慮時間", "貴（API價格）"],
-        ["Claude Opus 4.1", "加強版的Opus 4，大型代碼分析，或科學研究時使用", "Claude AI 最強模型", "中等，需要考慮時間", "貴（API價格）"]
+        ["Claude Sonnet 4", "日常編程、網站開發、文章與程式碼撰寫", "智慧與效能均衡，通用性高", "快速", "數學與邏輯能力相對較弱"],
+        ["Claude Opus 4", "大型程式碼分析或科學研究情境", "高智慧水準，程式能力極強", "中等（需考量時間）", "費用較高（API 價格）"],
+        ["Claude Opus 4.1", "Opus 4 的加強版，適用於大型程式碼分析或科學研究", "Claude AI 最強模型", "中等（需考量時間）", "費用較高（API 價格）"]
       ],
-      "title": "Claude 模型比較（建議從這三個中選擇）"
+      "title": "Claude 模型比較（建議從此三款中選擇）"
     },
 
     { "type": "line-break" },
@@ -86,58 +86,57 @@
     },
     {
       "type": "text",
-      "content": "Claude Code 和Cursor Agent一樣，可以幫你直接改寫和創建程式碼。為何我要先介紹Cursor ( 上一個題目），因為Claude Code 可以在Cursor中使用，等於有兩個不同的專業編程師幫你工作。先介紹如何在Cursor中使用Claude Code。"
-
+      "content": "Claude Code 與 Cursor Agent 類似，能直接改寫與建立程式碼。之所以先介紹 Cursor（上一節），是因為 Claude Code 可在 Cursor 中使用，相當於獲得兩位不同專長的工程助手同時協作。以下先說明如何在 Cursor 中使用 Claude Code。"
     },
     {
       "type": "callout",
       "variant": "warning",
-      "title": "注意⚠️",
-      "content": "需要有Claude Pro或以上的訂閱，才能使用Claude Code。價錢大約為17美金一個月（根據地區不同要改變）"
+      "title": "注意 ⚠️",
+      "content": "需具備 Claude Pro 或以上訂閱才能使用 Claude Code。價格約為每月 17 美元（實際金額依地區而定）。"
     },
     { "type": "line-break" },
     {
       "type": "text",
-      "content": "1：安裝 Claude Code "
+      "content": "1：安裝 Claude Code"
     },
     {
       "type": "terminal",
-      "content": "npm install -g @anthropic-ai/claude-code ",
-      "title": "如果您已安裝 Node.js 18 或更新版本："
+      "content": "npm install -g @anthropic-ai/claude-code",
+      "title": "若已安裝 Node.js 18 或更新版本："
     },
     { "type": "line-break" },
     {
       "type": "text",
-      "content": "2：登入您的帳戶 （Claude Code 需要帳戶才能使用。當您使用 claude 命令開始互動會話時，您需要登入：）"
+      "content": "2：登入帳戶（Claude Code 需登入帳戶方可使用。當你以 `claude` 指令啟動互動工作階段時，系統會引導登入）："
     },
     {
       "type": "terminal",
-      "content": "claude\n# 首次使用時會提示您登入"
+      "content": "claude\n# 首次使用時會提示登入"
     },
     {
       "type": "terminal",
-      "content": "/login\n# 按照提示使用您的帳戶登入"
+      "content": "/login\n# 依提示使用你的帳戶登入"
     },
     {
       "type": "text",
-      "content": "您可以使用任一帳戶類型登入："
+      "content": "可使用以下任一帳戶類型登入："
     },
     {
       "type": "list",
       "items": [
-        "Claude.ai（訂閱方案 - 推薦）",
-        "Anthropic Console（預付費用的 API 存取）"
+        "Claude.ai（訂閱方案，建議）",
+        "Anthropic Console（預付費 API 存取）"
       ]
     },
     { "type": "line-break" },
 
     {
       "type": "text",
-      "content": "3：開始使用Claude Code "
+      "content": "3：開始使用 Claude Code"
     },
     {
       "type": "terminal",
-      "content": "claude\n# 開始使用Claude Code"
+      "content": "claude\n# 開始使用 Claude Code"
     },
 
     { "type": "line-break" },
@@ -147,17 +146,17 @@
     {
       "type": "heading",
       "level": 2,
-      "content": "擴展商店 (Extensions)"
+      "content": "擴展商店（Extensions）"
     },
 
     {
       "type": "text",
-      "content": "Cursor 有一個擴展商店，可以安裝不同的擴展，幫助你更方便地使用Claude。我強烈建議安裝Claude Code For VS Code，幫你一鍵使用Claude Code。"
+      "content": "Cursor 內建擴展商店，可安裝多種擴展以更便利地搭配 Claude 使用。強烈建議安裝 Claude Code for VS Code，可一鍵啟用 Claude Code。"
     },
     {
       "type": "heading",
       "level": 3,
-      "content": "1. 先去Cursor擴展商店"
+      "content": "1. 前往 Cursor 擴展商店"
     },
     { 
       "type": "image",
@@ -169,7 +168,7 @@
     {
       "type": "heading",
       "level": 3,
-      "content": "2. 安裝Claude Code For VS Code"
+      "content": "2. 安裝 Claude Code for VS Code"
     },
     { 
       "type": "image",
@@ -181,7 +180,7 @@
     {
       "type": "heading",
       "level": 3,
-      "content": "3. 右上角按下橙色按鈕，馬上可以開始使用Claude Code !超方便！"
+      "content": "3. 點擊右上角橙色按鈕，即可開始使用 Claude Code（操作便捷）"
     },
     {
       "type": "video",
@@ -202,16 +201,16 @@
 
     {
       "type": "text",
-      "content": "Sub-agent 是Claude的最強特色，可以幫你分擔不同的任務到不同的Agent。例如："
+      "content": "Sub-agent 是 Claude 的核心特點之一，可將不同子任務分派給不同代理。例如："
     },
 
     {
       "type": "list",
       "listType": "unordered",
       "items": [
-        "UI設計",
-        "代碼安全審查",
-        "代碼重構",
+        "UI 設計",
+        "程式碼安全審查",
+        "程式碼重構",
         "前端開發"
       ]
     },
@@ -219,12 +218,12 @@
     {
       "type": "heading",
       "level": 3,
-      "content": "一鍵下載我一直使用嘅Sub-agent！"
+      "content": "一鍵下載我長期使用的 Sub-agent"
     },
     {
       "type": "download-link",
-      "title": "Sub-agent下載",
-      "content": "Zip file，包含所有Sub-agent。適合新手快速上手使用。只要將文件解壓縮，放入.claude/ folder 就會自動使用。（如找不到.claude/，可以在cursor file區自行創建）",
+      "title": "Sub-agent 下載",
+      "content": "Zip 壓縮檔，包含所有 Sub-agent。適合新手快速上手。將檔案解壓縮並放入 .claude/ 目錄即可自動使用。（若找不到 .claude/，可於 Cursor 檔案區自行建立）",
       "href": "/assets/03-ai-tools-intro/04-claude/agents.zip",
       "fileType": "Zip file",
       "fileSize": "34 KB"
@@ -239,15 +238,15 @@
     {
       "type": "heading",
       "level": 3,
-      "content": "Sub-agent 的好處"
+      "content": "Sub-agent 的優點"
     },
     {
       "type": "list",
       "listType": "unordered",
       "items": [
-        "將複雜任務分配到多個專門 Agent，效率更高。",
+        "將複雜工作拆分至多個專門代理，效率更高。",
         "避免單一回應過長或遺漏細節。",
-        "例如：安全審查 Agent 專注漏洞檢查，UI Agent 專注界面設計。"
+        "例如：安全審查代理專注漏洞檢查；UI 代理專注介面設計。"
       ]
     },
     {
@@ -259,28 +258,28 @@
     {
       "type": "heading",
       "level": 2,
-      "content": "MCP (Model Context Protocol)"
+      "content": "MCP（Model Context Protocol）"
     },
     {
       "type": "text",
-      "content": "MCP 係一個標準協議，讓 Claude 直接連接外部資源（檔案系統、API、資料庫）。相比傳統 copy-paste，更加方便同安全。"
+      "content": "MCP 是一項標準協議，使 Claude 能直接連接外部資源（檔案系統、API、資料庫）。相較於傳統的複製貼上，更加便利且安全。"
     },
     {
       "type": "list",
       "listType": "unordered",
       "items": [
-        "直接讀取本地或雲端檔案，進行分析。",
-        "連接 GitHub Repo，幫你做代碼審查。",
-        "查詢 Database Schema，生成 SQL 查詢。",
-        "整合 API，減少重複人工操作。",
-        "目前不建議新手使用，先學習如何使用Claude Code，其他先學識手動！"
+        "可直接讀取本地或雲端檔案並進行分析。",
+        "可連接 GitHub 儲存庫，協助進行程式碼審查。",
+        "可查詢資料庫結構（Schema），並生成 SQL 查詢。",
+        "可整合 API，減少重複人工操作。",
+        "目前不建議初學者立即使用；建議先熟悉 Claude Code，再逐步導入。"
       ]
     },
     {
       "type": "callout",
       "variant": "info",
       "title": "小提示",
-      "content": "MCP 可以視為 Claude 同外部世界嘅橋樑，適合專案級應用。"
+      "content": "可將 MCP 視為 Claude 與外部世界之間的橋樑，適合專案級應用。"
     },    
 
 
@@ -292,20 +291,20 @@
     {
       "type": "heading",
       "level": 2,
-      "content": "學習影片介紹（中英都有）"
+      "content": "學習影片介紹（中英文）"
     },
 
     {
       "type": "link",
-      "title": "Youtube",
+      "title": "YouTube",
       "href": "https://www.youtube.com/watch?v=amEUIuBKwvg&t=637s",
       "content": "Claude Code Complete Guide (English)"
     },
     {
       "type": "link",
-      "title": "Youtube",
+      "title": "YouTube",
       "href": "https://www.youtube.com/watch?v=e5O8A5pcVgg&t=890s",
-      "content": "Claude Code攻略 (普通話)"
+      "content": "Claude Code 攻略（普通話）"
     },
     { "type": "line-break" },
     { "type": "horizontal-rule" },
@@ -320,18 +319,19 @@
       "type": "callout",
       "variant": "success",
       "title": "總結",
-      "content": "Claude Code = **長上下文 + 安全審查 + 多子代理協作**。適合處理大型專案、技術研究、安全檢查，係 ChatGPT / Cursor 嘅有力補充。"
+      "content": "Claude Code = **長上下文＋安全審查＋多子代理協作**。適合處理大型專案、技術研究與安全檢查，是對 ChatGPT／Cursor 的有力補充。"
     },
-    { "type": "heading",
+    {
+      "type": "heading",
       "level": 3,
       "content": "試試看"
     },
     {
       "type": "task-list",
       "items": [
-        { "content": "打開 Claude，輸入一個大型代碼檔案，叫佢生成架構解釋", "completed": false },
-        { "content": "用 Claude 幫你做一次代碼安全審查（例如 SQL Injection）", "completed": false },
-        { "content": "試下用 Claude 將舊代碼重構成新語法", "completed": false }
+        { "content": "開啟 Claude，載入大型程式碼檔案，請其生成架構說明", "completed": false },
+        { "content": "使用 Claude 進行一次程式碼安全審查（如 SQL Injection）", "completed": false },
+        { "content": "嘗試使用 Claude 將舊程式碼重構為新語法", "completed": false }
       ]
     }
   ]
