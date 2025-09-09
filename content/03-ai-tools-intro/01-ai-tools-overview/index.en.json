@@ -1,16 +1,16 @@
 {
-  "slug": "ai-tools-overview",
+  "slug": "deep-dive-chatgpt",
   "category": "ai-tools",
   "lastModified": "2025-09-06T00:00:00.000Z",
   "blocks": [
     {
       "type": "heading",
       "level": 1,
-      "content": "3.1 AI Tools Overview"
+      "content": "3.2 In-Depth Guide to ChatGPT 5"
     },
     {
       "type": "text",
-      "content": "The number of AI tools is growing rapidly, each with different strengths. Below is an introduction with practical examples to help you understand *when to use which tool*."
+      "content": "ChatGPT 5 is more than a chatbot — it’s a **multimodal AI platform**. It understands text, images, and documents, combines strong reasoning with memory, and serves as a project partner."
     },
 
     { "type": "horizontal-rule" },
@@ -19,137 +19,243 @@
     {
       "type": "heading",
       "level": 2,
-      "content": "🧑‍💻 For Programming and Development"
-    },
-    {
-      "type": "heading",
-      "level": 3,
-      "content": "ChatGPT 5"
-    },
-    {
-      "type": "text",
-      "content": "GPT-5 stands out for **reasoning ability** and **multimodality**. Best for:\n- Large-scale code explanation and refactoring\n- Security audits (SQL Injection, XSS)\n- System design and architecture advice\n- Debugging images + text issues"
-    },
-    {
-      "type": "code",
-      "language": "markdown",
-      "title": "Example Prompt",
-      "content": "You are a **senior security auditor**. Please review the following Python API, identify possible SQL Injection risks, and suggest fixes."
-    },
-    {
-      "type": "callout",
-      "variant": "warning",
-      "title": "Limitations",
-      "content": "GPT-5 requires a paid subscription; multimodal features may not be available on all platforms."
-    },
-
-    { "type": "horizontal-rule" },
-    { "type": "line-break" },
-
-    {
-      "type": "heading",
-      "level": 3,
-      "content": "Cursor (with CLI)"
-    },
-    {
-      "type": "text",
-      "content": "Cursor is not only an AI IDE but also provides a **CLI tool** to directly work with entire codebases:\n- Auto-generate project structure explanations\n- Fix specific files\n- Conduct full code reviews"
-    },
-    {
-      "type": "terminal",
-      "title": "Cursor CLI Example",
-      "content": "$ cursor explain src/\n$ cursor fix src/utils.py\n$ cursor review src/"
-    },
-    {
-      "type": "task-list",
-      "title": "Practice Tasks",
-      "items": [
-        { "content": "Install Cursor and try `cursor explain` on an open-source repo", "completed": false },
-        { "content": "Use `cursor fix` to repair a faulty Python file", "completed": false }
-      ]
-    },
-
-    { "type": "horizontal-rule" },
-    { "type": "line-break" },
-
-    {
-      "type": "heading",
-      "level": 3,
-      "content": "Claude Code"
-    },
-    {
-      "type": "text",
-      "content": "Claude Code excels at **long context (100k tokens)**, making it suitable for:\n- Reading an entire project at once\n- Multi-perspective analysis with Sub-agents (security / performance / docs)\n- Security reviews"
-    },
-    {
-      "type": "code",
-      "language": "markdown",
-      "title": "Sub-agent Prompt Example",
-      "content": "You are a **security expert agent**. Please review this Node.js project:\n1. Check if dependencies have vulnerabilities\n2. Verify if APIs defend against SQL Injection\n3. Suggest fixes"
-    },
-    {
-      "type": "callout",
-      "variant": "info",
-      "title": "Notes",
-      "content": "Claude Code has strong analysis but slower output than Cursor. Better for large debugging or long document reviews."
-    },
-
-    { "type": "horizontal-rule" },
-    { "type": "line-break" },
-
-    {
-      "type": "heading",
-      "level": 2,
-      "content": "📊 API Tokens"
-    },
-    {
-      "type": "text",
-      "content": "When using AI models (e.g., GPT, Claude, Cursor), your program must communicate with the AI server. Servers do not allow unlimited access, so an API token is required:"
+      "content": "ChatGPT 5 Feature Overview"
     },
     {
       "type": "list",
+      "listType": "unordered",
       "items": [
-        "Identity: Confirms who the user is and if valid.",
-        "Permissions: Defines which features and resources are available.",
-        "Billing: Providers track usage via tokens for charges or quota deductions."
+        "**Model Versions**: GPT-5 (free/paid) → faster, more accurate, supports very long context.",
+        "**Multimodal**: Handles text, images, and files (PDF, Excel, CSV).",
+        "**Persistent Memory**: Remembers preferences across sessions (e.g., always reply in Cantonese).",
+        "**Advanced Reasoning**: Stronger at complex data analysis, system design, and algorithm explanation."
       ]
     },
-    
+
     { "type": "horizontal-rule" },
     { "type": "line-break" },
 
     {
       "type": "heading",
       "level": 2,
-      "content": "📊 AI Tools Feature Comparison"
+      "content": "⚙️ ChatGPT 5 Customization"
     },
     {
-      "type": "table",
-      "title": "AI Tools Feature Matrix (Combined)",
-      "headers": ["Tool", "Coding / Debugging", "Search / Research", "Image Design", "Reasoning / Text Understanding", "Ideas / Brainstorming", "Document Analysis"],
-      "rows": [
-        ["ChatGPT", "✅ ✅", "✅", "✅", "✅ ✅", "✅", "✅"],
-        ["Cursor", "✅ ✅", "❌", "❌", "✅ (code context)", "⚠️ (limited)", "✅ (code-level)"],
-        ["Claude Code", "✅ ✅", "❌", "❌", "✅", "⚠️", "✅ (long docs/code)"],
-        ["GitHub Copilot", "✅", "❌", "❌", "⚠️", "❌", "❌"],
-        ["Lovable", "✅ (site building)", "❌", "❌", "❌", "⚠️ (site concepts)", "❌"],
-        ["Perplexity", "❌", "✅ ✅", "❌", "⚠️ (summaries)", "❌", "✅ (knowledge citations)"],
-        ["Grok", "❌", "✅ (social data)", "❌", "⚠️", "❌", "❌"],
-        ["Gemini", "✅ (some code)", "✅", "⚠️", "✅ ✅", "✅", "✅ (docs)"],
-        ["Canva", "❌", "❌", "✅ ✅", "❌", "✅ (design ideas)", "❌"],
-        ["Kuse", "❌", "❌", "❌", "❌", "✅ (video concepts)", "✅"],
-        ["Notion", "❌", "⚠️ (knowledge base search)", "❌", "⚠️ (AI summaries)", "✅", "✅ (notes/docs)"]
+      "type": "text",
+      "content": "Most people use default settings, but fine-tuning response style, language, and tone can give more control over outputs."
+    },
+    { "type": "line-break" },
+
+    {
+      "type": "heading",
+      "level": 3,
+      "content": "How to Customize"
+    },
+    {
+      "type": "text",
+      "content": "1. Open the **Customize ChatGPT** settings page."
+    },
+    {
+      "type": "image",
+      "src": "/assets/03-ai-tools-intro/02-chatgpt/1.Customize_setting.png",
+      "size": 6
+    },
+    { "type": "line-break" },
+    {
+      "type": "text",
+      "content": "2. In **Customize ChatGPT**, adjust response style, language, and tone preferences."
+    },
+    {
+      "type": "image",
+      "src": "/assets/03-ai-tools-intro/02-chatgpt/2.Customize_GPT.png",
+      "size": 6
+    },
+
+    { "type": "horizontal-rule" },
+    { "type": "line-break" },
+
+    {
+      "type": "heading",
+      "level": 2,
+      "content": "Customization Suggestions"
+    },
+
+    { "type": "line-break" },
+    {
+      "type": "heading",
+      "level": 3,
+      "content": "1. Personality Options"
+    },
+    {
+      "type": "definition-list",
+      "definitions": [
+        { "term": "Default", "definition": "Standard behavior with minimal personalization, adapts to user prompts." },
+        { "term": "Cynic", "definition": "Sarcastic and humorous tone. Adds personality to replies." },
+        { "term": "Robot", "definition": "Precise and mechanical tone. Good for professional, accuracy-focused replies." },
+        { "term": "Listener (Author Setting)", "definition": "Emphasizes listening and guidance. Useful for mentoring, feedback, and advice." },
+        { "term": "Nerd", "definition": "Knowledge-focused with rigorous answers. Best for data-driven, technical queries." }
       ]
     },
-    {
-      "type": "callout",
-      "variant": "info",
-      "title": "Legend",
-      "content": "✅ = Strong support; ⚠️ = Partial / Limited; ❌ = Not supported"
-    },
+
     { "type": "line-break" },
     { "type": "horizontal-rule" },
     { "type": "line-break" },
+
+    {
+      "type": "heading",
+      "level": 3,
+      "content": "2. Expected Qualities"
+    },
+    {
+      "type": "definition-list",
+      "definitions": [
+        { "term": "**Expert Role**", "definition": "Acts as a senior software engineer with 10+ years of experience." },
+        { "term": "**Before Answering**", "definition": "Clarify and confirm all technical details to fully understand the goal." },
+        { "term": "**During Response**", "definition": "Use precise, formal, and professional language, with examples to explain key points." },
+        { "term": "**Fact-Checking**", "definition": "Accuracy, clarity, and correctness are non-negotiable. Claims should cite reliable sources when available." },
+        { "term": "Coding Guidance", "definition": "Follow best practices: clean, well-commented, style-compliant, readable, maintainable, and properly tested." },
+        { "term": "**Process**", "definition": "Prioritize discipline and industry standards over speed." }
+      ]
+    },
+
+    { "type": "line-break" },
+    { "type": "horizontal-rule" },
+    { "type": "line-break" },
+
+    {
+      "type": "code",
+      "language": "markdown",
+      "title": "Reference Personalization (Adjust as Needed)",
+      "content": "ChatGPT should act as a senior software engineer with 10+ years of experience. Before answering or starting any task, it must clarify and confirm all technical details. Responses should be precise, formal, and professional, always supported by examples. Accuracy and correctness are non-negotiable, with sources cited where possible. ChatGPT should emphasize process, discipline, and best practices over speed."
+    },
+
+    { "type": "line-break" },
+    { "type": "horizontal-rule" },
+    { "type": "line-break" },
+
+    {
+      "type": "heading",
+      "level": 3,
+      "content": "3. Information ChatGPT Should Know"
+    },
+    { "type": "line-break" },
+
+    {
+      "type": "code",
+      "language": "markdown",
+      "title": "Reference Needs (Adjust as Needed)",
+      "content": "When I request an answer or technical task, ChatGPT must not jump directly to solutions. First, confirm all requirements and ask clarifying technical questions. For coding or multi-step tasks, ChatGPT should:\n\n1. Provide a TODO list of planned phases and tasks for approval.\n2. Deliver work step by step, waiting for confirmation before continuing.\n3. Ensure all code is production-ready: clean, efficient, warning-free, error-free, no duplication, aligned with professional standards.\n4. Treat me as the client and confirm full understanding before execution."
+    },
+
+    { "type": "line-break" },
+
+    { "type": "horizontal-rule" },
+    { "type": "line-break" },
+
+    {
+      "type": "heading",
+      "level": 2,
+      "content": "ChatGPT 5 Modes"
+    },
+    {
+      "type": "text",
+      "content": "Modes let you choose how ChatGPT responds to fit different needs. (⚠️ Note: some modes have quotas, even in paid plans.)"
+    },
+    { "type": "line-break" },
+
+    {
+      "type": "image",
+      "src": "/assets/03-ai-tools-intro/02-chatgpt/3.GPT_modes.png",
+      "size": 6
+    },
+    { "type": "line-break" },
+
+    {
+      "type": "definition-list",
+      "title": "Mode Options",
+      "definitions": [
+        { "term": "Agent Mode", "items": ["Automates tasks like reminders, tracking data, or conditional triggers.", "Acts as an assistant with persistent goals and periodic updates.", "Use for: data tracking, weekly reviews, scheduled reminders."], "listType": "unordered" },
+        { "term": "Deep Research Mode", "items": ["Aggregates multiple sources for deeper conclusions.", "Best for research, investigations, and literature reviews.", "Use for: academic research, reports, or decision prep."], "listType": "unordered" },
+        { "term": "Create Image Mode", "items": ["Generates images from descriptions.", "Useful for drafts, diagrams, or style transformations.", "Use for: mockups, diagrams, image edits."], "listType": "unordered" },
+        { "term": "Study and Learn Mode", "items": ["Supports studying and practice (e.g., quizzes, step-by-step explanations).", "Simulates teacher/student interactions.", "Use for: daily study plans, practice tests, language learning."], "listType": "unordered" },
+        { "term": "Web Search Mode", "items": ["Searches the live web for latest info.", "Fixes cutoff knowledge issues (e.g., news, live data, event results).", "Use for: real-time info, local data, updates."], "listType": "unordered" },
+        { "term": "Canvas / Canva Integration", "items": ["Canvas (built-in): collaborative document editing in sidebar.", "Canva (platform): for slides, social images, layouts.", "Use for: doc editing, presentations, social content."], "listType": "unordered" }
+      ]
+    },
+
+    { "type": "line-break" },
+
+    { "type": "horizontal-rule" },
+    { "type": "line-break" },
+
+    {
+      "type": "heading",
+      "level": 2,
+      "content": "ChatGPT Model Analysis"
+    },
+    {
+      "type": "text",
+      "content": "Choosing the right model saves effort and improves results."
+    },
+
+    { "type": "line-break" },
+
+    {
+      "type": "video",
+      "src": "/assets/03-ai-tools-intro/02-chatgpt/GPT_model_video.mp4",
+      "size": 7
+    },
+
+    { "type": "line-break" },
+
+    {
+      "type": "heading",
+      "level": 3,
+      "content": "ChatGPT 5 Models"
+    },
+    {
+      "type": "definition-list",
+      "definitions": [
+        { "term": "Auto (Recommended)", "items": ["Automatically selects the best model.", "Balances speed vs. depth depending on context.", "No extra setup needed."], "listType": "unordered" },
+        { "term": "Instant", "items": ["Fastest response, lowest latency.", "Less depth, but high speed.", "Best for chats, quick answers, simple queries."], "listType": "unordered" },
+        { "term": "Thinking Mini", "items": ["Lightweight reasoning model.", "Balances reasoning and speed with lower resource use.", "Good for medium tasks like debugging and basic analysis."], "listType": "unordered" },
+        { "term": "Thinking", "items": ["Full reasoning model.", "Deeper, longer, more accurate analysis.", "Best for logic chains, math, and research problems."], "listType": "unordered" }
+      ]
+    },
+
+    { "type": "line-break" },
+    { "type": "horizontal-rule" },
+    { "type": "line-break" },
+
+    {
+      "type": "heading",
+      "level": 3,
+      "content": "Older ChatGPT Models"
+    },
+    {
+      "type": "definition-list",
+      "definitions": [
+        { "term": "4o", "items": ["GPT-4 Omni (optimized GPT-4).", "Stable, strong language understanding, supports image input.", "Good for professional writing, complex dialogues, multimodal tasks."], "listType": "unordered" },
+        { "term": "4.1", "items": ["Updated 4o.", "Faster, more accurate, improved reasoning.", "Good for technical docs, research, precision answers."], "listType": "unordered" },
+        { "term": "o3", "items": ["Reasoning-specialist model.", "Focused on complex math, logic, and multi-step reasoning.", "Best for research, engineering, advanced problem-solving."], "listType": "unordered" },
+        { "term": "o4-mini", "items": ["Lightweight o-series model.", "Faster than o3 with slightly less reasoning power.", "Best when speed is more important than deep reasoning."], "listType": "unordered" }
+      ]
+    },
+
+    { "type": "line-break" },
+
+    { "type": "horizontal-rule" },
+    { "type": "line-break" },
+
+    {
+      "type": "heading",
+      "level": 2,
+      "content": "ChatGPT API"
+    },
+    {
+      "type": "text",
+      "content": "The ChatGPT API integrates into your systems for automation, batch processing, or embedding AI features into apps."
+    },
 
     {
       "type": "heading",
@@ -160,7 +266,20 @@
       "type": "callout",
       "variant": "success",
       "title": "Summary",
-      "content": "The value of AI tools = **multimodality + long context + memory + strong reasoning**. Used effectively, they can serve as mentor, analyst, and collaborator. The next chapter will dive deeper into different AI tools and less-discussed details."
+      "content": "The value of ChatGPT 5 = **multimodality + long context + memory + strong reasoning**. Used well, it can act as mentor, analyst, and reliable teammate."
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "content": "Try It"
+    },
+    {
+      "type": "task-list",
+      "items": [
+        { "content": "Set ChatGPT to always reply in Cantonese and test with a technical question", "completed": false },
+        { "content": "Enable the “Listener” personality and ask ChatGPT to analyze a study plan", "completed": false },
+        { "content": "Select a mode (e.g., Deep Research) and ask ChatGPT to summarize and consolidate a long article", "completed": false }
+      ]
     }
   ]
 }
