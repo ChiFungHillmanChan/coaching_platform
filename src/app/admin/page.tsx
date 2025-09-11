@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useMemo, useState, useEffect } from "react";
+import React, { useMemo, useState, useEffect, useCallback } from "react";
 import { LineChart, Line, XAxis, YAxis, Tooltip, ResponsiveContainer, CartesianGrid, Legend } from "recharts";
 import { Search, Sun, Moon, LogOut, Mail, Users, BarChart3, Send, Calendar, AlertCircle, Shield } from "lucide-react";
 
@@ -488,7 +488,7 @@ export default function AdminPanel() {
     });
   }, [subscribers]);
 
-  const loadAdminData = async () => {
+  const loadAdminData = useCallback(async () => {
     try {
       // Load subscribers
       const subscribersResponse = await fetch('/api/admin/subscribers');
@@ -507,9 +507,9 @@ export default function AdminPanel() {
     } catch (error) {
       console.error('Failed to load admin data:', error);
     }
-  };
+  }, []);
 
-  const checkAuthStatus = async () => {
+  const checkAuthStatus = useCallback(async () => {
     try {
       const response = await fetch('/api/admin/auth');
       if (response.ok) {
@@ -524,12 +524,12 @@ export default function AdminPanel() {
     } finally {
       setIsLoading(false);
     }
-  };
+  }, [loadAdminData]);
 
   // Check authentication status
   useEffect(() => {
     checkAuthStatus();
-  }, [checkAuthStatus, loadAdminData]);
+  }, [checkAuthStatus]);
 
   const login = async (e: React.FormEvent) => {
     e.preventDefault();
