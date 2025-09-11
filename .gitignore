@@ -106,3 +106,6 @@ node_modules/
 
 # Temporary UI mockup files
 admin_panel_expected_ui.tsx
+
+.cursor/
+.claude/
