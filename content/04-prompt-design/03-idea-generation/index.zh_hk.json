@@ -1,0 +1,223 @@
+{
+  "slug": "idea-generation",
+  "category": "prompt-design",
+  "lastModified": "2025-09-06T00:00:00.000Z",
+  "blocks": [
+    {
+      "type": "heading",
+      "level": 1,
+      "content": "4.3 創新想法指令參考"
+    },
+    { "type": "horizontal-rule" },
+    { "type": "line-break" },
+    { "type": "heading", "level": 2, "content": "為何要學創新指令？" },
+    {
+      "type": "list",
+      "listType": "ordered",
+      "items": [
+        "訓練系統化思維：以「問題 → 受眾 → 解法 → 驗證」框架，由模糊走向清晰。",
+        "降低盲目嘗試：預先列出假設與風險，集中驗證關鍵未知數。",
+        "提升協作效率：採用統一格式輸出，便於團隊討論與迭代。",
+        "結合多款 AI 工具：善用各自強項，兼顧靈感、資料與可行性。"
+      ]
+    },
+    { "type": "line-break" },
+    { "type": "horizontal-rule" },
+    { "type": "line-break" },
+    { "type": "heading", "level": 2, "content": "極速版 Prompt（直接可用）" },
+    {
+      "type": "code",
+      "language": "markdown",
+      "title": "自我探索（身份與偏好）",
+      "content": "你是一位**結構化生涯教練**。請以「逐題、少量、等待回覆」方式協助我進行自我盤點。\n每輪最多 3 題，下一輪需依據我上一輪的回答追問。\n第一輪請提問：\n1) 我近一年完成且最具成就感的三件事？原因是什麼？\n2) 我最想解決的三類問題？\n3) 我可動用的資源（時間／技能／人脈／資金）？\n最後輸出：\n- 《個人優勢摘要》（三點）\n- 《可嘗試方向》（學習／副業／創業各 2 項）\n- 《下週行動清單》（3 步，30 分鐘內可完成）"
+    },
+    { "type": "line-break" },
+    {
+      "type": "code",
+      "language": "markdown",
+      "title": "創新點子生成（五路徑）",
+      "content": "你是**產品型創業顧問**。請以五種方法對我的題目進行發想：\nA) 轉換受眾（B2C ↔ B2B ↔ 教育）\nB) 轉換交付（服務 ↔ 課程 ↔ 軟體 ↔ 模板）\nC) 流程拆解（找出最阻滯步驟並優化）\nD) 自動化／代理（哪些步驟可由 AI 代勞）\nE) 生態位（從現有巨頭邊緣切入）\n請針對「{{我的題目}}」每條路徑各提供 2 個點子；每個點子使用以下格式：\n- 目標用戶｜痛點｜關鍵功能（≤3）｜驗證方法（3 日內可完成）"
+    },
+    { "type": "line-break" },
+    {
+      "type": "code",
+      "language": "markdown",
+      "title": "職涯規劃（技能 → 職能 → 職位）",
+      "content": "你是**職涯規劃顧問**。根據我提供的背景，請輸出：\n1) 技能盤點：硬技能／軟技能／可遷移能力\n2) 3 條職能路徑：資料／產品／自動化（各給入門 → 進階 → 熟練階梯）\n3) 任務地圖：未來 8 週每週一個可交付小作品（作品集任務）\n4) 面試演練：3 個行為題、3 個技術題、STAR 參考答案骨架"
+    },
+    { "type": "line-break" },
+    {
+      "type": "code",
+      "language": "markdown",
+      "title": "習慣養成（最小單位）",
+      "content": "你是**行為設計教練**。請根據我的目標，制定「超微習慣」：\n- 觸發 → 行為（≤2 分鐘）→ 即時回饋\n- 失敗預案（如果…就…）\n- 7 日追蹤表（可勾選）\n- 每晚反思三問：今日完成了什麼？難點為何？明日如何微調？"
+    },
+    { "type": "line-break" },
+    { "type": "horizontal-rule" },
+    { "type": "line-break" },
+    { "type": "heading", "level": 2, "content": "結構化版本（深入分析）" },
+    {
+      "type": "text",
+      "content": "以下流程適合將靈感落地為可驗證的小型實驗（MVP）。"
+    },
+    {
+      "type": "list",
+      "listType": "ordered",
+      "items": [
+        "**定義問題**：列出用戶情境、阻滯點、替代方案與不解決的代價。",
+        "**界定受眾**：撰寫 ICP（年齡／角色／情境），並釐清決策者與使用者是否為同一人。",
+        "**獨特解法**：描述差異點（速度／成本／體驗／精度），避免使用含糊詞彙。",
+        "**MVP 設計**：最少功能（≤3）、資料流、成功／失敗訊號。",
+        "**驗證指標**：問題—解法契合（訪談）、早期留存（W2）、轉化率。",
+        "**風險地圖**：市場／技術／成本／隱私／習慣，並為各類風險標註緩解策略。"
+      ]
+    },
+    { "type": "line-break" },
+    { "type": "heading", "level": 3, "content": "AI 工具對比與選擇（格式示例）" },
+    {
+      "type": "table",
+      "title": "常用 AI 工具定位（示例）",
+      "headers": ["維度", "ChatGPT", "Claude", "Perplexity", "影像生成（Gemini／Midjourney／SD）"],
+      "rows": [
+        ["核心強項", "框架化產出、樣板／程式碼草擬", "長文理解與延展", "即時檢索與來源鏈結", "將概念轉化為視覺草圖"],
+        ["適用場景", "結構設計、撰寫 Prompt、撰寫測試", "研究報告、長篇梳理", "市場掃描、資料查證", "Logo／海報／概念圖"],
+        ["限制", "需要明確需求", "回應可能較冗長", "依賴外部資料品質", "需反覆提示以微調"]
+      ]
+    },
+    {
+      "type": "text",
+      "content": "建議流程：先以 Perplexity 進行「資訊掃描」，再以 ChatGPT 進行「結構設計」，以 Claude 進行「長文潤飾」，最後使用影像工具完成「視覺原型」。"
+    },
+    { "type": "line-break" },
+    { "type": "horizontal-rule" },
+    { "type": "line-break" },
+    { "type": "heading", "level": 2, "content": "創新工作流（新手友善路線）" },
+    {
+      "type": "list",
+      "listType": "ordered",
+      "items": [
+        "收斂：記錄 3 個經常遇到的困擾或觀察到的問題。",
+        "發散：使用「創新點子生成（五路徑）」各生成 2–3 個點子。",
+        "排序：使用評分矩陣（見下）依影響 × 可行性排序。",
+        "最小實驗：選擇 Top 1，設計 3 日內可完成的 MVP。",
+        "驗證與迭代：收集數據，保留有效假設，淘汰無效假設。"
+      ]
+    },
+    { "type": "line-break" },
+    { "type": "heading", "level": 3, "content": "評分矩陣與指標（Idea Score Matrix）" },
+    {
+      "type": "table",
+      "title": "評分維度（1–5 分，5 為最佳）",
+      "headers": ["維度", "說明", "實例評估問題"],
+      "rows": [
+        ["痛點強度", "問題是否高頻且強烈？", "用戶目前如何解決？代價多少？"],
+        ["解法可行性", "是否可在 2–4 週內完成 MVP？", "核心功能是否 ≤3？"],
+        ["差異化", "是否具備清晰且可感知的優勢？", "更快／更省／更準／更佳體驗？"],
+        ["可獲客性", "是否有明確且低成本的觸達渠道？", "社群／校園／行業圈層？"],
+        ["可持續性", "是否能持續產生價值與收入？", "一次性或重複性？"]
+      ]
+    },
+    { "type": "line-break" },
+    { "type": "horizontal-rule" },
+    { "type": "line-break" },
+    { "type": "heading", "level": 2, "content": "案例教學（完整示例）" },
+    {
+      "type": "text",
+      "content": "題目：校園二手書配對平台＋AI 搜尋\n\n**問題**：學生於學期更替時產生大量舊書；手動尋書耗時且訊息分散。\n**受眾**：大學本科生；決策者與使用者為同一群體。\n**獨特解法**：上傳課程代碼自動匹配書單；AI 文本搜尋支援版本／語言；交易完成後一鍵標記。\n**MVP**（3 日）：表單收集（書名／課程／校區／價位）→ Google Sheet → 搜尋頁（關鍵字＋課程代碼）→ Telegram Bot 通知匹配。\n**驗證指標**：首週撮合成功 ≥ 20 單；W2 留存（回訪尋找下一本）≥ 30%；平均匹配時間 ≤ 24 小時。\n**風險**：供需冷啟 → 與課代表／社團合作；詐騙風險 → 校園郵箱驗證；隱私風險 → 僅顯示必要聯絡方式。"
+    },
+    { "type": "line-break" },
+    { "type": "heading", "level": 3, "content": "常見錯誤與避坑" },
+    {
+      "type": "list",
+      "listType": "unordered",
+      "items": [
+        "同時開發過多功能 → 維持 MVP 僅 1–3 個核心功能。",
+        "僅收集朋友意見而缺乏行為數據 → 以真實行為（登記、下單、留下聯絡方式）為準。",
+        "忽視持續成本（伺服器、審核、人力） → 事先估算並設定免費用戶配額限制。"
+      ]
+    },
+    { "type": "line-break" },
+    { "type": "horizontal-rule" },
+    { "type": "line-break" },
+    { "type": "heading", "level": 2, "content": "習慣養成配套（維持創新能力）" },
+    { "type": "line-break" },
+    {
+      "type": "code",
+      "language": "markdown",
+      "title": "每日 10 分鐘反思 Prompt",
+      "content": "請以三個問題引導我完成今日創新小結：\n1) 今日觀察到的一個小問題？\n2) 我可在 30 分鐘內試驗的解法？\n3) 我明日將進行的第一步（5 分鐘內可完成）？\n最後輸出：可勾選清單（✅／⬜）"
+    },
+    { "type": "line-break" },
+    {
+      "type": "task-list",
+      "title": "7 日微習慣追蹤（示例）",
+      "items": [
+        { "content": "記錄 1 個身邊問題（≤50 字）", "completed": false },
+        { "content": "以五路徑法生成 2 個點子", "completed": false },
+        { "content": "選取 1 個點子撰寫最小實驗", "completed": false },
+        { "content": "發布至 1 個真實渠道收集回饋", "completed": false },
+        { "content": "記錄數據與反思", "completed": false },
+        { "content": "微調下一次迭代目標", "completed": false },
+        { "content": "整理為 1 段分享貼文", "completed": false }
+      ]
+    },
+    { "type": "line-break" },
+    { "type": "horizontal-rule" },
+    { "type": "line-break" },
+    { "type": "heading", "level": 2, "content": "職涯應用（如何選擇方向）" },
+    {
+      "type": "table",
+      "title": "角色 × AI 使用方式（示例）",
+      "headers": ["角色", "核心任務", "AI 支援方式", "可交付成果（作品集）"],
+      "rows": [
+        ["資料分析入門者", "清洗數據／製作簡報", "生成 SQL／圖表說明／洞察草稿", "1 份資料故事儀表板"],
+        ["自動化助理", "將重複任務流程化", "撰寫腳本／流程圖／錯誤處理建議", "1 個實用自動化腳本"],
+        ["內容創作者", "穩定產出內容", "選題擴散／大綱／檢核表", "4 週內容日曆＋ 2 篇長文"],
+        ["產品助理", "需求整理／競品分析", "PRD 草案／用戶訪談提綱", "1 份 PRD ＋ 線框圖"]
+      ]
+    },
+    { "type": "line-break" },
+    {
+      "type": "code",
+      "language": "markdown",
+      "title": "面試模擬 Prompt（STAR）",
+      "content": "你是**招聘官**。請以 STAR 提問 3 條行為題與 2 條技術題，逐題追問，並於最後提供：\n- 我答案的亮點（3 條）\n- 具體可改進建議（3 條，含示例表述）"
+    },
+    { "type": "line-break" },
+    { "type": "horizontal-rule" },
+    { "type": "line-break" },
+    { "type": "heading", "level": 2, "content": "術語速查（新手必讀）" },
+    {
+      "type": "definition-list",
+      "title": "常見術語",
+      "definitions": [
+        { "term": "**MVP（最小可行產品）**", "definition": "以最少功能驗證關鍵假設的產品雛形。" },
+        { "term": "**PMF（產品—市場契合）**", "definition": "產品有效解決明確市場痛點並獲得留存與增長的狀態。" },
+        { "term": "**ICP（理想客戶特徵）**", "definition": "最適合由你服務、且具有付費意願的客戶輪廓。" },
+        { "term": "**W2 留存**", "definition": "次週仍返回使用的比例，常用作早期產品可持續性信號。" }
+      ]
+    },
+    { "type": "line-break" },
+    { "type": "horizontal-rule" },
+    { "type": "line-break" },
+    { "type": "heading", "level": 2, "content": "FAQ 摘要" },
+    {
+      "type": "definition-list",
+      "title": "常見問題（FAQ）",
+      "definitions": [
+        { "term": "Q：我沒有任何點子應該如何開始？", "definition": "可先進行「問題日記」：連續 7 日，每日記錄 1 個不便之處；以五路徑法各生成 1–2 個解法，並使用評分矩陣排序。" },
+        { "term": "Q：如何避免抄襲或與他人重疊？", "definition": "專注於「細分情境」與「流程優化」。即使市場已有巨頭，仍可切入特定場景（例如校園、特定科目、特定流程）。" },
+        { "term": "Q：何時才需要撰寫程式？", "definition": "優先使用無程式／表單／社群工具跑通交易或匹配；待需求穩定後再考慮開發。" }
+      ]
+    },
+    { "type": "line-break" },
+    { "type": "horizontal-rule" },
+    { "type": "line-break" },
+    {
+      "type": "callout",
+      "variant": "success",
+      "title": "總結",
+      "content": "創新並非偶然靈感，而是一套可重複的日常流程。先以極速版起步，再以結構化版本打磨；配合評分矩陣與最小實驗，即可持續將觀察轉化為價值。"
+    }
+  ]
+}

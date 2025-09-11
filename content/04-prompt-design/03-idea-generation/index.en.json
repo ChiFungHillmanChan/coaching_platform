@@ -1,0 +1,224 @@
+
+{
+  "slug": "idea-generation",
+  "category": "prompt-design",
+  "lastModified": "2025-09-06T00:00:00.000Z",
+  "blocks": [
+    {
+      "type": "heading",
+      "level": 1,
+      "content": "4.3 Idea Generation with Prompts"
+    },
+    { "type": "horizontal-rule" },
+    { "type": "line-break" },
+    { "type": "heading", "level": 2, "content": "Why learn innovation prompts?" },
+    {
+      "type": "list",
+      "listType": "ordered",
+      "items": [
+        "Train systematic thinking: use the “Problem → Audience → Solution → Validation” framework to move from vague to clear.",
+        "Reduce blind attempts: list hypotheses and risks in advance to focus on validating critical unknowns.",
+        "Improve collaboration efficiency: adopt a unified output format for easier team discussion and iteration.",
+        "Combine multiple AI tools: leverage each tool’s strengths to balance ideation, data, and feasibility."
+      ]
+    },
+    { "type": "line-break" },
+    { "type": "horizontal-rule" },
+    { "type": "line-break" },
+    { "type": "heading", "level": 2, "content": "Quick-start Prompts (Ready to use)" },
+    {
+      "type": "code",
+      "language": "markdown",
+      "title": "Self-Discovery (Identity & Preferences)",
+      "content": "You are a **structured career coach**. Guide me with a “few questions per turn and wait for my reply” approach to perform a self-inventory.\nAt most 3 questions per round; the next round must follow up based on my previous answers.\nFirst round, ask:\n1) What three achievements in the past year made me feel most accomplished? Why?\n2) What three types of problems do I most want to solve?\n3) What resources can I mobilize (time/skills/network/capital)?\nFinal output:\n- **Personal Strengths Summary** (3 bullets)\n- **Directions to Try** (2 each for learning/side hustle/startup)\n- **Next-Week Action List** (3 steps, each doable within 30 minutes)"
+    },
+    { "type": "line-break" },
+    {
+      "type": "code",
+      "language": "markdown",
+      "title": "Idea Generation (Five Pathways)",
+      "content": "You are a **product-focused startup advisor**. Generate ideas for my topic using five methods:\nA) Audience shift (B2C ↔ B2B ↔ Education)\nB) Delivery shift (Service ↔ Course ↔ Software ↔ Template)\nC) Process teardown (find and optimize the most blocking step)\nD) Automation/agents (which steps can AI do)\nE) Ecological niche (enter at the edges of incumbents)\nFor **{{my topic}}**, give 2 ideas per pathway. For each idea, use:\n- Target user | Pain point | Key features (≤3) | Validation method (finishable within 3 days)"
+    },
+    { "type": "line-break" },
+    {
+      "type": "code",
+      "language": "markdown",
+      "title": "Career Planning (Skills → Functions → Roles)",
+      "content": "You are a **career planning consultant**. Based on my background, produce:\n1) Skills inventory: hard skills/soft skills/transferable capabilities\n2) 3 functional paths: data/product/automation (each with steps for beginner → intermediate → proficient)\n3) Task roadmap: one shippable mini-project per week for the next 8 weeks (portfolio tasks)\n4) Interview practice: 3 behavioral questions, 3 technical questions, STAR answer skeletons"
+    },
+    { "type": "line-break" },
+    {
+      "type": "code",
+      "language": "markdown",
+      "title": "Habit Building (Smallest Unit)",
+      "content": "You are a **behavior design coach**. Based on my goal, design “micro-habits”:\n- Trigger → Behavior (≤2 minutes) → Immediate feedback\n- Failure pre-plan (If … then …)\n- 7-day tracker (checkable)\n- Nightly reflection 3Qs: What did I do today? What was hard? How will I tweak tomorrow?"
+    },
+    { "type": "line-break" },
+    { "type": "horizontal-rule" },
+    { "type": "line-break" },
+    { "type": "heading", "level": 2, "content": "Structured Version (Deeper analysis)" },
+    {
+      "type": "text",
+      "content": "Use this flow to turn inspiration into a testable mini-experiment (MVP)."
+    },
+    {
+      "type": "list",
+      "listType": "ordered",
+      "items": [
+        "**Define the problem**: list user contexts, blockers, alternatives, and the cost of not solving it.",
+        "**Specify the audience**: write the ICP (age/role/context) and clarify whether decision-maker and user are the same.",
+        "**Unique solution**: describe the differentiators (speed/cost/experience/accuracy) and avoid vague terms.",
+        "**MVP design**: minimal features (≤3), data flow, success/failure signals.",
+        "**Validation metrics**: problem–solution fit (interviews), early retention (W2), conversion rate.",
+        "**Risk map**: market/tech/cost/privacy/habit, with mitigation for each."
+      ]
+    },
+    { "type": "line-break" },
+    { "type": "heading", "level": 3, "content": "AI Tool Comparison & Selection (format example)" },
+    {
+      "type": "table",
+      "title": "Common AI Tool Positioning (example)",
+      "headers": ["Dimension", "ChatGPT", "Claude", "Perplexity", "Image generation (Gemini/Midjourney/SD)"],
+      "rows": [
+        ["Core strength", "Structured outputs; boilerplates/code drafts", "Long-form understanding & extension", "Real-time retrieval with source links", "Turn concepts into visual sketches"],
+        ["Best-fit scenarios", "Structure design, prompt writing, test writing", "Research reports, long-form synthesis", "Market scan, fact-checking", "Logos/posters/concept art"],
+        ["Limitations", "Needs clear requirements", "Responses may be verbose", "Depends on external source quality", "Requires iterative prompt tweaking"]
+      ]
+    },
+    {
+      "type": "text",
+      "content": "Suggested flow: use Perplexity for information scanning → ChatGPT for structure design → Claude for long-form polish → an image tool for visual prototyping."
+    },
+    { "type": "line-break" },
+    { "type": "horizontal-rule" },
+    { "type": "line-break" },
+    { "type": "heading", "level": 2, "content": "Innovation workflow (beginner-friendly path)" },
+    {
+      "type": "list",
+      "listType": "ordered",
+      "items": [
+        "Converge: jot down 3 recurring frictions or observed problems.",
+        "Diverge: use the Five Pathways to generate 2–3 ideas each.",
+        "Rank: score by impact × feasibility using the matrix below.",
+        "Smallest experiment: pick top 1 and design an MVP finishable within 3 days.",
+        "Validate & iterate: collect data, keep validated hypotheses, drop invalid ones."
+      ]
+    },
+    { "type": "line-break" },
+    { "type": "heading", "level": 3, "content": "Scoring matrix & metrics (Idea Score Matrix)" },
+    {
+      "type": "table",
+      "title": "Scoring dimensions (1–5 points; 5 is best)",
+      "headers": ["Dimension", "Description", "Sample evaluation questions"],
+      "rows": [
+        ["Pain intensity", "Is the problem frequent and painful?", "How do users solve it today? At what cost?"],
+        ["Solution feasibility", "Can we build an MVP in 2–4 weeks?", "Are there ≤3 core features?"],
+        ["Differentiation", "Is there a clear and perceivable advantage?", "Faster/Cheaper/More accurate/Better experience?"],
+        ["Acquirability", "Are there clear, low-cost channels to reach users?", "Communities/campus/industry circles?"],
+        ["Sustainability", "Can it produce ongoing value and revenue?", "One-off or recurring?"]
+      ]
+    },
+    { "type": "line-break" },
+    { "type": "horizontal-rule" },
+    { "type": "line-break" },
+    { "type": "heading", "level": 2, "content": "Case study (complete example)" },
+    {
+      "type": "text",
+      "content": "Topic: Campus second-hand textbook matching + AI search\n\n**Problem**: Each term change creates many used books; manual search is time-consuming and info is fragmented.\n**Audience**: Undergraduate students; decision-maker and user are the same.\n**Unique solution**: Upload course codes to auto-match book lists; AI text search supports edition/language; one-tap mark after completion.\n**MVP** (3 days): form intake (title/course/campus/price) → Google Sheet → search page (keyword + course code) → Telegram Bot for match notifications.\n**Validation metrics**: ≥20 successful matches in week 1; W2 retention (return to find the next book) ≥30%; average match time ≤24 hours.\n**Risks**: Cold start of supply/demand → cooperate with class reps/clubs; fraud → verify campus emails; privacy → display only necessary contact info."
+    },
+    { "type": "line-break" },
+    { "type": "heading", "level": 3, "content": "Common mistakes & pitfalls" },
+    {
+      "type": "list",
+      "listType": "unordered",
+      "items": [
+        "Building too many features at once → keep MVP to 1–3 core features.",
+        "Relying on friends’ opinions without behavior data → prioritize real actions (sign-ups, orders, leaving contact).",
+        "Ignoring ongoing costs (servers, review, staffing) → estimate early and set free-tier quotas."
+      ]
+    },
+    { "type": "line-break" },
+    { "type": "horizontal-rule" },
+    { "type": "line-break" },
+    { "type": "heading", "level": 2, "content": "Habit support (maintain innovation capacity)" },
+    { "type": "line-break" },
+    {
+      "type": "code",
+      "language": "markdown",
+      "title": "Daily 10-minute reflection prompt",
+      "content": "Guide me with three questions for today’s innovation recap:\n1) One small problem I noticed today?\n2) A solution I can test within 30 minutes?\n3) The first step I will take tomorrow (finishable within 5 minutes)?\nFinal output: a checkable list (✅/⬜)"
+    },
+    { "type": "line-break" },
+    {
+      "type": "task-list",
+      "title": "7-day micro-habit tracker (example)",
+      "items": [
+        { "content": "Record 1 nearby problem (≤50 chars)", "completed": false },
+        { "content": "Generate 2 ideas via the Five Pathways", "completed": false },
+        { "content": "Pick 1 idea and write the smallest experiment", "completed": false },
+        { "content": "Publish to 1 real channel to collect feedback", "completed": false },
+        { "content": "Log data and reflections", "completed": false },
+        { "content": "Tweak the next iteration goal", "completed": false },
+        { "content": "Write 1 short sharing post", "completed": false }
+      ]
+    },
+    { "type": "line-break" },
+    { "type": "horizontal-rule" },
+    { "type": "line-break" },
+    { "type": "heading", "level": 2, "content": "Career applications (how to choose a direction)" },
+    {
+      "type": "table",
+      "title": "Roles × AI usage (example)",
+      "headers": ["Role", "Core tasks", "How AI helps", "Deliverables (portfolio)"],
+      "rows": [
+        ["Data analytics beginner", "Data cleaning / slide making", "Generate SQL / chart explanations / insight drafts", "1 data story dashboard"],
+        ["Automation assistant", "Systematize repetitive work", "Write scripts / flowcharts / error-handling advice", "1 practical automation script"],
+        ["Content creator", "Produce consistent content", "Topic expansion / outlines / checklists", "4-week content calendar + 2 long-form posts"],
+        ["Product assistant", "Requirements / competitor analysis", "PRD draft / user interview guide", "1 PRD + wireframes"]
+      ]
+    },
+    { "type": "line-break" },
+    {
+      "type": "code",
+      "language": "markdown",
+      "title": "Interview simulation prompt (STAR)",
+      "content": "You are a **recruiter**. Ask 3 behavioral and 2 technical questions using STAR, follow up after each, and at the end provide:\n- Highlights in my answers (3 bullets)\n- Specific improvement suggestions (3 bullets with example phrasing)"
+    },
+    { "type": "line-break" },
+    { "type": "horizontal-rule" },
+    { "type": "line-break" },
+    { "type": "heading", "level": 2, "content": "Glossary (must-read for beginners)" },
+    {
+      "type": "definition-list",
+      "title": "Common terms",
+      "definitions": [
+        { "term": "**MVP (Minimum Viable Product)**", "definition": "A product prototype with the fewest features to validate key assumptions." },
+        { "term": "**PMF (Product–Market Fit)**", "definition": "A state where the product effectively solves a clear market pain and achieves retention and growth." },
+        { "term": "**ICP (Ideal Customer Profile)**", "definition": "The customer profile best served by you and likely to pay." },
+        { "term": "**W2 retention**", "definition": "The percentage returning the following week; a common early signal of sustainability." }
+      ]
+    },
+    { "type": "line-break" },
+    { "type": "horizontal-rule" },
+    { "type": "line-break" },
+    { "type": "heading", "level": 2, "content": "FAQ Summary" },
+    {
+      "type": "definition-list",
+      "title": "Frequently asked questions (FAQ)",
+      "definitions": [
+        { "term": "Q: I have no ideas—where should I start?", "definition": "Begin with a “problem diary”: for 7 straight days, record 1 inconvenience per day; generate 1–2 solutions per the Five Pathways, then rank using the scoring matrix." },
+        { "term": "Q: How do I avoid copying or overlapping with others?", "definition": "Focus on narrow contexts and process optimization. Even with incumbents, you can enter specific scenarios (e.g., campus, specific subjects, specific processes)." },
+        { "term": "Q: When should I start coding?", "definition": "Prefer no-code/forms/community tools to validate transactions or matches first; consider development after demand stabilizes." }
+      ]
+    },
+    { "type": "line-break" },
+    { "type": "horizontal-rule" },
+    { "type": "line-break" },
+    {
+      "type": "callout",
+      "variant": "success",
+      "title": "Summary",
+      "content": "Innovation is not accidental inspiration; it is a repeatable daily process. Start with the quick-start version, refine with the structured version, and pair with the scoring matrix and smallest experiments to consistently turn observations into value."
+    }
+  ]
+}

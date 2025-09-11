@@ -1,0 +1,291 @@
+{
+  "slug": "multi-ai-integration",
+  "category": "prompt-design",
+  "lastModified": "2025-09-11T00:00:00.000Z",
+  "blocks": [
+    {
+      "type": "heading",
+      "level": 1,
+      "content": "4.2 多 AI 協作"
+    },
+
+
+    { "type": "horizontal-rule" },
+    { "type": "line-break" },
+
+    {
+      "type": "heading",
+      "level": 2,
+      "content": "整體原則（給新手）"
+    },
+    {
+      "type": "list",
+      "listType": "ordered",
+      "items": [
+        "先定流程，後挑工具：先寫清交付與驗證，再決定用哪個 AI。",
+        "小步快跑：每一步只驗證 1 個關鍵假設（速度／成本／體驗／精度）。",
+        "責任分層：搜尋查證（Perplexity）／結構輸出（ChatGPT／Claude）／落地實作（Cursor／Codex／Copilot）／設計與素材（Figma AI／Canva／MJ／SD）。",
+        "可追溯與可複現：保留來源、版本、Prompt 與資料樣本；優先使用 SOP 與模板化。"
+      ]
+    },
+
+    { "type": "line-break" },
+
+    {
+      "type": "heading",
+      "level": 2,
+      "content": "一圖速覽：多 AI 協作管線（文字示意）"
+    },
+    {
+      "type": "text",
+      "content": "資訊掃描（Perplexity） → 架構設計（ChatGPT／Claude） → 任務拆解（Notion AI） → 編碼與測試（Cursor／Codex／Copilot） → 視覺與素材（Figma AI／Canva／Midjourney／SD／Runway） → 內容與配音（ChatGPT／Gemini／Whisper／ElevenLabs） → 自動化與編排（Zapier／Make／LangChain／MCP） → 監控與迭代（Analytics＋ChatGPT 分析）"
+    },
+
+    { "type": "horizontal-rule" },
+    { "type": "line-break" },
+
+    {
+      "type": "heading",
+      "level": 2,
+      "content": "工具定位矩陣（概覽）"
+    },
+    {
+      "type": "table",
+      "title": "文本生成與結構化 AI",
+      "headers": ["維度", "ChatGPT", "Claude", "Gemini"],
+      "rows": [
+        ["核心強項", "框架化產出、系統設計、測試草擬", "長文處理與規格撰寫", "多模態理解與生成"],
+        ["最佳場景", "需求拆解、面試腳本、PRD 提綱", "PRD 成文、政策／條款草擬", "圖文影音混合教材／多語內容"],
+        ["主要限制", "需明確指令", "可能冗長", "素材權限需審視"]
+      ]
+    },
+    { "type": "line-break" },
+    {
+      "type": "table",
+      "title": "搜尋與資料整理 AI",
+      "headers": ["維度", "Perplexity", "Kuse", "Notion AI"],
+      "rows": [
+        ["核心強項", "檢索＋來源引用", "多媒體知識畫布與整理", "專案任務與知識庫"],
+        ["最佳場景", "市場掃描／競品對比", "研究資料歸檔與探索", "需求→任務看板"],
+        ["主要限制", "依賴外部來源品質", "學習成本", "結構需人維護"]
+      ]
+    },
+    { "type": "line-break" },
+    {
+      "type": "table",
+      "title": "開發與程式 AI",
+      "headers": ["維度", "Cursor", "Codex", "GitHub Copilot"],
+      "rows": [
+        ["核心強項", "IDE 內追蹤與生成", "自動寫功能／修 bug／PR", "即時補全與重構"],
+        ["最佳場景", "骨架生成＋單測樣例", "批量開發與 CI/CD 輔助", "重構與測試覆蓋"],
+        ["主要限制", "環境設定要求", "仍需人工 code review", "上下文長度限制"]
+      ]
+    },
+    { "type": "line-break" },
+    {
+      "type": "table",
+      "title": "設計與多媒體 AI",
+      "headers": ["維度", "Figma AI／Canva", "Midjourney／SD／Runway"],
+      "rows": [
+        ["核心強項", "Wireframe／海報／UI 套版", "插畫／圖生影片／動效"],
+        ["最佳場景", "介面初稿與宣傳物", "視覺原型與教學短片"],
+        ["主要限制", "設計質感受模板影響", "需多輪調參"]
+      ]
+    },
+    { "type": "line-break" },
+    {
+      "type": "table",
+      "title": "語音與內容轉製 AI",
+      "headers": ["維度", "Whisper／ElevenLabs"],
+      "rows": [
+        ["核心強項", "語音轉文字／文字轉語音"],
+        ["最佳場景", "教學配音與字幕"],
+        ["主要限制", "語音風格需調整"]
+      ]
+    },
+    { "type": "line-break" },
+    {
+      "type": "table",
+      "title": "自動化與協作 AI",
+      "headers": ["維度", "Zapier／Make", "LangChain", "MCP"],
+      "rows": [
+        ["核心強項", "服務連接與自動化", "多模型編排與工具鏈", "統一上下文／安全接入"],
+        ["最佳場景", "表單／DB／Slack／Email 串接", "RAG／代理編排／評測", "模型與資料源互通"],
+        ["主要限制", "邏輯複雜度限制", "工程整合門檻", "需配合權限治理"]
+      ]
+    },
+
+    { "type": "line-break" },
+    { "type": "horizontal-rule" },
+    { "type": "line-break" },
+    {
+      "type": "heading",
+      "level": 2,
+      "content": "實戰工作流（任務追蹤 App）"
+    },
+    {
+      "type": "list",
+      "listType": "ordered",
+      "items": [
+        "資訊掃描：Perplexity 匯整 3–5 份最新趨勢與競品，保留來源。",
+        "架構設計：ChatGPT／Claude 產出「問題→用戶→功能 3 項→MVP 指標→風險」。",
+        "任務拆解：Notion AI 生成 2 週 Sprint 看板（後端／前端／測試／設計）。",
+        "開發與測試：Cursor 建立專案骨架；Codex 生成功能模組；Copilot 協助重構與測試。",
+        "設計與素材：Figma AI 產出 Wireframe；Canva 製作海報；Midjourney／SD 生插畫；Runway 製作短片。",
+        "內容在地化：ChatGPT／Gemini 產多語文案；Whisper 生字幕；ElevenLabs 配音。",
+        "自動化與上線：Zapier／Make 連接表單／Slack／Email；LangChain 編排 ChatGPT＋Claude＋檢索；MCP 管理上下文接入。",
+        "監控與迭代：收集 W2 留存／D1 回訪／功能使用率；ChatGPT 產改進建議。"
+      ]
+    },
+
+    { "type": "line-break" },
+    { "type": "horizontal-rule" },
+    { "type": "line-break" },
+    {
+      "type": "heading",
+      "level": 2,
+      "content": "大型專案構想：跨語 AI 導師市集（Global Tutor Marketplace）"
+    },
+    {
+      "type": "text",
+      "content": "願景：連結全球導師與學習者，平台自動完成課綱轉寫、多語內容生成、影片講解、即時問答與作業批改；導師專注教學品質，平台負責配對、內容轉製與營運自動化。"
+    },
+
+    { "type": "heading", "level": 3, "content": "分階段與 AI 協作" },
+    {
+      "type": "table",
+      "title": "階段×任務×工具",
+      "headers": ["階段", "目標", "AI／工具", "關鍵輸出", "驗證指標"],
+      "rows": [
+        ["0. 研究與定位", "鎖定 3 個科目與語系", "Perplexity＋Kuse", "競品地圖／痛點列表", "訪談 ≥ 15、同意痛點比例 ≥ 70%"],
+        ["1. 規格成文", "產出 PRD 與政策草案", "Claude＋ChatGPT", "PRD／條款初稿", "審閱通過（法務／導師組）"],
+        ["2. 核心功能", "課綱→教材→練習→批改", "Cursor＋Codex＋Copilot", "API／前後端骨架＋單測", "測試覆蓋 ≥ 80%、錯誤率下降"],
+        ["3. 多媒體轉製", "影片講解與配音", "Whisper＋ElevenLabs＋Runway", "字幕／語音包／教學短片", "學生理解度問卷 ≥ 80%"],
+        ["4. 多語在地化", "自動產出 EN／ZH／JP 等", "Gemini＋ChatGPT", "多語教材與站內文案", "審校週期縮短 ≥ 60%"],
+        ["5. 視覺與行銷", "品牌素材與主視覺", "Figma AI＋Canva＋Midjourney", "品牌手冊／海報素材包", "CTR 提升、註冊率提升"],
+        ["6. 自動化營運", "報名→排課→發票→社群", "Zapier／Make＋LangChain＋MCP", "SOP 與 Bot 流程", "人工工時下降 ≥ 50%"],
+        ["7. 監控與迭代", "學習成效與留存", "Analytics＋ChatGPT 分析", "月報與 Roadmap", "W2 留存 ≥ 30%、退課率下降"]
+      ]
+    },
+
+    { "type": "line-break" },
+
+    {
+      "type": "heading",
+      "level": 3,
+      "content": "跨工具 Prompt 模板（可直接使用）"
+    },
+    {
+      "type": "code",
+      "language": "markdown",
+      "title": "1) 市場掃描（Perplexity）",
+      "content": "Query: \"online tutor marketplace trends 2024..2025 pricing models retention benchmarks\" \n要求：以表格列出主要趨勢、商業模式、關鍵指標（CAC、W2、ARPU），每行附來源連結。"
+    },
+    {
+      "type": "code",
+      "language": "markdown",
+      "title": "2) PRD 成文（Claude）",
+      "content": "請依『問題→用戶→範圍→用戶故事→非功能需求（性能／隱私）→成功指標→不做清單』整理 PRD。輸入：{{研究摘要＋需求}}"
+    },
+    {
+      "type": "code",
+      "language": "markdown",
+      "title": "3) 骨架生成（Cursor／Codex）",
+      "content": "生成『課程、教材、作業、批改、支付』五個服務的 API 與前端頁面骨架。技術：後端 {{FastAPI/Express}}、前端 {{Next.js/React}}、DB {{PostgreSQL}}；同時產生最小單元測試樣例。"
+    },
+    {
+      "type": "code",
+      "language": "markdown",
+      "title": "4) 重構與測試（Copilot）",
+      "content": "重構以下函式為純函式並補齊邊界測試（覆蓋 ≥ 80%），指出可能的效能瓶頸：\n```ts\n{{code}}\n```"
+    },
+    {
+      "type": "code",
+      "language": "markdown",
+      "title": "5) 多語在地化（ChatGPT／Gemini）",
+      "content": "請依『一句價值主張＋三點功能亮點＋CTA』，產出 EN／ZH-Hant／JP 三語版本，每語 ≤ 60 字。主題：{{平台簡述}}"
+    },
+    {
+      "type": "code",
+      "language": "markdown",
+      "title": "6) 影片與配音（Whisper／ElevenLabs／Runway）",
+      "content": "將此教學腳本轉字幕與語音，語氣：親切、清晰；語速：中速。再輸出短片腳本（≤60 秒）供 Runway 生成。輸入：{{腳本}}"
+    },
+    {
+      "type": "code",
+      "language": "markdown",
+      "title": "7) 自動化流程（Zapier／Make）",
+      "content": "觸發：新學生完成註冊→動作：建立 Notion 資料列、寄送歡迎信、加入 Slack #students 頻道並指派導師。"
+    },
+    {
+      "type": "code",
+      "language": "markdown",
+      "title": "8) 多模型編排（LangChain＋MCP）",
+      "content": "管線：ChatGPT 解析課綱→Perplexity 檢索來源→Claude 產教材→Gemini 產插圖→Whisper/ElevenLabs 處理影音。以 MCP 統一存取文件與向量索引。"
+    },
+    { "type": "line-break" },
+    { "type": "horizontal-rule" },
+    { "type": "line-break" },
+    {
+      "type": "heading",
+      "level": 2,
+      "content": "Kuse／Codex 等新工具補充"
+    },
+    {
+      "type": "definition-list",
+      "title": "工具補充說明",
+      "definitions": [
+        { "term": "Kuse", "definition": "多模態知識畫布，支援把文字、圖片、影片、PDF 放入同一畫面，由 AI 協助分析與整理；適合研究與早期構思。"},
+        { "term": "Codex", "definition": "程式開發 Agent，能撰寫功能、修復問題、提交 PR，適合作為 Cursor／Copilot 的自動化補足。"},
+        { "term": "MCP（Model Context Protocol）", "definition": "讓模型安全地讀取外部資源與工具的協定，解決多工具上下文共享與權限治理問題。"}
+      ]
+    },
+    { "type": "line-break" },
+    { "type": "horizontal-rule" },
+    { "type": "line-break" },
+    {
+      "type": "heading",
+      "level": 2,
+      "content": "治理與合規（最小清單）"
+    },
+    {
+      "type": "definition-list",
+      "title": "合規重點",
+      "definitions": [
+        { "term": "資料最小化", "definition": "僅收集與處理必要欄位；敏感資料先脫敏或留在本地。"},
+        { "term": "來源可追溯", "definition": "Perplexity 檢索結果需保留來源；報告附引用與時間戳。"},
+        { "term": "授權與版權", "definition": "生成圖像與字型需確認商用授權；避免使用受保護 IP。"},
+        { "term": "成本上限", "definition": "為各 API 設定每月上限；高成本任務改批次離線處理。"}
+      ]
+    },
+    { "type": "line-break" },
+    { "type": "horizontal-rule" },
+    { "type": "line-break" },
+    {
+      "type": "heading",
+      "level": 2,
+      "content": "驗證指標（建議）"
+    },
+    {
+      "type": "table",
+      "title": "MVP 指標範例",
+      "headers": ["類別", "指標", "目標值（起步）"],
+      "rows": [
+        ["使用", "次日回訪（D1）", "≥ 30%"],
+        ["留存", "次週留存（W2）", "≥ 30%"],
+        ["內容", "完成教學單元比例", "≥ 70%"],
+        ["品質", "錯誤率下降（學習類）", "≥ 20%"],
+        ["成本", "API 成本／活躍用戶（MAU）", "可控且可預測"]
+      ]
+    },
+
+    { "type": "horizontal-rule" },
+
+    {
+      "type": "callout",
+      "variant": "success",
+      "title": "總結",
+      "content": "多 AI 協作的核心是『流程』而非『單一工具』：搜尋與查證 → 結構與規格 → 編碼與測試 → 設計與素材 → 內容與在地化 → 自動化與上線 → 監控與迭代。先用最小流程跑通，再逐步升級工具與自動化深度。"
+    }
+  ]
+}

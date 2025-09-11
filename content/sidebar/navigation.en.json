@@ -139,12 +139,6 @@
           "title": "4.3 Idea Generation with Prompts",
           "href": "/04-prompt-design/03-idea-generation",
           "order": 3
-        },
-        {
-          "id": "resource-hub",
-          "title": "4.4 Resource Hub",
-          "href": "/04-prompt-design/04-resource-hub",
-          "order": 4
         }
       ]
     },

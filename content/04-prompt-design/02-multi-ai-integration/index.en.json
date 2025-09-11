@@ -1,0 +1,290 @@
+{
+  "slug": "multi-ai-integration",
+  "category": "prompt-design",
+  "lastModified": "2025-09-11T00:00:00.000Z",
+  "blocks": [
+    {
+      "type": "heading",
+      "level": 1,
+      "content": "4.2 Multi-AI Collaboration"
+    },
+
+    { "type": "horizontal-rule" },
+    { "type": "line-break" },
+
+    {
+      "type": "heading",
+      "level": 2,
+      "content": "Foundational Principles (for Beginners)"
+    },
+    {
+      "type": "list",
+      "listType": "ordered",
+      "items": [
+        "Flow before tools: define deliverables and validation first, then choose the AI.",
+        "Iterate in small steps: validate exactly one critical assumption per step (speed / cost / UX / accuracy).",
+        "Layered responsibilities: discovery & verification (Perplexity) / structured outputs (ChatGPT / Claude) / implementation (Cursor / Codex / Copilot) / design & assets (Figma AI / Canva / MJ / SD).",
+        "Traceable & reproducible: keep sources, versions, prompts, and data samples; prefer SOPs and templating."
+      ]
+    },
+
+    { "type": "line-break" },
+
+    {
+      "type": "heading",
+      "level": 2,
+      "content": "At-a-Glance: Multi-AI Pipeline (text overview)"
+    },
+    {
+      "type": "text",
+      "content": "Information scan (Perplexity) → Architecture & framing (ChatGPT / Claude) → Task breakdown (Notion AI) → Coding & testing (Cursor / Codex / Copilot) → Visuals & assets (Figma AI / Canva / Midjourney / SD / Runway) → Content & narration (ChatGPT / Gemini / Whisper / ElevenLabs) → Automation & orchestration (Zapier / Make / LangChain / MCP) → Monitoring & iteration (Analytics + ChatGPT analysis)"
+    },
+
+    { "type": "horizontal-rule" },
+    { "type": "line-break" },
+
+    {
+      "type": "heading",
+      "level": 2,
+      "content": "Tool Positioning Matrix (Overview)"
+    },
+    {
+      "type": "table",
+      "title": "Text Generation & Structuring AI",
+      "headers": ["Dimension", "ChatGPT", "Claude", "Gemini"],
+      "rows": [
+        ["Core Strength", "Structured outputs, system design, test scaffolding", "Long-form handling and spec writing", "Multimodal understanding and generation"],
+        ["Best-Fit Scenarios", "Requirement framing, interview scripts, PRD outlines", "PRD drafting, policy/ToS drafting", "Mixed media learning content, multilingual content"],
+        ["Primary Limitations", "Requires precise instructions", "May be verbose", "Asset usage rights must be reviewed"]
+      ]
+    },
+    { "type": "line-break" },
+    {
+      "type": "table",
+      "title": "Search & Knowledge Organization AI",
+      "headers": ["Dimension", "Perplexity", "Kuse", "Notion AI"],
+      "rows": [
+        ["Core Strength", "Retrieval with source citations", "Multimodal knowledge canvas and organization", "Project tasks and knowledge base"],
+        ["Best-Fit Scenarios", "Market scan / competitive analysis", "Archiving research and exploration", "Requirements → task board"],
+        ["Primary Limitations", "Quality depends on external sources", "Learning curve", "Structure requires human maintenance"]
+      ]
+    },
+    { "type": "line-break" },
+    {
+      "type": "table",
+      "title": "Development & Coding AI",
+      "headers": ["Dimension", "Cursor", "Codex", "GitHub Copilot"],
+      "rows": [
+        ["Core Strength", "In-IDE generation and traceability", "Auto-implement features / fix bugs / PRs", "Real-time completion and refactoring"],
+        ["Best-Fit Scenarios", "Project scaffolding + unit test samples", "Batch development and CI/CD assistance", "Refactoring with test coverage"],
+        ["Primary Limitations", "Environment setup required", "Still needs human code review", "Context window limitations"]
+      ]
+    },
+    { "type": "line-break" },
+    {
+      "type": "table",
+      "title": "Design & Multimedia AI",
+      "headers": ["Dimension", "Figma AI / Canva", "Midjourney / SD / Runway"],
+      "rows": [
+        ["Core Strength", "Wireframes / posters / UI templates", "Illustration / text-to-video / motion"],
+        ["Best-Fit Scenarios", "UI first drafts and promo assets", "Visual prototypes and instructional shorts"],
+        ["Primary Limitations", "Design quality influenced by templates", "Requires iterative prompt tuning"]
+      ]
+    },
+    { "type": "line-break" },
+    {
+      "type": "table",
+      "title": "Speech & Content Transcoding AI",
+      "headers": ["Dimension", "Whisper / ElevenLabs"],
+      "rows": [
+        ["Core Strength", "Speech-to-text / text-to-speech"],
+        ["Best-Fit Scenarios", "Instructional voice-overs and subtitles"],
+        ["Primary Limitations", "Voice timbre/style requires tuning"]
+      ]
+    },
+    { "type": "line-break" },
+    {
+      "type": "table",
+      "title": "Automation & Orchestration AI",
+      "headers": ["Dimension", "Zapier / Make", "LangChain", "MCP"],
+      "rows": [
+        ["Core Strength", "Service connectors and automation", "Multi-model orchestration and toolchains", "Unified context / secure access"],
+        ["Best-Fit Scenarios", "Forms / DB / Slack / Email integrations", "RAG / agent orchestration / evals", "Interoperability across models and data sources"],
+        ["Primary Limitations", "Logic complexity limits", "Engineering integration overhead", "Requires proper permissions governance"]
+      ]
+    },
+
+    { "type": "line-break" },
+    { "type": "horizontal-rule" },
+    { "type": "line-break" },
+    {
+      "type": "heading",
+      "level": 2,
+      "content": "Practical Workflow (Task-Tracker App)"
+    },
+    {
+      "type": "list",
+      "listType": "ordered",
+      "items": [
+        "Information scan: Perplexity compiles 3–5 recent trends and competitors with sources.",
+        "Architecture: ChatGPT / Claude output “Problem → User → 3 core features → MVP metrics → Risks”.",
+        "Task breakdown: Notion AI generates a 2-week sprint board (backend / frontend / test / design).",
+        "Dev & test: Cursor builds project scaffold; Codex generates feature modules; Copilot assists refactoring and tests.",
+        "Design & assets: Figma AI for wireframes; Canva for posters; Midjourney / SD for illustrations; Runway for shorts.",
+        "Localization: ChatGPT / Gemini for multilingual copy; Whisper for subtitles; ElevenLabs for narration.",
+        "Automation & launch: Zapier / Make wire up forms / Slack / Email; LangChain orchestrates ChatGPT + Claude + retrieval; MCP manages context access.",
+        "Monitoring & iteration: collect W2 retention / D1 revisit / feature usage; ChatGPT proposes improvements."
+      ]
+    },
+
+    { "type": "line-break" },
+    { "type": "horizontal-rule" },
+    { "type": "line-break" },
+    {
+      "type": "heading",
+      "level": 2,
+      "content": "Large-Scale Concept: Cross-Language AI Tutor Marketplace"
+    },
+    {
+      "type": "text",
+      "content": "Vision: connect global tutors and learners; the platform automatically converts syllabi, generates multilingual content, produces video explanations, powers real-time Q&A, and grades assignments. Tutors focus on teaching quality; the platform handles matching, content transformation, and automated operations."
+    },
+
+    { "type": "heading", "level": 3, "content": "Phases & AI Collaboration" },
+    {
+      "type": "table",
+      "title": "Phase × Objective × Tools",
+      "headers": ["Phase", "Objective", "AI / Tools", "Key Outputs", "Validation Metrics"],
+      "rows": [
+        ["0. Research & positioning", "Pick 3 subjects and locales", "Perplexity + Kuse", "Competitor map / pain-point list", "≥15 interviews; ≥70% agree with pain points"],
+        ["1. Spec drafting", "Produce PRD and policy drafts", "Claude + ChatGPT", "PRD / policy drafts", "Reviewed by Legal / Tutor Council"],
+        ["2. Core features", "Syllabus → materials → practice → grading", "Cursor + Codex + Copilot", "APIs / FE+BE scaffold + unit tests", "Coverage ≥80%, error rate trending down"],
+        ["3. Media transformation", "Explainer videos and narration", "Whisper + ElevenLabs + Runway", "Subtitles / voice packs / shorts", "Learner comprehension ≥80% (survey)"],
+        ["4. Multilingual localization", "Auto EN / ZH / JP, etc.", "Gemini + ChatGPT", "Multilingual content and site copy", "Editorial cycle shrinks ≥60%"],
+        ["5. Visuals & marketing", "Brand assets and key visuals", "Figma AI + Canva + Midjourney", "Brand guide / promo kit", "Higher CTR and signup rate"],
+        ["6. Ops automation", "Enrollment → scheduling → invoicing → community", "Zapier / Make + LangChain + MCP", "SOPs and bot flows", "Manual ops hours ↓ ≥50%"],
+        ["7. Monitoring & iteration", "Learning outcomes & retention", "Analytics + ChatGPT analysis", "Monthly report and roadmap", "W2 retention ≥30%, churn down"]
+      ]
+    },
+
+    { "type": "line-break" },
+
+    {
+      "type": "heading",
+      "level": 3,
+      "content": "Cross-Tool Prompt Templates (ready to use)"
+    },
+    {
+      "type": "code",
+      "language": "markdown",
+      "title": "1) Market scan (Perplexity)",
+      "content": "Query: \"online tutor marketplace trends 2024..2025 pricing models retention benchmarks\"\nOutput: table of major trends, business models, and key KPIs (CAC, W2, ARPU), each row with source links."
+    },
+    {
+      "type": "code",
+      "language": "markdown",
+      "title": "2) PRD drafting (Claude)",
+      "content": "Organize a PRD using: Problem → Users → Scope → User stories → Non-functional requirements (performance / privacy) → Success metrics → Not-doing list. Input: {{research summary + needs}}"
+    },
+    {
+      "type": "code",
+      "language": "markdown",
+      "title": "3) Scaffolding (Cursor / Codex)",
+      "content": "Generate APIs and frontend pages for five services: courses, materials, assignments, grading, payments. Tech: backend {{FastAPI/Express}}, frontend {{Next.js/React}}, DB {{PostgreSQL}}; include minimal unit-test samples."
+    },
+    {
+      "type": "code",
+      "language": "markdown",
+      "title": "4) Refactor & test (Copilot)",
+      "content": "Refactor the function below into a pure function and add edge-case tests (coverage ≥80%); note potential performance bottlenecks:\n```ts\n{{code}}\n```"
+    },
+    {
+      "type": "code",
+      "language": "markdown",
+      "title": "5) Multilingual copy (ChatGPT / Gemini)",
+      "content": "Produce EN / ZH-Hant / JP variants using “one-line value prop + three feature bullets + CTA”, ≤60 chars per language. Topic: {{platform summary}}"
+    },
+    {
+      "type": "code",
+      "language": "markdown",
+      "title": "6) Video & narration (Whisper / ElevenLabs / Runway)",
+      "content": "Convert this teaching script into subtitles and narration (tone: friendly, clear; speed: medium). Then output a ≤60-sec short script for Runway generation. Input: {{script}}"
+    },
+    {
+      "type": "code",
+      "language": "markdown",
+      "title": "7) Automation flow (Zapier / Make)",
+      "content": "Trigger: new student registration → Actions: create Notion row, send welcome email, add to Slack #students, assign tutor."
+    },
+    {
+      "type": "code",
+      "language": "markdown",
+      "title": "8) Multi-model orchestration (LangChain + MCP)",
+      "content": "Pipeline: ChatGPT parses syllabus → Perplexity retrieves sources → Claude drafts materials → Gemini produces illustrations → Whisper/ElevenLabs generate AV assets. Use MCP to unify access to documents and vector indexes."
+    },
+    { "type": "line-break" },
+    { "type": "horizontal-rule" },
+    { "type": "line-break" },
+    {
+      "type": "heading",
+      "level": 2,
+      "content": "Notes on New Tools: Kuse / Codex"
+    },
+    {
+      "type": "definition-list",
+      "title": "Tool Notes",
+      "definitions": [
+        { "term": "Kuse", "definition": "A multimodal knowledge canvas for text, images, video, and PDFs in one space; AI assists analysis and organization. Suited to research and early ideation." },
+        { "term": "Codex", "definition": "A coding agent that can implement features, fix issues, and open PRs—useful automation alongside Cursor / Copilot." },
+        { "term": "MCP (Model Context Protocol)", "definition": "A protocol for secure model access to external resources/tools, improving context sharing and permission governance in multi-tool setups." }
+      ]
+    },
+    { "type": "line-break" },
+    { "type": "horizontal-rule" },
+    { "type": "line-break" },
+    {
+      "type": "heading",
+      "level": 2,
+      "content": "Governance & Compliance (minimal checklist)"
+    },
+    {
+      "type": "definition-list",
+      "title": "Compliance Essentials",
+      "definitions": [
+        { "term": "Data minimization", "definition": "Collect and process only necessary fields; de-identify or keep sensitive data on-device." },
+        { "term": "Source traceability", "definition": "Preserve Perplexity citations; include references and timestamps in reports." },
+        { "term": "Licensing & IP", "definition": "Confirm commercial rights for generated images and fonts; avoid protected IP." },
+        { "term": "Cost caps", "definition": "Set monthly API limits; migrate high-cost jobs to batch/offline processing." }
+      ]
+    },
+    { "type": "line-break" },
+    { "type": "horizontal-rule" },
+    { "type": "line-break" },
+    {
+      "type": "heading",
+      "level": 2,
+      "content": "Validation Metrics (recommended)"
+    },
+    {
+      "type": "table",
+      "title": "MVP Metric Examples",
+      "headers": ["Category", "Metric", "Initial Target"],
+      "rows": [
+        ["Usage", "Day-1 revisit (D1)", "≥ 30%"],
+        ["Retention", "Week-2 retention (W2)", "≥ 30%"],
+        ["Content", "Learning unit completion rate", "≥ 70%"],
+        ["Quality", "Error-rate reduction (learning)", "≥ 20%"],
+        ["Cost", "API cost per MAU", "Controllable and predictable"]
+      ]
+    },
+
+    { "type": "horizontal-rule" },
+
+    {
+      "type": "callout",
+      "variant": "success",
+      "title": "Summary",
+      "content": "The core of multi-AI collaboration is the **process**, not a single tool: discovery & verification → structure & specs → coding & tests → design & assets → content & localization → automation & launch → monitoring & iteration. Ship the minimal pipeline first, then progressively upgrade tools and automation depth."
+    }
+  ]
+}

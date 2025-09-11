@@ -139,12 +139,6 @@
           "title": "4.3 創新想法指令參考",
           "href": "/04-prompt-design/03-idea-generation",
           "order": 3
-        },
-        {
-          "id": "resource-hub",
-          "title": "4.4 資源區",
-          "href": "/04-prompt-design/04-resource-hub",
-          "order": 4
         }
       ]
     },

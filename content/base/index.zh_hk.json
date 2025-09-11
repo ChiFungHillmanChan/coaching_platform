@@ -1,6 +1,6 @@
 {
-  "title": "歡迎使用AI教練",
-  "description": "用智能AI教練改變你嘅個人同專業發展",
+  "title": "content 格式參考",
+  "description": "content 格式參考",
   "slug": "welcome",
   "category": "welcome",
   "lastModified": "2024-01-01T00:00:00.000Z",
@@ -8,11 +8,11 @@
     {
       "type": "heading",
       "level": 1,
-      "content": "歡迎使用AI教練"
+      "content": "content 格式參考"
     },
     {
       "type": "text",
-      "content": "用我哋全面嘅AI教練平台改變你嘅個人同專業發展。我哋嘅智能系統會適應你獨特嘅需要，提供個人化指導嚟加速你嘅成長之路。"
+      "content": "content 格式參考"
     },
     {
       "type": "callout",
