@@ -28,6 +28,17 @@
     "previous": "Previous",
     "next": "Next"
   },
+  "codeSearch": {
+    "searchPrompts": "Search in {count} prompt{plural}...",
+    "promptsFound": "{count} prompt{plural} found",
+    "noPromptsFound": "No prompts found for \"{query}\"",
+    "searchTip": "💡 Type to search through prompt titles instantly",
+    "clearSearch": "Clear search",
+    "clickToViewCode": "Click to view prompt",
+    "copy": "Copy",
+    "copied": "Copied!",
+    "close": "Close"
+  },
   "emailSubscription": {
     "title": "Stay Updated",
     "description": "Subscribe to receive notifications when new content is published.",

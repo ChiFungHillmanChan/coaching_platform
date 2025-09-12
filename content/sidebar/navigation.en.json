@@ -3,13 +3,6 @@
   "description": "Main navigation structure for the coaching platform",
   "sections": [
     {
-      "id": "base",
-      "title": "Base Content (for styling reference)",
-      "href": "/base",
-      "icon": "FileText",
-      "order": 0
-    },
-    {
       "id": "Welcome",
       "title": "Welcome",
       "href": "/welcome",

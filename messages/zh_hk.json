@@ -28,6 +28,17 @@
     "previous": "上一頁",
     "next": "下一頁"
   },
+  "codeSearch": {
+    "searchPrompts": "在 {count} 個指令中搜尋...",
+    "promptsFound": "找到 {count} 個指令",
+    "noPromptsFound": "找不到包含 \"{query}\" 的指令",
+    "searchTip": "💡 輸入關鍵字即時搜尋指令標題",
+    "clearSearch": "清除搜尋",
+    "clickToViewCode": "點擊查看指令",
+    "copy": "複製",
+    "copied": "已複製！",
+    "close": "關閉"
+  },
   "emailSubscription": {
     "title": "保持更新",
     "description": "訂閱以便在新內容發布時收到通知。",

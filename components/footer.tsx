@@ -1,8 +1,10 @@
 'use client'
 
 import Link from 'next/link'
+import { useTranslations } from 'next-intl'
 
 export function Footer() {
+  const t = useTranslations('ui')
   return (
     <footer className="border-t border-border/50 bg-background/95 backdrop-blur-sm">
       <div className="container max-w-4xl px-6 py-6 lg:px-8">
@@ -19,7 +21,7 @@ export function Footer() {
             </Link>
           </p>
           <p className="text-xs">
-            AI & Web Design Learning Manual
+            {t('brandName')}
           </p>
         </div>
       </div>

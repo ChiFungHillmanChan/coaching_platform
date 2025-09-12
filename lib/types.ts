@@ -14,7 +14,7 @@ export interface TaskItem {
 }
 
 export interface ContentBlock {
-  type: 'text' | 'heading' | 'code' | 'image' | 'video' | 'list' | 'card' | 'callout' | 'blockquote' | 'link' | 'line-break' | 'horizontal-rule' | 'terminal' | 'table' | 'task-list' | 'download-link' | 'footnote' | 'definition-list';
+  type: 'text' | 'heading' | 'code' | 'code_popup' | 'code_pop_up' | 'search bar' | 'image' | 'video' | 'list' | 'card' | 'callout' | 'blockquote' | 'link' | 'line-break' | 'horizontal-rule' | 'terminal' | 'table' | 'task-list' | 'download-link' | 'footnote' | 'definition-list';
   content: string;
   level?: number; // For headings
   language?: string; // For code blocks

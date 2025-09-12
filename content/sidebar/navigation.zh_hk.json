@@ -3,13 +3,6 @@
   "description": "教練平台的主要導航結構",
   "sections": [
     {
-      "id": "base",
-      "title": "基礎內容 (用於樣式參考)",
-      "href": "/base",
-      "icon": "FileText",
-      "order": 0
-    },
-    {
       "id": "Welcome",
       "title": "歡迎",
       "href": "/welcome",
@@ -157,7 +150,7 @@
         },
         {
           "id": "prompt-cheat-sheet",
-          "title": "b) Prompt Cheat Sheet",
+          "title": "b) 指令 Cheat Sheet 例子",
           "href": "/05-bonus-materials/b-prompt-cheat-sheet",
           "order": 2
         },

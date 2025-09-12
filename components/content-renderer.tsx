@@ -8,6 +8,9 @@ import { ContentBlock } from '@/lib/content'
 import { AlertTriangle, CheckCircle, Info, XCircle, ExternalLink, Terminal, Check, X, Download, FileText, Copy, CheckCheck, ZoomIn, ZoomOut, Clock } from 'lucide-react'
 import { TableOfContents } from '@/components/table-of-contents'
 import { EmailSubscriptionForm } from '@/components/email-subscription-form'
+import { CodePopup } from '@/components/code-popup'
+import { ContentSearch } from '@/components/content-search'
+import { PromptCategorySection } from '@/components/prompt-category-section'
 
 // Enhanced markdown parser with extended syntax support
 function parseMarkdown(text: string): React.ReactNode {
@@ -171,7 +174,74 @@ function VideoPlayer({ src, className }: VideoPlayerProps) {
 }
 
 export function ContentRenderer({ blocks, className, showTableOfContents = true }: ContentRendererProps) {
+  const [filteredBlocks, setFilteredBlocks] = React.useState<ContentBlock[]>(blocks)
+
+  // Check if there are any code_pop_up blocks to show search
+  const hasCodePopupBlocks = React.useMemo(() => {
+    return blocks.some(block => 
+      (block.type === 'code_pop_up' || block.type === 'code_popup') && block.title
+    )
+  }, [blocks])
+
+  // Find the index of the heading "指令Cheat Sheet" to place search after it
+  const cheatSheetHeadingIndex = React.useMemo(() => {
+    return blocks.findIndex(block => 
+      block.type === 'heading' && block.content === '指令Cheat Sheet'
+    )
+  }, [blocks])
+
+  // Group blocks by categories (heading level 3 followed by code_pop_up blocks)
+  const categorizedPrompts = React.useMemo(() => {
+    const categories: Array<{ title: string; prompts: ContentBlock[] }> = []
+    let currentCategory: string | null = null
+    let currentPrompts: ContentBlock[] = []
+
+    filteredBlocks.forEach(block => {
+      if (block.type === 'heading' && block.level === 3) {
+        // Save previous category if it has prompts
+        if (currentCategory && currentPrompts.length > 0) {
+          categories.push({ title: currentCategory, prompts: [...currentPrompts] })
+        }
+        // Start new category
+        currentCategory = block.content
+        currentPrompts = []
+      } else if ((block.type === 'code_pop_up' || block.type === 'code_popup')) {
+        if (!currentCategory) {
+          // Handle prompts before any category heading (put in default category)
+          currentCategory = '指令模板'
+        }
+        currentPrompts.push(block)
+      }
+    })
+
+    // Save last category
+    if (currentCategory && currentPrompts.length > 0) {
+      categories.push({ title: currentCategory, prompts: [...currentPrompts] })
+    }
+
+    return categories
+  }, [filteredBlocks])
+
   const renderBlock = (block: ContentBlock, index: number) => {
+    // Skip search bar type blocks as they're handled automatically
+    if (block.type === 'search bar') {
+      return null
+    }
+
+    // Skip individual code_pop_up blocks as they're handled by categories (disabled for now)
+    // if (block.type === 'code_pop_up' || block.type === 'code_popup') {
+    //   return null
+    // }
+
+    // Skip heading level 3 blocks if they have associated prompts (handled by categories) (disabled for now)  
+    // if (block.type === 'heading' && block.level === 3) {
+    //   const hasPromptsInCategory = categorizedPrompts.some(cat => cat.title === block.content)
+    //   if (hasPromptsInCategory) {
+    //     return null
+    //   }
+    // }
+
+
     switch (block.type) {
       case 'heading':
         const HeadingTag = `h${block.level || 2}` as keyof JSX.IntrinsicElements
@@ -959,17 +1029,110 @@ export function ContentRenderer({ blocks, className, showTableOfContents = true 
           </div>
         )
 
+      case 'code_pop_up':
+      case 'code_popup':
+        // Skip individual rendering - now handled by grid
+        return null
+
       default:
         return null
     }
   }
 
+  // Group consecutive code popup blocks into grids
+  const processBlocksForGrid = (blocks: ContentBlock[]) => {
+    const processedBlocks: (ContentBlock | { type: 'code_popup_grid'; blocks: ContentBlock[] })[] = []
+    let currentCodePopupGroup: ContentBlock[] = []
+    
+    for (let i = 0; i < blocks.length; i++) {
+      const block = blocks[i]
+      
+      if (block.type === 'code_pop_up' || block.type === 'code_popup') {
+        currentCodePopupGroup.push(block)
+      } else {
+        // If we have accumulated code popups, add them as a grid
+        if (currentCodePopupGroup.length > 0) {
+          processedBlocks.push({ type: 'code_popup_grid', blocks: currentCodePopupGroup })
+          currentCodePopupGroup = []
+        }
+        processedBlocks.push(block)
+      }
+    }
+    
+    // Handle remaining code popups at the end
+    if (currentCodePopupGroup.length > 0) {
+      processedBlocks.push({ type: 'code_popup_grid', blocks: currentCodePopupGroup })
+    }
+    
+    return processedBlocks
+  }
+
+  const processedBlocks = processBlocksForGrid(filteredBlocks)
+
   return (
     <>
       <div className={cn('space-y-4', showTableOfContents && 'xl:mr-20', className)}>
-        {blocks.map(renderBlock)}
+        {processedBlocks.map((block, index) => {
+          // Handle code popup grids
+          if ('type' in block && block.type === 'code_popup_grid') {
+            return (
+              <div key={`grid-${index}`} className={cn(
+                "grid gap-3 mb-6",
+                // Mobile: 2 columns
+                "grid-cols-2",
+                // Tablet: 3 columns
+                "sm:grid-cols-3",
+                // Medium screens: 4 columns
+                "md:grid-cols-4",
+                // Large screens: 5 columns
+                "lg:grid-cols-5",
+                // Extra large screens: 6 columns
+                "xl:grid-cols-6",
+                // Ensure equal heights for grid items
+                "auto-rows-fr"
+              )}>
+                {block.blocks.map((popup, popupIndex) => (
+                  <CodePopup
+                    key={`popup-${popupIndex}`}
+                    title={popup.title || 'Untitled'}
+                    content={popup.content || ''}
+                    language={popup.language}
+                  />
+                ))}
+              </div>
+            )
+          }
+          
+          const renderedBlock = renderBlock(block as ContentBlock, index)
+          
+          // Insert search component after the "指令Cheat Sheet" heading
+          if (hasCodePopupBlocks && index === cheatSheetHeadingIndex && cheatSheetHeadingIndex !== -1) {
+            return (
+              <React.Fragment key={index}>
+                {renderedBlock}
+                <ContentSearch 
+                  blocks={blocks} 
+                  onFilteredBlocksChange={setFilteredBlocks}
+                />
+                
+                {/* Render categorized prompts after search - DISABLED */}
+                {/* <div className="mt-8">
+                  {categorizedPrompts.map((category, catIndex) => (
+                    <PromptCategorySection
+                      key={`category-${catIndex}`}
+                      title={category.title}
+                      prompts={category.prompts}
+                    />
+                  ))}
+                </div> */}
+              </React.Fragment>
+            )
+          }
+          
+          return <React.Fragment key={index}>{renderedBlock}</React.Fragment>
+        })}
       </div>
-      {showTableOfContents && <TableOfContents blocks={blocks} />}
+      {showTableOfContents && <TableOfContents blocks={filteredBlocks} />}
     </>
   )
 }

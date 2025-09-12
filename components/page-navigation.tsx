@@ -21,38 +21,40 @@ export function PageNavigation({ previous, next, className }: PageNavigationProp
 
   return (
     <nav className={`mt-12 pt-8 border-t ${className || ''}`}>
-      <div className="flex justify-between items-center gap-4">
+      <div className="grid grid-cols-2 gap-4 items-start">
         {/* Previous Page */}
-        {previous ? (
-          <Link 
-            href={previous.href} 
-            className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors group"
-          >
-            <ChevronLeft className="h-4 w-4 group-hover:-translate-x-1 transition-transform" />
-            <div className="text-left">
-              <div className="text-xs text-muted-foreground">{t('previous')}</div>
-              <div className="font-medium">{previous.label}</div>
-            </div>
-          </Link>
-        ) : (
-          <div /> // Placeholder for alignment
-        )}
+        <div className="flex justify-start">
+          {previous && (
+            <Link 
+              href={previous.href} 
+              className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors group max-w-full"
+              aria-label={`Previous: ${previous.label}`}
+            >
+              <ChevronLeft className="h-4 w-4 group-hover:-translate-x-1 transition-transform flex-shrink-0" />
+              <div className="text-left min-w-0">
+                <div className="text-xs text-muted-foreground">{t('previous')}</div>
+                <div className="font-medium truncate">{previous.label}</div>
+              </div>
+            </Link>
+          )}
+        </div>
 
         {/* Next Page */}
-        {next ? (
-          <Link 
-            href={next.href} 
-            className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors group"
-          >
-            <div className="text-right">
-              <div className="text-xs text-muted-foreground">{t('next')}</div>
-              <div className="font-medium">{next.label}</div>
-            </div>
-            <ChevronRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
-          </Link>
-        ) : (
-          <div /> // Placeholder for alignment
-        )}
+        <div className="flex justify-end">
+          {next && (
+            <Link 
+              href={next.href} 
+              className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors group max-w-full"
+              aria-label={`Next: ${next.label}`}
+            >
+              <div className="text-right min-w-0">
+                <div className="text-xs text-muted-foreground">{t('next')}</div>
+                <div className="font-medium truncate">{next.label}</div>
+              </div>
+              <ChevronRight className="h-4 w-4 group-hover:translate-x-1 transition-transform flex-shrink-0" />
+            </Link>
+          )}
+        </div>
       </div>
     </nav>
   )
