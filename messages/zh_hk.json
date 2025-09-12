@@ -29,7 +29,7 @@
     "next": "下一頁"
   },
   "codeSearch": {
-    "searchPrompts": "在 {count} 個指令中搜尋...",
+    "searchPrompts": "搜尋指令",
     "promptsFound": "找到 {count} 個指令",
     "noPromptsFound": "找不到包含 \"{query}\" 的指令",
     "searchTip": "💡 輸入關鍵字即時搜尋指令標題",

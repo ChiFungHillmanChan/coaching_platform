@@ -13,9 +13,9 @@ interface ContentSearchProps {
 }
 
 export function ContentSearch({ blocks, onFilteredBlocksChange, className }: ContentSearchProps) {
+  const t = useTranslations('codeSearch')
   const [searchQuery, setSearchQuery] = useState('')
   const [isFocused, setIsFocused] = useState(false)
-  const t = useTranslations('codeSearch')
 
   // Get all code_pop_up blocks with their titles
   const codePopupBlocks = useMemo(() => {
@@ -89,14 +89,7 @@ export function ContentSearch({ blocks, onFilteredBlocksChange, className }: Con
             onChange={handleInputChange}
             onFocus={() => setIsFocused(true)}
             onBlur={() => setIsFocused(false)}
-            placeholder={(() => {
-              try {
-                return t('searchPrompts', { count: codePopupBlocks.length || 0 });
-              } catch (error) {
-                console.error('Translation error:', error);
-                return `Search in ${codePopupBlocks.length || 0} prompt${(codePopupBlocks.length || 0) !== 1 ? 's' : ''}...`;
-              }
-            })()}
+            placeholder={t('searchPrompts')}
             className={cn(
               "w-full pl-10 pr-10 py-3 rounded-lg border bg-background text-foreground",
               "placeholder:text-muted-foreground",
@@ -137,12 +130,7 @@ export function ContentSearch({ blocks, onFilteredBlocksChange, className }: Con
                   const count = filteredBlocks.filter(block => 
                     block.type === 'code_pop_up' || block.type === 'code_popup'
                   ).length
-                  try {
-                    return t('promptsFound', { count: count || 0 });
-                  } catch (error) {
-                    console.error('Translation error:', error);
-                    return `${count || 0} prompt${(count || 0) !== 1 ? 's' : ''} found`;
-                  }
+                  return t('promptsFound', { count });
                 })()}
               </p>
             )}

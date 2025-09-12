@@ -29,10 +29,10 @@
     "next": "Next"
   },
   "codeSearch": {
-    "searchPrompts": "Search in {count, plural, one {# prompt} other {# prompts}}...",
-    "promptsFound": "{count, plural, one {# prompt found} other {# prompts found}}",
-    "noPromptsFound": "No prompts found for \"{query}\"",
-    "searchTip": "💡 Type to search through prompt titles instantly",
+    "searchPrompts": "Search prompts",
+    "promptsFound": "Found {count} prompts",
+    "noPromptsFound": "No prompts found containing \"{query}\"",
+    "searchTip": "💡 Type keywords to instantly search prompt titles",
     "clearSearch": "Clear search",
     "clickToViewCode": "Click to view prompt",
     "clickToUse": "Click to use",
