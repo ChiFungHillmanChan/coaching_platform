@@ -3,6 +3,7 @@
 import React, { useState, useRef, useEffect, useCallback } from 'react'
 import { X, Copy, CheckCheck } from 'lucide-react'
 import { cn } from '@/lib/utils'
+import { useTranslations } from 'next-intl'
 
 interface CodePopupProps {
   title: string
@@ -63,6 +64,7 @@ export function CodePopup({ title, content, language, className }: CodePopupProp
   const [copied, setCopied] = useState(false)
   const overlayRef = useRef<HTMLDivElement>(null)
   const contentRef = useRef<HTMLDivElement>(null)
+  const t = useTranslations('codeSearch')
 
 
 
@@ -193,25 +195,25 @@ export function CodePopup({ title, content, language, className }: CodePopupProp
             "border-border hover:border-primary/40",
             "shadow-sm hover:shadow-md hover:shadow-primary/10",
             "dark:hover:bg-accent/20 dark:hover:border-primary/50",
-            "p-3 min-h-[70px]" // Much more compact
+            "p-4 min-h-[90px]" // Better spacing and readability
           )}
           onClick={() => setIsOpen(true)}
         >
           {/* Header with icon and indicator */}
-          <div className="flex items-center justify-between mb-2">
-            <div className="flex-shrink-0 w-6 h-6 rounded bg-primary/10 dark:bg-primary/20 flex items-center justify-center group-hover:bg-primary/20 dark:group-hover:bg-primary/30 transition-colors">
+          <div className="flex items-center justify-between mb-3">
+            <div className="flex-shrink-0 w-7 h-7 rounded bg-primary/10 dark:bg-primary/20 flex items-center justify-center group-hover:bg-primary/20 dark:group-hover:bg-primary/30 transition-colors">
               <span className="text-sm">📋</span>
             </div>
-            <div className="w-1.5 h-1.5 rounded-full bg-primary/30 group-hover:bg-primary/50 transition-colors"></div>
+            <div className="w-2 h-2 rounded-full bg-primary/30 group-hover:bg-primary/50 transition-colors"></div>
           </div>
           
-          {/* Title - now more compact */}
+          {/* Title - better readability */}
           <div className="flex-1">
-            <h4 className="text-xs font-medium text-foreground group-hover:text-primary transition-colors line-clamp-2 leading-tight mb-1">
+            <h4 className="text-sm font-medium text-foreground group-hover:text-primary transition-colors line-clamp-2 leading-snug mb-2">
               {title}
             </h4>
-            <p className="text-[10px] text-muted-foreground group-hover:text-primary/70 transition-colors">
-              點擊使用
+            <p className="text-xs text-muted-foreground group-hover:text-primary/70 transition-colors">
+              {t('clickToUse')}
             </p>
           </div>
         </div>
@@ -249,24 +251,24 @@ export function CodePopup({ title, content, language, className }: CodePopupProp
                 <button
                   onClick={handleCopy}
                   className="flex items-center gap-1 px-3 py-1.5 text-xs text-muted-foreground hover:text-foreground transition-colors rounded hover:bg-muted/50"
-                  title={copied ? "已複製！" : "複製"}
+                  title={copied ? t('copied') : t('copy')}
                 >
                   {copied ? (
                     <>
                       <CheckCheck className="h-3 w-3 text-green-500" />
-                      <span className="text-green-500">已複製！</span>
+                      <span className="text-green-500">{t('copied')}</span>
                     </>
                   ) : (
                     <>
                       <Copy className="h-3 w-3" />
-                      <span>複製</span>
+                      <span>{t('copy')}</span>
                     </>
                   )}
                 </button>
                 <button
                   onClick={handleClose}
                   className="p-1.5 text-muted-foreground hover:text-foreground transition-colors rounded hover:bg-muted/50"
-                  title="關閉"
+                  title={t('close')}
                 >
                   <X className="h-4 w-4" />
                 </button>

@@ -35,9 +35,11 @@
     "searchTip": "💡 Type to search through prompt titles instantly",
     "clearSearch": "Clear search",
     "clickToViewCode": "Click to view prompt",
+    "clickToUse": "Click to use",
     "copy": "Copy",
     "copied": "Copied!",
-    "close": "Close"
+    "close": "Close",
+    "templateCount": "{count} prompt template{plural}"
   },
   "emailSubscription": {
     "title": "Stay Updated",

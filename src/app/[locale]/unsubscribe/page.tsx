@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useCallback } from 'react'
 import { useSearchParams } from 'next/navigation'
 import Link from 'next/link'
 import { Button } from '@/components/ui/button'
@@ -18,7 +18,7 @@ export default function UnsubscribePage() {
   const [isError, setIsError] = useState(false)
   const [isSuccess, setIsSuccess] = useState(false)
 
-  const handleUnsubscribe = async (emailToUnsubscribe?: string) => {
+  const handleUnsubscribe = useCallback(async (emailToUnsubscribe?: string) => {
     const targetEmail = emailToUnsubscribe || email
     if (!targetEmail.trim()) return
 
@@ -52,7 +52,7 @@ export default function UnsubscribePage() {
     } finally {
       setIsLoading(false)
     }
-  }
+  }, [email])
 
   // Auto-unsubscribe if email is provided in URL
   useEffect(() => {

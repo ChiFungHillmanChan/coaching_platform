@@ -4,6 +4,7 @@ import React, { useState, useEffect, useMemo } from 'react'
 import { Search, X } from 'lucide-react'
 import { cn } from '@/lib/utils'
 import { ContentBlock } from '@/lib/content'
+import { useTranslations } from 'next-intl'
 
 interface ContentSearchProps {
   blocks: ContentBlock[]
@@ -14,6 +15,7 @@ interface ContentSearchProps {
 export function ContentSearch({ blocks, onFilteredBlocksChange, className }: ContentSearchProps) {
   const [searchQuery, setSearchQuery] = useState('')
   const [isFocused, setIsFocused] = useState(false)
+  const t = useTranslations('codeSearch')
 
   // Get all code_pop_up blocks with their titles
   const codePopupBlocks = useMemo(() => {
@@ -87,7 +89,7 @@ export function ContentSearch({ blocks, onFilteredBlocksChange, className }: Con
             onChange={handleInputChange}
             onFocus={() => setIsFocused(true)}
             onBlur={() => setIsFocused(false)}
-            placeholder="在指令中搜尋..."
+            placeholder={t('searchPrompts', { count: codePopupBlocks.length, plural: codePopupBlocks.length !== 1 ? 's' : '' })}
             className={cn(
               "w-full pl-10 pr-10 py-3 rounded-lg border bg-background text-foreground",
               "placeholder:text-muted-foreground",
@@ -108,7 +110,7 @@ export function ContentSearch({ blocks, onFilteredBlocksChange, className }: Con
                 "transition-colors duration-200",
                 "focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
               )}
-              title="清除搜尋"
+              title={t('clearSearch')}
             >
               <X className="h-4 w-4" />
             </button>
@@ -120,7 +122,7 @@ export function ContentSearch({ blocks, onFilteredBlocksChange, className }: Con
           <div className="mt-2 text-center">
             {noResults ? (
               <p className="text-sm text-muted-foreground">
-                找不到包含 "{searchQuery}" 的指令
+                {t('noPromptsFound', { query: searchQuery })}
               </p>
             ) : (
               <p className="text-sm text-muted-foreground">
@@ -128,7 +130,7 @@ export function ContentSearch({ blocks, onFilteredBlocksChange, className }: Con
                   const count = filteredBlocks.filter(block => 
                     block.type === 'code_pop_up' || block.type === 'code_popup'
                   ).length
-                  return `找到 ${count} 個指令`
+                  return t('promptsFound', { count, plural: count !== 1 ? 's' : '' })
                 })()}
               </p>
             )}
@@ -140,7 +142,7 @@ export function ContentSearch({ blocks, onFilteredBlocksChange, className }: Con
       {!searchQuery && (
         <div className="mt-3 text-center">
           <p className="text-xs text-muted-foreground">
-            💡 輸入關鍵字即時搜尋指令標題
+            {t('searchTip')}
           </p>
         </div>
       )}

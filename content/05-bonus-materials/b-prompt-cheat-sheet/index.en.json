@@ -57,6 +57,7 @@
         "title": "Output Formatter (Text → JSON/CSV)",
         "content": "[System]\nYou are a format conversion assistant.\n\n[Developer]\nRequirements:\n- Extract information into the specified schema\n- Do not create fictional fields\n\n[User]\nOriginal Text: {paste here}\nTarget Format: {JSON/CSV/Table}\nSchema/Fields: {list}\n\n[Output]\nOutput results that match the schema."
       },
+      { "type": "line-break" },
       { "type": "heading", "level": 3, "content": "Work & Creation" },
       {
         "type": "code_pop_up",
@@ -82,6 +83,7 @@
         "title": "Progress Review / Progress Report",
         "content": "[System]\nYou are a project progress summarization assistant.\n\n[Developer]\nRequirements:\n- Sections: Highlights, Completed Tasks, Ongoing, Blockers/Risks, KPIs, Next Plans, Needed Support\n- Tone: concise, fact-based; avoid vague descriptions\n- Only output the progress report text; lists/tables allowed\n\n[User]\nCycle: {weekly/biweekly/monthly; start–end dates}\nProject/Module: {list}\nMilestones (optional): {name/date/status}\nCompleted: {items…}\nOngoing: {items…; expected completion date}\nRisks & Blockers: {items…; mitigation plan}\nKPIs (optional): {metric: number/change}\nNext Plans: {items…}\nNeeded Support (optional): {items…}\nLanguage: {Traditional Chinese/English/…}\n\n[Output]\nOutput a clearly structured progress review (with section headings)."
       },
+      { "type": "line-break" },
       { "type": "heading", "level": 3, "content": "Life & Well-being" },
       {
         "type": "code_pop_up",
@@ -119,7 +121,8 @@
         "title": "Emotional Support (Short Messages)",
         "content": "[System]\nYou are an emotional support assistant.\n\n[Developer]\nRequirements:\n- Gentle, understanding, non-judgmental tone\n- Output 3–5 short supportive messages\n\n[User]\nMood Status: {description}\n\n[Output]\nOutput supportive short messages (3–5 sentences)."
       },
-      { "type": "heading", "level": 3, "content": "Knowledge & Data" },
+      { "type": "line-break" },
+    { "type": "heading", "level": 3, "content": "Knowledge & Data" },
       {
         "type": "code_pop_up",
         "language": "markdown",

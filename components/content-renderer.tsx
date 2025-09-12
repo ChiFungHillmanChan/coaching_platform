@@ -183,10 +183,10 @@ export function ContentRenderer({ blocks, className, showTableOfContents = true 
     )
   }, [blocks])
 
-  // Find the index of the heading "指令Cheat Sheet" to place search after it
+  // Find the index of the heading "指令Cheat Sheet" or "Prompt Cheat Sheet" to place search after it
   const cheatSheetHeadingIndex = React.useMemo(() => {
     return blocks.findIndex(block => 
-      block.type === 'heading' && block.content === '指令Cheat Sheet'
+      block.type === 'heading' && (block.content === '指令Cheat Sheet' || block.content === 'Prompt Cheat Sheet')
     )
   }, [blocks])
 
@@ -1044,25 +1044,27 @@ export function ContentRenderer({ blocks, className, showTableOfContents = true 
     const processedBlocks: (ContentBlock | { type: 'code_popup_grid'; blocks: ContentBlock[] })[] = []
     let currentCodePopupGroup: ContentBlock[] = []
     
+    const flushCodePopups = () => {
+      if (currentCodePopupGroup.length > 0) {
+        processedBlocks.push({ type: 'code_popup_grid', blocks: currentCodePopupGroup })
+        currentCodePopupGroup = []
+      }
+    }
+    
     for (let i = 0; i < blocks.length; i++) {
       const block = blocks[i]
       
       if (block.type === 'code_pop_up' || block.type === 'code_popup') {
         currentCodePopupGroup.push(block)
       } else {
-        // If we have accumulated code popups, add them as a grid
-        if (currentCodePopupGroup.length > 0) {
-          processedBlocks.push({ type: 'code_popup_grid', blocks: currentCodePopupGroup })
-          currentCodePopupGroup = []
-        }
+        // Flush any accumulated code popups before adding the non-popup block
+        flushCodePopups()
         processedBlocks.push(block)
       }
     }
     
     // Handle remaining code popups at the end
-    if (currentCodePopupGroup.length > 0) {
-      processedBlocks.push({ type: 'code_popup_grid', blocks: currentCodePopupGroup })
-    }
+    flushCodePopups()
     
     return processedBlocks
   }
@@ -1077,17 +1079,13 @@ export function ContentRenderer({ blocks, className, showTableOfContents = true 
           if ('type' in block && block.type === 'code_popup_grid') {
             return (
               <div key={`grid-${index}`} className={cn(
-                "grid gap-3 mb-6",
-                // Mobile: 2 columns
-                "grid-cols-2",
-                // Tablet: 3 columns
-                "sm:grid-cols-3",
-                // Medium screens: 4 columns
-                "md:grid-cols-4",
-                // Large screens: 5 columns
-                "lg:grid-cols-5",
-                // Extra large screens: 6 columns
-                "xl:grid-cols-6",
+                "grid gap-4 mb-8",
+                // Mobile: 1 column
+                "grid-cols-1",
+                // Tablet: 2 columns
+                "sm:grid-cols-2", 
+                // Desktop and above: max 3 columns
+                "md:grid-cols-3",
                 // Ensure equal heights for grid items
                 "auto-rows-fr"
               )}>
@@ -1105,7 +1103,7 @@ export function ContentRenderer({ blocks, className, showTableOfContents = true 
           
           const renderedBlock = renderBlock(block as ContentBlock, index)
           
-          // Insert search component after the "指令Cheat Sheet" heading
+          // Insert search component after the "指令Cheat Sheet" or "Prompt Cheat Sheet" heading
           if (hasCodePopupBlocks && index === cheatSheetHeadingIndex && cheatSheetHeadingIndex !== -1) {
             return (
               <React.Fragment key={index}>

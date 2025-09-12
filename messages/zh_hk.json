@@ -35,9 +35,11 @@
     "searchTip": "💡 輸入關鍵字即時搜尋指令標題",
     "clearSearch": "清除搜尋",
     "clickToViewCode": "點擊查看指令",
+    "clickToUse": "點擊使用",
     "copy": "複製",
     "copied": "已複製！",
-    "close": "關閉"
+    "close": "關閉",
+    "templateCount": "{count} 個指令模板"
   },
   "emailSubscription": {
     "title": "保持更新",
