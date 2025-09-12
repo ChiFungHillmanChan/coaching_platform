@@ -118,6 +118,7 @@ async function getArticleContent(slug: string[], locale: string): Promise<Articl
       'index.md'
     ];
     
+    
     let filePath: string | null = null;
     let fileType: 'json' | 'markdown' | null = null;
     

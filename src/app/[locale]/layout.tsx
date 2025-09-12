@@ -13,13 +13,13 @@ export default async function LocaleLayout({
   children,
   params: { locale }
 }: LocaleLayoutProps) {
-  // Normalize locale to support both zh_hk and zh-HK while keeping routing stable
-  const normalizedLocale = locale.toLowerCase() === 'zh_hk' || locale === 'zh-HK' ? 'zh-HK' : 'en'
+  // Normalize locale to support both zh_hk and zh_hk while keeping routing stable
+  const normalizedLocale = locale.toLowerCase() === 'zh_hk' || locale === 'zh_hk' ? 'zh_hk' : 'en'
 
   // Load the correct message file directly based on locale
   let messages
   try {
-    if (normalizedLocale === 'zh-HK') {
+    if (normalizedLocale === 'zh_hk') {
       messages = (await import(`../../../messages/zh_hk.json`)).default
     } else {
       messages = (await import(`../../../messages/en.json`)).default
