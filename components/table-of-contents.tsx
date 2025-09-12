@@ -3,6 +3,7 @@
 import React from 'react'
 import { cn } from '@/lib/utils'
 import { ContentBlock } from '@/lib/content'
+import { useTranslations } from 'next-intl'
 
 interface TocItem {
   id: string
@@ -17,6 +18,7 @@ interface TableOfContentsProps {
 
 export function TableOfContents({ blocks, className }: TableOfContentsProps) {
   const [activeId, setActiveId] = React.useState<string>('')
+  const t = useTranslations('tableOfContents')
 
   // Extract headings from content blocks (levels 1-4)
   const tocItems: TocItem[] = React.useMemo(() => {
@@ -85,7 +87,7 @@ export function TableOfContents({ blocks, className }: TableOfContentsProps) {
     <div className={cn('hidden xl:block fixed top-24 right-8 w-64 max-h-[calc(100vh-6rem)] overflow-y-auto', className)}>
       <div className="sticky top-0">
         <div className="bg-card border rounded-lg shadow-sm p-4">
-          <h3 className="text-sm font-semibold text-foreground mb-3">On This Page</h3>
+          <h3 className="text-sm font-semibold text-foreground mb-3">{t('onThisPage')}</h3>
           <nav className="space-y-1">
             {tocItems.map((item) => (
               <button

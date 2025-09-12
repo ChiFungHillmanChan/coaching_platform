@@ -52,5 +52,8 @@
     "successTitle": "閱成功！",
     "successMessage": "感謝您的訂閱。新內容可用時我們會通知您。",
     "errorGeneric": "訂閱失敗"
+  },
+  "tableOfContents": {
+    "onThisPage": "本頁內容"
   }
 }

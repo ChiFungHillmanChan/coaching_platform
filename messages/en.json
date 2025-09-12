@@ -29,8 +29,8 @@
     "next": "Next"
   },
   "codeSearch": {
-    "searchPrompts": "Search in {count} prompt{plural}...",
-    "promptsFound": "{count} prompt{plural} found",
+    "searchPrompts": "Search in {count, plural, one {# prompt} other {# prompts}}...",
+    "promptsFound": "{count, plural, one {# prompt found} other {# prompts found}}",
     "noPromptsFound": "No prompts found for \"{query}\"",
     "searchTip": "💡 Type to search through prompt titles instantly",
     "clearSearch": "Clear search",
@@ -39,7 +39,7 @@
     "copy": "Copy",
     "copied": "Copied!",
     "close": "Close",
-    "templateCount": "{count} prompt template{plural}"
+    "templateCount": "{count, plural, one {# prompt template} other {# prompt templates}}"
   },
   "emailSubscription": {
     "title": "Stay Updated",
@@ -52,5 +52,8 @@
     "successTitle": "Successfully Subscribed!",
     "successMessage": "Thank you for subscribing. You'll be notified when new content is available.",
     "errorGeneric": "Subscription failed"
+  },
+  "tableOfContents": {
+    "onThisPage": "On This Page"
   }
 }

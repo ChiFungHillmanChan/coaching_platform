@@ -222,7 +222,7 @@ export function ContentRenderer({ blocks, className, showTableOfContents = true 
     return categories
   }, [filteredBlocks])
 
-  const renderBlock = (block: ContentBlock, index: number) => {
+  const renderBlock = (block: ContentBlock, index: number, originalIndex?: number) => {
     // Skip search bar type blocks as they're handled automatically
     if (block.type === 'search bar') {
       return null
@@ -253,8 +253,8 @@ export function ContentRenderer({ blocks, className, showTableOfContents = true 
           5: 'text-base font-medium',
           6: 'text-sm font-medium'
         }
-        // Generate ID for headings level 1-4, using the same index-based logic as TableOfContents
-        const headingId = block.level && block.level <= 4 ? `heading-${index}` : undefined
+        // Generate ID for headings level 1-4, using the original index for consistency with TableOfContents
+        const headingId = block.level && block.level <= 4 ? `heading-${originalIndex !== undefined ? originalIndex : index}` : undefined
         return (
           <HeadingTag 
             key={index} 
@@ -1042,12 +1042,17 @@ export function ContentRenderer({ blocks, className, showTableOfContents = true 
   // Group consecutive code popup blocks into grids
   const processBlocksForGrid = (blocks: ContentBlock[]) => {
     const processedBlocks: (ContentBlock | { type: 'code_popup_grid'; blocks: ContentBlock[] })[] = []
+    const originalIndexMap: number[] = [] // Track original indices for each processed block
     let currentCodePopupGroup: ContentBlock[] = []
+    let currentCodePopupStartIndex = -1
     
     const flushCodePopups = () => {
       if (currentCodePopupGroup.length > 0) {
         processedBlocks.push({ type: 'code_popup_grid', blocks: currentCodePopupGroup })
+        // For grid blocks, use the index of the first code popup in the group
+        originalIndexMap.push(currentCodePopupStartIndex)
         currentCodePopupGroup = []
+        currentCodePopupStartIndex = -1
       }
     }
     
@@ -1055,21 +1060,25 @@ export function ContentRenderer({ blocks, className, showTableOfContents = true 
       const block = blocks[i]
       
       if (block.type === 'code_pop_up' || block.type === 'code_popup') {
+        if (currentCodePopupGroup.length === 0) {
+          currentCodePopupStartIndex = i
+        }
         currentCodePopupGroup.push(block)
       } else {
         // Flush any accumulated code popups before adding the non-popup block
         flushCodePopups()
         processedBlocks.push(block)
+        originalIndexMap.push(i)
       }
     }
     
     // Handle remaining code popups at the end
     flushCodePopups()
     
-    return processedBlocks
+    return { processedBlocks, originalIndexMap }
   }
 
-  const processedBlocks = processBlocksForGrid(filteredBlocks)
+  const { processedBlocks, originalIndexMap } = processBlocksForGrid(filteredBlocks)
 
   return (
     <>
@@ -1101,7 +1110,7 @@ export function ContentRenderer({ blocks, className, showTableOfContents = true 
             )
           }
           
-          const renderedBlock = renderBlock(block as ContentBlock, index)
+          const renderedBlock = renderBlock(block as ContentBlock, index, originalIndexMap[index])
           
           // Insert search component after the "指令Cheat Sheet" or "Prompt Cheat Sheet" heading
           if (hasCodePopupBlocks && index === cheatSheetHeadingIndex && cheatSheetHeadingIndex !== -1) {

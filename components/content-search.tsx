@@ -89,7 +89,14 @@ export function ContentSearch({ blocks, onFilteredBlocksChange, className }: Con
             onChange={handleInputChange}
             onFocus={() => setIsFocused(true)}
             onBlur={() => setIsFocused(false)}
-            placeholder={t('searchPrompts', { count: codePopupBlocks.length, plural: codePopupBlocks.length !== 1 ? 's' : '' })}
+            placeholder={(() => {
+              try {
+                return t('searchPrompts', { count: codePopupBlocks.length || 0 });
+              } catch (error) {
+                console.error('Translation error:', error);
+                return `Search in ${codePopupBlocks.length || 0} prompt${(codePopupBlocks.length || 0) !== 1 ? 's' : ''}...`;
+              }
+            })()}
             className={cn(
               "w-full pl-10 pr-10 py-3 rounded-lg border bg-background text-foreground",
               "placeholder:text-muted-foreground",
@@ -130,7 +137,12 @@ export function ContentSearch({ blocks, onFilteredBlocksChange, className }: Con
                   const count = filteredBlocks.filter(block => 
                     block.type === 'code_pop_up' || block.type === 'code_popup'
                   ).length
-                  return t('promptsFound', { count, plural: count !== 1 ? 's' : '' })
+                  try {
+                    return t('promptsFound', { count: count || 0 });
+                  } catch (error) {
+                    console.error('Translation error:', error);
+                    return `${count || 0} prompt${(count || 0) !== 1 ? 's' : ''} found`;
+                  }
                 })()}
               </p>
             )}
