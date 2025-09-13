@@ -33,52 +33,8 @@ async function checkAdminAuth() {
   }
 }
 
-function generateEmailTemplate(contentTitle: string, contentUrl: string): string {
-  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000'
-  const fullUrl = contentUrl.startsWith('http') ? contentUrl : `${baseUrl}${contentUrl}`
-  
-  return `
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>New Content Available</title>
-    <style>
-        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; line-height: 1.6; color: #333; max-width: 600px; margin: 0 auto; padding: 20px; }
-        .header { text-align: center; margin-bottom: 30px; }
-        .content { background: #f9f9f9; padding: 30px; border-radius: 8px; margin-bottom: 30px; }
-        .button { display: inline-block; background: #0066cc; color: white; padding: 12px 24px; text-decoration: none; border-radius: 6px; font-weight: 500; }
-        .footer { text-align: center; font-size: 14px; color: #666; }
-    </style>
-</head>
-<body>
-    <div class="header">
-        <h1>New Content Available</h1>
-    </div>
-    
-    <div class="content">
-        <h2>Thank you for subscribing to my page!</h2>
-        
-        <p>I'm excited to share new content with you:</p>
-        
-        <h3>${contentTitle}</h3>
-        
-        <p>You can now view this new content by clicking the link below:</p>
-        
-        <p style="text-align: center;">
-            <a href="${fullUrl}" class="button">View New Content</a>
-        </p>
-    </div>
-    
-    <div class="footer">
-        <p>Thank you for being a valued subscriber!</p>
-        <p><small>This email was sent because you subscribed to updates. If you no longer wish to receive these emails, please contact us to unsubscribe.</small></p>
-    </div>
-</body>
-</html>
-  `.trim()
-}
+// Legacy email template function - kept for compatibility but not used
+// The getNewsletterTemplate from @/lib/email is now used instead
 
 export async function POST(request: NextRequest) {
   try {

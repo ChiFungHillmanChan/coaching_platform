@@ -110,31 +110,66 @@ export async function getAllActiveSubscribers(): Promise<Subscriber[]> {
   if (isKVAvailable()) {
     const activeEmails = await kv.smembers('active_subscribers')
     const subscribers: Subscriber[] = []
-    
+
     for (const email of activeEmails) {
       const subscriber = await getSubscriber(email)
       if (subscriber && subscriber.isActive) {
         subscribers.push(subscriber)
       }
     }
-    
+
     return subscribers.sort((a, b) => new Date(b.subscribedAt).getTime() - new Date(a.subscribedAt).getTime())
   } else {
     // In production without KV, throw error instead of using file system
     if (process.env.NODE_ENV === 'production' || process.env.VERCEL_ENV) {
       throw new Error('Vercel KV is required in production. Please configure KV_REST_API_URL and KV_REST_API_TOKEN environment variables.')
     }
-    
+
     // Fallback to local file storage (development only)
     ensureDataDir()
     if (!existsSync(SUBSCRIBERS_FILE)) return []
-    
+
     try {
       const data = readFileSync(SUBSCRIBERS_FILE, 'utf-8')
       const subscribers: Subscriber[] = JSON.parse(data)
       return subscribers
         .filter(s => s.isActive)
         .sort((a, b) => new Date(b.subscribedAt).getTime() - new Date(a.subscribedAt).getTime())
+    } catch (error) {
+      console.error('Error reading subscribers:', error)
+      return []
+    }
+  }
+}
+
+export async function getAllSubscribers(): Promise<Subscriber[]> {
+  if (isKVAvailable()) {
+    // Get all subscriber keys
+    const keys = await kv.keys('subscriber:*')
+    const subscribers: Subscriber[] = []
+
+    for (const key of keys) {
+      const subscriber = await kv.get<Subscriber>(key)
+      if (subscriber) {
+        subscribers.push(subscriber)
+      }
+    }
+
+    return subscribers.sort((a, b) => new Date(b.subscribedAt).getTime() - new Date(a.subscribedAt).getTime())
+  } else {
+    // In production without KV, throw error instead of using file system
+    if (process.env.NODE_ENV === 'production' || process.env.VERCEL_ENV) {
+      throw new Error('Vercel KV is required in production. Please configure KV_REST_API_URL and KV_REST_API_TOKEN environment variables.')
+    }
+
+    // Fallback to local file storage (development only)
+    ensureDataDir()
+    if (!existsSync(SUBSCRIBERS_FILE)) return []
+
+    try {
+      const data = readFileSync(SUBSCRIBERS_FILE, 'utf-8')
+      const subscribers: Subscriber[] = JSON.parse(data)
+      return subscribers.sort((a, b) => new Date(b.subscribedAt).getTime() - new Date(a.subscribedAt).getTime())
     } catch (error) {
       console.error('Error reading subscribers:', error)
       return []

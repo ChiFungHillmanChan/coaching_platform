@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { cookies } from 'next/headers'
-import { getAllActiveSubscribers, getSubscriberStats } from '@/lib/storage'
+import { getAllSubscribers, getSubscriberStats } from '@/lib/storage'
 
 export const dynamic = 'force-dynamic'
 
@@ -42,7 +42,7 @@ export async function GET() {
       )
     }
     
-    const subscribers = await getAllActiveSubscribers()
+    const subscribers = await getAllSubscribers()
     const stats = await getSubscriberStats()
     
     return NextResponse.json({
