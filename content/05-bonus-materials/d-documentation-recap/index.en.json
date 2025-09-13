@@ -1,0 +1,22 @@
+{
+  "slug": "documentation-recap",
+  "category": "bonus-materials",
+  "lastModified": "2025-09-06T00:00:00.000Z",
+  "blocks": [
+    {
+      "type": "heading",
+      "level": 1,
+      "content": "5d) Documentation Recap"
+    },
+    {
+      "type": "text",
+      "content": "This video recap was recorded on September 13th！"
+    },
+    {
+      "type": "youtube_video",
+      "src": "https://youtu.be/u7vgtne0a7k",
+      "alt": "recap of documentation standards and practices"
+    }
+
+  ]
+}

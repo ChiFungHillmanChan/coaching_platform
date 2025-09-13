@@ -582,6 +582,61 @@ export function ContentRenderer({ blocks, className, showTableOfContents = true 
           </div>
         )
 
+      case 'youtube_video':
+        const getYouTubeEmbedUrl = (url: string) => {
+          // Convert YouTube URLs to embed format
+          if (url.includes('youtu.be/')) {
+            const videoId = url.split('youtu.be/')[1].split('?')[0]
+            return `https://www.youtube.com/embed/${videoId}`
+          } else if (url.includes('youtube.com/watch')) {
+            const urlParams = new URLSearchParams(url.split('?')[1] || '')
+            const videoId = urlParams.get('v')
+            return `https://www.youtube.com/embed/${videoId}`
+          }
+          return url
+        }
+
+        const getYouTubeVideoSizeClasses = (size?: number) => {
+          if (!size) return 'w-full max-w-4xl'
+
+          const sizeMap = {
+            1: 'w-32 max-w-32 sm:w-32 sm:max-w-32',
+            2: 'w-40 max-w-40 sm:w-48 sm:max-w-48',
+            3: 'w-48 max-w-48 sm:w-64 sm:max-w-64',
+            4: 'w-56 max-w-56 sm:w-80 sm:max-w-80',
+            5: 'w-64 max-w-64 sm:w-96 sm:max-w-96',
+            6: 'w-72 max-w-72 sm:w-[30rem] sm:max-w-[30rem]',
+            7: 'w-80 max-w-80 sm:w-[36rem] sm:max-w-[36rem]',
+            8: 'w-full max-w-sm sm:w-[42rem] sm:max-w-[42rem]',
+            9: 'w-full max-w-md sm:w-[48rem] sm:max-w-[48rem]',
+            10: 'w-full max-w-2xl sm:max-w-4xl'
+          }
+
+          return sizeMap[size as keyof typeof sizeMap] || 'w-full max-w-2xl sm:max-w-4xl'
+        }
+
+        return (
+          <div key={index} className="mb-4">
+            <div className={cn("mr-auto", getYouTubeVideoSizeClasses(block.size))}>
+              <div className="relative w-full aspect-video rounded-lg overflow-hidden bg-muted">
+                <iframe
+                  src={getYouTubeEmbedUrl(block.src || '')}
+                  title={block.alt || 'YouTube Video'}
+                  className="w-full h-full border-0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowFullScreen
+                  loading="lazy"
+                />
+              </div>
+              {block.alt && (
+                <p className="text-sm text-muted-foreground mt-2 text-center italic">
+                  {parseMarkdown(block.alt)}
+                </p>
+              )}
+            </div>
+          </div>
+        )
+
       case 'list':
         const ListTag = block.listType === 'ordered' ? 'ol' : 'ul';
         const listClass = block.listType === 'ordered' 

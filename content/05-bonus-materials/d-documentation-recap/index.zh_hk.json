@@ -1,0 +1,22 @@
+{
+  "slug": "documentation-recap",
+  "category": "bonus-materials",
+  "lastModified": "2025-09-06T00:00:00.000Z",
+  "blocks": [
+    {
+      "type": "heading",
+      "level": 1,
+      "content": "5d) 課後資源文檔"
+    },
+    {
+      "type": "text",
+      "content": "呢個影片係9月13號嘅總結內容，涵蓋咗文檔標準同最佳做法。"
+    },
+    {
+      "type": "youtube_video",
+      "src": "https://youtu.be/u7vgtne0a7k",
+      "alt": "recap of documentation standards and practices"
+    }
+
+  ]
+}
