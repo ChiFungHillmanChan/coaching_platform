@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { cookies } from 'next/headers'
-import { getAllSubscribers, getSubscriberStats } from '@/lib/storage'
+import { getAllSubscribers, getSubscriberStats, deleteSubscriber } from '@/lib/storage'
 
 export const dynamic = 'force-dynamic'
 
@@ -53,6 +53,61 @@ export async function GET() {
     
   } catch (error) {
     console.error('Error fetching admin subscribers:', error)
+    return NextResponse.json(
+      { error: 'Internal server error' },
+      { status: 500 }
+    )
+  }
+}
+
+export async function DELETE(request: NextRequest) {
+  try {
+    const isAuthenticated = await checkAdminAuth()
+
+    if (!isAuthenticated) {
+      return NextResponse.json(
+        { error: 'Unauthorized' },
+        { status: 401 }
+      )
+    }
+
+    const { email } = await request.json()
+
+    if (!email) {
+      return NextResponse.json(
+        { error: 'Email is required' },
+        { status: 400 }
+      )
+    }
+
+    try {
+      const deleted = await deleteSubscriber(email)
+
+      if (!deleted) {
+        return NextResponse.json(
+          { error: 'Subscriber not found' },
+          { status: 404 }
+        )
+      }
+
+      return NextResponse.json({
+        success: true,
+        message: 'Subscriber deleted successfully'
+      })
+
+    } catch (error: any) {
+      if (error.message.includes('Cannot delete active subscribers')) {
+        return NextResponse.json(
+          { error: 'Cannot delete active subscribers. Only cancelled subscriptions can be removed.' },
+          { status: 400 }
+        )
+      }
+
+      throw error
+    }
+
+  } catch (error) {
+    console.error('Error deleting subscriber:', error)
     return NextResponse.json(
       { error: 'Internal server error' },
       { status: 500 }

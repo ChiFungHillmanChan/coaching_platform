@@ -189,12 +189,65 @@ export async function getSubscriberCount(): Promise<number> {
 export async function unsubscribeUser(email: string): Promise<boolean> {
   const subscriber = await getSubscriber(email)
   if (!subscriber) return false
-  
+
   subscriber.isActive = false
   subscriber.unsubscribedAt = new Date().toISOString()
-  
+
   await saveSubscriber(subscriber)
   return true
+}
+
+export async function deleteSubscriber(email: string): Promise<boolean> {
+  if (isKVAvailable()) {
+    const key = `subscriber:${email}`
+    const subscriber = await kv.get<Subscriber>(key)
+
+    if (!subscriber) return false
+
+    // Only allow deletion of cancelled subscriptions
+    if (subscriber.isActive) {
+      throw new Error('Cannot delete active subscribers. Unsubscribe them first.')
+    }
+
+    // Delete from KV storage
+    await kv.del(key)
+    await kv.srem('active_subscribers', email)
+
+    return true
+  } else {
+    // In production without KV, throw error instead of using file system
+    if (process.env.NODE_ENV === 'production' || process.env.VERCEL_ENV) {
+      throw new Error('Vercel KV is required in production. Please configure KV_REST_API_URL and KV_REST_API_TOKEN environment variables.')
+    }
+
+    // Fallback to local file storage (development only)
+    ensureDataDir()
+    if (!existsSync(SUBSCRIBERS_FILE)) return false
+
+    try {
+      const data = readFileSync(SUBSCRIBERS_FILE, 'utf-8')
+      const subscribers: Subscriber[] = JSON.parse(data)
+
+      const subscriberIndex = subscribers.findIndex(s => s.email === email)
+      if (subscriberIndex === -1) return false
+
+      const subscriber = subscribers[subscriberIndex]
+
+      // Only allow deletion of cancelled subscriptions
+      if (subscriber.isActive) {
+        throw new Error('Cannot delete active subscribers. Unsubscribe them first.')
+      }
+
+      // Remove from array
+      subscribers.splice(subscriberIndex, 1)
+
+      writeFileSync(SUBSCRIBERS_FILE, JSON.stringify(subscribers, null, 2))
+      return true
+    } catch (error) {
+      console.error('Error deleting subscriber:', error)
+      return false
+    }
+  }
 }
 
 // Newsletter log management

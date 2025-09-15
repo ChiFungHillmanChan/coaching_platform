@@ -106,6 +106,64 @@ const Textarea: React.FC<{
   />
 );
 
+// ---- Confirmation Dialog --------------------------------------------------
+const ConfirmationDialog: React.FC<{
+  isOpen: boolean;
+  title: string;
+  message: string;
+  confirmText: string;
+  cancelText: string;
+  onConfirm: () => void;
+  onCancel: () => void;
+  isDestructive?: boolean;
+}> = ({ isOpen, title, message, confirmText, cancelText, onConfirm, onCancel, isDestructive = false }) => {
+  if (!isOpen) return null;
+
+  return (
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black bg-opacity-50">
+      <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-xl max-w-md w-full border border-gray-200 dark:border-gray-700">
+        <div className="p-6">
+          <div className="flex items-center gap-3 mb-4">
+            <div className={`flex-shrink-0 w-10 h-10 rounded-full flex items-center justify-center ${
+              isDestructive
+                ? 'bg-red-100 dark:bg-red-900/30'
+                : 'bg-blue-100 dark:bg-blue-900/30'
+            }`}>
+              <AlertCircle className={`w-5 h-5 ${
+                isDestructive
+                  ? 'text-red-600 dark:text-red-400'
+                  : 'text-blue-600 dark:text-blue-400'
+              }`} />
+            </div>
+            <div>
+              <h3 className="text-lg font-semibold text-gray-900 dark:text-gray-100">{title}</h3>
+            </div>
+          </div>
+
+          <p className="text-sm text-gray-600 dark:text-gray-300 mb-6">
+            {message}
+          </p>
+
+          <div className="flex gap-3 justify-end">
+            <Button variant="outline" onClick={onCancel}>
+              {cancelText}
+            </Button>
+            <Button
+              onClick={onConfirm}
+              className={isDestructive
+                ? "bg-red-600 text-white hover:bg-red-700 dark:bg-red-600 dark:hover:bg-red-700"
+                : ""
+              }
+            >
+              {confirmText}
+            </Button>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
 // ---- Header ---------------------------------------------------------------
 const Header: React.FC<{
   adminEmail: string;
@@ -252,12 +310,18 @@ const Dashboard: React.FC<{
 };
 
 // ---- Users ----------------------------------------------------------------
-const UsersPage: React.FC<{ 
-  subscribers: Subscriber[]; 
+const UsersPage: React.FC<{
+  subscribers: Subscriber[];
   onToggleSubscription: (email: string) => void;
-}> = ({ subscribers, onToggleSubscription }) => {
+  onRemoveSubscriber: (email: string) => void;
+}> = ({ subscribers, onToggleSubscription, onRemoveSubscriber }) => {
   const [query, setQuery] = useState("");
   const [page, setPage] = useState(1);
+  const [confirmDialog, setConfirmDialog] = useState<{
+    isOpen: boolean;
+    email: string;
+    action: 'remove' | 'unsubscribe' | 'reactivate' | null;
+  }>({ isOpen: false, email: "", action: null });
   const pageSize = 10;
 
   const filtered = useMemo(() => {
@@ -271,6 +335,89 @@ const UsersPage: React.FC<{
   useEffect(() => {
     if (page > totalPages) setPage(totalPages);
   }, [totalPages, page]);
+
+  const handleRemoveClick = (email: string) => {
+    setConfirmDialog({ isOpen: true, email, action: 'remove' });
+  };
+
+  const handleUnsubscribeClick = (email: string) => {
+    setConfirmDialog({ isOpen: true, email, action: 'unsubscribe' });
+  };
+
+  const handleReactivateClick = (email: string) => {
+    setConfirmDialog({ isOpen: true, email, action: 'reactivate' });
+  };
+
+  const handleConfirmAction = () => {
+    if (confirmDialog.action === 'remove') {
+      onRemoveSubscriber(confirmDialog.email);
+    } else if (confirmDialog.action === 'unsubscribe') {
+      onToggleSubscription(confirmDialog.email);
+    } else if (confirmDialog.action === 'reactivate') {
+      handleReactivateSubscriber(confirmDialog.email);
+    }
+    setConfirmDialog({ isOpen: false, email: "", action: null });
+  };
+
+  const handleReactivateSubscriber = async (email: string) => {
+    try {
+      const response = await fetch('/api/admin/reactivate', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email }),
+      });
+
+      if (response.ok) {
+        // Refresh the subscribers list
+        window.location.reload();
+      } else {
+        const error = await response.json();
+        alert(error.error || 'Failed to reactivate subscriber');
+      }
+    } catch (error) {
+      console.error('Error reactivating subscriber:', error);
+      alert('Failed to reactivate subscriber');
+    }
+  };
+
+  const handleCancelAction = () => {
+    setConfirmDialog({ isOpen: false, email: "", action: null });
+  };
+
+  const getDialogContent = () => {
+    switch (confirmDialog.action) {
+      case 'remove':
+        return {
+          title: "Confirm Removal",
+          message: `Are you sure you want to permanently remove "${confirmDialog.email}" from the database? This action cannot be undone.`,
+          confirmText: "Remove Permanently",
+          isDestructive: true
+        };
+      case 'unsubscribe':
+        return {
+          title: "Confirm Unsubscribe",
+          message: `Are you sure you want to unsubscribe "${confirmDialog.email}"? They will stop receiving newsletters but remain in the database.`,
+          confirmText: "Unsubscribe",
+          isDestructive: true
+        };
+      case 'reactivate':
+        return {
+          title: "Confirm Reactivation",
+          message: `Are you sure you want to reactivate "${confirmDialog.email}"? They will start receiving newsletters again. No welcome email will be sent.`,
+          confirmText: "Reactivate",
+          isDestructive: false
+        };
+      default:
+        return {
+          title: "",
+          message: "",
+          confirmText: "",
+          isDestructive: false
+        };
+    }
+  };
 
   return (
     <div className="space-y-4">
@@ -293,7 +440,8 @@ const UsersPage: React.FC<{
                   <th className="px-4 py-3 text-left text-xs font-medium uppercase tracking-wider text-gray-600 dark:text-gray-300">Email</th>
                   <th className="px-4 py-3 text-left text-xs font-medium uppercase tracking-wider text-gray-600 dark:text-gray-300">Status</th>
                   <th className="px-4 py-3 text-left text-xs font-medium uppercase tracking-wider text-gray-600 dark:text-gray-300">Subscribed</th>
-                  <th className="px-4 py-3 text-right text-xs font-medium uppercase tracking-wider text-gray-600 dark:text-gray-300">Actions</th>
+                  <th className="px-4 py-3 text-center text-xs font-medium uppercase tracking-wider text-gray-600 dark:text-gray-300">Actions</th>
+                  <th className="px-4 py-3 text-center text-xs font-medium uppercase tracking-wider text-gray-600 dark:text-gray-300">Delete</th>
                 </tr>
               </thead>
               <tbody className="bg-white dark:bg-gray-800 divide-y divide-gray-200 dark:divide-gray-700">
@@ -312,16 +460,34 @@ const UsersPage: React.FC<{
                     <td className="px-4 py-3 text-sm text-gray-500 dark:text-gray-400">
                       {new Date(u.subscribedAt).toLocaleDateString()}
                     </td>
-                    <td className="px-4 py-3 text-right">
-                      <Button variant="outline" size="sm" onClick={() => onToggleSubscription(u.email)}>
+                    <td className="px-4 py-3 text-center">
+                      <Button
+                        variant="outline"
+                        size="sm"
+                        onClick={() => u.isActive !== false ? handleUnsubscribeClick(u.email) : handleReactivateClick(u.email)}
+                      >
                         {u.isActive !== false ? "Unsubscribe" : "Re-activate"}
                       </Button>
+                    </td>
+                    <td className="px-4 py-3 text-center">
+                      {u.isActive === false ? (
+                        <Button
+                          variant="outline"
+                          size="sm"
+                          onClick={() => handleRemoveClick(u.email)}
+                          className="text-red-600 border-red-300 hover:bg-red-50 dark:text-red-400 dark:border-red-600 dark:hover:bg-red-900/20"
+                        >
+                          Remove
+                        </Button>
+                      ) : (
+                        <span className="text-gray-400 text-sm">-</span>
+                      )}
                     </td>
                   </tr>
                 ))}
                 {pageItems.length === 0 && (
                   <tr>
-                    <td className="px-4 py-6 text-sm text-gray-500 dark:text-gray-400 text-center" colSpan={4}>No users match the search.</td>
+                    <td className="px-4 py-6 text-sm text-gray-500 dark:text-gray-400 text-center" colSpan={5}>No users match the search.</td>
                   </tr>
                 )}
               </tbody>
@@ -341,6 +507,17 @@ const UsersPage: React.FC<{
           </div>
         </CardContent>
       </Card>
+
+      <ConfirmationDialog
+        isOpen={confirmDialog.isOpen}
+        title={getDialogContent().title}
+        message={getDialogContent().message}
+        confirmText={getDialogContent().confirmText}
+        cancelText="Cancel"
+        onConfirm={handleConfirmAction}
+        onCancel={handleCancelAction}
+        isDestructive={getDialogContent().isDestructive}
+      />
     </div>
   );
 };
@@ -616,6 +793,28 @@ export default function AdminPanel() {
     }
   };
 
+  const removeSubscriber = async (email: string) => {
+    try {
+      const response = await fetch('/api/admin/subscribers', {
+        method: 'DELETE',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email }),
+      });
+
+      if (response.ok) {
+        loadAdminData(); // Refresh data
+      } else {
+        const error = await response.json();
+        alert(error.error || 'Failed to remove user');
+      }
+    } catch (error) {
+      console.error('Error removing user:', error);
+      alert('Failed to remove user');
+    }
+  };
+
   if (isLoading) {
     return (
       <div className="min-h-screen flex items-center justify-center bg-gray-50 dark:bg-gray-900">
@@ -693,7 +892,7 @@ export default function AdminPanel() {
 
       <main className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-6">
         {page === "dashboard" && <Dashboard stats={stats} monthlyData={monthlyData} />}
-        {page === "users" && <UsersPage subscribers={subscribers} onToggleSubscription={toggleSubscription} />}
+        {page === "users" && <UsersPage subscribers={subscribers} onToggleSubscription={toggleSubscription} onRemoveSubscriber={removeSubscriber} />}
         {page === "newsletter" && (
           <NewsletterPage 
             onSendNewsletter={sendNewsletter}
