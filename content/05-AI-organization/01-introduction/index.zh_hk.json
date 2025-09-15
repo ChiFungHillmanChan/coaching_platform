@@ -1,0 +1,153 @@
+{
+    "slug": "introduction",
+    "category": "ai-organization",
+    "lastModified": "2025-09-06T00:00:00.000Z",
+    "blocks": [
+      {
+        "type": "heading",
+        "level": 1,
+        "content": "AI 架構（MCP、Subagent、OpenAI Plugin）"
+      },
+      {
+        "type": "text",
+        "content": "AI的發展不再只是單純問問題和解答，而是需要透過多種方式與外部世界互動。為了讓 AI 更靈活，現在出現了不同的擴充機制。以下將會簡單介紹 **MCP、Subagent、OpenAI Plugin**。"
+      },
+  
+      { "type": "horizontal-rule" },
+      { "type": "line-break" },
+      {
+        "type": "heading",
+        "level": 2,
+        "content": "MCP（Model Context Protocol）"
+      },
+      {
+        "type": "text",
+        "content": "MCP，專設計令 AI 可以與外部服務或資料庫更容易連接和結合使用，例如日曆、郵件或知識庫。以往不同服務各有不同API 規格，開發者需要逐一改善直到完全適用。而用MCP，模型只需遵循同一規範，就能連接各種工具。"
+      },
+      {
+        "type": "list",
+        "items": [
+          "減少整合難度：統一的溝通格式。",
+          "跨平台適用：學會一次，全部適用。",
+          "提升效率：讓 AI 更快接入不同資源。"
+        ]
+      },
+      {
+        "type": "callout",
+        "variant": "info",
+        "title": "核心價值",
+        "content": "提供共同語言，讓 AI 與外部系統之間更容易互通。"
+      },
+  
+      { "type": "horizontal-rule" },
+      { "type": "line-break" },
+      {
+        "type": "heading",
+        "level": 2,
+        "content": "Subagent"
+      },
+      {
+        "type": "text",
+        "content": "Subagent 指的是由主 AI 指派的「子代理」。主模型不需要獨自完成所有任務，而是可以拆分任務，交給不同的 Subagent 專門處理。這樣能確保每個部分都有最佳化處理，再由主模型整合結果，回覆給使用者。"
+      },
+      {
+        "type": "list",
+        "items": [
+          "分工合作：每個 Subagent 專注於特定任務。",
+          "提升準確度：專職代理避免主模型分心。",
+          "應用場景：數據分析、文件翻譯、圖表繪製等。"
+        ]
+      },
+      {
+        "type": "callout",
+        "variant": "info",
+        "title": "核心價值",
+        "content": "透過分工與協作，使 AI 系統能處理更複雜的工作流程。"
+      },
+  
+      { "type": "horizontal-rule" },
+      { "type": "line-break" },
+      {
+        "type": "heading",
+        "level": 2,
+        "content": "OpenAI Plugin"
+      },
+      {
+        "type": "text",
+        "content": "OpenAI Plugin 是 ChatGPT 等模型的擴充功能，讓模型能即時調用外部服務。例如：查詢航班、計算數學公式、檢索資料庫。這些插件讓 AI 不再只依賴訓練時的知識，而能直接存取最新資訊與真實世界數據。"
+      },
+      {
+        "type": "list",
+        "items": [
+          "擴充能力：連接外部服務（如 Expedia、Wolfram Alpha）。",
+          "動態更新：獲取即時資料，而非僅靠舊知識。",
+          "提升應用範圍：能處理更多樣化的需求。"
+        ]
+      },
+      {
+        "type": "callout",
+        "variant": "info",
+        "title": "核心價值",
+        "content": "透過插件，模型能即時獲取現實世界資訊與服務，功能更全面。"
+      },
+  
+      { "type": "horizontal-rule" },
+      { "type": "line-break" },
+      {
+        "type": "heading",
+        "level": 2,
+        "content": "小案例：AI 旅行助理"
+      },
+      {
+        "type": "text",
+        "content": "假設我們想要一個 AI 旅行助理，幫忙規劃行程："
+      },
+      {
+        "type": "list",
+        "items": [
+          "MCP：確保 AI 能統一方式連接行程資料庫、地圖與飯店 API。",
+          "Subagent：一個子代理負責找航班，另一個子代理負責安排景點，第三個子代理處理預算計算。",
+          "OpenAI Plugin：直接呼叫訂票或飯店預訂服務，獲得即時資訊。"
+        ]
+      },
+      {
+        "type": "callout",
+        "variant": "success",
+        "title": "啟示",
+        "content": "透過三者協作，AI 不僅能提供建議，還能完成真實的行程規劃與訂票流程。"
+      },
+  
+      { "type": "horizontal-rule" },
+      { "type": "line-break" },
+      {
+        "type": "heading",
+        "level": 2,
+        "content": "比較一覽表"
+      },
+      {
+        "type": "table",
+        "headers": ["方式", "定位", "主要用途", "特點"],
+        "rows": [
+          ["MCP", "通訊標準", "統一模型與工具間的互動", "降低整合成本，跨平台適用"],
+          ["Subagent", "系統分工", "任務拆解與專職處理", "提升準確度與效率"],
+          ["OpenAI Plugin", "功能擴充", "即時存取外部服務", "提供最新資料與更多應用"]
+        ],
+        "title": "MCP、Subagent、OpenAI Plugin 對照表"
+      },
+  
+      { "type": "horizontal-rule" },
+      { "type": "line-break" },
+      {
+        "type": "heading",
+        "level": 2,
+        "content": "總結"
+      },
+      {
+        "type": "callout",
+        "variant": "success",
+        "title": "總結",
+        "content": "接下來會深入介紹 MCP、Subagent 與 OpenAI Plugin 的實際應用，以及它們如何協同工作。"
+      }
+    ]
+  }
+  

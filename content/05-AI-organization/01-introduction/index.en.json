@@ -1,0 +1,152 @@
+{
+  "slug": "introduction",
+  "category": "ai-organization",
+  "lastModified": "2025-09-06T00:00:00.000Z",
+  "blocks": [
+    {
+      "type": "heading",
+      "level": 1,
+      "content": "AI Architecture (MCP, Subagent, OpenAI Plugin)"
+    },
+    {
+      "type": "text",
+      "content": "AI development is no longer limited to simple question-and-answer interactions. It now requires multiple ways to interact with the external world. To make AI more flexible, different extension mechanisms have emerged. Below is a simple introduction to **MCP, Subagent, and OpenAI Plugin**."
+    },
+  
+    { "type": "horizontal-rule" },
+    { "type": "line-break" },
+    {
+      "type": "heading",
+      "level": 2,
+      "content": "MCP (Model Context Protocol)"
+    },
+    {
+      "type": "text",
+      "content": "MCP is specifically designed to make it easier for AI to connect with and integrate external services or databases, such as calendars, emails, or knowledge bases. In the past, different services each had their own API specifications, and developers had to adapt them one by one. With MCP, the model only needs to follow a single standard to connect with various tools."
+    },
+    {
+      "type": "list",
+      "items": [
+        "Reduce integration difficulty: unified communication format.",
+        "Cross-platform use: learn once, apply everywhere.",
+        "Improve efficiency: allows AI to access different resources faster."
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "info",
+      "title": "Core Value",
+      "content": "Provides a common language, making it easier for AI and external systems to communicate."
+    },
+  
+    { "type": "horizontal-rule" },
+    { "type": "line-break" },
+    {
+      "type": "heading",
+      "level": 2,
+      "content": "Subagent"
+    },
+    {
+      "type": "text",
+      "content": "A Subagent is a 'child agent' assigned by the main AI. The main model does not need to complete all tasks on its own; instead, it can split tasks and delegate them to different Subagents for specialized handling. This ensures that each part is optimized, and the main model integrates the results before responding to the user."
+    },
+    {
+      "type": "list",
+      "items": [
+        "Division of labor: each Subagent focuses on a specific task.",
+        "Improved accuracy: specialized agents prevent the main model from being distracted.",
+        "Application scenarios: data analysis, document translation, chart generation, etc."
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "info",
+      "title": "Core Value",
+      "content": "Through division of labor and collaboration, AI systems can handle more complex workflows."
+    },
+  
+    { "type": "horizontal-rule" },
+    { "type": "line-break" },
+    {
+      "type": "heading",
+      "level": 2,
+      "content": "OpenAI Plugin"
+    },
+    {
+      "type": "text",
+      "content": "The OpenAI Plugin is an extension feature that allows models like ChatGPT to directly call external services. Examples include checking flights, performing mathematical calculations, or querying databases. These plugins allow AI to go beyond its training knowledge and directly access up-to-date information and real-world data."
+    },
+    {
+      "type": "list",
+      "items": [
+        "Extended capabilities: connect with external services (e.g., Expedia, Wolfram Alpha).",
+        "Dynamic updates: retrieve real-time information instead of relying only on old knowledge.",
+        "Broader applications: handle a wider variety of tasks."
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "info",
+      "title": "Core Value",
+      "content": "Through plugins, models can access real-world information and services in real time, expanding their functionality."
+    },
+  
+    { "type": "horizontal-rule" },
+    { "type": "line-break" },
+    {
+      "type": "heading",
+      "level": 2,
+      "content": "Case Study: AI Travel Assistant"
+    },
+    {
+      "type": "text",
+      "content": "Imagine we want an AI travel assistant to help plan a trip:"
+    },
+    {
+      "type": "list",
+      "items": [
+        "MCP: ensures AI can connect to travel databases, maps, and hotel APIs in a standardized way.",
+        "Subagent: one subagent finds flights, another arranges sightseeing, and a third calculates the budget.",
+        "OpenAI Plugin: directly calls booking or hotel reservation services to get real-time information."
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "success",
+      "title": "Insight",
+      "content": "By combining all three, AI can not only provide recommendations but also complete real trip planning and bookings."
+    },
+  
+    { "type": "horizontal-rule" },
+    { "type": "line-break" },
+    {
+      "type": "heading",
+      "level": 2,
+      "content": "Comparison Table"
+    },
+    {
+      "type": "table",
+      "headers": ["Method", "Positioning", "Main Use", "Features"],
+      "rows": [
+        ["MCP", "Communication standard", "Unify model–tool interactions", "Reduces integration cost, cross-platform"],
+        ["Subagent", "System division of labor", "Task breakdown and specialized handling", "Improves accuracy and efficiency"],
+        ["OpenAI Plugin", "Functional extension", "Real-time access to external services", "Provides latest data and broader applications"]
+      ],
+      "title": "Comparison of MCP, Subagent, and OpenAI Plugin"
+    },
+  
+    { "type": "horizontal-rule" },
+    { "type": "line-break" },
+    {
+      "type": "heading",
+      "level": 2,
+      "content": "Conclusion"
+    },
+    {
+      "type": "callout",
+      "variant": "success",
+      "title": "Summary",
+      "content": "Next, we will dive deeper into the practical applications of MCP, Subagent, and OpenAI Plugin, and how they can work together."
+    }
+  ]
+}

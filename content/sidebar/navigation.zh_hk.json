@@ -136,37 +136,71 @@
       ]
     },
     {
-      "id": "bonus-materials",
-        "title": "課後附送",
-      "href": "/05-bonus-materials",
+      "id": "ai-organization",
+      "title": "5. AI 架構",
+      "href": "/05-AI-organization",
       "icon": "Gift",
       "order": 5,
       "children": [
         {
+          "id": "ai-organization",
+          "title": "5.1 介紹不同AI架構",
+          "href": "/05-AI-organization/01-introduction",
+          "order": 1
+        },
+        {
+          "id": "ai-organization",
+          "title": "5.2 MCP深入教學",
+          "href": "/05-AI-organization/02-deep-dive-mcp",
+          "order": 2
+        },
+        {
+          "id": "ai-organization",
+          "title": "5.3 Sub-agent深入教學",
+          "href": "/05-AI-organization/03-deep-dive-sub-agent",
+          "order": 3
+        },
+        {
+          "id": "ai-organization",
+          "title": "5.4 OpenAI Plugins深入教學",
+          "href": "/05-AI-organization/04-deep-dive-openai-plugins",
+          "order": 4
+        }
+      ]
+    },
+    {
+      "id": "bonus-materials",
+      "title": "課後附送",
+      "href": "/06-bonus-materials",
+      "icon": "Gift",
+      "order": 6,
+      "children": [
+        {
           "id": "hosting-comparison-table",
           "title": "a) Hosting 平台比較表",
-          "href": "/05-bonus-materials/a-hosting-comparison-table",
+          "href": "/06-bonus-materials/a-hosting-comparison-table",
           "order": 1
         },
         {
           "id": "prompt-cheat-sheet",
           "title": "b) 指令 Cheat Sheet 例子",
-          "href": "/05-bonus-materials/b-prompt-cheat-sheet",
+          "href": "/06-bonus-materials/b-prompt-cheat-sheet",
           "order": 2
         },
         {
           "id": "example-project-repo",
           "title": "c) 範例專案 Repo",
-          "href": "/05-bonus-materials/c-example-project-repo",
+          "href": "/06-bonus-materials/c-example-project-repo",
           "order": 3
         },
         {
           "id": "documentation-recap",
           "title": "d) 課後資源文檔",
-          "href": "/05-bonus-materials/d-documentation-recap",
+          "href": "/06-bonus-materials/d-documentation-recap",
           "order": 4
         }
       ]
     }
+    
   ]
 }

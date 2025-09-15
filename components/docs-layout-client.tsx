@@ -16,7 +16,6 @@ interface DocsLayoutClientProps {
 
 export function DocsLayoutClient({ children, navigation }: DocsLayoutClientProps) {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState(false)
-  const [isSidebarOpen, setIsSidebarOpen] = React.useState(true)
   const [isHamburgerOpen, setIsHamburgerOpen] = React.useState(false)
   const { shouldShowPopup, closePopup, showPopup } = useEmailSubscriptionPopup()
 
@@ -65,17 +64,18 @@ export function DocsLayoutClient({ children, navigation }: DocsLayoutClientProps
         
         {/* Mobile overlay */}
         {isMobileMenuOpen && (
-          <div 
+          <div
             className="fixed inset-0 z-40 bg-background/80 backdrop-blur-sm md:hidden animate-in fade-in duration-200"
             onClick={() => setIsMobileMenuOpen(false)}
           >
-            <div 
-              className="fixed left-0 top-14 h-[calc(100vh-3.5rem)] w-64 border-r border-border/50 bg-background/95 backdrop-blur-sm shadow-xl animate-in slide-in-from-left duration-300"
+            <div
+              className="fixed left-0 top-14 bottom-0 w-64 border-r border-border/50 bg-background/95 backdrop-blur-sm shadow-xl animate-in slide-in-from-left duration-300 overflow-hidden mobile-scroll"
               onClick={(e) => e.stopPropagation()}
             >
-              <SidebarNav 
-                navigation={navigation} 
+              <SidebarNav
+                navigation={navigation}
                 onNavigate={() => setIsMobileMenuOpen(false)}
+                className="h-full"
               />
             </div>
           </div>

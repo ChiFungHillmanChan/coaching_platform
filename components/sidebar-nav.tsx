@@ -204,7 +204,7 @@ export function SidebarNav({ navigation, className, onNavigate }: SidebarNavProp
       data-sidebar-nav
     >
       <ScrollArea className="h-full w-full">
-        <div className="p-4 space-y-6">
+        <div className="p-4 space-y-6 pb-20">
           <nav className="space-y-2" role="navigation">
             {navigation.map((item, index) => (
               <React.Fragment key={item.key}>
