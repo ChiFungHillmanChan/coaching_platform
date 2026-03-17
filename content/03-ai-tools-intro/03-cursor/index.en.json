@@ -1,7 +1,7 @@
 {
   "slug": "deep-dive-cursor",
   "category": "ai-tools",
-  "lastModified": "2025-09-07T00:00:00.000Z",
+  "lastModified": "2026-03-16T00:00:00.000Z",
   "blocks": [
     {
       "type": "heading",
@@ -10,7 +10,7 @@
     },
     {
       "type": "text",
-      "content": "Cursor is an AI editor built on VS Code that supports multiple AI models (Claude, GPT, Grok). Early versions of Cursor were not highly regarded due to lower accuracy and response quality compared with Claude Code. With the release of GPT-5, Cursor has improved significantly in both areas and is now a strong competitor to Claude Code."
+      "content": "Cursor is an AI editor built on VS Code that supports multiple AI models (Claude, GPT, Gemini, Grok). Early versions of Cursor were not highly regarded due to lower accuracy and response quality compared with Claude Code. With the release of GPT-5.4, Cursor has improved significantly in both areas and is now a strong competitor to Claude Code. Note: Google's **Antigravity** (agent-first IDE, free preview, multi-agent, powered by Gemini 3.1 Pro) is an emerging competitor worth watching."
     },
 
     { "type": "horizontal-rule" },
@@ -25,7 +25,7 @@
       "type": "list",
       "listType": "unordered",
       "items": [
-        "Supports multiple AI models (Claude, GPT, Grok)",
+        "Supports multiple AI models (Claude, GPT, Gemini, Grok)",
         "Real-time code completion, refactoring, and explanation",
         "Natural-language debugging",
         "Built-in version control with GitHub integration",
@@ -98,11 +98,11 @@
       "rows": [
         ["Auto Mode", "Automatic model selection", "Picks the most suitable model automatically", "Less controllable", "Convenient for daily use", "✅"],
         ["Max Mode", "Highest-quality output", "Calls top-tier models", "High cost, slower", "Research, precise code analysis", "❌"],
-        ["Claude 4 Sonnet", "Everyday coding and debugging", "Fast, good value", "Limited context length", "Daily development, web projects", "⚠️"],
-        ["Claude 4 Sonnet -1m", "Long-context code analysis", "Supports million-token context", "Slower, higher cost", "Large projects, cross-file refactors", "⚠️"],
-        ["Claude 3.5 Sonnet", "Basic code generation", "Stable, relatively low price", "Weaker reasoning", "Learning / simple code", "⚠️"],
-        ["GPT-5", "Advanced coding and reasoning", "Strongest reasoning, highly versatile", "Requires Pro account", "Complex algorithms, system design", "⚠️"],
-        ["GPT-4o", "Multimodal tasks", "Text + image inputs supported", "Slightly slower than GPT-5", "Projects needing image/document processing", "⚠️"],
+        ["Claude Sonnet 4.6", "Everyday coding and debugging", "Fast, good value", "Limited context length", "Daily development, web projects", "⚠️"],
+        ["Claude Sonnet 4.6 -1m", "Long-context code analysis", "Supports million-token context (1M GA)", "Slower, higher cost", "Large projects, cross-file refactors", "⚠️"],
+        ["Claude 3.5 Sonnet", "Basic code generation (legacy)", "Stable, relatively low price", "Older model, weaker reasoning", "Learning / simple code", "⚠️"],
+        ["GPT-5.4", "Advanced coding and reasoning", "Strongest reasoning, 1.05M context, Computer Use, Agentic", "Requires Pro account", "Complex algorithms, system design", "⚠️"],
+        ["GPT-4o", "Multimodal tasks", "Text + image inputs supported", "Slightly slower than GPT-5.4", "Projects needing image/document processing", "⚠️"],
         ["Grok-code-fast-1", "Code generation and quick replies", "Very fast responses", "Weaker reasoning", "Real-time Q&A, rapid prototyping", "⚠️"]
       ]
     },
@@ -221,7 +221,7 @@
     {
       "type": "task-list",
       "items": [
-        { "content": "Install Cursor, choose Claude 4 Sonnet -1m, and analyze a large project", "completed": false },
+        { "content": "Install Cursor, choose Claude Sonnet 4.6 -1m, and analyze a large project", "completed": false },
         { "content": "Open a code snippet and ask Cursor to refactor it for clarity", "completed": false },
         { "content": "Use Auto Mode, ask a debugging question, and observe the chosen model", "completed": false }
       ]

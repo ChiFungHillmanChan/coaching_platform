@@ -1,7 +1,7 @@
 {
   "slug": "multi-ai-integration",
   "category": "prompt-design",
-  "lastModified": "2025-09-11T00:00:00.000Z",
+  "lastModified": "2026-03-17T00:00:00.000Z",
   "blocks": [
     {
       "type": "heading",
@@ -23,7 +23,7 @@
       "items": [
         "Flow before tools: define deliverables and validation first, then choose the AI.",
         "Iterate in small steps: validate exactly one critical assumption per step (speed / cost / UX / accuracy).",
-        "Layered responsibilities: discovery & verification (Perplexity) / structured outputs (ChatGPT / Claude) / implementation (Cursor / Codex / Copilot) / design & assets (Figma AI / Canva / MJ / SD).",
+        "Layered responsibilities: discovery & verification (Perplexity) / structured outputs (GPT-5.4 / Claude Opus 4.6) / implementation (Cursor / Antigravity / Claude Code / Copilot) / design & assets (Figma AI / Canva / MJ / SD).",
         "Traceable & reproducible: keep sources, versions, prompts, and data samples; prefer SOPs and templating."
       ]
     },
@@ -37,7 +37,7 @@
     },
     {
       "type": "text",
-      "content": "Information scan (Perplexity) → Architecture & framing (ChatGPT / Claude) → Task breakdown (Notion AI) → Coding & testing (Cursor / Codex / Copilot) → Visuals & assets (Figma AI / Canva / Midjourney / SD / Runway) → Content & narration (ChatGPT / Gemini / Whisper / ElevenLabs) → Automation & orchestration (Zapier / Make / LangChain / MCP) → Monitoring & iteration (Analytics + ChatGPT analysis)"
+      "content": "Information scan (Perplexity) → Architecture & framing (GPT-5.4 / Claude Opus 4.6) → Task breakdown (Notion AI) → Coding & testing (Cursor / Antigravity / Claude Code / Copilot) → Visuals & assets (Figma AI / Canva / Midjourney / SD / Runway) → Content & narration (GPT-5.4 / Gemini 3.1 Pro / Whisper / ElevenLabs) → Automation & orchestration (Zapier / Make / LangChain / MCP) → Monitoring & iteration (Analytics + GPT-5.4 analysis)"
     },
 
     { "type": "horizontal-rule" },
@@ -51,10 +51,10 @@
     {
       "type": "table",
       "title": "Text Generation & Structuring AI",
-      "headers": ["Dimension", "ChatGPT", "Claude", "Gemini"],
+      "headers": ["Dimension", "ChatGPT (GPT-5.4)", "Claude (Opus 4.6 / Sonnet 4.6)", "Gemini (3.1 Pro / 3 Flash)"],
       "rows": [
-        ["Core Strength", "Structured outputs, system design, test scaffolding", "Long-form handling and spec writing", "Multimodal understanding and generation"],
-        ["Best-Fit Scenarios", "Requirement framing, interview scripts, PRD outlines", "PRD drafting, policy/ToS drafting", "Mixed media learning content, multilingual content"],
+        ["Core Strength", "Structured outputs, system design, test scaffolding", "Long-form handling, spec writing, and computer use", "Multimodal understanding and generation"],
+        ["Best-Fit Scenarios", "Requirement framing, interview scripts, PRD outlines", "PRD drafting, policy/ToS drafting, agentic coding", "Mixed media learning content, multilingual content"],
         ["Primary Limitations", "Requires precise instructions", "May be verbose", "Asset usage rights must be reviewed"]
       ]
     },
@@ -73,11 +73,11 @@
     {
       "type": "table",
       "title": "Development & Coding AI",
-      "headers": ["Dimension", "Cursor", "Codex", "GitHub Copilot"],
+      "headers": ["Dimension", "Cursor", "Antigravity", "Claude Code", "GitHub Copilot"],
       "rows": [
-        ["Core Strength", "In-IDE generation and traceability", "Auto-implement features / fix bugs / PRs", "Real-time completion and refactoring"],
-        ["Best-Fit Scenarios", "Project scaffolding + unit test samples", "Batch development and CI/CD assistance", "Refactoring with test coverage"],
-        ["Primary Limitations", "Environment setup required", "Still needs human code review", "Context window limitations"]
+        ["Core Strength", "In-IDE generation and traceability", "Agent-first IDE with multi-agent parallel work (Gemini 3.1 Pro)", "CLI agent with skills, hooks, worktrees, and Agent SDK", "Real-time completion and refactoring"],
+        ["Best-Fit Scenarios", "Project scaffolding + unit test samples", "Large codebases needing parallel agent workflows", "Terminal-based agentic coding, CI/CD pipelines, automation", "Refactoring with test coverage"],
+        ["Primary Limitations", "Environment setup required", "Currently in free preview; Google ecosystem focused", "Requires CLI comfort; terminal-only interface", "Context window limitations"]
       ]
     },
     { "type": "line-break" },
@@ -127,13 +127,13 @@
       "listType": "ordered",
       "items": [
         "Information scan: Perplexity compiles 3–5 recent trends and competitors with sources.",
-        "Architecture: ChatGPT / Claude output “Problem → User → 3 core features → MVP metrics → Risks”.",
+        "Architecture: GPT-5.4 / Claude Opus 4.6 output “Problem → User → 3 core features → MVP metrics → Risks”.",
         "Task breakdown: Notion AI generates a 2-week sprint board (backend / frontend / test / design).",
-        "Dev & test: Cursor builds project scaffold; Codex generates feature modules; Copilot assists refactoring and tests.",
+        "Dev & test: Cursor builds project scaffold; Antigravity runs parallel agent tasks; Claude Code handles CLI automation; Copilot assists refactoring and tests.",
         "Design & assets: Figma AI for wireframes; Canva for posters; Midjourney / SD for illustrations; Runway for shorts.",
-        "Localization: ChatGPT / Gemini for multilingual copy; Whisper for subtitles; ElevenLabs for narration.",
-        "Automation & launch: Zapier / Make wire up forms / Slack / Email; LangChain orchestrates ChatGPT + Claude + retrieval; MCP manages context access.",
-        "Monitoring & iteration: collect W2 retention / D1 revisit / feature usage; ChatGPT proposes improvements."
+        "Localization: GPT-5.4 / Gemini 3.1 Pro for multilingual copy; Whisper for subtitles; ElevenLabs for narration.",
+        "Automation & launch: Zapier / Make wire up forms / Slack / Email; LangChain orchestrates GPT-5.4 + Claude + retrieval; MCP manages context access.",
+        "Monitoring & iteration: collect W2 retention / D1 revisit / feature usage; GPT-5.4 proposes improvements."
       ]
     },
 
@@ -157,13 +157,13 @@
       "headers": ["Phase", "Objective", "AI / Tools", "Key Outputs", "Validation Metrics"],
       "rows": [
         ["0. Research & positioning", "Pick 3 subjects and locales", "Perplexity + Kuse", "Competitor map / pain-point list", "≥15 interviews; ≥70% agree with pain points"],
-        ["1. Spec drafting", "Produce PRD and policy drafts", "Claude + ChatGPT", "PRD / policy drafts", "Reviewed by Legal / Tutor Council"],
-        ["2. Core features", "Syllabus → materials → practice → grading", "Cursor + Codex + Copilot", "APIs / FE+BE scaffold + unit tests", "Coverage ≥80%, error rate trending down"],
+        ["1. Spec drafting", "Produce PRD and policy drafts", "Claude Opus 4.6 + GPT-5.4", "PRD / policy drafts", "Reviewed by Legal / Tutor Council"],
+        ["2. Core features", "Syllabus → materials → practice → grading", "Cursor + Antigravity + Claude Code + Copilot", "APIs / FE+BE scaffold + unit tests", "Coverage ≥80%, error rate trending down"],
         ["3. Media transformation", "Explainer videos and narration", "Whisper + ElevenLabs + Runway", "Subtitles / voice packs / shorts", "Learner comprehension ≥80% (survey)"],
-        ["4. Multilingual localization", "Auto EN / ZH / JP, etc.", "Gemini + ChatGPT", "Multilingual content and site copy", "Editorial cycle shrinks ≥60%"],
+        ["4. Multilingual localization", "Auto EN / ZH / JP, etc.", "Gemini 3.1 Pro + GPT-5.4", "Multilingual content and site copy", "Editorial cycle shrinks ≥60%"],
         ["5. Visuals & marketing", "Brand assets and key visuals", "Figma AI + Canva + Midjourney", "Brand guide / promo kit", "Higher CTR and signup rate"],
         ["6. Ops automation", "Enrollment → scheduling → invoicing → community", "Zapier / Make + LangChain + MCP", "SOPs and bot flows", "Manual ops hours ↓ ≥50%"],
-        ["7. Monitoring & iteration", "Learning outcomes & retention", "Analytics + ChatGPT analysis", "Monthly report and roadmap", "W2 retention ≥30%, churn down"]
+        ["7. Monitoring & iteration", "Learning outcomes & retention", "Analytics + GPT-5.4 analysis", "Monthly report and roadmap", "W2 retention ≥30%, churn down"]
       ]
     },
 
@@ -189,7 +189,7 @@
     {
       "type": "code",
       "language": "markdown",
-      "title": "3) Scaffolding (Cursor / Codex)",
+      "title": "3) Scaffolding (Cursor / Antigravity / Claude Code)",
       "content": "Generate APIs and frontend pages for five services: courses, materials, assignments, grading, payments. Tech: backend {{FastAPI/Express}}, frontend {{Next.js/React}}, DB {{PostgreSQL}}; include minimal unit-test samples."
     },
     {
@@ -201,7 +201,7 @@
     {
       "type": "code",
       "language": "markdown",
-      "title": "5) Multilingual copy (ChatGPT / Gemini)",
+      "title": "5) Multilingual copy (GPT-5.4 / Gemini 3.1 Pro)",
       "content": "Produce EN / ZH-Hant / JP variants using “one-line value prop + three feature bullets + CTA”, ≤60 chars per language. Topic: {{platform summary}}"
     },
     {
@@ -220,7 +220,7 @@
       "type": "code",
       "language": "markdown",
       "title": "8) Multi-model orchestration (LangChain + MCP)",
-      "content": "Pipeline: ChatGPT parses syllabus → Perplexity retrieves sources → Claude drafts materials → Gemini produces illustrations → Whisper/ElevenLabs generate AV assets. Use MCP to unify access to documents and vector indexes."
+      "content": "Pipeline: GPT-5.4 parses syllabus → Perplexity retrieves sources → Claude Opus 4.6 drafts materials → Gemini 3.1 Pro produces illustrations → Whisper/ElevenLabs generate AV assets. Use MCP to unify access to documents and vector indexes."
     },
     { "type": "line-break" },
     { "type": "horizontal-rule" },
@@ -228,15 +228,17 @@
     {
       "type": "heading",
       "level": 2,
-      "content": "Notes on New Tools: Kuse / Codex"
+      "content": "Notes on New Tools: Kuse / Antigravity / Claude Code / OpenClaw"
     },
     {
       "type": "definition-list",
       "title": "Tool Notes",
       "definitions": [
         { "term": "Kuse", "definition": "A multimodal knowledge canvas for text, images, video, and PDFs in one space; AI assists analysis and organization. Suited to research and early ideation." },
-        { "term": "Codex", "definition": "A coding agent that can implement features, fix issues, and open PRs—useful automation alongside Cursor / Copilot." },
-        { "term": "MCP (Model Context Protocol)", "definition": "A protocol for secure model access to external resources/tools, improving context sharing and permission governance in multi-tool setups." }
+        { "term": "Antigravity", "definition": "Google's agent-first IDE (free preview). Supports multi-agent parallel work powered by Gemini 3.1 Pro — multiple agents can edit different parts of a codebase simultaneously." },
+        { "term": "Claude Code", "definition": "Anthropic's CLI agent for terminal-based coding. Features skills, hooks, worktrees, and an Agent SDK for building custom agentic workflows and CI/CD integrations." },
+        { "term": "OpenClaw", "definition": "Open-source AI agent with 183K GitHub stars. Community-driven alternative for agentic coding tasks." },
+        { "term": "MCP (Model Context Protocol)", "definition": "An open protocol for secure model access to external resources/tools. Now widely adopted across IDEs and agents, improving context sharing and permission governance in multi-tool setups." }
       ]
     },
     { "type": "line-break" },

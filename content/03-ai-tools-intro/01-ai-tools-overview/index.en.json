@@ -1,16 +1,16 @@
 {
   "slug": "deep-dive-chatgpt",
   "category": "ai-tools",
-  "lastModified": "2025-09-06T00:00:00.000Z",
+  "lastModified": "2026-03-16T00:00:00.000Z",
   "blocks": [
     {
       "type": "heading",
       "level": 1,
-      "content": "3.2 In-Depth Guide to ChatGPT 5"
+      "content": "3.2 In-Depth Guide to ChatGPT 5.4"
     },
     {
       "type": "text",
-      "content": "ChatGPT 5 is more than a chatbot — it’s a **multimodal AI platform**. It understands text, images, and documents, combines strong reasoning with memory, and serves as a project partner."
+      "content": "ChatGPT 5.4 is more than a chatbot — it’s a **multimodal AI platform** with **1.05M context window**, **Computer Use** capability, and **Agentic** workflows. It understands text, images, and documents, combines strong reasoning with memory, and serves as a project partner."
     },
 
     { "type": "horizontal-rule" },
@@ -19,13 +19,13 @@
     {
       "type": "heading",
       "level": 2,
-      "content": "ChatGPT 5 Feature Overview"
+      "content": "ChatGPT 5.4 Feature Overview"
     },
     {
       "type": "list",
       "listType": "unordered",
       "items": [
-        "**Model Versions**: GPT-5 (free/paid) → faster, more accurate, supports very long context.",
+        "**Model Versions**: GPT-5.4 (free/paid) → faster, more accurate, supports 1.05M context window, Computer Use, Agentic capabilities.",
         "**Multimodal**: Handles text, images, and files (PDF, Excel, CSV).",
         "**Persistent Memory**: Remembers preferences across sessions (e.g., always reply in Cantonese).",
         "**Advanced Reasoning**: Stronger at complex data analysis, system design, and algorithm explanation."
@@ -38,7 +38,7 @@
     {
       "type": "heading",
       "level": 2,
-      "content": "⚙️ ChatGPT 5 Customization"
+      "content": "⚙️ ChatGPT 5.4 Customization"
     },
     {
       "type": "text",
@@ -155,7 +155,7 @@
     {
       "type": "heading",
       "level": 2,
-      "content": "ChatGPT 5 Modes"
+      "content": "ChatGPT 5.4 Modes"
     },
     {
       "type": "text",
@@ -211,7 +211,7 @@
     {
       "type": "heading",
       "level": 3,
-      "content": "ChatGPT 5 Models"
+      "content": "ChatGPT 5.4 Models"
     },
     {
       "type": "definition-list",
@@ -266,7 +266,7 @@
       "type": "callout",
       "variant": "success",
       "title": "Summary",
-      "content": "The value of ChatGPT 5 = **multimodality + long context + memory + strong reasoning**. Used well, it can act as mentor, analyst, and reliable teammate."
+      "content": "The value of ChatGPT 5.4 = **multimodality + 1.05M context + Computer Use + Agentic + memory + strong reasoning**. Used well, it can act as mentor, analyst, and reliable teammate."
     },
     {
       "type": "heading",

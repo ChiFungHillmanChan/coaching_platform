@@ -1,7 +1,7 @@
 {
   "slug": "deep-dive-claude",
   "category": "ai-tools",
-  "lastModified": "2025-09-07T00:00:00.000Z",
+  "lastModified": "2026-03-16T00:00:00.000Z",
   "blocks": [
     {
       "type": "heading",
@@ -25,7 +25,7 @@
       "type": "list",
       "listType": "unordered",
       "items": [
-        "**Model Versions**: Claude Sonnet 4, Claude Opus 4, Claude Opus 4.1",
+        "**Model Versions**: Claude Sonnet 4.6 (fast, good value), Claude Opus 4.6 (latest, 1M context GA)",
         "Summarize text, answer questions, extract information, translate text, explain and generate code.",
         "Process and analyze visual input, and generate text and code from images.",
         "**Sub-agent Support**: Simulate multiple sub-agents that collaborate for debugging, code generation, and refactoring.",
@@ -68,11 +68,10 @@
       "type": "table",
       "headers": ["Function", "Description", "Capability", "Analysis Time", "Weakness"],
       "rows": [
-        ["Claude Sonnet 4", "Daily coding, building websites, writing articles, writing code", "Balanced performance, suitable for general use", "Fast", "Weaker in mathematical logic"],
-        ["Claude Opus 4", "Used for large code analysis or scientific research", "Very high intelligence, excellent coding ability", "Medium, requires more time", "Expensive (API pricing)"],
-        ["Claude Opus 4.1", "Enhanced version of Opus 4, for large code analysis or research", "The strongest Claude model", "Medium, requires more time", "Expensive (API pricing)"]
+        ["Claude Sonnet 4.6", "Daily coding, building websites, writing articles, writing code", "Fast, good value, balanced performance", "Fast", "Weaker in mathematical logic"],
+        ["Claude Opus 4.6", "Large code analysis, scientific research, complex reasoning", "The strongest Claude model, 1M context (GA), excellent coding ability", "Medium, requires more time", "Expensive (API pricing)"]
       ],
-      "title": "Claude Model Comparison (Recommended to choose among these three)"
+      "title": "Claude Model Comparison (Recommended to choose between these two)"
     },
 
     { "type": "line-break" },

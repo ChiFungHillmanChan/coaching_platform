@@ -1,7 +1,7 @@
 {
   "slug": "introduction",
   "category": "ai-organization",
-  "lastModified": "2025-09-06T00:00:00.000Z",
+  "lastModified": "2026-03-17T00:00:00.000Z",
   "blocks": [
     {
       "type": "heading",
@@ -22,7 +22,7 @@
     },
     {
       "type": "text",
-      "content": "MCP is specifically designed to make it easier for AI to connect with and integrate external services or databases, such as calendars, emails, or knowledge bases. In the past, different services each had their own API specifications, and developers had to adapt them one by one. With MCP, the model only needs to follow a single standard to connect with various tools."
+      "content": "MCP (Model Context Protocol) is an open standard designed to make it easier for AI to connect with and integrate external services or databases, such as calendars, emails, or knowledge bases. In the past, different services each had their own API specifications, and developers had to adapt them one by one. With MCP, the model only needs to follow a single standard to connect with various tools. MCP has been widely adopted across the industry — it is now supported by IDEs like Cursor and Antigravity, CLI agents like Claude Code, and orchestration frameworks like LangChain."
     },
     {
       "type": "list",
@@ -48,7 +48,7 @@
     },
     {
       "type": "text",
-      "content": "A Subagent is a 'child agent' assigned by the main AI. The main model does not need to complete all tasks on its own; instead, it can split tasks and delegate them to different Subagents for specialized handling. This ensures that each part is optimized, and the main model integrates the results before responding to the user."
+      "content": "A Subagent is a 'child agent' assigned by the main AI. The main model does not need to complete all tasks on its own; instead, it can split tasks and delegate them to different Subagents for specialized handling. This ensures that each part is optimized, and the main model integrates the results before responding to the user. Real-world examples include Claude Code's Agent SDK (which allows spawning sub-agents for parallel tasks) and Google's Antigravity IDE (which runs multiple Gemini 3.1 Pro agents in parallel across different parts of a codebase)."
     },
     {
       "type": "list",
@@ -128,8 +128,8 @@
       "type": "table",
       "headers": ["Method", "Positioning", "Main Use", "Features"],
       "rows": [
-        ["MCP", "Communication standard", "Unify model–tool interactions", "Reduces integration cost, cross-platform"],
-        ["Subagent", "System division of labor", "Task breakdown and specialized handling", "Improves accuracy and efficiency"],
+        ["MCP", "Communication standard", "Unify model–tool interactions", "Widely adopted (Cursor, Antigravity, Claude Code); reduces integration cost, cross-platform"],
+        ["Subagent", "System division of labor", "Task breakdown and specialized handling", "Used in Claude Code Agent SDK, Antigravity multi-agent; improves accuracy and efficiency"],
         ["OpenAI Plugin", "Functional extension", "Real-time access to external services", "Provides latest data and broader applications"]
       ],
       "title": "Comparison of MCP, Subagent, and OpenAI Plugin"
