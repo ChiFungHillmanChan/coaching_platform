@@ -176,6 +176,11 @@ function VideoPlayer({ src, className }: VideoPlayerProps) {
 export function ContentRenderer({ blocks, className, showTableOfContents = true }: ContentRendererProps) {
   const [filteredBlocks, setFilteredBlocks] = React.useState<ContentBlock[]>(blocks)
 
+  // Update filteredBlocks when blocks prop changes
+  React.useEffect(() => {
+    setFilteredBlocks(blocks)
+  }, [blocks])
+
   // Check if there are any code_pop_up blocks to show search
   const hasCodePopupBlocks = React.useMemo(() => {
     return blocks.some(block => 
